@@ -120,3 +120,15 @@ const iconBg = iconColor === 'primary' ? 'bg-primary/10 text-primary' : 'bg-seco
 **Razón:** Consistencia con el patrón de DD-009. La página reutiliza `PageLayout` sin modificaciones. Los 3 pilares, 5 beneficios y 6 ítems del alcance se implementan inline en sus respectivas secciones por no ser reutilizables fuera de esta página.
 
 **Componentes reutilizados:** `PageLayout`. Sin nuevos componentes reutilizables.
+
+---
+
+## DD-011 — Página de servicio: Reclasificación de Residuos Peligrosos (2026-06-06)
+
+**Contexto:** Se requiere una página dedicada para el servicio "Reclasificación de Residuos Peligrosos", accesible desde el dropdown de Servicios.
+
+**Decisión:** Se crea la ruta `/servicios/reclasificacion-de-residuos` con 6 secciones específicas, siguiendo el mismo patrón establecido en DD-009 y DD-010. Las secciones se nombran con el prefijo `Reclasificacion`.
+
+**Razón:** Consistencia con el patrón de páginas de servicio. El diseño incluye una sección de "Casos de Éxito" con fondo tertiary que es única de esta página — no se extrae como componente reutilizable porque su estructura (listado de resoluciones PDF) es específica.
+
+**Componentes reutilizados:** `PageLayout`. Sin nuevos componentes reutilizables.

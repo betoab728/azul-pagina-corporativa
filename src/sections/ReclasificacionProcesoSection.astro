@@ -1,0 +1,54 @@
+---
+// TODO: Reemplazar con imagen real del cliente
+const procesoImage = 'https://lh3.googleusercontent.com/aida-public/AB6AXuDDdUrWCAQw__X4o7QcR7ljDEVElPaz6muX7nt7twTwNqjYwg3rnC-yAhcbFfcY_oamLWto082Qyt111W4ePvvg2o9iBrUkkWZwhGOpwJQUUXZX-d7ndthaBQngWdyQoZyXLWeFJ6az5C0YSDVikylp7NrC40EUyopp8eWihH2IlBTkcVw7qHVw9P2gF7KXgAGSeEpWSc8ltNz0HM88yFyi9X6R0Rgs6X9rDIlYDFz8nfN3uSqMmO7rysWuf2v7a_LYkRgfE9jUL2Jp'
+---
+
+<section class="py-section-padding bg-surface" aria-labelledby="reclasificacion-proceso-heading">
+  <div class="max-w-7xl mx-auto px-6 md:px-margin-desktop">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+
+      <div class="md:col-span-7">
+        <h2 id="reclasificacion-proceso-heading" class="font-headline text-4xl md:text-5xl text-on-surface font-extrabold mb-8">
+          La reclasificación convierte tus residuos peligrosos en ahorros
+        </h2>
+        <p class="text-lg text-on-surface-variant mb-8 leading-relaxed">
+          Analizamos tus residuos, comprobamos su verdadera categoría y preparamos todo el sustento técnico para actualizar su clasificación oficial ante el MINAM.
+        </p>
+        <div class="bg-surface-container p-6 border-l-4 border-primary rounded-r-xl mb-8 italic text-tertiary font-bold">
+          "Menos peligrosidad = Menos pagos = Más valor para tu empresa."
+        </div>
+        <a
+          href="#cotizacion"
+          class="inline-flex items-center border-2 border-primary text-primary font-bold px-8 py-3 rounded-full hover:bg-primary hover:text-white transition-all"
+        >
+          Más Información
+        </a>
+      </div>
+
+      <div class="md:col-span-5">
+        <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+          <img
+            src={procesoImage}
+            alt="Proceso de certificación y auditoría ambiental"
+            class="w-full aspect-square object-cover"
+            loading="lazy"
+            width="600"
+            height="600"
+          />
+          <div class="absolute bottom-6 left-6 right-6 bg-white/85 backdrop-blur-md border border-white/30 p-4 rounded-xl">
+            <div class="flex items-center gap-3">
+              <div class="bg-primary p-2 rounded-lg text-white shrink-0">
+                <span class="material-symbols-outlined" aria-hidden="true">verified</span>
+              </div>
+              <div class="text-on-surface">
+                <p class="text-sm font-bold">Certificación MINAM</p>
+                <p class="text-xs opacity-70">Procesos 100% validados</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
