@@ -1,0 +1,22 @@
+---
+import { faqItems } from '../data/nosotros'
+---
+
+<section class="py-section-padding" aria-labelledby="nosotros-faq-heading">
+  <div class="max-w-3xl mx-auto px-6">
+    <h2 id="nosotros-faq-heading" class="font-headline text-4xl md:text-5xl text-primary font-extrabold mb-12 text-center">Preguntas Frecuentes</h2>
+    <div class="space-y-4">
+      {faqItems.map(faq => (
+        <details class="group bg-surface border border-outline-variant rounded-xl overflow-hidden" open={faq.open ?? false}>
+          <summary class="flex justify-between items-center p-6 cursor-pointer text-lg text-primary font-bold">
+            {faq.question}
+            <span class="material-symbols-outlined transition-transform group-open:rotate-180 shrink-0 ml-4" aria-hidden="true">expand_more</span>
+          </summary>
+          <div class="px-6 pb-6 text-on-surface-variant leading-relaxed">
+            {faq.answer}
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

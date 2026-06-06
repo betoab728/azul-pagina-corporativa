@@ -192,3 +192,15 @@ const iconBg = iconColor === 'primary' ? 'bg-primary/10 text-primary' : 'bg-seco
 **Razón:** "Proyectos" es un ítem de navegación principal. Los proyectos de esta página son diferentes a los 3 de la Home. El hero usa un gradiente 135deg primary→secondary específico que no reutiliza la clase `.hero-gradient` global.
 
 **Componentes reutilizados:** `PageLayout`. Sin nuevos componentes reutilizables.
+
+---
+
+## DD-017 — Página: Nosotros (2026-06-06)
+
+**Contexto:** Se requiere una página dedicada para "Nosotros", accesible desde la navegación principal.
+
+**Decisión:** Se crea la ruta `/nosotros` con 8 secciones más un banner de WhatsApp. Es la página más extensa del sitio. Incluye hero centrado, about 2-column, servicios, compliance, sectores, misión/visión/valores, FAQ con `<details>` nativo, y CTA final.
+
+**Razón:** "Nosotros" es un ítem de navegación principal. Las 8 secciones cubren la narrativa completa de la empresa. El FAQ usa el elemento HTML `<details>` nativo sin JavaScript. El banner de WhatsApp se incluye inline en la página.
+
+**Componentes reutilizados:** `PageLayout`. Sin nuevos componentes reutilizables.

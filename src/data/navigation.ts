@@ -25,7 +25,7 @@ export const mainNav: NavItem[] = [
   { label: 'Acreditaciones', href: '/acreditaciones' },
   { label: 'Sectores', href: '/sectores' },
   { label: 'Proyectos', href: '/proyectos' },
-  { label: 'Nosotros', href: '#nosotros' },
+  { label: 'Nosotros', href: '/nosotros' },
   { label: 'Recursos', href: '#' },
   { label: 'Contacto', href: '#cotizacion' },
 ]
