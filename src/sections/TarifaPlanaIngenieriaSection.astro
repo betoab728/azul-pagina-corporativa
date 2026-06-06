@@ -1,0 +1,68 @@
+---
+import { techItems } from '../data/tarifa-plana'
+
+// TODO: Reemplazar con imagen real del cliente
+const bgImage = 'https://lh3.googleusercontent.com/aida-public/AB6AXuAfTB2irPnMWQH-_nj3chjga4_CB0zU8eWEJ764vsiS01Gck3Cc-sQg6NOi9bLIZcj8I1CtODlsq47UeNRaktbpi-zxct881af2S1L6pjusVrGCgfwUGlPmraNoorWSU59aj0B-jaqYOtaUjWw4B3PphmKiFPn720dGT5uH-mO9ZRMN4zU7GD7CL_wLx-YPqE4DUx7v0q_Eze8ZyujbBmPwOOBu-_L9V1g-z1UdYjytdb8DwOdfN-LhN2q8ORlBuSMrtjd_Ahy2atFI'
+---
+
+<section class="py-section-padding bg-inverse-surface text-white overflow-hidden relative" aria-labelledby="tarifa-plana-ingenieria-heading">
+  <div class="absolute inset-0 opacity-20" aria-hidden="true">
+    <img
+      src={bgImage}
+      alt=""
+      class="w-full h-full object-cover"
+      loading="lazy"
+      width="1920"
+      height="1080"
+    />
+  </div>
+  <div class="absolute inset-0 bg-primary/80 backdrop-blur-[2px]" aria-hidden="true"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-margin-desktop">
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+
+      <div>
+        <h2 id="tarifa-plana-ingenieria-heading" class="font-headline text-4xl md:text-5xl font-extrabold mb-8">INGENIERÍA APLICADA A LA SOSTENIBILIDAD</h2>
+        <p class="text-lg mb-12 text-on-primary-container">Implementamos capas tecnológicas de control para asegurar que la Tarifa Plana no sea solo un servicio, sino un activo estratégico.</p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-8">
+          {techItems.map(item => (
+            <div class="space-y-2 border-l-2 border-secondary pl-4">
+              <div class="text-sm font-bold uppercase tracking-wider text-secondary-fixed">{item.label}</div>
+              <p class="text-sm opacity-80">{item.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="flex justify-center">
+        <div class="bg-white/80 backdrop-blur-md border border-white/30 p-2 rounded-[2rem] shadow-2xl rotate-3">
+          <div class="bg-white rounded-[1.8rem] p-8 text-on-surface w-full max-w-[400px]">
+            <div class="flex items-center gap-4 mb-6">
+              <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white shrink-0">
+                <span class="material-symbols-outlined" aria-hidden="true">monitoring</span>
+              </div>
+              <div>
+                <div class="text-sm font-bold">CONTROL PREDICTIVO</div>
+                <div class="text-xs text-on-surface-variant">Estado de Cumplimiento: 98.4%</div>
+              </div>
+            </div>
+            <div class="space-y-4">
+              <div class="h-2 w-full bg-surface-container rounded-full overflow-hidden">
+                <div class="h-full bg-secondary w-[98%]"></div>
+              </div>
+              <div class="flex justify-between text-xs font-bold">
+                <span>OPERATIVIDAD</span>
+                <span class="text-secondary">ÓPTIMA</span>
+              </div>
+              <div class="pt-4 border-t border-outline-variant">
+                <p class="text-sm italic text-on-surface-variant">"La Tarifa Plana nos permite anticipar problemas antes de que se conviertan en pasivos."</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

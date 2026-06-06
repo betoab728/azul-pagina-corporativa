@@ -1,0 +1,40 @@
+---
+import { procesoItems, procesoItemDestacado } from '../data/caracterizacion'
+---
+
+<section class="py-section-padding bg-background" aria-labelledby="incluye-heading">
+  <div class="max-w-7xl mx-auto px-6 md:px-margin-desktop">
+    <div class="text-center mb-16 space-y-4">
+      <h2 id="incluye-heading" class="font-headline text-4xl md:text-5xl text-on-surface font-extrabold">¿Qué incluye?</h2>
+      <p class="text-on-surface-variant text-lg max-w-2xl mx-auto">Nuestro proceso de caracterización es riguroso, repetible y orientado a resultados de auditoría.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {procesoItems.map(item => (
+        <article class="bg-surface border border-outline-variant p-8 rounded-xl hover:shadow-xl transition-all group flex flex-col justify-between">
+          <div>
+            <div class={`w-12 h-12 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform ${item.iconColor === 'primary' ? 'bg-primary/10 text-primary' : 'bg-secondary/10 text-secondary'}`}>
+              <span class="material-symbols-outlined text-3xl" aria-hidden="true">{item.icon}</span>
+            </div>
+            <h3 class="font-headline text-2xl font-bold text-on-surface mb-4">{item.title}</h3>
+            <p class="text-on-surface-variant leading-relaxed">{item.description}</p>
+          </div>
+        </article>
+      ))}
+
+      <article class="bg-primary text-white p-8 rounded-xl shadow-lg flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mb-6">
+            <span class="material-symbols-outlined text-3xl text-white" aria-hidden="true">{procesoItemDestacado.icon}</span>
+          </div>
+          <h3 class="font-headline text-2xl font-bold mb-4">{procesoItemDestacado.title}</h3>
+          <p class="text-on-primary-container opacity-90 leading-relaxed">{procesoItemDestacado.description}</p>
+        </div>
+        <div class="mt-8 border-t border-white/20 pt-4 flex items-center gap-2">
+          <span class="material-symbols-outlined" aria-hidden="true">{procesoItemDestacado.footerIcon}</span>
+          <span class="text-sm font-bold">{procesoItemDestacado.footerText}</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
