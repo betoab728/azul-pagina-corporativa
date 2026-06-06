@@ -1,0 +1,35 @@
+---
+import { homologaciones } from '../data/acreditaciones'
+---
+
+<section class="py-section-padding bg-surface-container-high" aria-labelledby="acreditaciones-homologaciones-heading">
+  <div class="max-w-7xl mx-auto px-6 md:px-margin-desktop">
+    <div class="flex flex-col md:flex-row justify-between items-center mb-6 border-b border-outline-variant pb-8">
+      <h2 id="acreditaciones-homologaciones-heading" class="font-headline text-4xl md:text-5xl font-extrabold uppercase">Homologaciones</h2>
+      <div class="flex items-center gap-2 text-on-surface-variant">
+        <span class="material-symbols-outlined" aria-hidden="true">verified</span>
+        <span class="text-sm font-bold">Certificaciones Sectoriales</span>
+      </div>
+    </div>
+
+    <div class="space-y-4">
+      {homologaciones.map(item => (
+        <div class="bg-white p-6 rounded-xl flex flex-col md:flex-row justify-between items-center gap-4 hover:shadow-md transition-shadow">
+          <div class="flex items-center gap-6">
+            <div class="p-3 bg-secondary-container text-on-secondary-container rounded-lg">
+              <span class="material-symbols-outlined" aria-hidden="true">{item.icon}</span>
+            </div>
+            <span class="font-headline text-2xl font-bold text-on-surface">{item.title}</span>
+          </div>
+          <a
+            href={item.pdfUrl}
+            class="bg-secondary text-white font-bold px-8 py-2 rounded-full hover:opacity-90 transition-opacity flex items-center gap-2 shrink-0"
+          >
+            <span class="material-symbols-outlined text-sm" aria-hidden="true">download</span>
+            Abrir PDF
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

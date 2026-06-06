@@ -1,0 +1,35 @@
+---
+// TODO: Reemplazar con imagen real del cliente
+const heroImage = 'https://lh3.googleusercontent.com/aida-public/AB6AXuDZsDiyWIWufYKrvo4SUQUaqUxChQ-acE_OSKJuJjTEeoGdEOUgxZOVcsK2ExKGy2szt7aVhpXBS-wVofVqE77Q3rNGQXsEyQ54Ko7LJu9y_mfddvP0PC37LV4PrM9B_Q2ixL54rEHECb-NkT2Aeu83rCM6mS7oDglypkPLjccijE2ME1ZAScT5dbeDfxaVLN1f6t-7A7JEe5GCCoVCdNW8Jy9eNWpIXVoHodiCKSR9vrt9To6OJKenLzFn_vUJL6G8ilssP_B9cWLd'
+---
+
+<section id="sectores-hero" class="relative min-h-[70vh] flex items-center overflow-hidden" aria-labelledby="sectores-hero-heading">
+  <div class="absolute inset-0 z-0" aria-hidden="true">
+    <div class="absolute inset-0 bg-gradient-to-r from-on-primary-fixed/80 to-transparent z-10"></div>
+    <img
+      src={heroImage}
+      alt=""
+      class="w-full h-full object-cover"
+      loading="eager"
+      width="1920"
+      height="1080"
+    />
+  </div>
+
+  <div class="relative z-20 max-w-7xl mx-auto px-6 md:px-margin-desktop w-full">
+    <div class="max-w-2xl">
+      <span class="inline-block bg-secondary-container text-on-secondary-container px-4 py-1 rounded-full text-sm font-bold mb-6">Expertos Multidisciplinarios</span>
+      <h1 id="sectores-hero-heading" class="font-headline text-[32px] md:text-[40px] lg:text-[48px] leading-tight text-white font-extrabold mb-6">Acompañamos a empresas de diversos sectores</h1>
+      <p class="font-body text-lg text-white/90 mb-10 leading-relaxed">Soluciones de ingeniería ambiental diseñadas para la realidad técnica y normativa de cada industria en el Perú.</p>
+      <div class="flex gap-4">
+        <a
+          href="#sectores-bento"
+          class="inline-flex items-center gap-2 bg-secondary text-white font-bold px-8 py-4 rounded-full hover:translate-y-[-2px] transition-transform shadow-lg"
+        >
+          Explorar Industrias
+          <span class="material-symbols-outlined" aria-hidden="true">arrow_downward</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

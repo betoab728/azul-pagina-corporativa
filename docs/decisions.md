@@ -156,3 +156,27 @@ const iconBg = iconColor === 'primary' ? 'bg-primary/10 text-primary' : 'bg-seco
 **Razón:** Consistencia con el patrón. La sección de "Soluciones" usa un bento grid (card grande col-span-2 con imagen + card dark primary + 3 cards simples) que es específica de esta página.
 
 **Componentes reutilizados:** `PageLayout`. Sin nuevos componentes reutilizables.
+
+---
+
+## DD-014 — Página: Acreditaciones (2026-06-06)
+
+**Contexto:** Se requiere una página dedicada para "Acreditaciones", accesible desde la navegación principal (no desde el dropdown de Servicios).
+
+**Decisión:** Se crea la ruta `/acreditaciones` con 6 secciones específicas. Las secciones se nombran con el prefijo `Acreditaciones`.
+
+**Razón:** "Acreditaciones" es un ítem de navegación principal. La página se coloca en `src/pages/acreditaciones.astro` (ruta directa, no bajo `/servicios/`). Incluye 6 cards de compliance, sección de operaciones autorizadas, 3 cards de logística y 3 rows de homologaciones.
+
+**Componentes reutilizados:** `PageLayout`. Sin nuevos componentes reutilizables.
+
+---
+
+## DD-015 — Página: Sectores (2026-06-06)
+
+**Contexto:** Se requiere una página dedicada para "Sectores", accesible desde la navegación principal.
+
+**Decisión:** Se crea la ruta `/sectores` con 4 secciones específicas. Las secciones se nombran con el prefijo `Sectores`. El bento grid de sectores (12-col con 4 tarjetas: Industrial col-span-8, Salud col-span-4, Minero col-span-4, Agroindustrial col-span-8) se implementa inline en `SectoresBentoSection.astro`.
+
+**Razón:** "Sectores" es un ítem de navegación principal. Las 4 tarjetas del bento grid tienen variantes visuales distintas (blanco, primary, tertiary, gris+imagen) que son específicas de esta página y no se extraen como componentes reutilizables.
+
+**Componentes reutilizados:** `PageLayout`. Sin nuevos componentes reutilizables.

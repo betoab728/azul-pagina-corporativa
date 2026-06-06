@@ -1,0 +1,45 @@
+---
+import { impactStats } from '../data/sectores'
+---
+
+<section class="bg-surface-container-highest py-section-padding" aria-labelledby="sectores-impacto-heading">
+  <div class="max-w-7xl mx-auto px-6 md:px-margin-desktop">
+    <div class="flex flex-col md:flex-row items-center gap-16">
+
+      <div class="w-full md:w-1/2">
+        <h2 id="sectores-impacto-heading" class="font-headline text-4xl md:text-5xl text-primary font-extrabold mb-6">Impacto medible en cada operación</h2>
+        <p class="text-lg text-on-surface-variant mb-8 leading-relaxed">No solo gestionamos residuos; transformamos la sostenibilidad en una ventaja competitiva real para su empresa.</p>
+        <div class="space-y-6">
+          <div class="flex gap-4 items-start">
+            <div class="bg-primary-container p-3 rounded-lg shrink-0">
+              <span class="material-symbols-outlined text-on-primary-container" aria-hidden="true">verified</span>
+            </div>
+            <div>
+              <h4 class="font-bold text-on-surface">Cumplimiento Normativo Total</h4>
+              <p class="text-sm text-on-surface-variant">Mitigación absoluta de riesgos legales y sanciones ante la OEFA, ANA y Gobiernos Regionales.</p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <div class="bg-secondary-container p-3 rounded-lg shrink-0">
+              <span class="material-symbols-outlined text-on-secondary-container" aria-hidden="true">trending_up</span>
+            </div>
+            <div>
+              <h4 class="font-bold text-on-surface">Continuidad Operativa</h4>
+              <p class="text-sm text-on-surface-variant">Gestión preventiva que evita paradas innecesarias por incidentes ambientales o sanitarios.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="w-full md:w-1/2 grid grid-cols-2 gap-4">
+        {impactStats.map(stat => (
+          <div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm flex flex-col items-center text-center">
+            <span class={`text-4xl font-extrabold mb-2 ${stat.color === 'primary' ? 'text-primary' : 'text-secondary'}`}>{stat.value}</span>
+            <span class="text-sm font-bold text-on-surface-variant">{stat.label}</span>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </div>
+</section>
