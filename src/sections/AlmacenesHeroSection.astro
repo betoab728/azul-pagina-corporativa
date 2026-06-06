@@ -1,0 +1,60 @@
+---
+// TODO: Reemplazar con imagen real del cliente
+const heroBgImage = 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d'
+const bgStyle = `background: linear-gradient(rgba(0, 71, 145, 0.85), rgba(0, 110, 7, 0.4)), url('${heroBgImage}'); background-size: cover; background-position: center;`
+---
+
+<section id="almacenes-hero" class="relative min-h-[870px] flex items-center pt-20" style={bgStyle} aria-labelledby="almacenes-hero-heading">
+  <div class="max-w-7xl mx-auto px-6 md:px-margin-desktop w-full grid md:grid-cols-2 gap-6 items-center">
+
+    <div class="space-y-8">
+      <h1 id="almacenes-hero-heading" class="font-headline text-[32px] md:text-[40px] lg:text-[48px] leading-tight text-white font-extrabold">
+        Almacenes Inteligentes para la <span class="text-secondary-fixed">Economía Circular</span>
+      </h1>
+      <p class="font-body text-lg text-white/90 max-w-lg leading-relaxed">
+        Transformamos espacios de almacenamiento en herramientas estratégicas de reducción de costos y generación de valor ambiental.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <a
+          href="#cotizacion"
+          class="inline-flex items-center gap-2 bg-secondary text-white font-bold px-8 py-4 rounded-full hover:shadow-lg transition-all active:scale-95"
+        >
+          Solicitar Diagnóstico Integral
+          <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="hidden md:block">
+      <div class="bg-white/80 backdrop-blur-md border border-white/30 p-8 rounded-xl space-y-6">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-white" aria-hidden="true">analytics</span>
+          </div>
+          <div>
+            <div class="text-on-surface font-bold">Diagnóstico Rápido</div>
+            <div class="text-on-surface-variant text-sm">Evaluamos su operación en 48h</div>
+          </div>
+        </div>
+        <div class="h-px bg-outline-variant"></div>
+        <div class="space-y-4">
+          <div class="flex justify-between items-center text-sm">
+            <span>Optimización de Espacio</span>
+            <span class="font-bold text-secondary">+35%</span>
+          </div>
+          <div class="w-full bg-surface-container rounded-full h-2">
+            <div class="bg-secondary h-2 rounded-full w-[35%]"></div>
+          </div>
+          <div class="flex justify-between items-center text-sm">
+            <span>Reducción de OPEX</span>
+            <span class="font-bold text-primary">-20%</span>
+          </div>
+          <div class="w-full bg-surface-container rounded-full h-2">
+            <div class="bg-primary h-2 rounded-full w-[20%]"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

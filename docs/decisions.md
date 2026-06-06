@@ -144,3 +144,15 @@ const iconBg = iconColor === 'primary' ? 'bg-primary/10 text-primary' : 'bg-seco
 **Razón:** Consistencia con el patrón de páginas de servicio. La sección de "Entregables" con tarjetas numeradas (01-06) y la sección de "Metodología" con 8 ítems son específicas y no se extraen como componentes reutilizables.
 
 **Componentes reutilizados:** `PageLayout`. Sin nuevos componentes reutilizables.
+
+---
+
+## DD-013 — Página de servicio: Almacenes Inteligentes (2026-06-06)
+
+**Contexto:** Se requiere una página dedicada para el servicio "Almacenes Inteligentes", accesible desde el dropdown de Servicios.
+
+**Decisión:** Se crea la ruta `/servicios/almacenes-inteligentes` con 6 secciones específicas, siguiendo el mismo patrón DD-009/010/011/012. Las secciones se nombran con el prefijo `Almacenes`.
+
+**Razón:** Consistencia con el patrón. La sección de "Soluciones" usa un bento grid (card grande col-span-2 con imagen + card dark primary + 3 cards simples) que es específica de esta página.
+
+**Componentes reutilizados:** `PageLayout`. Sin nuevos componentes reutilizables.

@@ -19,7 +19,7 @@ export const mainNav: NavItem[] = [
       { label: 'Reclasificación de Residuos Peligrosos', href: '/servicios/reclasificacion-de-residuos' },
       { label: 'Caracterización de Residuos Sólidos', href: '/servicios/caracterizacion-de-residuos' },
       { label: 'Reducción del OPEX', href: '/servicios/reduccion-del-opex' },
-      { label: 'Almacenes Inteligentes', href: '#almacenes-detalle' },
+      { label: 'Almacenes Inteligentes', href: '/servicios/almacenes-inteligentes' },
     ],
   },
   { label: 'Acreditaciones', href: '#acreditaciones' },
