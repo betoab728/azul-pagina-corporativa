@@ -1,0 +1,54 @@
+---
+import { guias } from '../data/recursos'
+---
+
+<section id="recursos-guias" class="py-section-padding" aria-labelledby="recursos-guias-heading">
+  <div class="max-w-7xl mx-auto px-6 md:px-margin-desktop">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+
+      <!-- Guías Normativas -->
+      <div class="md:col-span-8 bg-white rounded-xl border border-outline-variant p-10 flex flex-col justify-between hover:shadow-lg transition-all">
+        <div>
+          <div class="flex justify-between items-start mb-8">
+            <div>
+              <h2 id="recursos-guias-heading" class="font-headline text-4xl md:text-5xl text-primary font-extrabold mb-2">Guías Normativas</h2>
+              <p class="text-on-surface-variant max-w-md">Repositorio completo de leyes y reglamentos ambientales vigentes en el Perú.</p>
+            </div>
+            <span class="material-symbols-outlined text-4xl text-primary/20" aria-hidden="true">gavel</span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {guias.map(guia => (
+              <div class="p-4 rounded-lg bg-surface-container-low border border-outline-variant flex items-center justify-between group cursor-pointer hover:bg-white transition-all">
+                <span class="text-sm font-bold">{guia.title}</span>
+                <span class="material-symbols-outlined text-primary group-hover:translate-y-1 transition-transform" aria-hidden="true">download</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- Calculadoras -->
+      <div class="md:col-span-4 space-y-6">
+        <div class="bg-secondary-container/20 rounded-xl border border-secondary/20 p-8 hover:shadow-lg transition-all relative overflow-hidden group">
+          <div class="relative z-10">
+            <span class="material-symbols-outlined text-secondary text-3xl mb-4" aria-hidden="true">co2</span>
+            <h3 class="font-headline text-2xl font-bold text-on-secondary-fixed mb-2">Huella de Carbono</h3>
+            <p class="text-sm text-on-surface-variant mb-6">Mide las emisiones de CO2 de tus operaciones industriales.</p>
+            <a href="#" class="inline-flex items-center justify-center w-full bg-secondary text-white font-bold py-3 rounded-lg hover:scale-105 transition-transform">Iniciar Cálculo</a>
+          </div>
+          <div class="absolute -right-4 -bottom-4 opacity-10" aria-hidden="true">
+            <span class="material-symbols-outlined text-9xl text-secondary">calculate</span>
+          </div>
+        </div>
+
+        <div class="bg-primary-container/10 rounded-xl border border-primary/20 p-8 hover:shadow-lg transition-all">
+          <span class="material-symbols-outlined text-primary text-3xl mb-4" aria-hidden="true">delete_sweep</span>
+          <h3 class="font-headline text-2xl font-bold text-on-primary-fixed mb-2">Generación de Residuos</h3>
+          <p class="text-sm text-on-surface-variant mb-6">Optimiza tu gestión calculando la segregación y pesaje proyectado.</p>
+          <a href="#" class="inline-flex items-center justify-center w-full border border-primary text-primary font-bold py-3 rounded-lg hover:bg-primary/5 transition-colors">Abrir Herramienta</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

@@ -10,7 +10,7 @@ export interface NavItem {
 }
 
 export const mainNav: NavItem[] = [
-  { label: 'Inicio', href: '#inicio' },
+  { label: 'Inicio', href: '/' },
   {
     label: 'Servicios',
     href: '#servicios',
@@ -26,6 +26,6 @@ export const mainNav: NavItem[] = [
   { label: 'Sectores', href: '/sectores' },
   { label: 'Proyectos', href: '/proyectos' },
   { label: 'Nosotros', href: '/nosotros' },
-  { label: 'Recursos', href: '#' },
-  { label: 'Contacto', href: '#cotizacion' },
+  { label: 'Recursos', href: '/recursos' },
+  { label: 'Contacto', href: '/contacto' },
 ]

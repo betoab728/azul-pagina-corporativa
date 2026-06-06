@@ -1,0 +1,42 @@
+---
+// TODO: Reemplazar con imagen real del cliente
+const heroImage = 'https://lh3.googleusercontent.com/aida-public/AB6AXuCKDJyVrY18xpqsQJDbiuheCn65w15YlNaGWy-JXfecp_9zVZ_qpvQ10RNw0FeegFLiba-OBGpwbgPNkTQq0S9M6Mv1nEygLw0kS9xGC7xPjNFMRZ5U1biLuJlQHVbE0BOk-u_IxROjMgsh5-jTfHAy5CyNyckuSutM7D3SZO8vlbk5zLXLgaf8BFNxhBJRpPMDQpEFsg0uWFVa0Oz8eydeIp8zvrB2eZntTkG-uqOMv7YMgsLSUhK2BWUoZ8c0jmj_27PBmUPiZWRw'
+---
+
+<section id="recursos-hero" class="py-section-padding overflow-hidden relative" style="background: linear-gradient(135deg, #f7f9fb 0%, #d7e3ff 100%);" aria-labelledby="recursos-hero-heading">
+  <div class="max-w-7xl mx-auto px-6 md:px-margin-desktop flex flex-col md:flex-row items-center gap-6">
+    <div class="flex-1 space-y-6">
+      <span class="text-secondary text-sm font-bold px-4 py-1.5 bg-secondary-container/30 rounded-full inline-block">Centro de Conocimiento</span>
+      <h1 id="recursos-hero-heading" class="font-headline text-[32px] md:text-[40px] lg:text-[48px] leading-tight text-on-primary-fixed font-extrabold">Información y Herramientas Sostenibles</h1>
+      <p class="font-body text-lg text-on-surface-variant max-w-xl leading-relaxed">
+        Accede a recursos técnicos, calculadoras de impacto y las últimas normativas ambientales para impulsar la eficiencia y sostenibilidad en tu organización.
+      </p>
+      <div class="flex gap-4 pt-4">
+        <a href="#recursos-guias" class="inline-flex bg-primary text-white font-bold px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-all">Explorar Guías</a>
+        <a href="#recursos-guias" class="inline-flex border border-primary text-primary font-bold px-8 py-3 rounded-full hover:bg-surface-container-low transition-all">Ver Calculadoras</a>
+      </div>
+    </div>
+
+    <div class="flex-1 relative">
+      <div class="w-full aspect-video rounded-xl overflow-hidden shadow-2xl border-4 border-white">
+        <img
+          src={heroImage}
+          alt="Espacio de trabajo moderno con ingenieros revisando planos"
+          class="w-full h-full object-cover"
+          loading="eager"
+          width="640"
+          height="360"
+        />
+      </div>
+      <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-lg flex items-center gap-4 border border-outline-variant">
+        <div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center shrink-0">
+          <span class="material-symbols-outlined text-secondary" aria-hidden="true">auto_awesome</span>
+        </div>
+        <div>
+          <p class="font-bold text-on-surface">Actualizado 2024</p>
+          <p class="text-xs text-on-surface-variant">Nuevas leyes ambientales</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

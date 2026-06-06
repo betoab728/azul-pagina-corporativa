@@ -204,3 +204,27 @@ const iconBg = iconColor === 'primary' ? 'bg-primary/10 text-primary' : 'bg-seco
 **Razón:** "Nosotros" es un ítem de navegación principal. Las 8 secciones cubren la narrativa completa de la empresa. El FAQ usa el elemento HTML `<details>` nativo sin JavaScript. El banner de WhatsApp se incluye inline en la página.
 
 **Componentes reutilizados:** `PageLayout`. Sin nuevos componentes reutilizables.
+
+---
+
+## DD-018 — Página: Recursos (2026-06-06)
+
+**Contexto:** Se requiere una página dedicada para "Recursos", accesible desde la navegación principal.
+
+**Decisión:** Se crea la ruta `/recursos` con 5 secciones. Incluye hero con gradiente claro 135deg, bento grid de guías normativas + calculadoras, blog con 3 artículos, calendario de capacitaciones con 3 eventos, y newsletter CTA con formulario.
+
+**Razón:** "Recursos" es el último ítem de navegación principal pendiente. El hero usa un gradiente claro (surface→primary-fixed) diferente a todos los demás. El blog y el calendario son específicos de esta página.
+
+**Componentes reutilizados:** `PageLayout`. Sin nuevos componentes reutilizables.
+
+---
+
+## DD-019 — Página: Contacto (2026-06-06)
+
+**Contexto:** Se requiere una página dedicada para "Contacto", accesible desde la navegación principal.
+
+**Decisión:** Se crea la ruta `/contacto` con 3 secciones: hero con gradiente claro + SVG decorativo, formulario de contacto 12-col (7 form + 5 info) con datos de sede/WhatsApp/imagen regional, y CTA banner. El formulario es UI-only sin backend (consistente con DD-001).
+
+**Razón:** "Contacto" es el último ítem de navegación. La página centraliza todos los canales de contacto (formulario, WhatsApp, dirección, horarios) en un solo lugar.
+
+**Componentes reutilizados:** `PageLayout`. Sin nuevos componentes reutilizables.

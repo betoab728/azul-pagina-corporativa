@@ -1,0 +1,44 @@
+---
+import { blogArticles } from '../data/recursos'
+
+const categoryColorClasses: Record<string, string> = {
+  primary: 'text-primary',
+  secondary: 'text-secondary',
+  tertiary: 'text-tertiary',
+}
+---
+
+<section class="bg-surface-container-lowest py-section-padding border-y border-outline-variant" aria-labelledby="recursos-blog-heading">
+  <div class="max-w-7xl mx-auto px-6 md:px-margin-desktop">
+    <div class="flex justify-between items-end mb-12">
+      <div>
+        <h2 id="recursos-blog-heading" class="font-headline text-4xl md:text-5xl text-on-surface font-extrabold mb-2">Blog Azul</h2>
+        <p class="text-on-surface-variant max-w-xl">Artículos técnicos sobre ingeniería ambiental, economía circular y tendencias de sostenibilidad industrial.</p>
+      </div>
+      <a href="#" class="text-primary font-bold text-sm flex items-center gap-2 group shrink-0">
+        Ver todos los artículos
+        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" aria-hidden="true">arrow_forward</span>
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {blogArticles.map(article => (
+        <article class="group cursor-pointer">
+          <div class="aspect-[4/3] rounded-xl overflow-hidden mb-4 relative">
+            <img
+              src={article.image}
+              alt={article.imageAlt}
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              loading="lazy"
+              width="400"
+              height="300"
+            />
+            <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold ${categoryColorClasses[article.categoryColor]}">{article.category}</div>
+          </div>
+          <h3 class="font-headline text-2xl font-bold group-hover:text-primary transition-colors mb-2 leading-snug">{article.title}</h3>
+          <p class="text-on-surface-variant text-sm line-clamp-2">{article.description}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
