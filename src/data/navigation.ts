@@ -18,7 +18,7 @@ export const mainNav: NavItem[] = [
       { label: 'Tarifa Plana Ambiental', href: '/servicios/tarifa-plana' },
       { label: 'Reclasificación de Residuos Peligrosos', href: '/servicios/reclasificacion-de-residuos' },
       { label: 'Caracterización de Residuos Sólidos', href: '/servicios/caracterizacion-de-residuos' },
-      { label: 'Reducción del OPEX', href: '#opex-detalle' },
+      { label: 'Reducción del OPEX', href: '/servicios/reduccion-del-opex' },
       { label: 'Almacenes Inteligentes', href: '#almacenes-detalle' },
     ],
   },

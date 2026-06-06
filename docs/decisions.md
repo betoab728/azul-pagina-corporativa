@@ -132,3 +132,15 @@ const iconBg = iconColor === 'primary' ? 'bg-primary/10 text-primary' : 'bg-seco
 **Razón:** Consistencia con el patrón de páginas de servicio. El diseño incluye una sección de "Casos de Éxito" con fondo tertiary que es única de esta página — no se extrae como componente reutilizable porque su estructura (listado de resoluciones PDF) es específica.
 
 **Componentes reutilizados:** `PageLayout`. Sin nuevos componentes reutilizables.
+
+---
+
+## DD-012 — Página de servicio: Reducción del OPEX (2026-06-06)
+
+**Contexto:** Se requiere una página dedicada para el servicio "Reducción del OPEX", accesible desde el dropdown de Servicios.
+
+**Decisión:** Se crea la ruta `/servicios/reduccion-del-opex` con 6 secciones específicas, siguiendo el mismo patrón establecido en DD-009/010/011. Las secciones se nombran con el prefijo `ReduccionOpex`.
+
+**Razón:** Consistencia con el patrón de páginas de servicio. La sección de "Entregables" con tarjetas numeradas (01-06) y la sección de "Metodología" con 8 ítems son específicas y no se extraen como componentes reutilizables.
+
+**Componentes reutilizados:** `PageLayout`. Sin nuevos componentes reutilizables.

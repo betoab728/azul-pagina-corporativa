@@ -1,0 +1,43 @@
+---
+import { fugas } from '../data/reduccion-opex'
+---
+
+<section class="py-section-padding bg-surface" aria-labelledby="reduccion-opex-porque-heading">
+  <div class="max-w-7xl mx-auto px-6 md:px-margin-desktop">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+
+      <div>
+        <h2 id="reduccion-opex-porque-heading" class="font-headline text-4xl md:text-5xl text-primary font-extrabold mb-8">¿Por qué implementar este servicio?</h2>
+        <div class="space-y-6">
+          <div class="bg-surface-container-low p-8 rounded-xl border border-outline-variant">
+            <h3 class="font-headline text-2xl font-bold text-on-surface mb-4">El Modelo Tradicional Ineficiente</h3>
+            <div class="flex items-center gap-4 text-primary font-bold text-sm">
+              <span>Generar</span>
+              <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+              <span>Almacenar</span>
+              <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+              <span>Transportar</span>
+              <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+              <span>Disponer</span>
+            </div>
+            <p class="mt-4 text-on-surface-variant leading-relaxed">Este ciclo lineal genera "fugas" invisibles en cada etapa, convirtiendo su gestión ambiental en un centro de costo descontrolado.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {fugas.map(fuga => (
+          <div class="p-6 bg-white border border-outline-variant rounded-xl shadow-sm hover:shadow-md transition-shadow">
+            <span class="material-symbols-outlined text-error text-3xl mb-4" aria-hidden="true">{fuga.icon}</span>
+            <h4 class="text-sm font-bold text-on-surface mb-2">{fuga.title}</h4>
+            <p class="text-sm text-on-surface-variant">{fuga.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="mt-12 text-center p-8 bg-primary-container/10 rounded-full border border-primary/20">
+      <p class="font-headline text-2xl font-bold text-primary">Conclusión: Su empresa gasta sin saber exactamente dónde ahorrar.</p>
+    </div>
+  </div>
+</section>
