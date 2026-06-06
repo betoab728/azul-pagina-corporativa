@@ -1,0 +1,23 @@
+---
+interface Props {
+  icon: string
+  iconColor: 'primary' | 'secondary'
+  text: string
+  href?: string
+}
+
+const { icon, iconColor, text, href = '#' } = Astro.props
+
+const iconBg = iconColor === 'primary' ? 'bg-primary/10 text-primary' : 'bg-secondary/10 text-secondary'
+---
+
+<a
+  href={href}
+  class="bg-white/90 backdrop-blur shadow-sm border border-outline-variant/30 p-4 rounded-xl flex items-center gap-3 hover:shadow-md transition-all"
+>
+  <div class={`w-10 h-10 rounded-lg ${iconBg} flex items-center justify-center shrink-0`}>
+    <span class="material-symbols-outlined text-xl" aria-hidden="true">{icon}</span>
+  </div>
+  <span class="text-[13px] font-bold text-on-surface leading-tight">{text}</span>
+  <span class="material-symbols-outlined text-on-surface-variant text-sm ml-auto" aria-hidden="true">chevron_right</span>
+</a>

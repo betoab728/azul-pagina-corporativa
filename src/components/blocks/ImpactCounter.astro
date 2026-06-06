@@ -1,0 +1,20 @@
+---
+interface Props {
+  icon: string
+  iconColor: 'primary' | 'secondary'
+  value: string
+  label: string
+}
+
+const { icon, iconColor, value, label } = Astro.props
+
+const iconColorClass = iconColor === 'primary' ? 'text-primary' : 'text-secondary'
+---
+
+<div class="flex flex-col items-center">
+  <div class="flex items-center gap-2 mb-2">
+    <span class={`material-symbols-outlined ${iconColorClass} text-3xl`} aria-hidden="true">{icon}</span>
+    <span class="text-3xl font-extrabold">{value}</span>
+  </div>
+  <p class="text-xs text-on-surface-variant font-semibold text-center">{label}</p>
+</div>

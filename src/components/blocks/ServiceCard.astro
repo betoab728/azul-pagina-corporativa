@@ -1,0 +1,28 @@
+---
+interface Props {
+  icon: string
+  iconColor: 'primary' | 'secondary'
+  title: string
+  description: string
+  href?: string
+}
+
+const { icon, iconColor, title, description, href = '#' } = Astro.props
+
+const iconBg  = iconColor === 'primary'   ? 'bg-primary/10 text-primary'     : 'bg-secondary/10 text-secondary'
+---
+
+<article class="bg-white p-8 rounded-3xl border border-outline-variant/30 shadow-sm hover:shadow-xl transition-all group cursor-pointer">
+  <div class={`w-16 h-16 rounded-full ${iconBg} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
+    <span class="material-symbols-outlined text-3xl" aria-hidden="true">{icon}</span>
+  </div>
+  <h3 class="font-headline text-xl font-bold mb-4">{title}</h3>
+  <p class="text-on-surface-variant text-sm mb-8 leading-relaxed">{description}</p>
+  <a
+    href={href}
+    class="text-primary font-bold text-sm flex items-center gap-2 hover:gap-4 transition-all"
+  >
+    Ver más
+    <span class="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
+  </a>
+</article>

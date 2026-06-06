@@ -1,0 +1,130 @@
+---
+// El formulario es UI-only en esta versión. La integración con backend se implementará en una fase posterior.
+---
+
+<div class="bg-white p-10 md:p-12 rounded-[40px] shadow-2xl border border-outline-variant/20 relative">
+  <div class="flex items-center gap-4 mb-8">
+    <div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center text-white">
+      <span class="material-symbols-outlined" aria-hidden="true">fact_check</span>
+    </div>
+    <div>
+      <h3 class="font-headline text-xl font-bold">Completa el formulario</h3>
+      <p class="text-sm text-on-surface-variant">y recibe tu cotización gratuita</p>
+    </div>
+  </div>
+
+  <form class="space-y-5" novalidate>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      <!-- Nombre -->
+      <div>
+        <label for="quote-name" class="block text-sm font-bold mb-2">Nombre completo <span aria-hidden="true">*</span></label>
+        <div class="relative">
+          <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant/50 text-lg pointer-events-none" aria-hidden="true">person</span>
+          <input
+            id="quote-name"
+            name="name"
+            type="text"
+            required
+            placeholder="Ej: Juan Pérez"
+            class="w-full pl-12 pr-4 py-4 rounded-2xl bg-surface border border-outline-variant/30 focus:ring-2 focus:ring-primary/20 focus:border-primary/50 outline-none transition-all"
+          />
+        </div>
+      </div>
+
+      <!-- Empresa -->
+      <div>
+        <label for="quote-company" class="block text-sm font-bold mb-2">Empresa / Organización <span aria-hidden="true">*</span></label>
+        <div class="relative">
+          <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant/50 text-lg pointer-events-none" aria-hidden="true">business</span>
+          <input
+            id="quote-company"
+            name="company"
+            type="text"
+            required
+            placeholder="Ej: Minera ABC"
+            class="w-full pl-12 pr-4 py-4 rounded-2xl bg-surface border border-outline-variant/30 focus:ring-2 focus:ring-primary/20 focus:border-primary/50 outline-none transition-all"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Sector -->
+    <div>
+      <label for="quote-sector" class="block text-sm font-bold mb-2">Sector <span aria-hidden="true">*</span></label>
+      <select
+        id="quote-sector"
+        name="sector"
+        required
+        class="w-full px-4 py-4 rounded-2xl bg-surface border border-outline-variant/30 focus:ring-2 focus:ring-primary/20 focus:border-primary/50 outline-none transition-all appearance-none cursor-pointer"
+      >
+        <option value="">Selecciona tu sector</option>
+        <option value="mineria">Minería</option>
+        <option value="industrial">Industrial</option>
+        <option value="salud">Salud</option>
+        <option value="agroindustrial">Agroindustrial</option>
+      </select>
+    </div>
+
+    <!-- Desafío ambiental -->
+    <div>
+      <label for="quote-challenge" class="block text-sm font-bold mb-2">¿Cuál es tu principal desafío ambiental? <span aria-hidden="true">*</span></label>
+      <select
+        id="quote-challenge"
+        name="challenge"
+        required
+        class="w-full px-4 py-4 rounded-2xl bg-surface border border-outline-variant/30 focus:ring-2 focus:ring-primary/20 focus:border-primary/50 outline-none transition-all appearance-none cursor-pointer"
+      >
+        <option value="">Selecciona una opción</option>
+        <option value="residuos">Gestión de residuos</option>
+        <option value="aguas">Tratamiento de aguas</option>
+        <option value="consultoria">Consultoría ambiental</option>
+        <option value="otros">Otros</option>
+      </select>
+    </div>
+
+    <!-- Email -->
+    <div>
+      <label for="quote-email" class="block text-sm font-bold mb-2">Correo electrónico <span aria-hidden="true">*</span></label>
+      <div class="relative">
+        <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant/50 text-lg pointer-events-none" aria-hidden="true">mail</span>
+        <input
+          id="quote-email"
+          name="email"
+          type="email"
+          required
+          placeholder="ejemplo@empresa.com"
+          class="w-full pl-12 pr-4 py-4 rounded-2xl bg-surface border border-outline-variant/30 focus:ring-2 focus:ring-primary/20 focus:border-primary/50 outline-none transition-all"
+        />
+      </div>
+    </div>
+
+    <!-- Teléfono -->
+    <div>
+      <label for="quote-phone" class="block text-sm font-bold mb-2">Teléfono / WhatsApp <span aria-hidden="true">*</span></label>
+      <div class="relative">
+        <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant/50 text-lg pointer-events-none" aria-hidden="true">call</span>
+        <input
+          id="quote-phone"
+          name="phone"
+          type="tel"
+          required
+          placeholder="Ej: 969 123 456"
+          class="w-full pl-12 pr-4 py-4 rounded-2xl bg-surface border border-outline-variant/30 focus:ring-2 focus:ring-primary/20 focus:border-primary/50 outline-none transition-all"
+        />
+      </div>
+    </div>
+
+    <button
+      type="submit"
+      class="w-full bg-secondary text-white font-bold py-5 rounded-2xl hover:bg-secondary/90 transition-all shadow-lg flex items-center justify-center gap-3 active:scale-95 group"
+    >
+      Quiero una asesoría gratuita
+      <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" aria-hidden="true">send</span>
+    </button>
+
+    <p class="text-center text-[10px] text-on-surface-variant pt-2 flex items-center justify-center gap-1">
+      <span class="material-symbols-outlined text-[10px] text-secondary" aria-hidden="true">verified_user</span>
+      Respondemos en menos de 24 horas
+    </p>
+  </form>
+</div>

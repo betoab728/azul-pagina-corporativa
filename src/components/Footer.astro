@@ -1,0 +1,46 @@
+---
+// TODO: Reemplazar con logo real del cliente
+const logoUrl = 'https://lh3.googleusercontent.com/aida-public/AB6AXuBAqCYkt79tmvj_Lvj9bROBPvOfx9DAGFM3fFD6DwNRWdqn3GuE8IvcC9go4-Q2lh-r1IDRg8LzqEYi4cce7Jg32_CUwbEmxqwjUzmzJ962rcjo90N3OO-rxC4pim6F96DmQbH9r-gD05bSdLJrdSdPI6EP4mYjufvyU8P9Z6aIGJZUNfwcNJCX7W28KPNwN4qhRtsuX1VfNqfw9M1QEckI0KX73d27_1uyGQRKILjXsbCHCQz5g20aQfteVmU_cJ0MT5msLgzSy0SR'
+
+const currentYear = new Date().getFullYear()
+
+const links = [
+  { label: 'Privacidad', href: '#' },
+  { label: 'Términos', href: '#' },
+  { label: 'Soporte', href: '#' },
+]
+---
+
+<footer class="bg-on-surface text-white py-12 border-t border-white/10">
+  <div class="max-w-7xl mx-auto px-6 md:px-margin-desktop">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+
+      <a href="#inicio" aria-label="Azul Sostenible — Inicio">
+        <img
+          src={logoUrl}
+          alt="Azul Sostenible"
+          class="h-12 w-auto brightness-0 invert"
+          width="120"
+          height="48"
+          loading="lazy"
+        />
+      </a>
+
+      <nav aria-label="Navegación legal">
+        <ul class="flex gap-8 text-sm font-semibold opacity-70">
+          {links.map(link => (
+            <li>
+              <a href={link.href} class="hover:opacity-100 transition-opacity">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      <p class="text-xs opacity-50">
+        &copy; {currentYear} Azul Sostenible. Todos los derechos reservados.
+      </p>
+    </div>
+  </div>
+</footer>

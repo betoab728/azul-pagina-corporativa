@@ -1,0 +1,61 @@
+---
+interface Props {
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost'
+  size?: 'sm' | 'md' | 'lg'
+  href?: string
+  icon?: string
+  iconPosition?: 'left' | 'right'
+  class?: string
+  type?: 'button' | 'submit' | 'reset'
+  [key: string]: unknown
+}
+
+const {
+  variant = 'primary',
+  size = 'md',
+  href,
+  icon,
+  iconPosition = 'right',
+  class: className = '',
+  type = 'button',
+  ...rest
+} = Astro.props
+
+const variantClasses: Record<string, string> = {
+  primary:  'bg-primary text-white hover:bg-primary/90 shadow-lg',
+  secondary: 'bg-secondary text-white hover:bg-secondary/90 shadow-lg',
+  outline:  'bg-white border-2 border-outline-variant/40 text-primary hover:bg-surface-container-low shadow-sm',
+  ghost:    'text-primary hover:underline',
+}
+
+const sizeClasses: Record<string, string> = {
+  sm: 'px-6 py-2 text-xs',
+  md: 'px-8 py-3 text-sm',
+  lg: 'px-10 py-4 text-sm',
+}
+
+const base = 'inline-flex items-center justify-center gap-3 font-bold rounded-full transition-all active:scale-95'
+const classes = [base, variantClasses[variant], sizeClasses[size], className].join(' ')
+---
+
+{href ? (
+  <a href={href} class={classes} {...rest}>
+    {icon && iconPosition === 'left' && (
+      <span class="material-symbols-outlined text-base" aria-hidden="true">{icon}</span>
+    )}
+    <slot />
+    {icon && iconPosition === 'right' && (
+      <span class="material-symbols-outlined text-base" aria-hidden="true">{icon}</span>
+    )}
+  </a>
+) : (
+  <button type={type} class={classes} {...rest}>
+    {icon && iconPosition === 'left' && (
+      <span class="material-symbols-outlined text-base" aria-hidden="true">{icon}</span>
+    )}
+    <slot />
+    {icon && iconPosition === 'right' && (
+      <span class="material-symbols-outlined text-base" aria-hidden="true">{icon}</span>
+    )}
+  </button>
+)}

@@ -1,0 +1,151 @@
+---
+import NavDropdown from './NavDropdown.astro'
+import { mainNav } from '../../data/navigation'
+
+// TODO: Reemplazar con logo real del cliente
+const logoUrl = 'https://lh3.googleusercontent.com/aida-public/AB6AXuBAqCYkt79tmvj_Lvj9bROBPvOfx9DAGFM3fFD6DwNRWdqn3GuE8IvcC9go4-Q2lh-r1IDRg8LzqEYi4cce7Jg32_CUwbEmxqwjUzmzJ962rcjo90N3OO-rxC4pim6F96DmQbH9r-gD05bSdLJrdSdPI6EP4mYjufvyU8P9Z6aIGJZUNfwcNJCX7W28KPNwN4qhRtsuX1VfNqfw9M1QEckI0KX73d27_1uyGQRKILjXsbCHCQz5g20aQfteVmU_cJ0MT5msLgzSy0SR'
+
+const serviceItem  = mainNav.find(item => item.label === 'Servicios')
+const serviceLinks = serviceItem?.dropdown ?? []
+const flatNavItems = mainNav.filter(item => item.label !== 'Servicios' && item.label !== 'Inicio')
+---
+
+<header class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-outline-variant/30 py-2">
+  <div class="max-w-7xl mx-auto px-6 md:px-margin-desktop flex justify-between items-center h-20">
+
+    <!-- Logo -->
+    <a href="#inicio" aria-label="Azul Sostenible — Ir al inicio">
+      <img
+        src={logoUrl}
+        alt="Azul Sostenible"
+        class="h-16 w-auto"
+        width="160"
+        height="64"
+        loading="eager"
+      />
+    </a>
+
+    <!-- Navegación desktop -->
+    <nav class="hidden lg:flex items-center gap-6" aria-label="Navegación principal">
+      <a href="#inicio" class="text-on-surface-variant font-semibold hover:text-primary transition-colors text-sm">
+        Inicio
+      </a>
+      <NavDropdown label="Servicios" items={serviceLinks} />
+      {flatNavItems.map(item => (
+        <a
+          href={item.href}
+          class="text-on-surface-variant font-semibold hover:text-primary transition-colors text-sm"
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+
+    <!-- CTAs -->
+    <div class="flex items-center gap-4">
+      <a
+        href="#cotizacion"
+        class="hidden md:flex items-center gap-2 bg-primary-container text-white font-bold px-6 py-3 rounded-full hover:bg-primary transition-all shadow-md active:scale-95 text-sm"
+      >
+        <span class="material-symbols-outlined text-base" aria-hidden="true">rocket_launch</span>
+        Cotiza tu proyecto
+      </a>
+
+      <!-- WhatsApp -->
+      <a
+        href="https://wa.me/51969123456"
+        class="w-12 h-12 bg-[#25d366] text-white rounded-full flex items-center justify-center hover:bg-[#128c7e] transition-colors shadow-md"
+        aria-label="Contactar por WhatsApp"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.538-2.961-2.654-.087-.116-.708-.941-.708-1.794 0-.852.446-1.273.605-1.446.159-.173.346-.217.462-.217s.231.001.332.005c.109.004.253-.041.397.303.144.344.491 1.199.534 1.285.044.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.303c-.087.101-.177.211-.076.386.101.174.45.743.966 1.204.665.594 1.225.779 1.4.865.174.086.274.072.376-.044.101-.116.433-.505.548-.679.116-.174.231-.144.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zM12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.662 1.435 5.176L2 22l4.957-1.3c1.465.849 3.167 1.3 5.043 1.3 5.523 0 10-4.477 10-10S17.523 2 12 2z"/>
+        </svg>
+      </a>
+
+      <!-- Botón menú móvil -->
+      <button
+        id="mobile-menu-btn"
+        class="lg:hidden p-2 text-on-surface rounded-lg hover:bg-surface-container transition-colors"
+        aria-label="Abrir menú de navegación"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <span class="material-symbols-outlined" aria-hidden="true">menu</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Menú móvil -->
+  <div
+    id="mobile-menu"
+    class="lg:hidden fixed inset-x-0 top-[88px] bottom-0 bg-white z-40 hidden flex-col p-6 gap-1 overflow-y-auto"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Menú de navegación"
+  >
+    <a href="#inicio" class="text-on-surface font-semibold py-3 border-b border-outline-variant/20 hover:text-primary">
+      Inicio
+    </a>
+
+    <div class="py-2 border-b border-outline-variant/20">
+      <p class="text-on-surface font-semibold py-2">Servicios</p>
+      {serviceLinks.map(item => (
+        <a
+          href={item.href}
+          class="block text-on-surface-variant text-sm py-2 pl-4 hover:text-primary transition-colors"
+        >
+          {item.label}
+        </a>
+      ))}
+    </div>
+
+    {flatNavItems.map(item => (
+      <a
+        href={item.href}
+        class="text-on-surface font-semibold py-3 border-b border-outline-variant/20 hover:text-primary transition-colors"
+      >
+        {item.label}
+      </a>
+    ))}
+
+    <a
+      href="#cotizacion"
+      class="mt-6 flex items-center justify-center gap-2 bg-secondary text-white font-bold px-6 py-4 rounded-full hover:bg-secondary/90 transition-all"
+    >
+      <span class="material-symbols-outlined" aria-hidden="true">rocket_launch</span>
+      Cotiza tu proyecto
+    </a>
+  </div>
+</header>
+
+<script>
+  const btn  = document.getElementById('mobile-menu-btn') as HTMLButtonElement | null
+  const menu = document.getElementById('mobile-menu') as HTMLElement | null
+  const icon = btn?.querySelector('.material-symbols-outlined') as HTMLElement | null
+
+  function openMenu() {
+    menu?.classList.replace('hidden', 'flex')
+    btn?.setAttribute('aria-expanded', 'true')
+    if (icon) icon.textContent = 'close'
+    document.body.classList.add('overflow-hidden')
+  }
+
+  function closeMenu() {
+    menu?.classList.replace('flex', 'hidden')
+    btn?.setAttribute('aria-expanded', 'false')
+    if (icon) icon.textContent = 'menu'
+    document.body.classList.remove('overflow-hidden')
+  }
+
+  btn?.addEventListener('click', () => {
+    menu?.classList.contains('flex') ? closeMenu() : openMenu()
+  })
+
+  menu?.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu))
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && menu?.classList.contains('flex')) closeMenu()
+  })
+</script>

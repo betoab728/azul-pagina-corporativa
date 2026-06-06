@@ -1,0 +1,21 @@
+---
+import TestimonialCard from '../components/blocks/TestimonialCard.astro'
+import { testimonials } from '../data/testimonials'
+---
+
+<section class="pt-16 pb-24 bg-white" aria-labelledby="testimonials-heading">
+  <div class="max-w-7xl mx-auto px-6 md:px-margin-desktop">
+    <div class="text-center mb-16">
+      <h3 id="testimonials-heading" class="font-headline text-3xl font-extrabold flex items-center justify-center gap-3">
+        Lo que dicen nuestros clientes
+        <span class="text-secondary text-2xl" aria-hidden="true">🍃</span>
+      </h3>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+      {testimonials.map(testimonial => (
+        <TestimonialCard {...testimonial} />
+      ))}
+    </div>
+  </div>
+</section>

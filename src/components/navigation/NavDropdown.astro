@@ -1,0 +1,39 @@
+---
+interface DropdownItem {
+  label: string
+  href: string
+}
+
+interface Props {
+  label: string
+  items: DropdownItem[]
+}
+
+const { label, items } = Astro.props
+---
+
+<div class="relative group h-20 flex items-center">
+  <button
+    class="flex items-center gap-1 text-on-surface-variant font-semibold hover:text-primary transition-colors text-sm py-1"
+    aria-haspopup="true"
+    aria-expanded="false"
+  >
+    {label}
+    <span class="material-symbols-outlined text-sm chevron-icon" aria-hidden="true">expand_more</span>
+  </button>
+
+  <div
+    class="dropdown-menu absolute top-full left-0 w-64 bg-white border border-outline-variant/30 shadow-xl rounded-xl py-2 z-50"
+    role="menu"
+  >
+    {items.map(item => (
+      <a
+        href={item.href}
+        class="block px-4 py-3 text-sm text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-colors font-semibold"
+        role="menuitem"
+      >
+        {item.label}
+      </a>
+    ))}
+  </div>
+</div>

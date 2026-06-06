@@ -1,0 +1,54 @@
+---
+// TODO: Reemplazar con imagen real del equipo
+const teamImage = 'https://lh3.googleusercontent.com/aida-public/AB6AXuBJkDYHkBo5XdilpzcIyCDWlPQ-25vjWtp2o1Wl49sdYj0TeEpBkTNdRZHWZfXyfjNLCHtfPohu_katvAAslcppKcaW8P9rd9vm8GDoJp0MiIwr5E3FS7ChfYr8GkgSV-RBxEEj9OAbwctj-s1Nvq62oUtzDl1xxdeCsE6jguRyvGrlcI4-Z3092lkVvRDhrr61E3NF9RQsvUApkStXKwmofDO1YR0VZsUD9TbJh6aWhBX4m5sqU923WBoNrC51vtGWz-i26ZvA5LIA'
+---
+
+<section id="nosotros" class="py-section-padding bg-surface">
+  <div class="max-w-7xl mx-auto px-6 md:px-margin-desktop">
+    <div class="flex flex-col lg:flex-row items-center gap-16">
+
+      <!-- Imagen -->
+      <div class="w-full lg:w-1/2 relative">
+        <div class="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl relative z-10">
+          <img
+            src={teamImage}
+            alt="Equipo de Azul Sostenible trabajando en campo"
+            class="w-full h-full object-cover"
+            loading="lazy"
+            width="600"
+            height="450"
+          />
+        </div>
+        <div class="absolute -bottom-6 -right-6 w-48 h-48 bg-secondary/10 rounded-full -z-0 blur-3xl" aria-hidden="true"></div>
+      </div>
+
+      <!-- Texto -->
+      <div class="w-full lg:w-1/2">
+        <span class="text-secondary font-bold text-sm uppercase tracking-widest mb-4 block">¿Quiénes somos?</span>
+        <h2 class="font-headline text-4xl md:text-5xl text-on-surface mb-6 font-extrabold">
+          ¡Somos Azul Sostenible!
+        </h2>
+        <p class="font-body text-lg text-on-surface-variant mb-8 leading-relaxed">
+          ¡Somos una empresa comprometida con el desarrollo sostenible. Brindamos
+          <strong>servicios ambientales integrales</strong> con responsabilidad, innovación y respeto por nuestro entorno.
+        </p>
+        <div class="flex items-center gap-6">
+          <a
+            href="#servicios"
+            class="bg-primary text-white font-bold px-10 py-4 rounded-full hover:bg-primary/90 transition-all shadow-lg"
+          >
+            ¡Más información!
+          </a>
+          <a
+            href="#servicios"
+            class="group flex items-center gap-2 text-primary font-bold hover:gap-4 transition-all"
+          >
+            ¡Conócenos más!
+            <span class="material-symbols-outlined transition-transform" aria-hidden="true">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

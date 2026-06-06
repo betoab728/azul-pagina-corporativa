@@ -1,0 +1,68 @@
+---
+import FeatureCard from '../components/blocks/FeatureCard.astro'
+
+// TODO: Reemplazar con imagen real del cliente
+const heroBg = 'https://lh3.googleusercontent.com/aida-public/AB6AXuAwnMvHhA5Y2fAFpFNMu7EtEHiHF56e8kl6SWvboQa_rNmc4aETmX-FqjcRI-bHcQpeDtO2cQChjrZ928AgS03Lb6dkhjnVoZGfNMOcIA4gICpwd5yYTgNO6WM8kBLFwmE6qHgWu8s_3GNQDDG8_zT80iaIX01oiGMkua2sgYtiFOA6_KnyffN6XBiNjZkkdpa-qGVn54f4xsu9ESajuQ02Hihiz4cF3KssnVmlr5ZNvnKvBsllul89_HsGc3F-UIKgIReYvXwSBrAA'
+
+const featureCards = [
+  { icon: 'assignment_turned_in', iconColor: 'secondary' as const, text: 'Cumplimiento normativo', href: '#servicios' },
+  { icon: 'savings',              iconColor: 'primary'   as const, text: 'Reducción de costos',   href: '#servicios' },
+  { icon: 'trending_up',          iconColor: 'secondary' as const, text: 'Impacto medible',        href: '#proyectos' },
+]
+---
+
+<section id="inicio" class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+  <!-- Imagen de fondo -->
+  <div class="absolute inset-0 z-0" aria-hidden="true">
+    <img
+      src={heroBg}
+      alt=""
+      class="w-full h-full object-cover object-center lg:object-[right_20%]"
+      loading="eager"
+      fetchpriority="high"
+      width="1920"
+      height="1080"
+    />
+    <div class="absolute inset-0 hero-gradient"></div>
+  </div>
+
+  <!-- Contenido -->
+  <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-margin-desktop w-full">
+    <div class="max-w-2xl lg:py-20">
+      <h1 class="font-headline text-[40px] md:text-[56px] lg:text-[62px] leading-[1.05] text-on-surface mb-8 font-extrabold">
+        Transformamos <span class="text-secondary">residuos</span> en impacto <span class="text-primary">sostenible.</span>
+      </h1>
+
+      <p class="font-body text-lg md:text-xl text-on-surface-variant mb-12 max-w-xl leading-relaxed">
+        Soluciones ambientales integrales que cumplen la normativa, reducen riesgos y generan valor sostenible.
+      </p>
+
+      <!-- Feature cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12" role="list" aria-label="Propuestas de valor">
+        {featureCards.map(card => (
+          <div role="listitem">
+            <FeatureCard {...card} />
+          </div>
+        ))}
+      </div>
+
+      <!-- CTAs -->
+      <div class="flex flex-col sm:flex-row gap-5">
+        <a
+          href="#cotizacion"
+          class="inline-flex items-center justify-center gap-3 bg-secondary text-white font-bold px-10 py-4 rounded-full hover:bg-secondary/90 transition-all shadow-lg active:scale-95"
+        >
+          <span class="material-symbols-outlined" aria-hidden="true">rocket_launch</span>
+          Cotiza tu proyecto
+        </a>
+        <a
+          href="#cotizacion"
+          class="inline-flex items-center justify-center gap-3 bg-white border-2 border-outline-variant/40 text-primary font-bold px-10 py-4 rounded-full hover:bg-surface-container-low transition-all active:scale-95 shadow-sm"
+        >
+          Diagnóstico ambiental gratuito
+          <span class="material-symbols-outlined text-secondary" aria-hidden="true">eco</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

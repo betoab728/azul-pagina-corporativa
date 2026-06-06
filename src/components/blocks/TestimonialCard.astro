@@ -1,0 +1,42 @@
+---
+interface Props {
+  quote: string
+  authorName: string
+  authorRole: string
+  authorCompany: string
+  authorImage: string
+  rating?: number
+}
+
+const { quote, authorName, authorRole, authorCompany, authorImage, rating = 5 } = Astro.props
+---
+
+<article class="bg-white p-8 rounded-3xl border border-outline-variant/20 shadow-sm relative group hover:shadow-md transition-all">
+  <!-- Rating stars -->
+  <div class="flex text-secondary mb-6" aria-label={`${rating} de 5 estrellas`}>
+    {Array.from({ length: rating }).map(() => (
+      <span class="material-symbols-outlined" aria-hidden="true">star</span>
+    ))}
+  </div>
+
+  <blockquote>
+    <p class="text-on-surface-variant text-sm italic mb-8 leading-relaxed">"{quote}"</p>
+  </blockquote>
+
+  <footer class="flex items-center gap-4">
+    <img
+      src={authorImage}
+      alt={authorName}
+      class="w-12 h-12 rounded-full object-cover"
+      loading="lazy"
+      width="48"
+      height="48"
+    />
+    <div>
+      <cite class="font-bold text-sm not-italic">{authorRole}</cite>
+      <p class="text-xs text-on-surface-variant">{authorCompany}</p>
+    </div>
+  </footer>
+
+  <span class="absolute top-8 right-8 material-symbols-outlined text-6xl text-primary/5" aria-hidden="true">format_quote</span>
+</article>

@@ -1,0 +1,33 @@
+---
+interface Props {
+  name: string
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+  class?: string
+  ariaHidden?: boolean
+  ariaLabel?: string
+}
+
+const {
+  name,
+  size = 'md',
+  class: className = '',
+  ariaHidden = true,
+  ariaLabel,
+} = Astro.props
+
+const sizeClasses: Record<string, string> = {
+  xs: 'text-xs',
+  sm: 'text-sm',
+  md: 'text-base',
+  lg: 'text-2xl',
+  xl: 'text-4xl',
+}
+---
+
+<span
+  class={`material-symbols-outlined ${sizeClasses[size]} ${className}`}
+  aria-hidden={ariaHidden ? 'true' : undefined}
+  aria-label={!ariaHidden ? ariaLabel : undefined}
+>
+  {name}
+</span>
