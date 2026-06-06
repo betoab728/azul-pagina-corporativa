@@ -1,0 +1,14 @@
+---
+import { stats } from '../data/proyectos-page'
+---
+
+<section class="py-16 bg-surface-container-low border-b border-outline-variant" aria-label="Estadísticas de proyectos">
+  <div class="max-w-7xl mx-auto px-6 md:px-margin-desktop grid grid-cols-2 md:grid-cols-4 gap-8">
+    {stats.map(stat => (
+      <div class="text-center">
+        <div class={`font-headline text-4xl md:text-5xl font-extrabold mb-1 ${stat.color === 'primary' ? 'text-primary' : 'text-secondary'}`}>{stat.value}</div>
+        <p class="text-sm font-bold text-on-surface-variant uppercase tracking-wider">{stat.label}</p>
+      </div>
+    ))}
+  </div>
+</section>

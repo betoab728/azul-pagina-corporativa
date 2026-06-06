@@ -180,3 +180,15 @@ const iconBg = iconColor === 'primary' ? 'bg-primary/10 text-primary' : 'bg-seco
 **Razón:** "Sectores" es un ítem de navegación principal. Las 4 tarjetas del bento grid tienen variantes visuales distintas (blanco, primary, tertiary, gris+imagen) que son específicas de esta página y no se extraen como componentes reutilizables.
 
 **Componentes reutilizados:** `PageLayout`. Sin nuevos componentes reutilizables.
+
+---
+
+## DD-016 — Página: Proyectos (2026-06-06)
+
+**Contexto:** Se requiere una página dedicada para "Proyectos" con casos de éxito, accesible desde la navegación principal.
+
+**Decisión:** Se crea la ruta `/proyectos` con 4 secciones. Los datos se almacenan en `src/data/proyectos-page.ts` (separado de `projects.ts` que usa la Home). Incluye 6 cards de proyectos mineros con badge de sector, checklist y banner "También confiaron en nosotros".
+
+**Razón:** "Proyectos" es un ítem de navegación principal. Los proyectos de esta página son diferentes a los 3 de la Home. El hero usa un gradiente 135deg primary→secondary específico que no reutiliza la clase `.hero-gradient` global.
+
+**Componentes reutilizados:** `PageLayout`. Sin nuevos componentes reutilizables.
