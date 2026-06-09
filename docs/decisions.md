@@ -228,3 +228,15 @@ const iconBg = iconColor === 'primary' ? 'bg-primary/10 text-primary' : 'bg-seco
 **Razón:** "Contacto" es el último ítem de navegación. La página centraliza todos los canales de contacto (formulario, WhatsApp, dirección, horarios) en un solo lugar.
 
 **Componentes reutilizados:** `PageLayout`. Sin nuevos componentes reutilizables.
+
+---
+
+## DD-020 — Página de servicio: Software de Trazabilidad (2026-06-09)
+
+**Contexto:** Se requiere una página dedicada para el servicio "Software de Trazabilidad", accesible desde el dropdown de Servicios en la navegación.
+
+**Decisión:** Se crea la ruta `/servicios/software-trazabilidad` con 5 secciones específicas, siguiendo el mismo patrón establecido en DD-009/010/011/012/013. Las secciones se nombran con el prefijo `SoftwareTrazabilidad`.
+
+**Razón:** Consistencia con el patrón de páginas de servicio. Incluye hero con gradiente primary, value strip, sección "¿En qué consiste?" con 4 fases (Generación, Almacenamiento, Transporte, Valorización), bento grid "¿Qué gana tu empresa?" con 5 beneficios de distintas variantes (white, dark, white-box, green-box), y CTA de cierre con botones duales.
+
+**Componentes reutilizados:** `PageLayout`. Sin nuevos componentes reutilizables.
