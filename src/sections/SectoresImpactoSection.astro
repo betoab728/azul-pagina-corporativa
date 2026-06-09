@@ -4,7 +4,7 @@ import { impactStats } from '../data/sectores'
 
 <section class="bg-surface-container-highest py-section-padding" aria-labelledby="sectores-impacto-heading">
   <div class="max-w-7xl mx-auto px-6 md:px-margin-desktop">
-    <div class="flex flex-col md:flex-row items-center gap-16">
+    <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16">
 
       <div class="w-full md:w-1/2">
         <h2 id="sectores-impacto-heading" class="font-headline text-4xl md:text-5xl text-primary font-extrabold mb-6">Impacto medible en cada operación</h2>
@@ -31,7 +31,7 @@ import { impactStats } from '../data/sectores'
         </div>
       </div>
 
-      <div class="w-full md:w-1/2 grid grid-cols-2 gap-4">
+      <div class="w-full md:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-4">
         {impactStats.map(stat => (
           <div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm flex flex-col items-center text-center">
             <span class={`text-4xl font-extrabold mb-2 ${stat.color === 'primary' ? 'text-primary' : 'text-secondary'}`}>{stat.value}</span>

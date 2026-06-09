@@ -18,11 +18,13 @@ import { impactStats } from '../data/impact'
 
       <div
         id="impact-heading"
-        class="grid grid-cols-2 lg:grid-cols-4 gap-8 divide-x divide-outline-variant/30"
+        class="flex flex-wrap divide-x divide-outline-variant/30"
         aria-label="Estadísticas de impacto"
       >
         {impactStats.map(stat => (
-          <ImpactCounter {...stat} />
+          <div class="w-1/2 lg:w-1/4 px-4 md:px-8 py-4 flex justify-center">
+            <ImpactCounter {...stat} />
+          </div>
         ))}
       </div>
     </div>

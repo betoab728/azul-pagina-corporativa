@@ -10,14 +10,14 @@ const iconContainerClasses: Record<string, string> = {
 
 <section class="py-section-padding bg-surface-container-low" aria-labelledby="tarifa-plana-incluye-heading">
   <div class="max-w-7xl mx-auto px-6 md:px-margin-desktop">
-    <div class="text-center mb-16">
+    <div class="text-center mb-8 md:mb-16">
       <h2 id="tarifa-plana-incluye-heading" class="font-headline text-4xl md:text-5xl text-primary font-extrabold mb-4">¿QUÉ INCLUYE?</h2>
       <p class="text-lg text-on-surface-variant max-w-2xl mx-auto">Tres pilares fundamentales que sostienen la operatividad y legalidad de su organización.</p>
     </div>
 
-    <div class="grid md:grid-cols-3 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
       {pilares.map(pilar => (
-        <article class="group bg-surface p-10 rounded-2xl border border-outline-variant hover:border-secondary transition-all hover:shadow-xl duration-500">
+        <article class="group bg-surface p-6 md:p-10 rounded-2xl border border-outline-variant hover:border-secondary transition-all hover:shadow-xl duration-500">
           <div class={`w-14 h-14 rounded-xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform ${iconContainerClasses[pilar.iconColor]}`}>
             <span class="material-symbols-outlined text-[32px]" aria-hidden="true">{pilar.icon}</span>
           </div>

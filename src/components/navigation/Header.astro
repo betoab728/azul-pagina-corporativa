@@ -79,7 +79,8 @@ const flatNavItems = mainNav.filter(item => item.label !== 'Servicios' && item.l
   <!-- Menú móvil -->
   <div
     id="mobile-menu"
-    class="lg:hidden fixed inset-x-0 top-[88px] bottom-0 bg-white z-40 hidden flex-col p-6 gap-1 overflow-y-auto"
+    class="lg:hidden fixed inset-x-0 bottom-0 bg-white z-[100] flex-col p-6 gap-1 overflow-y-auto shadow-2xl"
+    style="display:none"
     role="dialog"
     aria-modal="true"
     aria-label="Menú de navegación"
@@ -119,32 +120,57 @@ const flatNavItems = mainNav.filter(item => item.label !== 'Servicios' && item.l
   </div>
 </header>
 
-<script>
-  const btn  = document.getElementById('mobile-menu-btn') as HTMLButtonElement | null
-  const menu = document.getElementById('mobile-menu') as HTMLElement | null
-  const icon = btn?.querySelector('.material-symbols-outlined') as HTMLElement | null
+<script is:inline>
+  (function() {
+    var btn  = document.getElementById('mobile-menu-btn');
+    var menu = document.getElementById('mobile-menu');
+    var icon = btn ? btn.querySelector('.material-symbols-outlined') : null;
 
-  function openMenu() {
-    menu?.classList.replace('hidden', 'flex')
-    btn?.setAttribute('aria-expanded', 'true')
-    if (icon) icon.textContent = 'close'
-    document.body.classList.add('overflow-hidden')
-  }
+    function setMenuTop() {
+      var header = document.querySelector('header');
+      if (menu && header) {
+        menu.style.top = header.offsetHeight + 'px';
+      }
+    }
 
-  function closeMenu() {
-    menu?.classList.replace('flex', 'hidden')
-    btn?.setAttribute('aria-expanded', 'false')
-    if (icon) icon.textContent = 'menu'
-    document.body.classList.remove('overflow-hidden')
-  }
+    function openMenu() {
+      if (!menu) return;
+      setMenuTop();
+      menu.style.display = 'flex';
+      if (btn) btn.setAttribute('aria-expanded', 'true');
+      if (icon) icon.textContent = 'close';
+      document.body.style.overflow = 'hidden';
+    }
 
-  btn?.addEventListener('click', () => {
-    menu?.classList.contains('flex') ? closeMenu() : openMenu()
-  })
+    function closeMenu() {
+      if (!menu) return;
+      menu.style.display = 'none';
+      if (btn) btn.setAttribute('aria-expanded', 'false');
+      if (icon) icon.textContent = 'menu';
+      document.body.style.overflow = '';
+    }
 
-  menu?.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu))
+    if (btn) {
+      btn.addEventListener('click', function() {
+        if (menu && menu.style.display === 'flex') {
+          closeMenu();
+        } else {
+          openMenu();
+        }
+      });
+    }
 
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && menu?.classList.contains('flex')) closeMenu()
-  })
+    if (menu) {
+      var links = menu.querySelectorAll('a');
+      for (var i = 0; i < links.length; i++) {
+        links[i].addEventListener('click', closeMenu);
+      }
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && menu && menu.style.display === 'flex') {
+        closeMenu();
+      }
+    });
+  })();
 </script>

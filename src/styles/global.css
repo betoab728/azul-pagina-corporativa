@@ -73,6 +73,12 @@
   --spacing-margin-desktop: 80px;
 }
 
+@media (max-width: 768px) {
+  :root {
+    --spacing-section-padding: 64px;
+  }
+}
+
 /* Material Symbols — configuración base */
 .material-symbols-outlined {
   font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
