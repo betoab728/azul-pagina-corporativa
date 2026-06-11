@@ -1,6 +1,11 @@
 ---
-import ImpactCounter from '../components/blocks/ImpactCounter.astro'
 import { impactStats } from '../data/impact'
+
+const parsedStats = impactStats.map(stat => {
+  const numeric = parseInt(stat.value.replace(/[^0-9]/g, ''), 10)
+  const prefix = stat.value.startsWith('+') ? '+' : ''
+  return { ...stat, target: numeric, prefix }
+})
 ---
 
 <section class="py-20 bg-white" aria-labelledby="impact-heading">
@@ -17,16 +22,86 @@ import { impactStats } from '../data/impact'
       </div>
 
       <div
-        id="impact-heading"
+        id="impact-counters"
         class="flex flex-wrap divide-x divide-outline-variant/30"
         aria-label="Estadísticas de impacto"
       >
-        {impactStats.map(stat => (
-          <div class="w-1/2 lg:w-1/4 px-4 md:px-8 py-4 flex justify-center">
-            <ImpactCounter {...stat} />
-          </div>
-        ))}
+        {parsedStats.map((stat, i) => {
+          const iconColorClass = stat.iconColor === 'primary' ? 'text-primary' : 'text-secondary'
+          return (
+            <div
+              class="w-1/2 lg:w-1/4 px-4 md:px-8 py-4 flex justify-center counter-item opacity-0 translate-y-5"
+              style={`transition: opacity 0.7s ease, transform 0.7s ease; transition-delay: ${i * 120}ms`}
+            >
+              <div class="flex flex-col items-center">
+                <div class="flex items-center gap-2 mb-2">
+                  <span class={`material-symbols-outlined ${iconColorClass} text-3xl`} aria-hidden="true">{stat.icon}</span>
+                  <span class="counter-value text-3xl font-extrabold" data-target={String(stat.target)} data-prefix={stat.prefix}>0</span>
+                </div>
+                <p class="text-xs text-on-surface-variant font-semibold text-center">{stat.label}</p>
+              </div>
+            </div>
+          )
+        })}
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  function formatNumber(n: number): string {
+    return n.toLocaleString('en-US')
+  }
+
+  function animateCounter(el: HTMLElement, target: number, prefix: string, duration: number) {
+    const start = performance.now()
+
+    function tick(now: number) {
+      const elapsed = now - start
+      const progress = Math.min(elapsed / duration, 1)
+      const eased = 1 - (1 - progress) * (1 - progress)
+      const current = Math.round(eased * target)
+      el.textContent = prefix + formatNumber(current)
+
+      if (progress < 1) {
+        requestAnimationFrame(tick)
+      } else {
+        el.textContent = prefix + formatNumber(target)
+      }
+    }
+
+    requestAnimationFrame(tick)
+  }
+
+  let animated = false
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !animated) {
+          animated = true
+          const container = entry.target as HTMLElement
+
+          const items = container.querySelectorAll<HTMLElement>('.counter-item')
+          items.forEach((item) => {
+            item.classList.remove('opacity-0', 'translate-y-5')
+            item.classList.add('opacity-100', 'translate-y-0')
+          })
+
+          const values = container.querySelectorAll<HTMLElement>('.counter-value')
+          values.forEach((el) => {
+            const target = parseInt(el.dataset.target || '0', 10)
+            const prefix = el.dataset.prefix || ''
+            animateCounter(el, target, prefix, 1800)
+          })
+
+          observer.unobserve(container)
+        }
+      })
+    },
+    { threshold: 0.3 }
+  )
+
+  const root = document.getElementById('impact-counters')
+  if (root) observer.observe(root)
+</script>
