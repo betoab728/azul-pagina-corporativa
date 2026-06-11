@@ -19,4 +19,40 @@ const props = Astro.props
     <slot />
   </main>
   <Footer />
+
+  <!-- Botón flotante de WhatsApp -->
+  <a
+    id="floating-whatsapp"
+    href="https://wa.me/51936602578"
+    class="fixed bottom-6 right-6 w-14 h-14 bg-[#25d366] text-white rounded-full flex items-center justify-center hover:bg-[#128c7e] shadow-lg transition-all duration-300 opacity-0 translate-y-4 pointer-events-none z-50"
+    aria-label="Contactar por WhatsApp"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <svg class="w-8 h-8 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.538-2.961-2.654-.087-.116-.708-.941-.708-1.794 0-.852.446-1.273.605-1.446.159-.173.346-.217.462-.217s.231.001.332.005c.109.004.253-.041.397.303.144.344.491 1.199.534 1.285.044.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.303c-.087.101-.177.211-.076.386.101.174.45.743.966 1.204.665.594 1.225.779 1.4.865.174.086.274.072.376-.044.101-.116.433-.505.548-.679.116-.174.231-.144.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zM12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.662 1.435 5.176L2 22l4.957-1.3c1.465.849 3.167 1.3 5.043 1.3 5.523 0 10-4.477 10-10S17.523 2 12 2z"/>
+    </svg>
+  </a>
+
+  <script>
+    const btn = document.getElementById('floating-whatsapp')
+    if (btn) {
+      let ticking = false
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            if (window.scrollY > 300) {
+              btn.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none')
+              btn.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto')
+            } else {
+              btn.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none')
+              btn.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto')
+            }
+            ticking = false
+          })
+          ticking = true
+        }
+      })
+    }
+  </script>
 </BaseLayout>
