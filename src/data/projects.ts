@@ -13,7 +13,7 @@ const placeholder = 'https://lh3.googleusercontent.com/aida-public/AB6AXuB0_x5R3
 
 export const projects: Project[] = [
   {
-    image: placeholder,
+    image: '/gestion.jpeg',
     imageAlt: 'Gestión integral de residuos peligrosos en sector minero',
     sector: 'Sector minero',
     sectorColor: 'primary',
@@ -22,7 +22,7 @@ export const projects: Project[] = [
     href: '#',
   },
   {
-    image: placeholder,
+    image: '/industrial.jpeg',
     imageAlt: 'Planta de tratamiento de aguas residuales industrial',
     sector: 'Industrial',
     sectorColor: 'secondary',
@@ -31,7 +31,7 @@ export const projects: Project[] = [
     href: '#',
   },
   {
-    image: placeholder,
+    image: '/salud.jpeg',
     imageAlt: 'Manejo de residuos biocontaminados en sector salud',
     sector: 'Salud',
     sectorColor: 'primary',
