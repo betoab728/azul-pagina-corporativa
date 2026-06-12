@@ -9,15 +9,15 @@ import { partners } from '../data/partners'
         Cada empresa que ves aquí confió su gestión ambiental a nuestras manos
       </p>
 
-      <div class="relative bg-white shadow-xl rounded-2xl p-8 border border-outline-variant/20 overflow-hidden">
+        <div class="relative bg-white shadow-xl rounded-2xl p-10 border border-outline-variant/20 overflow-hidden">
         <!-- Logos con animación de desplazamiento -->
-        <div class="partners-track flex items-center gap-12">
+        <div class="partners-track flex items-center gap-16">
           {partners.map(partner => (
             <div class="flex-shrink-0">
               <img
                 src={partner.logo}
                 alt={`Logo de ${partner.name}`}
-                class="h-14 w-auto max-w-none object-contain transition-all duration-500"
+                class="h-20 w-auto max-w-none object-contain transition-all duration-500"
                 loading="lazy"
                 width="120"
                 height="56"
@@ -30,7 +30,7 @@ import { partners } from '../data/partners'
               <img
                 src={partner.logo}
                 alt={`Logo de ${partner.name}`}
-                class="h-14 w-auto max-w-none object-contain transition-all duration-500"
+                class="h-20 w-auto max-w-none object-contain transition-all duration-500"
                 loading="lazy"
                 width="120"
                 height="56"
