@@ -19,7 +19,7 @@ export const projects: Project[] = [
     sectorColor: 'primary',
     title: 'Gestión integral de residuos peligrosos',
     description: 'Reducimos en 30% la generación de residuos peligrosos.',
-    href: '#',
+    href: '/proyectos',
   },
   {
     image: '/industrial.jpeg',
@@ -28,7 +28,7 @@ export const projects: Project[] = [
     sectorColor: 'secondary',
     title: 'PTAR y reúso de agua industrial',
     description: 'Implementación de sistema con 90% de eficiencia.',
-    href: '#',
+    href: '/proyectos',
   },
   {
     image: '/salud.jpeg',
@@ -37,7 +37,7 @@ export const projects: Project[] = [
     sectorColor: 'primary',
     title: 'Manejo de residuos biocontaminados',
     description: 'Trazabilidad 100% segura y cumplimiento normativo.',
-    href: '#',
+    href: '/proyectos',
   },
 ]
 
