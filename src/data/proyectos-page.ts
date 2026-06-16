@@ -10,11 +10,13 @@ export interface ProjectItem {
   sector: string
   icon: string
   title: string
+  slug: string
   items: string[]
 }
 
 export interface AlsoTrusted {
   name: string
+  slug?: string
 }
 
 export const stats: StatItem[] = [
@@ -33,15 +35,15 @@ const pImg5 = 'https://lh3.googleusercontent.com/aida-public/AB6AXuDK9bqQij-IfSN
 const pImg6 = 'https://lh3.googleusercontent.com/aida-public/AB6AXuBnO361ufQvnxUhU6Lyf4tTWuOkrfNpJoO9QR-i6WSzw4vPyfT1G6PypXmxk5Npe1itRxOQGeY09FLj_dkZJW25_xchxpKUBnA46bNYaWnIl9m3_gF1EgIy5idVxS2cSCmGcZJtrmiKCNY7Rq7dOsEKEP7rVw3WVDtTcuQkplsfTp88g8aplYeH28BIB9hkfLiyBRpyfyFNjdPv__EhPhYnYB4WSjwgFtdFURGSauQRw2ffwk2U7H9-njLUEBLR7hWsGXStMgjUWy7x'
 
 export const projectsData: ProjectItem[] = [
-  { image: pImg, imageAlt: 'Barriles metálicos organizados en almacén industrial', sector: 'Minería', icon: 'precision_manufacturing', title: 'UM. ANDAYCHAGUA', items: ['Barriles metálicos postconsumo empleados en el almacenamiento de cianuro.', 'Envases de cartón utilizados como empaque secundario de explosivos y accesorios.'] },
-  { image: pImg2, imageAlt: 'Caracterización técnica de materiales industriales en laboratorio', sector: 'Caracterización', icon: 'biotech', title: 'UM. CHUNGAR', items: ['Caracterización técnica y muestreo de envases de cartón postconsumo.'] },
-  { image: pImg3, imageAlt: 'Procesamiento de contenedores metálicos en planta de reciclaje', sector: 'Minería', icon: 'factory', title: 'UM. AMERICANA', items: ['Barriles metálicos postconsumo empleados en el almacenamiento de cianuro.', 'Envases de cartón utilizados como empaque secundario de explosivos y accesorios.'] },
-  { image: pImg4, imageAlt: 'Muestreo técnico de materiales con código QR en almacén', sector: 'Muestreo', icon: 'science', title: 'UM. MOROCOCHA', items: ['Caracterización técnica y muestreo de envases de cartón postconsumo.'] },
-  { image: pImg5, imageAlt: 'Laboratorio de ensayos de peligrosidad en materiales metálicos', sector: 'Peligrosidad', icon: 'warning', title: 'UM. YAULIYACU', items: ['Caracterización de envases de cartón postconsumo.', 'Ensayo de peligrosidad en envases metálicos que contuvieron cianuro.'] },
-  { image: pImg6, imageAlt: 'Revisión de informe técnico en campo minero', sector: 'Informes', icon: 'description', title: 'UM. ISCAYCRUZ', items: ['Informe técnico de muestreo especializado.'] },
+  { image: pImg, imageAlt: 'Barriles metálicos organizados en almacén industrial', sector: 'Minería', icon: 'precision_manufacturing', title: 'UM. ANDAYCHAGUA', slug: 'andaychagua', items: ['Barriles metálicos postconsumo empleados en el almacenamiento de cianuro.', 'Envases de cartón utilizados como empaque secundario de explosivos y accesorios.'] },
+  { image: pImg2, imageAlt: 'Caracterización técnica de materiales industriales en laboratorio', sector: 'Caracterización', icon: 'biotech', title: 'UM. CHUNGAR', slug: 'chungar', items: ['Caracterización técnica y muestreo de envases de cartón postconsumo.'] },
+  { image: pImg3, imageAlt: 'Procesamiento de contenedores metálicos en planta de reciclaje', sector: 'Minería', icon: 'factory', title: 'UM. AMERICANA', slug: 'americana', items: ['Barriles metálicos postconsumo empleados en el almacenamiento de cianuro.', 'Envases de cartón utilizados como empaque secundario de explosivos y accesorios.'] },
+  { image: pImg4, imageAlt: 'Muestreo técnico de materiales con código QR en almacén', sector: 'Muestreo', icon: 'science', title: 'UM. MOROCOCHA', slug: 'morococha', items: ['Caracterización técnica y muestreo de envases de cartón postconsumo.'] },
+  { image: pImg5, imageAlt: 'Laboratorio de ensayos de peligrosidad en materiales metálicos', sector: 'Peligrosidad', icon: 'warning', title: 'UM. YAULIYACU', slug: 'yauliyacu', items: ['Caracterización de envases de cartón postconsumo.', 'Ensayo de peligrosidad en envases metálicos que contuvieron cianuro.'] },
+  { image: pImg6, imageAlt: 'Revisión de informe técnico en campo minero', sector: 'Informes', icon: 'description', title: 'UM. ISCAYCRUZ', slug: 'iscaycruz', items: ['Informe técnico de muestreo especializado.'] },
 ]
 
 export const alsoTrusted: AlsoTrusted[] = [
-  { name: 'UM. CARAHUACRA' },
-  { name: 'UM. SAN CRISTÓBAL' },
+  { name: 'UM. CARAHUACRA', slug: 'carahuacra' },
+  { name: 'UM. SAN CRISTÓBAL', slug: 'cristobal' },
 ]

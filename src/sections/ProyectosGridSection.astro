@@ -36,6 +36,15 @@ import { projectsData, alsoTrusted } from '../data/proyectos-page'
                 </li>
               ))}
             </ul>
+            <div class="mt-6 pt-6 border-t border-outline-variant/30">
+              <a
+                href={`/proyectos/${project.slug || '#'}`}
+                class="w-full bg-primary text-on-primary px-6 py-3 rounded-lg font-bold hover:bg-primary-container transition-colors flex items-center justify-center gap-2"
+              >
+                <span>Ver detalle del caso</span>
+                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+              </a>
+            </div>
           </div>
         </article>
       ))}
@@ -48,7 +57,13 @@ import { projectsData, alsoTrusted } from '../data/proyectos-page'
       </div>
       <div class="flex flex-wrap gap-4">
         {alsoTrusted.map(company => (
-          <span class="px-6 py-3 bg-white border border-outline-variant rounded-lg font-bold text-primary shadow-sm">{company.name}</span>
+          company.slug ? (
+            <a href={`/proyectos/${company.slug}`} class="px-6 py-3 bg-white border border-outline-variant rounded-lg font-bold text-primary shadow-sm hover:border-primary hover:shadow-md transition-all">
+              {company.name}
+            </a>
+          ) : (
+            <span class="px-6 py-3 bg-white border border-outline-variant rounded-lg font-bold text-primary shadow-sm">{company.name}</span>
+          )
         ))}
       </div>
     </div>
