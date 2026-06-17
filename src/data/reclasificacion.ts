@@ -65,7 +65,8 @@ export const beneficios: BeneficioItem[] = [
 ]
 
 export const casosExito: CasoExitoItem[] = [
-  { pdfIcon: 'picture_as_pdf', title: 'INFORME N° 00221-2025-MINAM/VMGA/DGCA/DCCSQ UM. CHUNGAR', pdfUrl: '#' },
-  { pdfIcon: 'picture_as_pdf', title: 'INFORME N° 00173-2023-MINAM/VMGA/DGCA/DCCSQ UM. AMERICANA', pdfUrl: '#' },
-  { pdfIcon: 'picture_as_pdf', title: 'INFORME-000086-2026-VMGA-DGCA-DCCSQ UM. LOS QUENALES', pdfUrl: '#' },
+  { pdfIcon: 'picture_as_pdf', title: 'INFORME N° 00421-2025-MINAM/VMGA/DGCA/DCCSQ - UM. ANDAYCHAGUA', pdfUrl: '/docs/pdf/1-UNIDO%202025093329%20CARTA%20N%C2%BA%2000482-2025-MINAM-VMGA-DGCA.pdf' },
+  { pdfIcon: 'picture_as_pdf', title: 'INFORME N° 00221-2025-MINAM/VMGA/DGCA/DCCSQ UM. CHUNGAR', pdfUrl: '/docs/pdf/2-2025039290-Informe-CHUNGAR.pdf' },
+  { pdfIcon: 'picture_as_pdf', title: 'INFORME N° 00173-2023-MINAM/VMGA/DGCA/DCCSQ UM. AMERICANA', pdfUrl: '/docs/pdf/3-C-217-2023-DGCA-ALPAYANA-2023201962.pdf' },
+  { pdfIcon: 'picture_as_pdf', title: 'INFORME-000086-2026-VMGA-DGCA-DCCSQ UM. LOS QUENUALES', pdfUrl: '/docs/pdf/4-INFORME-000086-2026-VMGA-DGCA-DCCSQ.pdf' },
 ]
