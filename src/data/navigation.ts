@@ -20,13 +20,18 @@ export const mainNav: NavItem[] = [
       { label: 'Caracterización de Residuos Sólidos', href: '/servicios/caracterizacion-de-residuos' },
       { label: 'Reducción del OPEX', href: '/servicios/reduccion-del-opex' },
       { label: 'Almacenes Inteligentes', href: '/servicios/almacenes-inteligentes' },
-      { label: 'Software de Trazabilidad', href: '/servicios/software-trazabilidad' },
     ],
   },
   { label: 'Acreditaciones', href: '/acreditaciones' },
   { label: 'Sectores', href: '/sectores' },
   { label: 'Proyectos', href: '/proyectos' },
   { label: 'Nosotros', href: '/nosotros' },
-  { label: 'Recursos', href: '/recursos' },
+  {
+    label: 'Recursos',
+    href: '/recursos',
+    dropdown: [
+      { label: 'Software de Trazabilidad', href: '/servicios/software-trazabilidad' },
+    ],
+  },
   { label: 'Contacto', href: '/contacto' },
 ]

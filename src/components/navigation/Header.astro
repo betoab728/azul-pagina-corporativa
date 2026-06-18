@@ -6,7 +6,9 @@ const logoUrl = '/logoazul.png'
 
 const serviceItem  = mainNav.find(item => item.label === 'Servicios')
 const serviceLinks = serviceItem?.dropdown ?? []
-const flatNavItems = mainNav.filter(item => item.label !== 'Servicios' && item.label !== 'Inicio')
+const recursosItem  = mainNav.find(item => item.label === 'Recursos')
+const recursosLinks = recursosItem?.dropdown ?? []
+const flatNavItems = mainNav.filter(item => item.label !== 'Servicios' && item.label !== 'Recursos' && item.label !== 'Inicio')
 ---
 
 <header class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-outline-variant/30 py-2">
@@ -38,6 +40,7 @@ const flatNavItems = mainNav.filter(item => item.label !== 'Servicios' && item.l
           {item.label}
         </a>
       ))}
+      <NavDropdown label="Recursos" items={recursosLinks} href="/recursos" />
     </nav>
 
     <!-- CTAs -->
@@ -109,6 +112,18 @@ const flatNavItems = mainNav.filter(item => item.label !== 'Servicios' && item.l
         {item.label}
       </a>
     ))}
+
+    <div class="py-2 border-b border-outline-variant/20">
+      <p class="text-on-surface font-semibold py-2">Recursos</p>
+      {recursosLinks.map(item => (
+        <a
+          href={item.href}
+          class="block text-on-surface-variant text-sm py-2 pl-4 hover:text-primary transition-colors"
+        >
+          {item.label}
+        </a>
+      ))}
+    </div>
 
     <a
       href="#cotizacion"
