@@ -82,7 +82,7 @@ const flatNavItems = mainNav.filter(item => item.label !== 'Servicios' && item.l
   <!-- Menú móvil -->
   <div
     id="mobile-menu"
-    class="lg:hidden fixed inset-x-0 bottom-0 bg-white z-[100] flex-col p-6 gap-1 overflow-y-auto shadow-2xl"
+    class="lg:hidden fixed inset-x-0 top-0 bg-white z-[100] flex-col p-6 gap-1 overflow-y-auto shadow-2xl"
     style="display:none"
     role="dialog"
     aria-modal="true"
@@ -144,7 +144,9 @@ const flatNavItems = mainNav.filter(item => item.label !== 'Servicios' && item.l
     function setMenuTop() {
       var header = document.querySelector('header');
       if (menu && header) {
-        menu.style.top = header.offsetHeight + 'px';
+        var headerH = header.offsetHeight;
+        menu.style.top = headerH + 'px';
+        menu.style.height = 'calc(100vh - ' + headerH + 'px)';
       }
     }
 
