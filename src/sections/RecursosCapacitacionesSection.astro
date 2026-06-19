@@ -39,7 +39,7 @@ const eventBgClasses: Record<string, string> = {
                 <h4 class="font-headline text-2xl font-bold text-on-surface mb-1">{evento.title}</h4>
                 <p class="text-on-surface-variant text-sm">{evento.description}</p>
               </div>
-              <a href="#" class="inline-flex bg-surface-container-highest font-bold px-6 py-2 rounded-full text-sm hover:bg-primary hover:text-white transition-all shrink-0">Inscribirse</a>
+              <a href={evento.pdfUrl} target="_blank" rel="noopener noreferrer" class="inline-flex bg-surface-container-highest font-bold px-6 py-2 rounded-full text-sm hover:bg-primary hover:text-white transition-all shrink-0">Ver más</a>
             </div>
           ))}
         </div>
