@@ -23,37 +23,37 @@ export const complianceItems: ComplianceItem[] = [
     icon: 'recycling',
     title: 'D.L. 1278 + Reglamentos 014-2017-MINAM y 001-2022-MINAM',
     description: 'Valida nuestra gestión de residuos municipales y no municipales con total transparencia técnica.',
-    pdfUrl: '#',
+    pdfUrl: '/docs/pdf/acreditaciones/1-D.L.-1278-Reglamento-N%C2%B0-014-2017-MINAM-y-Reglamento-N%C2%B0001-2022-MINAM.pdf',
   },
   {
     icon: 'medical_services',
     title: 'NTS 144 – MINSA – DIGESA (2018)',
     description: 'Garantiza gestión segura en establecimientos de salud y sectores médicos altamente regulados.',
-    pdfUrl: '#',
+    pdfUrl: '/docs/pdf/acreditaciones/2-NTS-144-MINSA-2018-DIGESA.pdf',
   },
   {
     icon: 'construction',
     title: 'D.S. 002-2022-VIVIENDA (RCD)',
     description: 'Respaldo legal integral para residuos de construcción y demolición en proyectos de infraestructura.',
-    pdfUrl: '#',
+    pdfUrl: '/docs/pdf/acreditaciones/3-D.S.-002-2022-VIVIENDA.pdf',
   },
   {
     icon: 'devices',
     title: 'D.S. 009-2019-MINAM (RAEE)',
     description: 'Permite manejo especializado de residuos eléctricos y electrónicos bajo estándares de economía circular.',
-    pdfUrl: '#',
+    pdfUrl: '/docs/pdf/acreditaciones/4-009-2019-minam.pdf',
   },
   {
     icon: 'agriculture',
     title: 'D.S. 016-2012-AG (Sector Agrario)',
     description: 'Cubre residuos generados en actividades agrícolas y agroindustriales con enfoque en bioseguridad.',
-    pdfUrl: '#',
+    pdfUrl: '/docs/pdf/acreditaciones/5-016-2012-ag.pdf',
   },
   {
     icon: 'water_drop',
     title: 'R.M. 128-2017-VIVIENDA (Lodos)',
     description: 'Marco técnico riguroso para el manejo y disposición final de lodos industriales y de saneamiento.',
-    pdfUrl: '#',
+    pdfUrl: '/docs/pdf/acreditaciones/6-RM_128-2017-VIVIENDA.pdf',
   },
 ]
 
@@ -62,24 +62,24 @@ export const logisticas: LogisticaItem[] = [
     icon: 'local_shipping',
     title: 'Autorización del MTC',
     description: 'Permite operaciones logísticas y traslados seguros vinculados a la gestión de residuos en territorio nacional.',
-    pdfUrl: '#',
+    pdfUrl: '/docs/pdf/licencias/1-mtc.pdf',
   },
   {
     icon: 'anchor',
     title: 'Licencia Portuaria – Callao / Chancay',
     description: 'Habilita operaciones especializadas en zona portuaria y rutas marítimas estratégicas.',
-    pdfUrl: '#',
+    pdfUrl: '/docs/pdf/licencias/2-003-2024-APN-GG-SRR.pdf',
   },
   {
     icon: 'directions_boat',
     title: 'Licencia Portuaria – Paita',
     description: 'Amplía nuestra cobertura logística integral en la región norte para servicios de exportación y gestión marítima.',
-    pdfUrl: '#',
+    pdfUrl: '/docs/pdf/licencias/3-005-2024-APN-GG-SRR.pdf',
   },
 ]
 
 export const homologaciones: HomologacionItem[] = [
-  { icon: 'nearby', title: 'RESIDUOS SÓLIDOS PELIGROSOS Y NO PELIGROSOS', pdfUrl: '#' },
-  { icon: 'assessment', title: 'SERVICIO DE CONSULTORIA AMBIENTAL', pdfUrl: '#' },
-  { icon: 'phishing', title: 'PESCA INDUSTRIAL, ARTESANAL Y DEPORTIVA', pdfUrl: '#' },
+  { icon: 'nearby', title: 'RESIDUOS SÓLIDOS PELIGROSOS Y NO PELIGROSOS', pdfUrl: '/docs/pdf/homologaciones/1-CERTIFICADO-HOMOLOGACION-2025-RESIDUOS-SOLIDOS-PELIGROSOS-Y-NO-PELIGROSOS.pdf' },
+  { icon: 'assessment', title: 'SERVICIO DE CONSULTORIA AMBIENTAL', pdfUrl: '/docs/pdf/homologaciones/2-CERTIFICADO-HOMOLOGACION-2025-MINERO.pdf' },
+  { icon: 'phishing', title: 'PESCA INDUSTRIAL, ARTESANAL Y DEPORTIVA', pdfUrl: '/docs/pdf/homologaciones/3-CERTIFICADO-HOMOLOGACION-2025-PESCA-INDUSTRIAL-ARTESANAL-Y-DEPORTIVA.pdf' },
 ]
