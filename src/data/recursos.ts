@@ -39,7 +39,7 @@ export const blogArticles: BlogArticle[] = [
 ]
 
 export const eventos: EventoItem[] = [
-  { day: '01', month: 'CURSO', bgColor: 'primary', title: 'Plan de Minimización y Manejo de Residuos Sólidos No Municipales', description: 'Capacitación especializada en la elaboración e implementación del PMMRS conforme a la normativa vigente.', pdfUrl: '/docs/pdf/cursos/1-BROCHURE%20CURSO%20DE%20PMMRS-%202026.pdf' },
-  { day: '02', month: 'CURSO', bgColor: 'secondary', title: 'Estudio de Caracterización de Residuos Sólidos No Municipales', description: 'Metodología para la caracterización técnica de residuos en operaciones industriales y mineras.', pdfUrl: '/docs/pdf/cursos/2-Estudio%20de%20caracterizaci%C3%B3n%20de%20residuos%20s%C3%B3lidos%20no%20mun.pdf' },
-  { day: '03', month: 'CURSO', bgColor: 'tertiary', title: 'Gestión Municipal de Residuos Sólidos: Normativa, Operación y Financiamiento del Servicio', description: 'Curso integral sobre el marco normativo, operación y modelos de financiamiento para la gestión municipal de residuos.', pdfUrl: '/docs/pdf/cursos/3-BROCHURE%20CURSO%20GESTI%C3%93N%20MUNICIPAL%20DE%20RESIDUOS%20SOLIDOS%20(1).pdf' },
+  { day: '01', month: 'CURSO', bgColor: 'primary', title: 'Plan de Minimización y Manejo de Residuos Sólidos No Municipales', description: 'Capacitación especializada en la elaboración e implementación del PMMRS conforme a la normativa vigente.', pdfUrl: '/docs/pdf/cursos/1-curso-pmmrs-2026.pdf' },
+  { day: '02', month: 'CURSO', bgColor: 'secondary', title: 'Estudio de Caracterización de Residuos Sólidos No Municipales', description: 'Metodología para la caracterización técnica de residuos en operaciones industriales y mineras.', pdfUrl: '/docs/pdf/cursos/2-curso-caracterizacion-residuos.pdf' },
+  { day: '03', month: 'CURSO', bgColor: 'tertiary', title: 'Gestión Municipal de Residuos Sólidos: Normativa, Operación y Financiamiento del Servicio', description: 'Curso integral sobre el marco normativo, operación y modelos de financiamiento para la gestión municipal de residuos.', pdfUrl: '/docs/pdf/cursos/3-curso-gestion-municipal.pdf' },
 ]
