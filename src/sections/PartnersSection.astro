@@ -9,29 +9,25 @@ import { partners } from '../data/partners'
         Cada empresa que ves aquí confió su gestión ambiental a nuestras manos
       </p>
 
-        <div class="relative bg-white shadow-xl rounded-2xl p-10 border border-outline-variant/20 overflow-hidden">
-        <!-- Logos con animación de desplazamiento -->
-        <div class="partners-track flex items-center gap-16">
+      <div id="partners-container" class="relative bg-white shadow-xl rounded-2xl p-10 border border-outline-variant/20 overflow-hidden">
+        <div id="partners-track" class="flex items-center gap-16">
           {partners.map(partner => (
             <div class="flex-shrink-0">
               <img
                 src={partner.logo}
                 alt={`Logo de ${partner.name}`}
-                class="h-20 w-auto max-w-none object-contain transition-all duration-500"
-                loading="lazy"
+                class="h-20 w-auto max-w-none object-contain"
                 width="120"
                 height="56"
               />
             </div>
           ))}
-          <!-- Duplicado para scroll infinito sin corte -->
           {partners.map(partner => (
             <div class="flex-shrink-0">
               <img
                 src={partner.logo}
                 alt={`Logo de ${partner.name}`}
-                class="h-20 w-auto max-w-none object-contain transition-all duration-500"
-                loading="lazy"
+                class="h-20 w-auto max-w-none object-contain"
                 width="120"
                 height="56"
               />
@@ -43,21 +39,37 @@ import { partners } from '../data/partners'
   </div>
 </section>
 
-<style>
-  .partners-track {
-    animation: scroll 40s linear infinite;
-  }
+<script>
+  const track = document.getElementById('partners-track')
+  const container = document.getElementById('partners-container')
 
-  .partners-track:hover {
-    animation-play-state: paused;
-  }
+  if (track && container) {
+    let position = 0
+    const speed = 1.5
+    let paused = false
+    let halfWidth = 0
 
-  @keyframes scroll {
-    0% {
-      transform: translateX(0);
+    function updateHalfWidth() {
+      halfWidth = track.scrollWidth / 2
     }
-    100% {
-      transform: translateX(-50%);
+
+    function animate() {
+      if (!paused) {
+        position -= speed
+        if (position <= -halfWidth) {
+          position += halfWidth
+        }
+        track.style.transform = `translateX(${position}px)`
+      }
+      requestAnimationFrame(animate)
     }
+
+    updateHalfWidth()
+    window.addEventListener('resize', updateHalfWidth)
+
+    container.addEventListener('mouseenter', () => { paused = true })
+    container.addEventListener('mouseleave', () => { paused = false })
+
+    requestAnimationFrame(animate)
   }
-</style>
+</script>
