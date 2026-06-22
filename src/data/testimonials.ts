@@ -7,16 +7,13 @@ export interface Testimonial {
   rating: number
 }
 
-// TODO: Reemplazar imágenes placeholder con fotos reales
-const placeholderAvatar = 'https://lh3.googleusercontent.com/aida-public/AB6AXuB2_x5R3n88746zC_YpS1gI8W0M4F3zI6kL8S2T9W4R7P5Q3M2L1K0O9I8H7G6F5E4D3C2B1A'
-
 export const testimonials: Testimonial[] = [
   {
     quote: 'Azul Sostenible nos ayudó a cumplir la normativa y a optimizar nuestros procesos ambientales. Su equipo es altamente profesional y comprometido.',
     authorName: 'Gerente de Sostenibilidad',
     authorRole: 'Gerente de Sostenibilidad',
     authorCompany: 'Empresa Minera',
-    authorImage: placeholderAvatar,
+    authorImage: '/testimonio1.jpeg',
     rating: 5,
   },
   {
@@ -24,7 +21,7 @@ export const testimonials: Testimonial[] = [
     authorName: 'Jefe de Operaciones',
     authorRole: 'Jefe de Operaciones',
     authorCompany: 'Sector Industrial',
-    authorImage: placeholderAvatar,
+    authorImage: '/testimonio2.jpeg',
     rating: 5,
   },
   {
@@ -32,7 +29,7 @@ export const testimonials: Testimonial[] = [
     authorName: 'Director de Planta',
     authorRole: 'Director de Planta',
     authorCompany: 'Agroindustria',
-    authorImage: placeholderAvatar,
+    authorImage: '/testimonio3.jpeg',
     rating: 5,
   },
 ]
