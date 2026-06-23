@@ -1,8 +1,7 @@
 ---
 import FeatureCard from '../components/blocks/FeatureCard.astro'
 
-// TODO: Reemplazar con imagen real del cliente
-const heroBg = 'https://lh3.googleusercontent.com/aida-public/AB6AXuAwnMvHhA5Y2fAFpFNMu7EtEHiHF56e8kl6SWvboQa_rNmc4aETmX-FqjcRI-bHcQpeDtO2cQChjrZ928AgS03Lb6dkhjnVoZGfNMOcIA4gICpwd5yYTgNO6WM8kBLFwmE6qHgWu8s_3GNQDDG8_zT80iaIX01oiGMkua2sgYtiFOA6_KnyffN6XBiNjZkkdpa-qGVn54f4xsu9ESajuQ02Hihiz4cF3KssnVmlr5ZNvnKvBsllul89_HsGc3F-UIKgIReYvXwSBrAA'
+const heroBg = '/inicio-fondo.png'
 
 const featureCards = [
   { icon: 'assignment_turned_in', iconColor: 'secondary' as const, text: 'Cumplimiento normativo', href: '/acreditaciones' },
@@ -23,17 +22,17 @@ const featureCards = [
       width="1920"
       height="1080"
     />
-    <div class="absolute inset-0 hero-gradient"></div>
+    <div class="absolute inset-0 bg-black/50"></div>
   </div>
 
   <!-- Contenido -->
   <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-margin-desktop w-full">
     <div class="max-w-2xl lg:py-20">
-      <h1 class="font-headline text-[40px] md:text-[56px] lg:text-[62px] leading-[1.05] text-on-surface mb-8 font-extrabold">
-        Transformamos <span class="text-secondary">residuos</span> en impacto <span class="text-primary">sostenible.</span>
+      <h1 class="font-headline text-[40px] md:text-[56px] lg:text-[62px] leading-[1.05] text-white mb-8 font-extrabold">
+        Transformamos <span class="text-secondary">residuos</span> en impacto <span class="text-white">sostenible.</span>
       </h1>
 
-      <p class="font-body text-lg md:text-xl text-on-surface-variant mb-12 max-w-xl leading-relaxed">
+      <p class="font-body text-lg md:text-xl text-white/80 mb-12 max-w-xl leading-relaxed">
         Soluciones ambientales integrales que cumplen la normativa, reducen riesgos y generan valor sostenible.
       </p>
 
