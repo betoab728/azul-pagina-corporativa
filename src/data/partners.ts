@@ -31,4 +31,6 @@ export const partners: Partner[] = [
   { name: 'Cliente 25', logo: '/cliente-25.png' },
   { name: 'Cliente 26', logo: '/cliente-26.png' },
   { name: 'Cliente 27', logo: '/cliente-27.png' },
+  { name: 'Cliente 27', logo: '/cliente-28.png' },
+  { name: 'Cliente 27', logo: '/cliente-29.png' },
 ]
