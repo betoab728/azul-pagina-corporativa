@@ -1,5 +1,5 @@
 ---
-import { getLang } from '../../i18n/utils'
+import { getLang, getAlternates, getBasePath } from '../../i18n/utils'
 import PageLayout from '../../layouts/PageLayout.astro'
 import YauliyacuHeroSection from '../../sections/YauliyacuHeroSection.astro'
 import YauliyacuQueHicimosSection from '../../sections/YauliyacuQueHicimosSection.astro'
@@ -8,10 +8,12 @@ import YauliyacuResumenSection from '../../sections/YauliyacuResumenSection.astr
 import YauliyacuFAQSection from '../../sections/YauliyacuFAQSection.astro'
 import YauliyacuInteresSection from '../../sections/YauliyacuInteresSection.astro'
 const lang = getLang(Astro.currentLocale)
+const alternates = getAlternates(getBasePath(Astro.url.pathname))
 ---
 
 <PageLayout
   lang={lang}
+  alternates={alternates}
   title="U.M. YAULIYACU - Casos de Éxito | Azul Sostenible"
   description="Estudio de toxicidad y gestión de envases de cianuro: Un hito en ingeniería ambiental y sostenibilidad minera en la Unidad Operativa Yauliyacu."
 >

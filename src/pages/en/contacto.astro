@@ -1,14 +1,16 @@
 ---
-import { getLang } from '../../i18n/utils'
+import { getLang, getAlternates, getBasePath } from '../../i18n/utils'
 import PageLayout from '../../layouts/PageLayout.astro'
 import ContactoHeroSection from '../../sections/ContactoHeroSection.astro'
 import ContactoFormSection from '../../sections/ContactoFormSection.astro'
 import ContactoCierreSection from '../../sections/ContactoCierreSection.astro'
 const lang = getLang(Astro.currentLocale)
+const alternates = getAlternates(getBasePath(Astro.url.pathname))
 ---
 
 <PageLayout
   lang={lang}
+  alternates={alternates}
   title="Contact | Azul Sostenible"
   description="Contact us for environmental engineering solutions. Headquarters in Piura, Peru. Request a free evaluation for your company."
 >

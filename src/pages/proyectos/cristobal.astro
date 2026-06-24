@@ -1,5 +1,5 @@
 ---
-import { getLang } from '../../i18n/utils'
+import { getLang, getAlternates, getBasePath } from '../../i18n/utils'
 import PageLayout from '../../layouts/PageLayout.astro'
 import CristobalHeroSection from '../../sections/CristobalHeroSection.astro'
 import CristobalQueHicimosSection from '../../sections/CristobalQueHicimosSection.astro'
@@ -8,10 +8,12 @@ import CristobalImpactoSection from '../../sections/CristobalImpactoSection.astr
 import CristobalFAQSection from '../../sections/CristobalFAQSection.astro'
 import CristobalInteresSection from '../../sections/CristobalInteresSection.astro'
 const lang = getLang(Astro.currentLocale)
+const alternates = getAlternates(getBasePath(Astro.url.pathname))
 ---
 
 <PageLayout
   lang={lang}
+  alternates={alternates}
   title="U.M. SAN CRISTÓBAL - Caso de Éxito | Azul Sostenible"
   description="Evaluación técnica integral para la caracterización y gestión sostenible de envases secundarios en operaciones mineras de alta complejidad. Cumplimiento D.L. N° 1278."
 >

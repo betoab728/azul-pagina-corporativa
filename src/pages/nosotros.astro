@@ -1,5 +1,5 @@
 ---
-import { getLang } from '../i18n/utils'
+import { getLang, getAlternates, getBasePath } from '../i18n/utils'
 import PageLayout from '../layouts/PageLayout.astro'
 import NosotrosHeroSection from '../sections/NosotrosHeroSection.astro'
 import NosotrosAboutSection from '../sections/NosotrosAboutSection.astro'
@@ -10,10 +10,12 @@ import NosotrosMVVSection from '../sections/NosotrosMVVSection.astro'
 import NosotrosFAQSection from '../sections/NosotrosFAQSection.astro'
 import NosotrosCierreSection from '../sections/NosotrosCierreSection.astro'
 const lang = getLang(Astro.currentLocale)
+const alternates = getAlternates(getBasePath(Astro.url.pathname))
 ---
 
 <PageLayout
   lang={lang}
+  alternates={alternates}
   title="Nosotros | Azul Sostenible"
   description="Empresa especializada en la gestión de residuos sólidos, peligrosos e industriales. Conoce nuestra misión, visión, valores y servicios de ingeniería ambiental en Perú."
 >

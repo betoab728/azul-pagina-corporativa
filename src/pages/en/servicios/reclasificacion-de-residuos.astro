@@ -1,5 +1,5 @@
 ---
-import { getLang } from '../../../i18n/utils'
+import { getLang, getAlternates, getBasePath } from '../../../i18n/utils'
 import PageLayout from '../../../layouts/PageLayout.astro'
 import ReclasificacionHeroSection from '../../../sections/ReclasificacionHeroSection.astro'
 import ReclasificacionProcesoSection from '../../../sections/ReclasificacionProcesoSection.astro'
@@ -8,10 +8,12 @@ import ReclasificacionBeneficiosSection from '../../../sections/ReclasificacionB
 import ReclasificacionCasosSection from '../../../sections/ReclasificacionCasosSection.astro'
 import ReclasificacionCierreSection from '../../../sections/ReclasificacionCierreSection.astro'
 const lang = getLang(Astro.currentLocale)
+const alternates = getAlternates(getBasePath(Astro.url.pathname))
 ---
 
 <PageLayout
   lang={lang}
+  alternates={alternates}
   title="Hazardous Waste Reclassification | Azul Sostenible"
   description="Technical reclassification of hazardous waste to reduce costs and ensure environmental compliance. Documentation and full procedure management before MINAM."
 >

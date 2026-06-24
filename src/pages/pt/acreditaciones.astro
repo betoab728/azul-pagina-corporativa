@@ -1,5 +1,5 @@
 ---
-import { getLang } from '../../i18n/utils'
+import { getLang, getAlternates, getBasePath } from '../../i18n/utils'
 import PageLayout from '../../layouts/PageLayout.astro'
 import AcreditacionesHeroSection from '../../sections/AcreditacionesHeroSection.astro'
 import AcreditacionesComplianceSection from '../../sections/AcreditacionesComplianceSection.astro'
@@ -8,10 +8,12 @@ import AcreditacionesLogisticaSection from '../../sections/AcreditacionesLogisti
 import AcreditacionesHomologacionesSection from '../../sections/AcreditacionesHomologacionesSection.astro'
 import AcreditacionesCierreSection from '../../sections/AcreditacionesCierreSection.astro'
 const lang = getLang(Astro.currentLocale)
+const alternates = getAlternates(getBasePath(Astro.url.pathname))
 ---
 
 <PageLayout
   lang={lang}
+  alternates={alternates}
   title="Acreditações | Azul Sostenible"
   description="Gestão ambiental respaldada por acreditações oficiais. Conformidade garantida com as normas ambientais vigentes: D.L. 1278, MINAM, MINSA, VIVIENDA e mais."
 >

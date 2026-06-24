@@ -1,5 +1,5 @@
 ---
-import { getLang } from '../i18n/utils'
+import { getLang, getAlternates, getBasePath } from '../i18n/utils'
 import PageLayout from '../layouts/PageLayout.astro'
 import HeroSection from '../sections/HeroSection.astro'
 import AboutSection from '../sections/AboutSection.astro'
@@ -11,10 +11,12 @@ import ProjectsSection from '../sections/ProjectsSection.astro'
 import QuoteSection from '../sections/QuoteSection.astro'
 import TestimonialsSection from '../sections/TestimonialsSection.astro'
 const lang = getLang(Astro.currentLocale)
+const alternates = getAlternates(getBasePath(Astro.url.pathname))
 ---
 
 <PageLayout
   lang={lang}
+  alternates={alternates}
   title="Azul Sostenible | Ingeniería y Gestión Ambiental"
   description="Soluciones ambientales integrales que cumplen la normativa, reducen riesgos y generan valor sostenible. Gestión de residuos, ingeniería ambiental y consultoría en Perú."
 >

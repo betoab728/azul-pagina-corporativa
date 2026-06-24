@@ -327,3 +327,43 @@ const iconBg = iconColor === 'primary' ? 'bg-primary/10 text-primary' : 'bg-seco
 - 21 páginas en `src/pages/pt/` (ídem)
 
 **Validación:** `npm run build` → 63 páginas, 0 errores.
+
+---
+
+## DD-025 — SEO i18n Fase 6: hreflang alternates en las 63 páginas (2026-06-24)
+
+**Contexto:** Con 63 páginas construidas (21 ES + 21 EN + 21 PT), los motores de búsqueda necesitan señales hreflang para entender las relaciones lingüísticas entre ellas y evitar contenido duplicado.
+
+**Decisión:**
+
+1. **`getAlternates(basePath)` en `utils.ts`:** Función que recibe el path base de la página (sin prefijo de locale) y devuelve los 4 `AlternateLink` necesarios: `x-default` (apunta a ES), `es`, `en`, `pt`. Usa la constante `_siteUrl = 'https://azulsostenible.pe'`.
+2. **`getBasePath(pathname)` en `utils.ts`:** Función que extrae el path base desde `Astro.url.pathname` eliminando los prefijos `/en` y `/pt` con regex. `/en/nosotros` → `/nosotros`, `/pt/` → `/`, `/nosotros` → `/nosotros`.
+3. **Todas las 63 páginas actualizadas:** Se añade `import { getAlternates, getBasePath }`, `const alternates = getAlternates(getBasePath(Astro.url.pathname))`, y `alternates={alternates}` en `<PageLayout>`. La inyección se hace entre `lang={lang}` y `title=...` para mantener el orden semántico.
+4. **`BaseLayout` ya renderizaba hreflang:** El layout ya tenía el mapeo `{alternates.map(...)}` desde Fase 1; solo faltaba que las páginas pasaran el valor. Cero cambios en layouts.
+5. **`x-default` apunta a ES:** Convención estándar — la URL sin prefijo de locale es la canónica por defecto.
+
+**Razón:** Hreflang es imprescindible para el SEO multilingüe. Sin estos tags, Google indexa las 3 versiones como contenido duplicado y puede desindexar las versiones EN/PT. La función `getBasePath` garantiza que las páginas en `/en/*` y `/pt/*` calculen el mismo path base que sus equivalentes españolas, generando links cruzados consistentes.
+
+**Archivos modificados:**
+- `src/i18n/utils.ts` (2 funciones añadidas)
+- 63 páginas en `src/pages/` (ES, EN, PT)
+
+**Validación:** HTML generado verificado en `dist/nosotros/index.html` (ES) y `dist/en/servicios/tarifa-plana/index.html` (EN) — ambos con los 4 hreflang correctos.
+
+---
+
+## DD-026 — Fix: Header nav lookup por key en lugar de label traducido (2026-06-24)
+
+**Contexto:** Con `getMainNav('en')` cayendo a los datos ES (labels en español) y `t('nav.services')` devolviendo "Services" (EN), la búsqueda `mainNav.find(item => item.label === t('nav.services'))` no encontraba el item → dropdown de Servicios vacío en páginas EN/PT.
+
+**Decisión:**
+
+1. **`NavItem.key?: string` en `navigation.ts`:** Se añade un campo opcional `key` a la interfaz. Los ítems con rol especial en el Header reciben: `key: 'home'` (Inicio), `key: 'services'` (Servicios), `key: 'resources'` (Recursos). Los demás ítems planos no necesitan key.
+2. **Header usa `item.key` para identificar ítems:** `mainNav.find(item => item.key === 'services')` funciona independientemente del idioma del label, porque el key es locale-neutral y se mantiene incluso cuando en el futuro se llenen los arrays `en: [...]` y `pt: [...]`.
+3. **Labels de NavDropdown usan `t()`:** Los dos dropdowns del header desktop tenían labels hardcodeados en español (`label="Servicios"`, `label="Recursos"`). Se reemplazan por `label={t('nav.services')}` y `label={t('nav.resources')}` para que el botón del dropdown muestre el nombre en el idioma correcto.
+
+**Razón:** Mezclar identidad (qué item es) con presentación (cómo se llama el item) crea acoplamiento frágil. El `key` desacopla ambas responsabilidades: la identidad es estable y locale-neutral; el label es dinámico y traducible.
+
+**Archivos modificados:** `src/data/navigation.ts`, `src/components/navigation/Header.astro`
+
+**Validación:** `npm run build` → 63 páginas, 0 errores.

@@ -1,5 +1,5 @@
 ---
-import { getLang } from '../../i18n/utils'
+import { getLang, getAlternates, getBasePath } from '../../i18n/utils'
 import PageLayout from '../../layouts/PageLayout.astro'
 import AmericanaHeroSection from '../../sections/AmericanaHeroSection.astro'
 import AmericanaQueHicimosSection from '../../sections/AmericanaQueHicimosSection.astro'
@@ -7,10 +7,12 @@ import AmericanaResolucionSection from '../../sections/AmericanaResolucionSectio
 import AmericanaResumenSection from '../../sections/AmericanaResumenSection.astro'
 import AmericanaFAQSection from '../../sections/AmericanaFAQSection.astro'
 const lang = getLang(Astro.currentLocale)
+const alternates = getAlternates(getBasePath(Astro.url.pathname))
 ---
 
 <PageLayout
   lang={lang}
+  alternates={alternates}
   title="UM. AMERICANA - Caso de Éxito | Azul Sostenible"
   description="Determinación técnica para la reclasificación de envases y gestión de barriles de cianuro en la Unidad Operativa Americana. Caso de éxito avalado por el MINAM."
 >

@@ -1,5 +1,5 @@
 ---
-import { getLang } from '../../../i18n/utils'
+import { getLang, getAlternates, getBasePath } from '../../../i18n/utils'
 import PageLayout from '../../../layouts/PageLayout.astro'
 import ReduccionOpexHeroSection from '../../../sections/ReduccionOpexHeroSection.astro'
 import ReduccionOpexPorqueSection from '../../../sections/ReduccionOpexPorqueSection.astro'
@@ -8,10 +8,12 @@ import ReduccionOpexEntregablesSection from '../../../sections/ReduccionOpexEntr
 import ReduccionOpexBeneficiosSection from '../../../sections/ReduccionOpexBeneficiosSection.astro'
 import ReduccionOpexCierreSection from '../../../sections/ReduccionOpexCierreSection.astro'
 const lang = getLang(Astro.currentLocale)
+const alternates = getAlternates(getBasePath(Astro.url.pathname))
 ---
 
 <PageLayout
   lang={lang}
+  alternates={alternates}
   title="OPEX Reduction | Azul Sostenible"
   description="Strategic environmental OPEX diagnostic. Identify where money is lost and how to recover it with our specialized operational cost reduction methodology."
 >

@@ -1,5 +1,5 @@
 ---
-import { getLang } from '../../../i18n/utils'
+import { getLang, getAlternates, getBasePath } from '../../../i18n/utils'
 import PageLayout from '../../../layouts/PageLayout.astro'
 import MorocochaHeroSection from '../../../sections/MorocochaHeroSection.astro'
 import MorocochaQueHicimosSection from '../../../sections/MorocochaQueHicimosSection.astro'
@@ -7,10 +7,12 @@ import MorocochaResolucionSection from '../../../sections/MorocochaResolucionSec
 import MorocochaFAQSection from '../../../sections/MorocochaFAQSection.astro'
 import MorocochaCTASection from '../../../sections/MorocochaCTASection.astro'
 const lang = getLang(Astro.currentLocale)
+const alternates = getAlternates(getBasePath(Astro.url.pathname))
 ---
 
 <PageLayout
   lang={lang}
+  alternates={alternates}
   title="UM. MOROCOCHA - Caso de Sucesso | Azul Sostenible"
   description="Estudo integral para a avaliação técnica e normativa de embalagens de papelão para explosivos em operações minerárias. Certificação Andeslab e aval do MINAM."
 >

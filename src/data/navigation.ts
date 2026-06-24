@@ -6,6 +6,7 @@ export interface DropdownItem {
 }
 
 export interface NavItem {
+  key?: string
   label: string
   href: string
   dropdown?: DropdownItem[]
@@ -13,8 +14,9 @@ export interface NavItem {
 
 const mainNavByLocale: Record<SupportedLocale, NavItem[]> = {
   es: [
-    { label: 'Inicio', href: '/' },
+    { key: 'home', label: 'Inicio', href: '/' },
     {
+      key: 'services',
       label: 'Servicios',
       href: '#servicios',
       dropdown: [
@@ -30,6 +32,7 @@ const mainNavByLocale: Record<SupportedLocale, NavItem[]> = {
     { label: 'Proyectos', href: '/proyectos' },
     { label: 'Nosotros', href: '/nosotros' },
     {
+      key: 'resources',
       label: 'Recursos',
       href: '/recursos',
       dropdown: [

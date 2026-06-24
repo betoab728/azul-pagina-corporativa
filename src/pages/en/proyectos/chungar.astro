@@ -1,5 +1,5 @@
 ---
-import { getLang } from '../../../i18n/utils'
+import { getLang, getAlternates, getBasePath } from '../../../i18n/utils'
 import PageLayout from '../../../layouts/PageLayout.astro'
 import ChungarHeroSection from '../../../sections/ChungarHeroSection.astro'
 import ChungarQueHicimosSection from '../../../sections/ChungarQueHicimosSection.astro'
@@ -7,10 +7,12 @@ import ChungarResolucionSection from '../../../sections/ChungarResolucionSection
 import ChungarResumenSection from '../../../sections/ChungarResumenSection.astro'
 import ChungarFAQSection from '../../../sections/ChungarFAQSection.astro'
 const lang = getLang(Astro.currentLocale)
+const alternates = getAlternates(getBasePath(Astro.url.pathname))
 ---
 
 <PageLayout
   lang={lang}
+  alternates={alternates}
   title="UM. CHUNGAR - Success Story | Azul Sostenible"
   description="Optimizing waste management at the Animon Mining Unit through high-precision environmental engineering. Full compliance with D.L. No. 1278."
 >

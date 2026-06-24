@@ -1,15 +1,17 @@
 ---
-import { getLang } from '../../i18n/utils'
+import { getLang, getAlternates, getBasePath } from '../../i18n/utils'
 import PageLayout from '../../layouts/PageLayout.astro'
 import ProyectosHeroSection from '../../sections/ProyectosHeroSection.astro'
 import ProyectosStatsSection from '../../sections/ProyectosStatsSection.astro'
 import ProyectosGridSection from '../../sections/ProyectosGridSection.astro'
 import ProyectosCierreSection from '../../sections/ProyectosCierreSection.astro'
 const lang = getLang(Astro.currentLocale)
+const alternates = getAlternates(getBasePath(Astro.url.pathname))
 ---
 
 <PageLayout
   lang={lang}
+  alternates={alternates}
   title="Projetos | Azul Sostenible"
   description="Casos de sucesso na indústria mineradora peruana. Mais de 50 projetos executados com 100% de conformidade normativa em gestão de resíduos e caracterização técnica."
 >

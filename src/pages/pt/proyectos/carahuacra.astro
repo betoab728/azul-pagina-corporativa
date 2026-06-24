@@ -1,5 +1,5 @@
 ---
-import { getLang } from '../../../i18n/utils'
+import { getLang, getAlternates, getBasePath } from '../../../i18n/utils'
 import PageLayout from '../../../layouts/PageLayout.astro'
 import CarahuacraHeroSection from '../../../sections/CarahuacraHeroSection.astro'
 import CarahuacraQueHicimosSection from '../../../sections/CarahuacraQueHicimosSection.astro'
@@ -8,10 +8,12 @@ import CarahuacraResumenSection from '../../../sections/CarahuacraResumenSection
 import CarahuacraFAQSection from '../../../sections/CarahuacraFAQSection.astro'
 import CarahuacraInteresSection from '../../../sections/CarahuacraInteresSection.astro'
 const lang = getLang(Astro.currentLocale)
+const alternates = getAlternates(getBasePath(Astro.url.pathname))
 ---
 
 <PageLayout
   lang={lang}
+  alternates={alternates}
   title="U.M. CARAHUACRA - Caso de Sucesso | Azul Sostenible"
   description="Estudo técnico e avaliação de campo para a reclassificação de embalagens secundárias na U.M. Carahuacra. Conformidade normativa de 100% sob o D.L. No. 1278."
 >

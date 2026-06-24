@@ -1,5 +1,5 @@
 ---
-import { getLang } from '../../i18n/utils'
+import { getLang, getAlternates, getBasePath } from '../../i18n/utils'
 import PageLayout from '../../layouts/PageLayout.astro'
 import SoftwareTrazabilidadHeroSection from '../../sections/SoftwareTrazabilidadHeroSection.astro'
 import SoftwareTrazabilidadValueStripSection from '../../sections/SoftwareTrazabilidadValueStripSection.astro'
@@ -7,10 +7,12 @@ import SoftwareTrazabilidadConsisteSection from '../../sections/SoftwareTrazabil
 import SoftwareTrazabilidadGanaSection from '../../sections/SoftwareTrazabilidadGanaSection.astro'
 import SoftwareTrazabilidadCierreSection from '../../sections/SoftwareTrazabilidadCierreSection.astro'
 const lang = getLang(Astro.currentLocale)
+const alternates = getAlternates(getBasePath(Astro.url.pathname))
 ---
 
 <PageLayout
   lang={lang}
+  alternates={alternates}
   title="Software de Trazabilidad | Azul Sostenible"
   description="Trazabilidad digital para gestión de residuos. Control en tiempo real, cumplimiento normativo y reportes auditables para autoridades como SIGERSOL."
 >

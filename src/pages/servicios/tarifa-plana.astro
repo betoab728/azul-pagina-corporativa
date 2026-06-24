@@ -1,5 +1,5 @@
 ---
-import { getLang } from '../../i18n/utils'
+import { getLang, getAlternates, getBasePath } from '../../i18n/utils'
 import PageLayout from '../../layouts/PageLayout.astro'
 import TarifaPlanaHeroSection from '../../sections/TarifaPlanaHeroSection.astro'
 import TarifaPlanaDefinicionSection from '../../sections/TarifaPlanaDefinicionSection.astro'
@@ -9,10 +9,12 @@ import TarifaPlanaIngenieriaSection from '../../sections/TarifaPlanaIngenieriaSe
 import TarifaPlanaAlcanceSection from '../../sections/TarifaPlanaAlcanceSection.astro'
 import TarifaPlanaCierreSection from '../../sections/TarifaPlanaCierreSection.astro'
 const lang = getLang(Astro.currentLocale)
+const alternates = getAlternates(getBasePath(Astro.url.pathname))
 ---
 
 <PageLayout
   lang={lang}
+  alternates={alternates}
   title="Tarifa Plana Ambiental | Azul Sostenible"
   description="Gestión ambiental integral con tarifa fija anual. Todo incluido: recolección, saneamiento, capacitación y cumplimiento normativo garantizado por 12 meses."
 >

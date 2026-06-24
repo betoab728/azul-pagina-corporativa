@@ -1,5 +1,5 @@
 ---
-import { getLang } from '../../../i18n/utils'
+import { getLang, getAlternates, getBasePath } from '../../../i18n/utils'
 import PageLayout from '../../../layouts/PageLayout.astro'
 import ReclasificacionHeroSection from '../../../sections/ReclasificacionHeroSection.astro'
 import ReclasificacionProcesoSection from '../../../sections/ReclasificacionProcesoSection.astro'
@@ -8,10 +8,12 @@ import ReclasificacionBeneficiosSection from '../../../sections/ReclasificacionB
 import ReclasificacionCasosSection from '../../../sections/ReclasificacionCasosSection.astro'
 import ReclasificacionCierreSection from '../../../sections/ReclasificacionCierreSection.astro'
 const lang = getLang(Astro.currentLocale)
+const alternates = getAlternates(getBasePath(Astro.url.pathname))
 ---
 
 <PageLayout
   lang={lang}
+  alternates={alternates}
   title="Reclassificação de Resíduos Perigosos | Azul Sostenible"
   description="Reclassificação técnica de resíduos perigosos para reduzir custos e garantir conformidade ambiental. Análise, documentação e gestão total do processo junto ao MINAM."
 >

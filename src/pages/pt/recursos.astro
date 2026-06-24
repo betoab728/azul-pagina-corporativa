@@ -1,5 +1,5 @@
 ---
-import { getLang } from '../../i18n/utils'
+import { getLang, getAlternates, getBasePath } from '../../i18n/utils'
 import PageLayout from '../../layouts/PageLayout.astro'
 import RecursosHeroSection from '../../sections/RecursosHeroSection.astro'
 import RecursosGuiasSection from '../../sections/RecursosGuiasSection.astro'
@@ -8,10 +8,12 @@ import RecursosCapacitacionesSection from '../../sections/RecursosCapacitaciones
 import RecursosNewsletterSection from '../../sections/RecursosNewsletterSection.astro'
 import RecursosAliadosSection from '../../sections/RecursosAliadosSection.astro'
 const lang = getLang(Astro.currentLocale)
+const alternates = getAlternates(getBasePath(Astro.url.pathname))
 ---
 
 <PageLayout
   lang={lang}
+  alternates={alternates}
   title="Recursos | Azul Sostenible"
   description="Centro de conhecimento ambiental. Guias normativos, blog técnico e calendário de capacitações em gestão ambiental e sustentabilidade."
 >

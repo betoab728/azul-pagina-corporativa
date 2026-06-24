@@ -38,3 +38,31 @@ export interface AlternateLink {
   hreflang: string
   href: string
 }
+
+const _siteUrl = 'https://azulsostenible.pe'
+
+/**
+ * Dado el "base path" de la página (sin prefijo de locale, ej. '/nosotros'),
+ * devuelve los 4 AlternateLink necesarios para hreflang: x-default, es, en, pt.
+ */
+export function getAlternates(basePath: string): AlternateLink[] {
+  const suffix = basePath === '/' ? '' : basePath
+  const es = _siteUrl + suffix
+  const en = `${_siteUrl}/en${suffix}`
+  const pt = `${_siteUrl}/pt${suffix}`
+  return [
+    { hreflang: 'x-default', href: es },
+    { hreflang: 'es',        href: es },
+    { hreflang: 'en',        href: en },
+    { hreflang: 'pt',        href: pt },
+  ]
+}
+
+/**
+ * Extrae el "base path" (sin prefijo de locale) de un pathname de Astro.
+ * '/en/nosotros' → '/nosotros', '/pt/' → '/', '/nosotros' → '/nosotros'
+ */
+export function getBasePath(pathname: string): string {
+  const clean = pathname.replace(/\/en(?=\/|$)/, '').replace(/\/pt(?=\/|$)/, '').replace(/\/$/, '')
+  return clean || '/'
+}

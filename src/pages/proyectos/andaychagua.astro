@@ -1,5 +1,5 @@
 ---
-import { getLang } from '../../i18n/utils'
+import { getLang, getAlternates, getBasePath } from '../../i18n/utils'
 import PageLayout from '../../layouts/PageLayout.astro'
 import AndaychaguaHeroSection from '../../sections/AndaychaguaHeroSection.astro'
 import AndaychaguaQueHicimosSection from '../../sections/AndaychaguaQueHicimosSection.astro'
@@ -8,10 +8,12 @@ import AndaychaguaResumenSection from '../../sections/AndaychaguaResumenSection.
 import AndaychaguaFAQSection from '../../sections/AndaychaguaFAQSection.astro'
 import AndaychaguaInteresSection from '../../sections/AndaychaguaInteresSection.astro'
 const lang = getLang(Astro.currentLocale)
+const alternates = getAlternates(getBasePath(Astro.url.pathname))
 ---
 
 <PageLayout
   lang={lang}
+  alternates={alternates}
   title="UM. ANDAYCHAGUA - Casos de éxito | Azul Sostenible"
   description="Opinión técnica especializada para definir la peligrosidad de envases de cartón utilizados como empaque secundario para explosivos en la Unidad Operativa Andaychagua."
 >

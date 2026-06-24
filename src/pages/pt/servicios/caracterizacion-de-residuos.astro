@@ -1,5 +1,5 @@
 ---
-import { getLang } from '../../../i18n/utils'
+import { getLang, getAlternates, getBasePath } from '../../../i18n/utils'
 import PageLayout from '../../../layouts/PageLayout.astro'
 import CaracterizacionHeroSection from '../../../sections/CaracterizacionHeroSection.astro'
 import CaracterizacionProcesoSection from '../../../sections/CaracterizacionProcesoSection.astro'
@@ -8,10 +8,12 @@ import CaracterizacionBeneficiosSection from '../../../sections/CaracterizacionB
 import CaracterizacionCasoExitoSection from '../../../sections/CaracterizacionCasoExitoSection.astro'
 import CaracterizacionCierreSection from '../../../sections/CaracterizacionCierreSection.astro'
 const lang = getLang(Astro.currentLocale)
+const alternates = getAlternates(getBasePath(Astro.url.pathname))
 ---
 
 <PageLayout
   lang={lang}
+  alternates={alternates}
   title="Caracterização de Resíduos Sólidos | Azul Sostenible"
   description="Serviço profissional de caracterização de resíduos sólidos. Reduza seu custo de disposição final entre 30% e 80% com respaldo normativo."
 >

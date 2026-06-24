@@ -1,5 +1,5 @@
 ---
-import { getLang } from '../../../i18n/utils'
+import { getLang, getAlternates, getBasePath } from '../../../i18n/utils'
 import PageLayout from '../../../layouts/PageLayout.astro'
 import CristobalHeroSection from '../../../sections/CristobalHeroSection.astro'
 import CristobalQueHicimosSection from '../../../sections/CristobalQueHicimosSection.astro'
@@ -8,10 +8,12 @@ import CristobalImpactoSection from '../../../sections/CristobalImpactoSection.a
 import CristobalFAQSection from '../../../sections/CristobalFAQSection.astro'
 import CristobalInteresSection from '../../../sections/CristobalInteresSection.astro'
 const lang = getLang(Astro.currentLocale)
+const alternates = getAlternates(getBasePath(Astro.url.pathname))
 ---
 
 <PageLayout
   lang={lang}
+  alternates={alternates}
   title="U.M. SAN CRISTOBAL - Success Story | Azul Sostenible"
   description="Comprehensive technical evaluation for the characterization and sustainable management of secondary containers in complex mining operations. Compliance with D.L. No. 1278."
 >

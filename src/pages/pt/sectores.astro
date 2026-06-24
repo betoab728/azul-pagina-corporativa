@@ -1,15 +1,17 @@
 ---
-import { getLang } from '../../i18n/utils'
+import { getLang, getAlternates, getBasePath } from '../../i18n/utils'
 import PageLayout from '../../layouts/PageLayout.astro'
 import SectoresHeroSection from '../../sections/SectoresHeroSection.astro'
 import SectoresBentoSection from '../../sections/SectoresBentoSection.astro'
 import SectoresImpactoSection from '../../sections/SectoresImpactoSection.astro'
 import SectoresCierreSection from '../../sections/SectoresCierreSection.astro'
 const lang = getLang(Astro.currentLocale)
+const alternates = getAlternates(getBasePath(Astro.url.pathname))
 ---
 
 <PageLayout
   lang={lang}
+  alternates={alternates}
   title="Setores | Azul Sostenible"
   description="Soluções de engenharia ambiental para os setores industrial, minerário, saúde e agroindustrial. Conformidade normativa e gestão técnica especializada por indústria."
 >
