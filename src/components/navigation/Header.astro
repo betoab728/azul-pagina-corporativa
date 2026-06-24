@@ -1,5 +1,6 @@
 ---
 import NavDropdown from './NavDropdown.astro'
+import LanguageSelector from './LanguageSelector.astro'
 import type { SupportedLocale } from '../../i18n/utils'
 import { useTranslations } from '../../i18n/utils'
 import { getMainNav } from '../../data/navigation'
@@ -52,6 +53,8 @@ const flatNavItems = mainNav.filter(item => item.key !== 'services' && item.key 
 
     <!-- CTAs -->
     <div class="flex items-center gap-4">
+      <LanguageSelector lang={lang} />
+
       <a
         href="#cotizacion"
         class="hidden md:flex items-center gap-2 bg-primary-container text-white font-bold px-6 py-3 rounded-full hover:bg-primary transition-all shadow-md active:scale-95 text-sm"
@@ -131,6 +134,8 @@ const flatNavItems = mainNav.filter(item => item.key !== 'services' && item.key 
         </a>
       ))}
     </div>
+
+    <LanguageSelector lang={lang} mobile />
 
     <a
       href="#cotizacion"

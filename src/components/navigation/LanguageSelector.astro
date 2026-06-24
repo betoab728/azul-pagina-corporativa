@@ -1,0 +1,78 @@
+---
+import type { SupportedLocale } from '../../i18n/utils'
+import { useTranslations, getBasePath } from '../../i18n/utils'
+
+interface Props {
+  lang?: SupportedLocale
+  /** true → renders a compact pill row for the mobile menu */
+  mobile?: boolean
+}
+
+const { lang = 'es', mobile = false } = Astro.props
+const t = useTranslations(lang)
+
+const base = getBasePath(Astro.url.pathname)
+const seg  = base === '/' ? '' : base
+
+const options: { locale: SupportedLocale; label: string; flag: string; href: string }[] = [
+  { locale: 'es', label: t('lang.es'), flag: '🇵🇪', href: seg || '/' },
+  { locale: 'en', label: t('lang.en'), flag: '🇬🇧', href: `/en${seg || '/'}` },
+  { locale: 'pt', label: t('lang.pt'), flag: '🇧🇷', href: `/pt${seg || '/'}` },
+]
+---
+
+{!mobile ? (
+  <!-- Desktop: hover dropdown, same CSS pattern as NavDropdown -->
+  <div class="relative group h-20 flex items-center">
+    <button
+      class="flex items-center gap-1 text-on-surface-variant font-semibold hover:text-primary transition-colors text-sm py-1"
+      aria-label={t('lang.label')}
+      aria-haspopup="true"
+    >
+      <span class="material-symbols-outlined text-[18px] leading-none" aria-hidden="true">language</span>
+      <span class="uppercase tracking-wide">{lang}</span>
+      <span class="material-symbols-outlined text-sm chevron-icon" aria-hidden="true">expand_more</span>
+    </button>
+
+    <div
+      class="dropdown-menu absolute top-full right-0 w-36 bg-white border border-outline-variant/30 shadow-xl rounded-xl py-2 z-50"
+      role="menu"
+    >
+      {options.map(opt => (
+        <a
+          href={opt.href}
+          class:list={[
+            "flex items-center gap-2 px-4 py-2.5 text-sm font-semibold transition-colors",
+            "hover:bg-surface-container-low hover:text-primary",
+            opt.locale === lang ? "text-primary" : "text-on-surface-variant",
+          ]}
+          role="menuitem"
+          aria-current={opt.locale === lang ? 'page' : undefined}
+        >
+          <span aria-hidden="true">{opt.flag}</span>
+          <span>{opt.label}</span>
+        </a>
+      ))}
+    </div>
+  </div>
+) : (
+  <!-- Mobile: pill row -->
+  <div class="flex items-center gap-2 py-3 border-b border-outline-variant/20">
+    <span class="text-on-surface-variant text-sm font-semibold mr-1">{t('lang.label')}:</span>
+    {options.map(opt => (
+      <a
+        href={opt.href}
+        class:list={[
+          "flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-colors",
+          opt.locale === lang
+            ? "bg-primary text-white"
+            : "text-on-surface-variant hover:bg-surface-container hover:text-primary",
+        ]}
+        aria-current={opt.locale === lang ? 'page' : undefined}
+      >
+        <span aria-hidden="true">{opt.flag}</span>
+        <span class="uppercase">{opt.locale}</span>
+      </a>
+    ))}
+  </div>
+)}
