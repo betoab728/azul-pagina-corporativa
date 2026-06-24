@@ -1,8 +1,10 @@
 ---
 import type { SupportedLocale } from '../i18n/utils'
+import { useTranslations } from '../i18n/utils'
 import { getImpactStats } from '../data/impact'
 interface Props { lang?: SupportedLocale }
 const { lang = 'es' } = Astro.props
+const t = useTranslations(lang)
 const impactStats = getImpactStats(lang)
 const parsedStats = impactStats.map(stat => {
   const numeric = parseInt(stat.value.replace(/[^0-9]/g, ''), 10)
@@ -15,12 +17,12 @@ const parsedStats = impactStats.map(stat => {
   <div class="max-w-7xl mx-auto px-6 md:px-margin-desktop">
     <div class="bg-white border border-outline-variant/20 rounded-2xl shadow-lg p-10">
       <div class="text-center mb-8">
-        <p class="text-on-surface-variant font-bold text-sm uppercase tracking-widest">TÚ PODRÍAS SER EL PRÓXIMO</p>
+        <p class="text-on-surface-variant font-bold text-sm uppercase tracking-widest">{t('impact.prompt')}</p>
         <a
           href="#cotizacion"
           class="inline-block bg-secondary text-white text-xs font-bold px-6 py-2 rounded-full mt-2 hover:bg-secondary/90 transition-all"
         >
-          SOLICITA UNA COTIZACIÓN
+          {t('impact.cta')}
         </a>
       </div>
 

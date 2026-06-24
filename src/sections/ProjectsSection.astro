@@ -1,9 +1,11 @@
 ---
 import type { SupportedLocale } from '../i18n/utils'
+import { useTranslations } from '../i18n/utils'
 import ProjectCard from '../components/blocks/ProjectCard.astro'
 import { getProjects, getWhyChooseUs } from '../data/projects'
 interface Props { lang?: SupportedLocale }
 const { lang = 'es' } = Astro.props
+const t = useTranslations(lang)
 const projects = getProjects(lang)
 const whyChooseUs = getWhyChooseUs(lang)
 ---
@@ -11,9 +13,9 @@ const whyChooseUs = getWhyChooseUs(lang)
 <section id="proyectos" class="py-20 bg-surface-container-low" aria-labelledby="projects-heading">
   <div class="max-w-7xl mx-auto px-6 md:px-margin-desktop">
     <div class="text-center mb-16">
-      <span class="text-secondary font-bold text-sm uppercase tracking-widest">PROYECTOS DESTACADOS</span>
+      <span class="text-secondary font-bold text-sm uppercase tracking-widest">{t('section.projects')}</span>
       <h2 id="projects-heading" class="font-headline text-4xl md:text-5xl font-extrabold mt-4">
-        Conoce algunos de nuestros logros
+        {t('projects.tagline')}
       </h2>
     </div>
 
@@ -30,9 +32,9 @@ const whyChooseUs = getWhyChooseUs(lang)
       <!-- Sidebar: Por qué elegirnos -->
       <aside class="w-full lg:w-1/3 bg-white p-10 rounded-[32px] border border-outline-variant/20 shadow-xl relative overflow-hidden">
         <h3 class="font-headline text-2xl font-extrabold text-primary mb-8 leading-tight">
-          ¿Por qué elegir<br />Azul Sostenible?
+          {t('projects.why_title')}
         </h3>
-        <ul class="space-y-4" aria-label="Razones para elegirnos">
+        <ul class="space-y-4" aria-label={t('section.why_us')}>
           {whyChooseUs.map(reason => (
             <li class="flex items-start gap-3">
               <div class="w-5 h-5 bg-secondary rounded-full flex items-center justify-center shrink-0 mt-1" aria-hidden="true">

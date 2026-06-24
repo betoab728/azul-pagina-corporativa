@@ -1,16 +1,19 @@
 ---
 import type { SupportedLocale } from '../i18n/utils'
+import { useTranslations } from '../i18n/utils'
 import FeatureCard from '../components/blocks/FeatureCard.astro'
 
 const heroBg = '/fondohero.jpeg'
 
-const featureCards = [
-  { icon: 'assignment_turned_in', iconColor: 'secondary' as const, text: 'Cumplimiento normativo', href: '/acreditaciones' },
-  { icon: 'savings',              iconColor: 'primary'   as const, text: 'Reducción de costos',   href: '/servicios/tarifa-plana' },
-  { icon: 'trending_up',          iconColor: 'secondary' as const, text: 'Impacto medible',        href: '/servicios/software-trazabilidad' },
-]
 interface Props { lang?: SupportedLocale }
 const { lang = 'es' } = Astro.props
+const t = useTranslations(lang)
+
+const featureCards = [
+  { icon: 'assignment_turned_in', iconColor: 'secondary' as const, text: t('hero.feature.compliance'),    href: '/acreditaciones' },
+  { icon: 'savings',              iconColor: 'primary'   as const, text: t('hero.feature.cost_reduction'), href: '/servicios/tarifa-plana' },
+  { icon: 'trending_up',          iconColor: 'secondary' as const, text: t('hero.feature.impact'),         href: '/servicios/software-trazabilidad' },
+]
 ---
 
 <section id="inicio" class="relative min-h-[100dvh] flex items-center pt-20 overflow-hidden">
@@ -32,15 +35,15 @@ const { lang = 'es' } = Astro.props
   <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-margin-desktop w-full">
     <div class="max-w-2xl lg:py-20">
       <h1 class="font-headline text-[40px] md:text-[56px] lg:text-[62px] leading-[1.05] text-white mb-8 font-extrabold">
-        Transformamos <span class="text-secondary">residuos</span> en impacto <span class="text-white">sostenible.</span>
+        {t('hero.title.pre')} <span class="text-secondary">{t('hero.title.highlight')}</span> {t('hero.title.post')}
       </h1>
 
       <p class="font-body text-lg md:text-xl text-white/80 mb-12 max-w-xl leading-relaxed">
-        Soluciones ambientales integrales que cumplen la normativa, reducen riesgos y generan valor sostenible.
+        {t('hero.subtitle')}
       </p>
 
       <!-- Feature cards -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12" role="list" aria-label="Propuestas de valor">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12" role="list" aria-label={t('hero.badge')}>
         {featureCards.map(card => (
           <div role="listitem">
             <FeatureCard {...card} />
@@ -55,13 +58,13 @@ const { lang = 'es' } = Astro.props
           class="inline-flex items-center justify-center gap-3 bg-secondary text-white font-bold px-6 sm:px-10 py-4 rounded-full hover:bg-secondary/90 transition-all shadow-lg active:scale-95"
         >
           <span class="material-symbols-outlined" aria-hidden="true">rocket_launch</span>
-          Cotiza tu proyecto
+          {t('hero.cta.primary')}
         </a>
         <a
           href="#cotizacion"
           class="inline-flex items-center justify-center gap-3 bg-white border-2 border-outline-variant/40 text-primary font-bold px-6 sm:px-10 py-4 rounded-full hover:bg-surface-container-low transition-all active:scale-95 shadow-sm"
         >
-          Diagnóstico ambiental gratuito
+          {t('hero.cta.secondary')}
           <span class="material-symbols-outlined text-secondary" aria-hidden="true">eco</span>
         </a>
       </div>

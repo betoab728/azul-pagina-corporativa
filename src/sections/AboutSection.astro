@@ -1,9 +1,11 @@
 ---
 import type { SupportedLocale } from '../i18n/utils'
+import { useTranslations } from '../i18n/utils'
 // TODO: Reemplazar con imagen real del equipo
 const teamImage = './somos.jpg'
 interface Props { lang?: SupportedLocale }
 const { lang = 'es' } = Astro.props
+const t = useTranslations(lang)
 ---
 
 <section id="nosotros" class="py-section-padding bg-surface">
@@ -15,7 +17,7 @@ const { lang = 'es' } = Astro.props
         <div class="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl relative z-10">
           <img
             src={teamImage}
-            alt="Equipo de Azul Sostenible trabajando en campo"
+            alt={t('about.img_alt')}
             class="w-full h-full object-cover"
             loading="lazy"
             width="600"
@@ -27,26 +29,25 @@ const { lang = 'es' } = Astro.props
 
       <!-- Texto -->
       <div class="w-full lg:w-1/2">
-        <span class="text-secondary font-bold text-sm uppercase tracking-widest mb-4 block">¿Quiénes somos?</span>
+        <span class="text-secondary font-bold text-sm uppercase tracking-widest mb-4 block">{t('section.about')}</span>
         <h2 class="font-headline text-4xl md:text-5xl text-on-surface mb-6 font-extrabold">
-          ¡Somos Azul Sostenible!
+          {t('about.headline')}
         </h2>
         <p class="font-body text-lg text-on-surface-variant mb-8 leading-relaxed">
-          ¡Somos una empresa comprometida con el desarrollo sostenible. Brindamos
-          <strong>servicios ambientales integrales</strong> con responsabilidad, innovación y respeto por nuestro entorno.
+          {t('about.body')}
         </p>
         <div class="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
           <a
             href="/contacto"
             class="bg-primary text-white font-bold px-10 py-4 rounded-full hover:bg-primary/90 transition-all shadow-lg"
           >
-            ¡Más información!
+            {t('btn.more')}
           </a>
           <a
             href="/nosotros"
             class="group flex items-center gap-2 text-primary font-bold hover:gap-4 transition-all"
           >
-            ¡Conócenos más!
+            {t('about.cta_discover')}
             <span class="material-symbols-outlined transition-transform" aria-hidden="true">arrow_forward</span>
           </a>
         </div>

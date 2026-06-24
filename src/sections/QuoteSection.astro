@@ -1,18 +1,21 @@
 ---
 import type { SupportedLocale } from '../i18n/utils'
+import { useTranslations } from '../i18n/utils'
 import QuoteForm from '../components/forms/QuoteForm.astro'
 
 // TODO: Reemplazar con foto real del asesor
 const advisorImage = 'https://plus.unsplash.com/premium_photo-1664297701028-3e9919a2574f?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
 
-const features = [
-  { icon: 'schedule',      iconColor: 'secondary' as const, title: 'Respuesta rápida',    desc: 'Menos de 24 horas.' },
-  { icon: 'verified_user', iconColor: 'primary'   as const, title: 'Asesoría experta',    desc: 'Soluciones a medida.' },
-  { icon: 'description',   iconColor: 'secondary' as const, title: 'Propuesta a medida',  desc: 'Adaptada a tus necesidades.' },
-  { icon: 'lock',          iconColor: 'primary'   as const, title: 'Confidencialidad',    desc: 'Información protegida.' },
-]
 interface Props { lang?: SupportedLocale }
 const { lang = 'es' } = Astro.props
+const t = useTranslations(lang)
+
+const features = [
+  { icon: 'schedule',      iconColor: 'secondary' as const, title: t('quote.feat1.title'), desc: t('quote.feat1.desc') },
+  { icon: 'verified_user', iconColor: 'primary'   as const, title: t('quote.feat2.title'), desc: t('quote.feat2.desc') },
+  { icon: 'description',   iconColor: 'secondary' as const, title: t('quote.feat3.title'), desc: t('quote.feat3.desc') },
+  { icon: 'lock',          iconColor: 'primary'   as const, title: t('quote.feat4.title'), desc: t('quote.feat4.desc') },
+]
 ---
 
 <section id="cotizacion" class="py-24 bg-white" aria-labelledby="quote-heading">
@@ -23,16 +26,16 @@ const { lang = 'es' } = Astro.props
       <div class="w-full lg:w-1/2">
         <div class="inline-flex items-center gap-2 bg-secondary/10 text-secondary px-4 py-2 rounded-full mb-8">
           <span class="material-symbols-outlined text-sm" aria-hidden="true">eco</span>
-          <span class="font-bold text-xs uppercase tracking-wider">COTIZACIÓN RÁPIDA</span>
+          <span class="font-bold text-xs uppercase tracking-wider">{t('section.quote')}</span>
         </div>
 
         <h2 id="quote-heading" class="font-headline text-[32px] md:text-5xl lg:text-6xl font-extrabold text-on-surface mb-8 leading-[1.1]">
-          Cotiza tu proyecto<br />
-          en <span class="text-secondary">2 minutos</span> 🍃
+          {t('quote.tagline')}<br />
+          <span class="text-secondary">2 minutos</span> 🍃
         </h2>
 
         <p class="text-lg text-on-surface-variant mb-12 max-w-lg leading-relaxed">
-          Cuéntanos sobre tu proyecto y nuestro equipo de expertos te contactará con una propuesta personalizada.
+          {t('quote.subtitle')}
         </p>
 
         <!-- Features -->
@@ -61,8 +64,8 @@ const { lang = 'es' } = Astro.props
             height="80"
           />
           <div>
-            <h4 class="font-bold text-on-surface mb-1">¿Necesitas ayuda personalizada?</h4>
-            <p class="text-sm text-on-surface-variant mb-2">Habla con un asesor especializado</p>
+            <h4 class="font-bold text-on-surface mb-1">{t('quote.help.title')}</h4>
+            <p class="text-sm text-on-surface-variant mb-2">{t('quote.help.desc')}</p>
             <a href="tel:+51969123456" class="flex items-center gap-2 text-primary font-extrabold text-lg">
               <span class="material-symbols-outlined" aria-hidden="true">call</span>
               +51 940 857666
