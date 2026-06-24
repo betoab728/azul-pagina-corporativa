@@ -1,6 +1,9 @@
 ---
+import type { SupportedLocale } from '../i18n/utils'
 // TODO: Reemplazar con imagen real del cliente
 const heroImage = '/login.png'
+interface Props { lang?: SupportedLocale }
+const { lang = 'es' } = Astro.props
 ---
 
 <section id="recursos-hero" class="py-section-padding overflow-hidden relative" style="background: linear-gradient(135deg, #f7f9fb 0%, #d7e3ff 100%);" aria-labelledby="recursos-hero-heading">

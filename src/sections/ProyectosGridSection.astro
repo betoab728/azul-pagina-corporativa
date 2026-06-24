@@ -1,5 +1,10 @@
 ---
-import { projectsData, alsoTrusted } from '../data/proyectos-page'
+import type { SupportedLocale } from '../i18n/utils'
+import { getProjectsData, getAlsoTrusted } from '../data/proyectos-page'
+interface Props { lang?: SupportedLocale }
+const { lang = 'es' } = Astro.props
+const projectsData = getProjectsData(lang)
+const alsoTrusted = getAlsoTrusted(lang)
 ---
 
 <section class="py-section-padding" aria-labelledby="proyectos-grid-heading">

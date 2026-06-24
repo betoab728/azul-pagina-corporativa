@@ -1,5 +1,9 @@
 ---
-import { fugas } from '../data/reduccion-opex'
+import type { SupportedLocale } from '../i18n/utils'
+import { getFugas } from '../data/reduccion-opex'
+interface Props { lang?: SupportedLocale }
+const { lang = 'es' } = Astro.props
+const fugas = getFugas(lang)
 ---
 
 <section class="py-section-padding bg-surface" aria-labelledby="reduccion-opex-porque-heading">

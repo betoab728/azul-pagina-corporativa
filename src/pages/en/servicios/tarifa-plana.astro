@@ -1,0 +1,26 @@
+---
+import { getLang } from '../../../i18n/utils'
+import PageLayout from '../../../layouts/PageLayout.astro'
+import TarifaPlanaHeroSection from '../../../sections/TarifaPlanaHeroSection.astro'
+import TarifaPlanaDefinicionSection from '../../../sections/TarifaPlanaDefinicionSection.astro'
+import TarifaPlanaIncluyeSection from '../../../sections/TarifaPlanaIncluyeSection.astro'
+import TarifaPlanaBeneficiosSection from '../../../sections/TarifaPlanaBeneficiosSection.astro'
+import TarifaPlanaIngenieriaSection from '../../../sections/TarifaPlanaIngenieriaSection.astro'
+import TarifaPlanaAlcanceSection from '../../../sections/TarifaPlanaAlcanceSection.astro'
+import TarifaPlanaCierreSection from '../../../sections/TarifaPlanaCierreSection.astro'
+const lang = getLang(Astro.currentLocale)
+---
+
+<PageLayout
+  lang={lang}
+  title="Environmental Flat Rate | Azul Sostenible"
+  description="Comprehensive environmental management with a fixed annual fee. All inclusive: collection, sanitation, training and guaranteed regulatory compliance for 12 months."
+>
+  <TarifaPlanaHeroSection lang={lang} />
+  <TarifaPlanaDefinicionSection lang={lang} />
+  <TarifaPlanaIncluyeSection lang={lang} />
+  <TarifaPlanaBeneficiosSection lang={lang} />
+  <TarifaPlanaIngenieriaSection lang={lang} />
+  <TarifaPlanaAlcanceSection lang={lang} />
+  <TarifaPlanaCierreSection lang={lang} />
+</PageLayout>

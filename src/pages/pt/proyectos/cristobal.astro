@@ -1,0 +1,24 @@
+---
+import { getLang } from '../../../i18n/utils'
+import PageLayout from '../../../layouts/PageLayout.astro'
+import CristobalHeroSection from '../../../sections/CristobalHeroSection.astro'
+import CristobalQueHicimosSection from '../../../sections/CristobalQueHicimosSection.astro'
+import CristobalResolucionSection from '../../../sections/CristobalResolucionSection.astro'
+import CristobalImpactoSection from '../../../sections/CristobalImpactoSection.astro'
+import CristobalFAQSection from '../../../sections/CristobalFAQSection.astro'
+import CristobalInteresSection from '../../../sections/CristobalInteresSection.astro'
+const lang = getLang(Astro.currentLocale)
+---
+
+<PageLayout
+  lang={lang}
+  title="U.M. SAN CRISTÓBAL - Caso de Sucesso | Azul Sostenible"
+  description="Avaliação técnica integral para a caracterização e gestão sustentável de embalagens secundárias em operações minerárias de alta complexidade. Conformidade com D.L. No. 1278."
+>
+  <CristobalHeroSection lang={lang} />
+  <CristobalQueHicimosSection lang={lang} />
+  <CristobalResolucionSection lang={lang} />
+  <CristobalImpactoSection lang={lang} />
+  <CristobalFAQSection lang={lang} />
+  <CristobalInteresSection lang={lang} />
+</PageLayout>

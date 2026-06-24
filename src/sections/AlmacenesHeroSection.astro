@@ -1,7 +1,10 @@
 ---
+import type { SupportedLocale } from '../i18n/utils'
 // TODO: Reemplazar con imagen real del cliente
 const heroBgImage = 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d'
 const bgStyle = `background: linear-gradient(rgba(0, 71, 145, 0.85), rgba(0, 110, 7, 0.4)), url('${heroBgImage}'); background-size: cover; background-position: center;`
+interface Props { lang?: SupportedLocale }
+const { lang = 'es' } = Astro.props
 ---
 
 <section id="almacenes-hero" class="relative min-h-[870px] flex items-center pt-20" style={bgStyle} aria-labelledby="almacenes-hero-heading">

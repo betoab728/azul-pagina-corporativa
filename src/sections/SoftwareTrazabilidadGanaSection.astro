@@ -1,5 +1,9 @@
 ---
-import { beneficios } from '../data/software-trazabilidad'
+import type { SupportedLocale } from '../i18n/utils'
+import { getBeneficios } from '../data/software-trazabilidad'
+interface Props { lang?: SupportedLocale }
+const { lang = 'es' } = Astro.props
+const beneficios = getBeneficios(lang)
 ---
 
 <section class="py-section-padding bg-surface-container-lowest" aria-labelledby="software-trazabilidad-gana-heading">

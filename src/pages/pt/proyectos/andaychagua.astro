@@ -1,0 +1,24 @@
+---
+import { getLang } from '../../../i18n/utils'
+import PageLayout from '../../../layouts/PageLayout.astro'
+import AndaychaguaHeroSection from '../../../sections/AndaychaguaHeroSection.astro'
+import AndaychaguaQueHicimosSection from '../../../sections/AndaychaguaQueHicimosSection.astro'
+import AndaychaguaResolucionSection from '../../../sections/AndaychaguaResolucionSection.astro'
+import AndaychaguaResumenSection from '../../../sections/AndaychaguaResumenSection.astro'
+import AndaychaguaFAQSection from '../../../sections/AndaychaguaFAQSection.astro'
+import AndaychaguaInteresSection from '../../../sections/AndaychaguaInteresSection.astro'
+const lang = getLang(Astro.currentLocale)
+---
+
+<PageLayout
+  lang={lang}
+  title="UM. ANDAYCHAGUA - Caso de Sucesso | Azul Sostenible"
+  description="Parecer técnico especializado para definir a periculosidade de embalagens de papelão usadas como embalagem secundária para explosivos na Unidade Operativa Andaychagua."
+>
+  <AndaychaguaHeroSection lang={lang} />
+  <AndaychaguaQueHicimosSection lang={lang} />
+  <AndaychaguaResolucionSection lang={lang} />
+  <AndaychaguaResumenSection lang={lang} />
+  <AndaychaguaFAQSection lang={lang} />
+  <AndaychaguaInteresSection lang={lang} />
+</PageLayout>

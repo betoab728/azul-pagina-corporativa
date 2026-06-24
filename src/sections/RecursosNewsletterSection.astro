@@ -1,3 +1,8 @@
+---
+import type { SupportedLocale } from '../i18n/utils'
+interface Props { lang?: SupportedLocale }
+const { lang = 'es' } = Astro.props
+---
 <section class="py-section-padding bg-on-surface" aria-labelledby="recursos-newsletter-heading">
   <div class="max-w-3xl mx-auto px-6 text-center space-y-8">
     <h2 id="recursos-newsletter-heading" class="font-headline text-[32px] md:text-5xl text-white font-extrabold">¿Necesitas una herramienta personalizada?</h2>

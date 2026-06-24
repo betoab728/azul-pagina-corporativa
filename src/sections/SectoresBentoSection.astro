@@ -1,8 +1,12 @@
 ---
-import { agroStats } from '../data/sectores'
+import type { SupportedLocale } from '../i18n/utils'
+import { getAgroStats } from '../data/sectores'
 
 // TODO: Reemplazar con imagen real del cliente
 const agroImage = 'https://lh3.googleusercontent.com/aida-public/AB6AXuAOt0XOReFgdNPTLTupxxFSvmzHlnwEtf21uIur9I8flNB_M4uTnGw7vHK8Ilo1zbY2lqwsmVLxpxJrdD4OytcjpuPoPsYWLUf7CrZ85nZAEr6goTvscceVzL7DY0KYwD0tFUAiFiJ_tygsSxAHCYI8N85qlm6kWEeEKDeS8xX2bfxFYvR9ba3VfTvzW77f2i651zVpuvnwuOcMqGxBCL6g-awoGuYs9pGnYEDVDWKx3T-lszCKdzSt5kCDG75O3Q1eKBJv_mh2chM0'
+interface Props { lang?: SupportedLocale }
+const { lang = 'es' } = Astro.props
+const agroStats = getAgroStats(lang)
 ---
 
 <section id="sectores-bento" class="py-section-padding" aria-labelledby="sectores-bento-heading">

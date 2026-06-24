@@ -2,23 +2,29 @@
 import BaseLayout from './BaseLayout.astro'
 import Header from '../components/navigation/Header.astro'
 import Footer from '../components/Footer.astro'
+import type { SupportedLocale, AlternateLink } from '../i18n/utils'
 
 interface Props {
   title: string
   description: string
   image?: string
   canonical?: string
+  /** Locale de la página. Por defecto 'es'. Se reenvía a BaseLayout. */
+  lang?: SupportedLocale
+  /** Links hreflang para SEO multilingüe. Se reenvían a BaseLayout. */
+  alternates?: AlternateLink[]
 }
 
 const props = Astro.props
+const { lang = 'es' } = props
 ---
 
 <BaseLayout {...props}>
-  <Header />
+  <Header lang={lang} />
   <main>
     <slot />
   </main>
-  <Footer />
+  <Footer lang={lang} />
 
   <!-- Botón flotante de WhatsApp -->
   <a

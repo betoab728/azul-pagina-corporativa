@@ -1,6 +1,9 @@
 ---
+import type { SupportedLocale } from '../i18n/utils'
 // TODO: Reemplazar con imagen real del cliente
 const heroImage = 'https://lh3.googleusercontent.com/aida-public/AB6AXuCqiqJ1oKHyDfMZ45KnQbrrLBMPr7B8r7WCnurYBz36EYa44wIC26oicLfiRQTqCUEeIqK8myADJrzxnM4lvU0oO-4J2FScC7deJaUnZ-GDKPgu4hPR65qPKbLVmcQQCilT8LvpIbYQ6l481BFUDmyuXPsfiEPI98Voz3d5vmFGsp3CsVsWILeCyGUDW02hrzjsMIfMshvLujgFN4ZIGgy9DwOytYXKL4na0THXiS7ExTTbDbulz3fuk2pr-zS6vIulC6NuISZf8Ycx'
+interface Props { lang?: SupportedLocale }
+const { lang = 'es' } = Astro.props
 ---
 
 <section id="reclasificacion-hero" class="relative h-[85vh] min-h-[600px] flex items-center overflow-hidden" aria-labelledby="reclasificacion-hero-heading">

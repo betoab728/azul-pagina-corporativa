@@ -1,0 +1,30 @@
+---
+import { getLang } from '../../i18n/utils'
+import PageLayout from '../../layouts/PageLayout.astro'
+import HeroSection from '../../sections/HeroSection.astro'
+import AboutSection from '../../sections/AboutSection.astro'
+import PartnersSection from '../../sections/PartnersSection.astro'
+import ImpactSection from '../../sections/ImpactSection.astro'
+import ServicesSection from '../../sections/ServicesSection.astro'
+import SectorsSection from '../../sections/SectorsSection.astro'
+import ProjectsSection from '../../sections/ProjectsSection.astro'
+import QuoteSection from '../../sections/QuoteSection.astro'
+import TestimonialsSection from '../../sections/TestimonialsSection.astro'
+const lang = getLang(Astro.currentLocale)
+---
+
+<PageLayout
+  lang={lang}
+  title="Azul Sostenible | Environmental Engineering & Management"
+  description="Comprehensive environmental solutions compliant with regulations, reducing risks and generating sustainable value. Waste management, environmental engineering and consulting in Peru."
+>
+  <HeroSection lang={lang} />
+  <AboutSection lang={lang} />
+  <PartnersSection lang={lang} />
+  <ImpactSection lang={lang} />
+  <ServicesSection lang={lang} />
+  <SectorsSection lang={lang} />
+  <ProjectsSection lang={lang} />
+  <QuoteSection lang={lang} />
+  <TestimonialsSection lang={lang} />
+</PageLayout>

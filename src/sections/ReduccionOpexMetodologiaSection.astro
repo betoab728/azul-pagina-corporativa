@@ -1,5 +1,9 @@
 ---
-import { metodologiaItems } from '../data/reduccion-opex'
+import type { SupportedLocale } from '../i18n/utils'
+import { getMetodologiaItems } from '../data/reduccion-opex'
+interface Props { lang?: SupportedLocale }
+const { lang = 'es' } = Astro.props
+const metodologiaItems = getMetodologiaItems(lang)
 ---
 
 <section class="py-section-padding bg-surface-container-low" aria-labelledby="reduccion-opex-metodologia-heading">

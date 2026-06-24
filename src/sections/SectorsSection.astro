@@ -1,6 +1,10 @@
 ---
+import type { SupportedLocale } from '../i18n/utils'
 import SectorCard from '../components/blocks/SectorCard.astro'
-import { sectors } from '../data/sectors'
+import { getSectors } from '../data/sectors'
+interface Props { lang?: SupportedLocale }
+const { lang = 'es' } = Astro.props
+const sectors = getSectors(lang)
 ---
 
 <section id="sectores" class="py-20 bg-white" aria-labelledby="sectors-heading">

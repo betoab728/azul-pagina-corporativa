@@ -1,0 +1,24 @@
+---
+import { getLang } from '../../../i18n/utils'
+import PageLayout from '../../../layouts/PageLayout.astro'
+import CaracterizacionHeroSection from '../../../sections/CaracterizacionHeroSection.astro'
+import CaracterizacionProcesoSection from '../../../sections/CaracterizacionProcesoSection.astro'
+import CaracterizacionIncluyeSection from '../../../sections/CaracterizacionIncluyeSection.astro'
+import CaracterizacionBeneficiosSection from '../../../sections/CaracterizacionBeneficiosSection.astro'
+import CaracterizacionCasoExitoSection from '../../../sections/CaracterizacionCasoExitoSection.astro'
+import CaracterizacionCierreSection from '../../../sections/CaracterizacionCierreSection.astro'
+const lang = getLang(Astro.currentLocale)
+---
+
+<PageLayout
+  lang={lang}
+  title="Solid Waste Characterization | Azul Sostenible"
+  description="Professional solid waste characterization service. Reduce your final disposal cost between 30% and 80% with regulatory compliance."
+>
+  <CaracterizacionHeroSection lang={lang} />
+  <CaracterizacionProcesoSection lang={lang} />
+  <CaracterizacionIncluyeSection lang={lang} />
+  <CaracterizacionBeneficiosSection lang={lang} />
+  <CaracterizacionCasoExitoSection lang={lang} />
+  <CaracterizacionCierreSection lang={lang} />
+</PageLayout>

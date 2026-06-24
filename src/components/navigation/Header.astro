@@ -1,21 +1,28 @@
 ---
 import NavDropdown from './NavDropdown.astro'
-import { mainNav } from '../../data/navigation'
+import type { SupportedLocale } from '../../i18n/utils'
+import { useTranslations } from '../../i18n/utils'
+import { getMainNav } from '../../data/navigation'
+
+interface Props { lang?: SupportedLocale }
+const { lang = 'es' } = Astro.props
+const t = useTranslations(lang)
+const mainNav = getMainNav(lang)
 
 const logoUrl = '/logoazul.png'
 
-const serviceItem  = mainNav.find(item => item.label === 'Servicios')
+const serviceItem  = mainNav.find(item => item.label === t('nav.services'))
 const serviceLinks = serviceItem?.dropdown ?? []
-const recursosItem  = mainNav.find(item => item.label === 'Recursos')
+const recursosItem  = mainNav.find(item => item.label === t('nav.resources'))
 const recursosLinks = recursosItem?.dropdown ?? []
-const flatNavItems = mainNav.filter(item => item.label !== 'Servicios' && item.label !== 'Recursos' && item.label !== 'Inicio')
+const flatNavItems = mainNav.filter(item => item.label !== t('nav.services') && item.label !== t('nav.resources') && item.label !== t('nav.home'))
 ---
 
 <header class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-outline-variant/30 py-2">
   <div class="max-w-7xl mx-auto px-6 md:px-margin-desktop flex justify-between items-center h-20">
 
     <!-- Logo -->
-    <a href="/" aria-label="Azul Sostenible — Ir al inicio" class="mr-4">
+    <a href="/" aria-label={t('aria.logo')} class="mr-4">
       <img
         src={logoUrl}
         alt="Azul Sostenible"
@@ -29,7 +36,7 @@ const flatNavItems = mainNav.filter(item => item.label !== 'Servicios' && item.l
     <!-- Navegación desktop -->
     <nav class="hidden lg:flex items-center gap-6" aria-label="Navegación principal">
       <a href="/" class="text-on-surface-variant font-semibold hover:text-primary transition-colors text-sm">
-        Inicio
+        {t('nav.home')}
       </a>
       <NavDropdown label="Servicios" items={serviceLinks} />
       {flatNavItems.map(item => (
@@ -50,14 +57,14 @@ const flatNavItems = mainNav.filter(item => item.label !== 'Servicios' && item.l
         class="hidden md:flex items-center gap-2 bg-primary-container text-white font-bold px-6 py-3 rounded-full hover:bg-primary transition-all shadow-md active:scale-95 text-sm"
       >
         <span class="material-symbols-outlined text-base" aria-hidden="true">rocket_launch</span>
-        Cotiza tu proyecto
+        {t('nav.cta')}
       </a>
 
       <!-- WhatsApp -->
       <a
         href="https://wa.me/51936602578"
         class="w-12 h-12 bg-[#25d366] text-white rounded-full flex items-center justify-center hover:bg-[#128c7e] transition-colors shadow-md"
-        aria-label="Contactar por WhatsApp"
+        aria-label={t('aria.whatsapp')}
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -70,7 +77,7 @@ const flatNavItems = mainNav.filter(item => item.label !== 'Servicios' && item.l
       <button
         id="mobile-menu-btn"
         class="lg:hidden p-2 text-on-surface rounded-lg hover:bg-surface-container transition-colors"
-        aria-label="Abrir menú de navegación"
+        aria-label={t('aria.open_menu')}
         aria-expanded="false"
         aria-controls="mobile-menu"
       >
@@ -86,14 +93,14 @@ const flatNavItems = mainNav.filter(item => item.label !== 'Servicios' && item.l
     style="display:none"
     role="dialog"
     aria-modal="true"
-    aria-label="Menú de navegación"
+    aria-label={t('aria.main_nav')}
   >
     <a href="/" class="text-on-surface font-semibold py-3 border-b border-outline-variant/20 hover:text-primary">
-      Inicio
+      {t('nav.home')}
     </a>
 
     <div class="py-2 border-b border-outline-variant/20">
-      <p class="text-on-surface font-semibold py-2">Servicios</p>
+      <p class="text-on-surface font-semibold py-2">{t('nav.services')}</p>
       {serviceLinks.map(item => (
         <a
           href={item.href}
@@ -114,7 +121,7 @@ const flatNavItems = mainNav.filter(item => item.label !== 'Servicios' && item.l
     ))}
 
     <div class="py-2 border-b border-outline-variant/20">
-      <p class="text-on-surface font-semibold py-2">Recursos</p>
+      <p class="text-on-surface font-semibold py-2">{t('nav.resources')}</p>
       {recursosLinks.map(item => (
         <a
           href={item.href}
@@ -130,7 +137,7 @@ const flatNavItems = mainNav.filter(item => item.label !== 'Servicios' && item.l
       class="mt-6 flex items-center justify-center gap-2 bg-secondary text-white font-bold px-6 py-4 rounded-full hover:bg-secondary/90 transition-all"
     >
       <span class="material-symbols-outlined" aria-hidden="true">rocket_launch</span>
-      Cotiza tu proyecto
+      {t('nav.cta')}
     </a>
   </div>
 </header>

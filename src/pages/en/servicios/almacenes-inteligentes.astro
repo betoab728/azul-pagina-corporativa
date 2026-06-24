@@ -1,0 +1,24 @@
+---
+import { getLang } from '../../../i18n/utils'
+import PageLayout from '../../../layouts/PageLayout.astro'
+import AlmacenesHeroSection from '../../../sections/AlmacenesHeroSection.astro'
+import AlmacenesProblemaSection from '../../../sections/AlmacenesProblemaSection.astro'
+import AlmacenesSolucionesSection from '../../../sections/AlmacenesSolucionesSection.astro'
+import AlmacenesValorSection from '../../../sections/AlmacenesValorSection.astro'
+import AlmacenesBeneficiosSection from '../../../sections/AlmacenesBeneficiosSection.astro'
+import AlmacenesCierreSection from '../../../sections/AlmacenesCierreSection.astro'
+const lang = getLang(Astro.currentLocale)
+---
+
+<PageLayout
+  lang={lang}
+  title="Smart Warehouses | Azul Sostenible"
+  description="We transform storage spaces into strategic tools for cost reduction and environmental value generation. Smart infrastructure for the circular economy."
+>
+  <AlmacenesHeroSection lang={lang} />
+  <AlmacenesProblemaSection lang={lang} />
+  <AlmacenesSolucionesSection lang={lang} />
+  <AlmacenesValorSection lang={lang} />
+  <AlmacenesBeneficiosSection lang={lang} />
+  <AlmacenesCierreSection lang={lang} />
+</PageLayout>

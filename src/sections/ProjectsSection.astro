@@ -1,6 +1,11 @@
 ---
+import type { SupportedLocale } from '../i18n/utils'
 import ProjectCard from '../components/blocks/ProjectCard.astro'
-import { projects, whyChooseUs } from '../data/projects'
+import { getProjects, getWhyChooseUs } from '../data/projects'
+interface Props { lang?: SupportedLocale }
+const { lang = 'es' } = Astro.props
+const projects = getProjects(lang)
+const whyChooseUs = getWhyChooseUs(lang)
 ---
 
 <section id="proyectos" class="py-20 bg-surface-container-low" aria-labelledby="projects-heading">

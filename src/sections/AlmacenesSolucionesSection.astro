@@ -1,8 +1,12 @@
 ---
-import { bentoItems } from '../data/almacenes-inteligentes'
+import type { SupportedLocale } from '../i18n/utils'
+import { getBentoItems } from '../data/almacenes-inteligentes'
 
 // TODO: Reemplazar con imagen real del cliente
 const bentoImage = 'https://lh3.googleusercontent.com/aida-public/AB6AXuAJRsp16KIzwB0IhOoNepTbacB9wSa-p5bO21RjbLbvmkEnzPkPMFaxlIU_C0Rz_bJGhcopa3Ea0THYTkGzBeM03n5ZQmjOLL2FSDY_3zkTCuA1nXA0TyiPNrC0-Syauu80Z8Uh59VSL_2_kh2nz6RXhZHYTTRUcyj59e7BeztcfeP5NKMzn8nIwBQpNQELoSlaatw7usyYES6VE3vIPw6rGooCSz2O8rz9RahOel6HyhcdG2Zerd6xBUHILubNIq2N8_oBjlCgzFt9'
+interface Props { lang?: SupportedLocale }
+const { lang = 'es' } = Astro.props
+const bentoItems = getBentoItems(lang)
 ---
 
 <section class="py-section-padding bg-surface-container-low" aria-labelledby="almacenes-soluciones-heading">

@@ -1,0 +1,24 @@
+---
+import { getLang } from '../../../i18n/utils'
+import PageLayout from '../../../layouts/PageLayout.astro'
+import YauliyacuHeroSection from '../../../sections/YauliyacuHeroSection.astro'
+import YauliyacuQueHicimosSection from '../../../sections/YauliyacuQueHicimosSection.astro'
+import YauliyacuResolucionSection from '../../../sections/YauliyacuResolucionSection.astro'
+import YauliyacuResumenSection from '../../../sections/YauliyacuResumenSection.astro'
+import YauliyacuFAQSection from '../../../sections/YauliyacuFAQSection.astro'
+import YauliyacuInteresSection from '../../../sections/YauliyacuInteresSection.astro'
+const lang = getLang(Astro.currentLocale)
+---
+
+<PageLayout
+  lang={lang}
+  title="U.M. YAULIYACU - Caso de Sucesso | Azul Sostenible"
+  description="Estudo de toxicidade e gestão de embalagens de cianeto: Um marco em engenharia ambiental e sustentabilidade mineira na Unidade Operativa Yauliyacu."
+>
+  <YauliyacuHeroSection lang={lang} />
+  <YauliyacuQueHicimosSection lang={lang} />
+  <YauliyacuResolucionSection lang={lang} />
+  <YauliyacuResumenSection lang={lang} />
+  <YauliyacuFAQSection lang={lang} />
+  <YauliyacuInteresSection lang={lang} />
+</PageLayout>

@@ -1,6 +1,9 @@
 ---
+import type { SupportedLocale } from '../i18n/utils'
 // TODO: Reemplazar con imagen real del cliente
 const procesoImage = '/reclasificacion-analisis.jpeg'
+interface Props { lang?: SupportedLocale }
+const { lang = 'es' } = Astro.props
 ---
 
 <section class="py-section-padding bg-surface" aria-labelledby="reclasificacion-proceso-heading">

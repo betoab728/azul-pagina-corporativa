@@ -240,3 +240,90 @@ const iconBg = iconColor === 'primary' ? 'bg-primary/10 text-primary' : 'bg-seco
 **Razón:** Consistencia con el patrón de páginas de servicio. Incluye hero con gradiente primary, value strip, sección "¿En qué consiste?" con 4 fases (Generación, Almacenamiento, Transporte, Valorización), bento grid "¿Qué gana tu empresa?" con 5 beneficios de distintas variantes (white, dark, white-box, green-box), y CTA de cierre con botones duales.
 
 **Componentes reutilizados:** `PageLayout`. Sin nuevos componentes reutilizables.
+
+---
+
+## DD-021 — Infraestructura i18n: Fase 1 (2026-06-24)
+
+**Contexto:** El sitio debe soportar tres idiomas (ES, EN, PT). Se implementa la Fase 1 del plan de migración i18n: solo la capa de infraestructura, sin traducir contenido ni crear páginas EN/PT.
+
+**Decisión:** Se establece la infraestructura completa con los siguientes componentes:
+
+1. **Motor i18n:** Se usa el sistema de routing i18n nativo de Astro 6 (`i18n` en `astro.config.mjs`). Cero dependencias externas.
+2. **`prefixDefaultLocale: false`:** Las URLs españolas existentes no se modifican (`/acreditaciones`, no `/es/acreditaciones`). El sitio español es totalmente backward-compatible.
+3. **`site`:** Se añade `site: 'https://azulsostenible.pe'` al config para que los helpers `getAbsoluteLocaleUrl()` y el sitemap futuro funcionen con la URL correcta.
+4. **Sin `fallback` en Fase 1:** El config `fallback` se omite porque no existen páginas EN/PT aún. Se añadirá en Fase 4 cuando se creen esas páginas.
+5. **`src/i18n/utils.ts`:** Exporta `SupportedLocale`, `TranslationKey`, `defaultLocale`, `supportedLocales`, `getLang()`, `useTranslations()`, `ogLocaleMap`, `AlternateLink`.
+6. **`src/i18n/ui.ts`:** Diccionario completo con los 3 locales populados desde el inicio (no solo ES). Se decidió poblar EN y PT ahora porque los strings ya estaban definidos en la arquitectura aprobada y añadirlos después sería un paso adicional innecesario.
+7. **`BaseLayout.astro`:** Acepta `lang?: SupportedLocale` (default `'es'`) y `alternates?: AlternateLink[]` (default `[]`). El `<html lang>` y `og:locale` son ahora dinámicos. Los hreflang se renderizan solo si `alternates` tiene items. Las páginas existentes no se modifican — el default `'es'` garantiza comportamiento idéntico.
+8. **`PageLayout.astro`:** Acepta y reenvía `lang` y `alternates` a `BaseLayout` vía el spread `{...props}` existente. Solo se añaden las declaraciones de tipo; sin cambio de comportamiento.
+
+**Razón:** La Fase 1 establece la base técnica sin cambios visibles. El sitio español funciona idéntico. Las páginas EN/PT podrán crearse en Fase 4 simplemente pasando `lang="en"` o `lang="pt"` a `PageLayout` y un array `alternates`.
+
+**Decisión sobre slugs:** Se implementará con mismos slugs en Fase 4 (prefijo de locale únicamente: `/en/servicios/tarifa-plana`). Slugs traducidos (`/en/services/flat-rate`) se evalúan como tarea posterior si el cliente lo requiere.
+
+**Archivos creados:** `src/i18n/utils.ts`, `src/i18n/ui.ts`
+**Archivos modificados:** `astro.config.mjs`, `src/layouts/BaseLayout.astro`, `src/layouts/PageLayout.astro`
+
+---
+
+## DD-022 — Capa de datos i18n: Fase 2 (2026-06-24)
+
+**Contexto:** Con la infraestructura i18n de Fase 1 lista, se migra la capa de datos (`src/data/*.ts`) al patrón locale-keyed para preparar las traducciones de contenido sin romper las secciones existentes.
+
+**Decisión:** Los 19 archivos de datos se convierten al patrón `Record<SupportedLocale, T[]>` con los siguientes principios:
+
+1. **Patrón para arrays:** `const xByLocale: Record<SupportedLocale, X[]>` con `es: [datos existentes]`, `en: []`, `pt: []`. Accessor `getX(locale)` con fallback a ES si el locale solicitado está vacío.
+2. **Patrón para objetos singulares** (`procesoItemDestacado` en `caracterizacion.ts`): `Record<SupportedLocale, X | null>` con `es: objeto`, `en: null`, `pt: null`. Accessor `getX(locale)` con `?? .es!`.
+3. **Backward-compat exports:** Cada archivo mantiene los exports nombrados originales apuntando a `xByLocale.es`. Las secciones no se tocan en esta fase — seguirán importando `import { x } from '...'` sin cambios.
+4. **Colisión de nombres en `sectores.ts`:** El accessor se renombra `getSectoresImpactStats()` para evitar conflicto con el `impactStats` de `impact.ts` cuando ambos se importen juntos en Fase 3.
+5. **Sin modificar secciones:** Las ~50 secciones se actualizarán en Fase 3 en un único paso coherente (añadir prop `lang`, usar `getX(lang)` en lugar del export compat, extraer strings con `t()`).
+
+**Razón:** Separar la migración de datos de la migración de secciones reduce el riesgo de regresiones. Si Phase 3 introduce un bug, es localizable a las secciones sin involucrar los datos. El patrón de exports compat garantiza zero cambios de comportamiento hasta Fase 3.
+
+**Archivos modificados (19):**
+`services.ts`, `sectors.ts`, `testimonials.ts`, `impact.ts`, `partners.ts`, `contacto.ts`, `navigation.ts`, `projects.ts`, `sectores.ts`, `acreditaciones.ts`, `nosotros.ts`, `recursos.ts`, `caracterizacion.ts`, `tarifa-plana.ts`, `reduccion-opex.ts`, `reclasificacion.ts`, `almacenes-inteligentes.ts`, `software-trazabilidad.ts`, `proyectos-page.ts`
+
+**Validación:** `npm run build` → 21 páginas, 0 errores nuevos.
+
+---
+
+## DD-023 — Cableado i18n Fase 3: lang prop en secciones y páginas (2026-06-24)
+
+**Contexto:** Con la capa de datos locale-keyed lista (Fase 2), se conecta el flujo de `lang` desde las páginas hasta cada sección para que el contenido respete el locale del visitante.
+
+**Decisión:**
+
+1. **Scaffold de secciones (120 archivos):** Todas las secciones reciben `interface Props { lang?: SupportedLocale }` + `const { lang = 'es' } = Astro.props`. Para las 54 que no tenían frontmatter, se añadió un bloque `---` completo.
+2. **Migración de secciones data-backed (42 archivos):** Se reemplaza el import compat (`import { x }`) por el accessor (`import { getX }`), y se añade `const x = getX(lang)` inmediatamente después de la declaración de `lang`. El orden correcto (imports → interface → lang → accessor calls → cómputos derivados) se verificó caso a caso; única excepción: `ImpactSection` que tenía `const parsedStats = impactStats.map(...)` antes de la declaración — se reordenó manualmente.
+3. **Páginas (21 archivos):** Se añade `import { getLang } from '../i18n/utils'` (o `../../` para subpáginas), `const lang = getLang(Astro.currentLocale)`, `lang={lang}` en `<PageLayout>`, y `lang={lang}` en todas las llamadas a secciones.
+4. **Scaffolding de infraestructura** (previo a este DD): `ui.ts` recibió la clave `btn.open_pdf`; `PageLayout.astro`, `Header.astro` y `Footer.astro` ya tenían el patrón correcto desde sesión anterior.
+
+**Razón:** Separar las tres capas (datos, secciones, páginas) facilita detectar en qué capa ocurre un bug de locale. El patrón `getLang(Astro.currentLocale)` en la capa de páginas garantiza que si Astro no puede determinar el locale (ruta sin prefijo), se usa 'es' por defecto.
+
+**Archivos modificados:**
+- 120 secciones en `src/sections/`
+- 21 páginas en `src/pages/`
+
+**Validación:** `npm run build` → 21 páginas, 0 errores.
+
+---
+
+## DD-024 — Rutas i18n Fases 4 y 5: páginas /en/* y /pt/* (2026-06-24)
+
+**Contexto:** Con el flujo de `lang` completo (Fase 3), se crean las rutas estáticas para inglés y portugués bajo `/en/` y `/pt/` respectivamente.
+
+**Decisión:**
+
+1. **Espejado de páginas:** Cada una de las 21 páginas españolas tiene un mirror en `src/pages/en/` y `src/pages/pt/`, totalizando 63 páginas. Los mirrors son copias con:
+   - Rutas de import ajustadas (un nivel extra de `../` por cada subdirectorio adicional)
+   - `title` y `description` de `<PageLayout>` traducidos al inglés / portugués
+2. **Profundidades de import:** La transformación `from '../` → `from '../../` funciona universalmente: aplica en cadena para páginas top-level (1 nivel) y para páginas anidadas (2 niveles), produciendo los prefijos correctos `../../` y `../../../` respectivamente.
+3. **Contenido con fallback:** Las páginas `/en/*` y `/pt/*` muestran contenido en español por ahora (los arrays `en: [], pt: []` en los datos caen back a ES). Las traducciones de contenido se añadirán gradualmente llenando esos arrays — las rutas y el flujo de `lang` ya están listos.
+4. **`getLang(Astro.currentLocale)`:** Astro inyecta el locale correcto ('en' / 'pt') para páginas bajo `/en/` y `/pt/`, por lo que los mirrors no necesitan hardcodear el lang — el mecanismo de Fase 3 funciona automáticamente.
+
+**Archivos creados:**
+- 21 páginas en `src/pages/en/` (top-level + proyectos/* + servicios/*)
+- 21 páginas en `src/pages/pt/` (ídem)
+
+**Validación:** `npm run build` → 63 páginas, 0 errores.

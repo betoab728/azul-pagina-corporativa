@@ -1,8 +1,12 @@
 ---
-import { checklistItems } from '../data/nosotros'
+import type { SupportedLocale } from '../i18n/utils'
+import { getChecklistItems } from '../data/nosotros'
 
 // TODO: Reemplazar con imagen real del cliente
 const aboutImage = '/nosotrosabout.jpeg'
+interface Props { lang?: SupportedLocale }
+const { lang = 'es' } = Astro.props
+const checklistItems = getChecklistItems(lang)
 ---
 
 <section class="py-section-padding" aria-labelledby="nosotros-about-heading">

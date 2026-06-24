@@ -1,5 +1,8 @@
 ---
+import type { SupportedLocale } from '../i18n/utils'
 const heroImage = 'https://lh3.googleusercontent.com/aida-public/AB6AXuD9Fh_B8Xu9CuTIR-wNjyJGE_F7GSPNCf9v2npia-Oa0pLUyEAsNCno7AblvUCKrwjBJQsmPvn2Ndv2-3ebFY9XuQjOyu2ECI8gJv7f0tiR5UML3RyvIGjpTRqpxw3pegP-Xe2NAghdHxaQo4T2NzyoednGLp80_OxrcBFpdyduvJv3UNclEtqsYkA9gJEnMW55Ffgw0J7E-x5YD1ghispoIym8GkLK3ZXHk2U1TU5qsZIRvx0teGaFPeEt32O2NW6GWlxWM68uTFIQ'
+interface Props { lang?: SupportedLocale }
+const { lang = 'es' } = Astro.props
 ---
 
 <section id="chungar-hero" class="relative min-h-[400px] md:h-[614px] flex items-center overflow-hidden" aria-labelledby="chungar-hero-heading">

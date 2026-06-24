@@ -1,5 +1,9 @@
 ---
-import { homologaciones } from '../data/acreditaciones'
+import type { SupportedLocale } from '../i18n/utils'
+import { getHomologaciones } from '../data/acreditaciones'
+interface Props { lang?: SupportedLocale }
+const { lang = 'es' } = Astro.props
+const homologaciones = getHomologaciones(lang)
 ---
 
 <section class="py-section-padding bg-surface-container-high" aria-labelledby="acreditaciones-homologaciones-heading">

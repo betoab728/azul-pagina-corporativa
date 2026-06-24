@@ -1,3 +1,8 @@
+---
+import type { SupportedLocale } from '../i18n/utils'
+interface Props { lang?: SupportedLocale }
+const { lang = 'es' } = Astro.props
+---
 <section class="py-section-padding bg-surface-container-highest" aria-labelledby="reduccion-opex-cierre-heading">
   <div class="max-w-7xl mx-auto px-6 md:px-margin-desktop text-center">
     <h2 id="reduccion-opex-cierre-heading" class="font-headline text-4xl md:text-5xl text-primary font-extrabold mb-6">Transforme su gestión ambiental en una ventaja competitiva</h2>

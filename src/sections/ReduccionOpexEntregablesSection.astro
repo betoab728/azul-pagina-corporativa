@@ -1,5 +1,9 @@
 ---
-import { entregables } from '../data/reduccion-opex'
+import type { SupportedLocale } from '../i18n/utils'
+import { getEntregables } from '../data/reduccion-opex'
+interface Props { lang?: SupportedLocale }
+const { lang = 'es' } = Astro.props
+const entregables = getEntregables(lang)
 ---
 
 <section class="py-section-padding bg-white" aria-labelledby="reduccion-opex-entregables-heading">

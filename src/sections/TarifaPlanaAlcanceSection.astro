@@ -1,5 +1,9 @@
 ---
-import { alcanceItems } from '../data/tarifa-plana'
+import type { SupportedLocale } from '../i18n/utils'
+import { getAlcanceItems } from '../data/tarifa-plana'
+interface Props { lang?: SupportedLocale }
+const { lang = 'es' } = Astro.props
+const alcanceItems = getAlcanceItems(lang)
 ---
 
 <section id="tarifa-plana-alcance" class="py-section-padding bg-surface" aria-labelledby="tarifa-plana-alcance-heading">

@@ -1,5 +1,9 @@
 ---
-import { sectoresNosotros } from '../data/nosotros'
+import type { SupportedLocale } from '../i18n/utils'
+import { getSectoresNosotros } from '../data/nosotros'
+interface Props { lang?: SupportedLocale }
+const { lang = 'es' } = Astro.props
+const sectoresNosotros = getSectoresNosotros(lang)
 ---
 
 <section class="py-section-padding" aria-labelledby="nosotros-sectores-heading">

@@ -1,3 +1,8 @@
+---
+import type { SupportedLocale } from '../i18n/utils'
+interface Props { lang?: SupportedLocale }
+const { lang = 'es' } = Astro.props
+---
 <section class="py-section-padding bg-primary text-white text-center relative overflow-hidden" aria-labelledby="software-trazabilidad-cierre-heading">
   <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none" aria-hidden="true">
     <div class="absolute -top-24 -left-24 w-96 h-96 bg-secondary rounded-full blur-3xl"></div>

@@ -1,3 +1,5 @@
+import type { SupportedLocale } from '../i18n/utils'
+
 export interface Project {
   image: string
   imageAlt: string
@@ -9,42 +11,58 @@ export interface Project {
 }
 
 // TODO: Reemplazar imágenes placeholder con imágenes reales del cliente
-const placeholder = 'https://lh3.googleusercontent.com/aida-public/AB6AXuB0_x5R3n88746zC_YpS1gI8W0M4F3zI6kL8S2T9W4R7P5Q3M2L1K0O9I8H7G6F5E4D3C2B1A'
+const projectsByLocale: Record<SupportedLocale, Project[]> = {
+  es: [
+    {
+      image: '/gestion.jpeg',
+      imageAlt: 'Gestión integral de residuos peligrosos en sector minero',
+      sector: 'Sector minero',
+      sectorColor: 'primary',
+      title: 'Gestión integral de residuos peligrosos',
+      description: 'Reducimos en 30% la generación de residuos peligrosos.',
+      href: '/proyectos',
+    },
+    {
+      image: '/industrial.jpeg',
+      imageAlt: 'Planta de tratamiento de aguas residuales industrial',
+      sector: 'Industrial',
+      sectorColor: 'secondary',
+      title: 'PTAR y reúso de agua industrial',
+      description: 'Implementación de sistema con 90% de eficiencia.',
+      href: '/proyectos',
+    },
+    {
+      image: '/salud.jpeg',
+      imageAlt: 'Manejo de residuos biocontaminados en sector salud',
+      sector: 'Salud',
+      sectorColor: 'primary',
+      title: 'Manejo de residuos biocontaminados',
+      description: 'Trazabilidad 100% segura y cumplimiento normativo.',
+      href: '/proyectos',
+    },
+  ],
+  en: [],
+  pt: [],
+}
 
-export const projects: Project[] = [
-  {
-    image: '/gestion.jpeg',
-    imageAlt: 'Gestión integral de residuos peligrosos en sector minero',
-    sector: 'Sector minero',
-    sectorColor: 'primary',
-    title: 'Gestión integral de residuos peligrosos',
-    description: 'Reducimos en 30% la generación de residuos peligrosos.',
-    href: '/proyectos',
-  },
-  {
-    image: '/industrial.jpeg',
-    imageAlt: 'Planta de tratamiento de aguas residuales industrial',
-    sector: 'Industrial',
-    sectorColor: 'secondary',
-    title: 'PTAR y reúso de agua industrial',
-    description: 'Implementación de sistema con 90% de eficiencia.',
-    href: '/proyectos',
-  },
-  {
-    image: '/salud.jpeg',
-    imageAlt: 'Manejo de residuos biocontaminados en sector salud',
-    sector: 'Salud',
-    sectorColor: 'primary',
-    title: 'Manejo de residuos biocontaminados',
-    description: 'Trazabilidad 100% segura y cumplimiento normativo.',
-    href: '/proyectos',
-  },
-]
+const whyChooseUsByLocale: Record<SupportedLocale, string[]> = {
+  es: [
+    'Experiencia local con visión global',
+    'Compromiso real con el medio ambiente',
+    'Soluciones innovadoras y efectivas',
+    'Acompañamiento personalizado',
+    'Resultados medibles y sostenibles',
+  ],
+  en: [],
+  pt: [],
+}
 
-export const whyChooseUs = [
-  'Experiencia local con visión global',
-  'Compromiso real con el medio ambiente',
-  'Soluciones innovadoras y efectivas',
-  'Acompañamiento personalizado',
-  'Resultados medibles y sostenibles',
-]
+export const getProjects = (locale: SupportedLocale): Project[] =>
+  projectsByLocale[locale].length > 0 ? projectsByLocale[locale] : projectsByLocale.es
+
+export const getWhyChooseUs = (locale: SupportedLocale): string[] =>
+  whyChooseUsByLocale[locale].length > 0 ? whyChooseUsByLocale[locale] : whyChooseUsByLocale.es
+
+// Backward-compat — remove after Phase 3
+export const projects = projectsByLocale.es
+export const whyChooseUs = whyChooseUsByLocale.es

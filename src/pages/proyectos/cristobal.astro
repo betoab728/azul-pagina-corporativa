@@ -1,4 +1,5 @@
 ---
+import { getLang } from '../../i18n/utils'
 import PageLayout from '../../layouts/PageLayout.astro'
 import CristobalHeroSection from '../../sections/CristobalHeroSection.astro'
 import CristobalQueHicimosSection from '../../sections/CristobalQueHicimosSection.astro'
@@ -6,16 +7,18 @@ import CristobalResolucionSection from '../../sections/CristobalResolucionSectio
 import CristobalImpactoSection from '../../sections/CristobalImpactoSection.astro'
 import CristobalFAQSection from '../../sections/CristobalFAQSection.astro'
 import CristobalInteresSection from '../../sections/CristobalInteresSection.astro'
+const lang = getLang(Astro.currentLocale)
 ---
 
 <PageLayout
+  lang={lang}
   title="U.M. SAN CRISTÓBAL - Caso de Éxito | Azul Sostenible"
   description="Evaluación técnica integral para la caracterización y gestión sostenible de envases secundarios en operaciones mineras de alta complejidad. Cumplimiento D.L. N° 1278."
 >
-  <CristobalHeroSection />
-  <CristobalQueHicimosSection />
-  <CristobalResolucionSection />
-  <CristobalImpactoSection />
-  <CristobalFAQSection />
-  <CristobalInteresSection />
+  <CristobalHeroSection lang={lang} />
+  <CristobalQueHicimosSection lang={lang} />
+  <CristobalResolucionSection lang={lang} />
+  <CristobalImpactoSection lang={lang} />
+  <CristobalFAQSection lang={lang} />
+  <CristobalInteresSection lang={lang} />
 </PageLayout>

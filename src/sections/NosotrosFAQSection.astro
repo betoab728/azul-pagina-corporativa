@@ -1,5 +1,9 @@
 ---
-import { faqItems } from '../data/nosotros'
+import type { SupportedLocale } from '../i18n/utils'
+import { getFaqItems } from '../data/nosotros'
+interface Props { lang?: SupportedLocale }
+const { lang = 'es' } = Astro.props
+const faqItems = getFaqItems(lang)
 ---
 
 <section class="py-section-padding" aria-labelledby="nosotros-faq-heading">

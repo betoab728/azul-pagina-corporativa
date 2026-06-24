@@ -1,4 +1,5 @@
 ---
+import { getLang } from '../i18n/utils'
 import PageLayout from '../layouts/PageLayout.astro'
 import RecursosHeroSection from '../sections/RecursosHeroSection.astro'
 import RecursosGuiasSection from '../sections/RecursosGuiasSection.astro'
@@ -6,15 +7,17 @@ import RecursosBlogSection from '../sections/RecursosBlogSection.astro'
 import RecursosCapacitacionesSection from '../sections/RecursosCapacitacionesSection.astro'
 import RecursosNewsletterSection from '../sections/RecursosNewsletterSection.astro'
 import RecursosAliadosSection from '../sections/RecursosAliadosSection.astro'
+const lang = getLang(Astro.currentLocale)
 ---
 
 <PageLayout
+  lang={lang}
   title="Recursos | Azul Sostenible"
   description="Centro de conocimiento ambiental. Guías normativas, calculadoras de impacto, blog técnico y calendario de capacitaciones en gestión ambiental y sostenibilidad."
 >
-  <RecursosHeroSection />
-  <RecursosAliadosSection />
-  <RecursosCapacitacionesSection />
-  <RecursosNewsletterSection />
+  <RecursosHeroSection lang={lang} />
+  <RecursosAliadosSection lang={lang} />
+  <RecursosCapacitacionesSection lang={lang} />
+  <RecursosNewsletterSection lang={lang} />
 
 </PageLayout>

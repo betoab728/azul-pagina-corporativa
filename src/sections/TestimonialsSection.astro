@@ -1,6 +1,10 @@
 ---
+import type { SupportedLocale } from '../i18n/utils'
 import TestimonialCard from '../components/blocks/TestimonialCard.astro'
-import { testimonials } from '../data/testimonials'
+import { getTestimonials } from '../data/testimonials'
+interface Props { lang?: SupportedLocale }
+const { lang = 'es' } = Astro.props
+const testimonials = getTestimonials(lang)
 ---
 
 <section class="pt-16 pb-24 bg-white" aria-labelledby="testimonials-heading">

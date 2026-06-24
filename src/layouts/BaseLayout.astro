@@ -1,11 +1,17 @@
 ---
 import '../styles/global.css'
+import type { SupportedLocale, AlternateLink } from '../i18n/utils'
+import { ogLocaleMap } from '../i18n/utils'
 
 interface Props {
   title: string
   description: string
   image?: string
   canonical?: string
+  /** Locale de la página. Por defecto 'es'. Controla <html lang> y og:locale. */
+  lang?: SupportedLocale
+  /** Links hreflang para SEO multilingüe. Solo se renderizan si se proveen. */
+  alternates?: AlternateLink[]
 }
 
 const {
@@ -13,9 +19,12 @@ const {
   description,
   image = '/og-image.jpg',
   canonical = Astro.url.href,
+  lang = 'es',
+  alternates = [],
 } = Astro.props
 
 const siteUrl = 'https://azulsostenible.pe'
+const ogLocale = ogLocaleMap[lang]
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -34,7 +43,7 @@ const jsonLd = {
 }
 ---
 <!doctype html>
-<html lang="es" class="scroll-smooth">
+<html lang={lang} class="scroll-smooth">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -45,13 +54,18 @@ const jsonLd = {
     <link rel="canonical" href={canonical} />
     <meta name="robots" content="index, follow" />
 
+    <!-- hreflang: se renderizan solo cuando la página provee alternates -->
+    {alternates.map(({ hreflang, href }) => (
+      <link rel="alternate" hreflang={hreflang} href={href} />
+    ))}
+
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={image} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
-    <meta property="og:locale" content="es_PE" />
+    <meta property="og:locale" content={ogLocale} />
     <meta property="og:site_name" content="Azul Sostenible" />
 
     <!-- Twitter Card -->

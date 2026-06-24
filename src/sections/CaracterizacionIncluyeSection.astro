@@ -1,5 +1,10 @@
 ---
-import { procesoItems, procesoItemDestacado } from '../data/caracterizacion'
+import type { SupportedLocale } from '../i18n/utils'
+import { getProcesoItems, getProcesoItemDestacado } from '../data/caracterizacion'
+interface Props { lang?: SupportedLocale }
+const { lang = 'es' } = Astro.props
+const procesoItems = getProcesoItems(lang)
+const procesoItemDestacado = getProcesoItemDestacado(lang)
 ---
 
 <section class="py-section-padding bg-background" aria-labelledby="incluye-heading">

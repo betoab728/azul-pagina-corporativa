@@ -1,11 +1,15 @@
 ---
-import { pilares } from '../data/tarifa-plana'
+import type { SupportedLocale } from '../i18n/utils'
+import { getPilares } from '../data/tarifa-plana'
 
 const iconContainerClasses: Record<string, string> = {
   'secondary-container': 'bg-secondary-container text-on-secondary-container',
   'primary-container': 'bg-primary-container text-on-primary-container',
   'tertiary-container': 'bg-tertiary-container text-on-tertiary-container',
 }
+interface Props { lang?: SupportedLocale }
+const { lang = 'es' } = Astro.props
+const pilares = getPilares(lang)
 ---
 
 <section class="py-section-padding bg-surface-container-low" aria-labelledby="tarifa-plana-incluye-heading">

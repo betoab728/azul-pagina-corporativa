@@ -1,5 +1,9 @@
 ---
-import { serviceCards } from '../data/nosotros'
+import type { SupportedLocale } from '../i18n/utils'
+import { getServiceCards } from '../data/nosotros'
+interface Props { lang?: SupportedLocale }
+const { lang = 'es' } = Astro.props
+const serviceCards = getServiceCards(lang)
 ---
 
 <section class="py-section-padding bg-surface-container-low" aria-labelledby="nosotros-servicios-heading">

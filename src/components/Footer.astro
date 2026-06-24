@@ -1,4 +1,9 @@
 ---
+import type { SupportedLocale } from '../i18n/utils'
+import { useTranslations } from '../i18n/utils'
+interface Props { lang?: SupportedLocale }
+const { lang = 'es' } = Astro.props
+const t = useTranslations(lang)
 const logoUrl = '/logoazul.png'
 const currentYear = new Date().getFullYear()
 
@@ -12,9 +17,9 @@ const servicios = [
 ]
 
 const legalLinks = [
-  { label: 'Política de Privacidad', href: '#' },
-  { label: 'Términos y Condiciones', href: '#' },
-  { label: 'Libro de Reclamaciones', href: '#' },
+  { label: t('footer.privacy'), href: '#' },
+  { label: t('footer.terms'), href: '#' },
+  { label: t('footer.complaints'), href: '#' },
 ]
 ---
 
@@ -24,7 +29,7 @@ const legalLinks = [
 
       <!-- Columna 1: Empresa -->
       <div class="space-y-6">
-        <a href="/" aria-label="Azul Sostenible — Ir al inicio">
+        <a href="/" aria-label={t('aria.logo')}>
           <img
             src={logoUrl}
             alt="Azul Sostenible"
@@ -35,20 +40,20 @@ const legalLinks = [
           />
         </a>
         <p class="text-gray-400 text-sm leading-relaxed">
-          Azul Sostenible es una empresa peruana especializada en ingeniería ambiental y gestión integral de residuos sólidos, comprometida con la sostenibilidad, la innovación y el desarrollo responsable.
+          {t('footer.tagline')}
         </p>
         <a
           href="/contacto"
           class="inline-flex items-center gap-2 bg-secondary text-white font-bold px-6 py-3 rounded-full hover:bg-secondary/90 transition-colors text-sm"
         >
-          Solicitar Cotización
+          {t('btn.request_quote')}
           <span class="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
         </a>
       </div>
 
       <!-- Columna 2: Servicios -->
       <div>
-        <h4 class="font-headline text-lg font-bold mb-6 text-white">Servicios</h4>
+        <h4 class="font-headline text-lg font-bold mb-6 text-white">{t('footer.services')}</h4>
         <nav aria-label="Servicios">
           <ul class="space-y-3">
             {servicios.map(servicio => (
@@ -67,7 +72,7 @@ const legalLinks = [
 
       <!-- Columna 3: Contacto -->
       <div>
-        <h4 class="font-headline text-lg font-bold mb-6 text-white">Contacto</h4>
+        <h4 class="font-headline text-lg font-bold mb-6 text-white">{t('footer.contact')}</h4>
         <address class="not-italic space-y-4">
           <div class="flex items-start gap-3 text-gray-400 text-sm">
             <span class="material-symbols-outlined text-secondary text-lg shrink-0 mt-0.5" aria-hidden="true">location_on</span>
@@ -83,14 +88,14 @@ const legalLinks = [
           </div>
           <div class="flex items-start gap-3 text-gray-400 text-sm">
             <span class="material-symbols-outlined text-secondary text-lg shrink-0 mt-0.5" aria-hidden="true">schedule</span>
-            <span>Lunes a Viernes<br />8:00 am - 6:00 pm</span>
+            <span>{t('footer.schedule')}<br />{t('footer.hours')}</span>
           </div>
         </address>
       </div>
 
       <!-- Columna 4: Redes Sociales -->
       <div>
-        <h4 class="font-headline text-lg font-bold mb-6 text-white">Redes Sociales</h4>
+        <h4 class="font-headline text-lg font-bold mb-6 text-white">{t('footer.social')}</h4>
         <div class="flex flex-wrap gap-3 mb-6">
           <!-- Facebook -->
           <a href="https://web.facebook.com/people/Azul-Sostenible/100076063132375" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#1877F2] hover:scale-110 transition-all">
@@ -118,7 +123,7 @@ const legalLinks = [
           </a>
         </div>
         <p class="text-gray-400 text-sm leading-relaxed">
-          Síguenos y conoce nuestras iniciativas en sostenibilidad y economía circular.
+          {t('footer.follow')}
         </p>
       </div>
 
@@ -127,9 +132,9 @@ const legalLinks = [
     <!-- Separador + Copyright -->
     <div class="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
       <p class="text-gray-500 text-sm">
-        &copy; {currentYear} Azul Sostenible. Todos los derechos reservados.
+        &copy; {currentYear} Azul Sostenible. {t('footer.rights')}
       </p>
-      <nav aria-label="Enlaces legales">
+      <nav aria-label={t('aria.legal_nav')}>
         <ul class="flex flex-wrap gap-6 text-sm">
           {legalLinks.map(link => (
             <li>

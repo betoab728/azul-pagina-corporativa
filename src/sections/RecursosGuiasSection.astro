@@ -1,5 +1,9 @@
 ---
-import { guias } from '../data/recursos'
+import type { SupportedLocale } from '../i18n/utils'
+import { getGuias } from '../data/recursos'
+interface Props { lang?: SupportedLocale }
+const { lang = 'es' } = Astro.props
+const guias = getGuias(lang)
 ---
 
 <section id="recursos-guias" class="py-section-padding" aria-labelledby="recursos-guias-heading">

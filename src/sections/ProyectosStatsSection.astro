@@ -1,5 +1,9 @@
 ---
-import { stats } from '../data/proyectos-page'
+import type { SupportedLocale } from '../i18n/utils'
+import { getStats } from '../data/proyectos-page'
+interface Props { lang?: SupportedLocale }
+const { lang = 'es' } = Astro.props
+const stats = getStats(lang)
 ---
 
 <section class="py-16 bg-surface-container-low border-b border-outline-variant" aria-label="Estadísticas de proyectos">

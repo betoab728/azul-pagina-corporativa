@@ -1,5 +1,9 @@
 ---
-import { partners } from '../data/partners'
+import type { SupportedLocale } from '../i18n/utils'
+import { getPartners } from '../data/partners'
+interface Props { lang?: SupportedLocale }
+const { lang = 'es' } = Astro.props
+const partners = getPartners(lang)
 ---
 
 <section class="py-20 bg-white" aria-label="Empresas que confían en Azul Sostenible">

@@ -1,4 +1,5 @@
 ---
+import type { SupportedLocale } from '../i18n/utils'
 import FeatureCard from '../components/blocks/FeatureCard.astro'
 
 const heroBg = '/fondohero.jpeg'
@@ -8,6 +9,8 @@ const featureCards = [
   { icon: 'savings',              iconColor: 'primary'   as const, text: 'Reducción de costos',   href: '/servicios/tarifa-plana' },
   { icon: 'trending_up',          iconColor: 'secondary' as const, text: 'Impacto medible',        href: '/servicios/software-trazabilidad' },
 ]
+interface Props { lang?: SupportedLocale }
+const { lang = 'es' } = Astro.props
 ---
 
 <section id="inicio" class="relative min-h-[100dvh] flex items-center pt-20 overflow-hidden">

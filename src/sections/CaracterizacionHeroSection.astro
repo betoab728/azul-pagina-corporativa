@@ -1,7 +1,10 @@
 ---
+import type { SupportedLocale } from '../i18n/utils'
 const heroBgImage = '/caracterizacion.jpeg'
 
 const heroFgImage = heroBgImage
+interface Props { lang?: SupportedLocale }
+const { lang = 'es' } = Astro.props
 ---
 
 <section

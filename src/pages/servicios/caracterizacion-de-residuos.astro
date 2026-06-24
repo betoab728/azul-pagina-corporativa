@@ -1,4 +1,5 @@
 ---
+import { getLang } from '../../i18n/utils'
 import PageLayout from '../../layouts/PageLayout.astro'
 import CaracterizacionHeroSection from '../../sections/CaracterizacionHeroSection.astro'
 import CaracterizacionProcesoSection from '../../sections/CaracterizacionProcesoSection.astro'
@@ -6,16 +7,18 @@ import CaracterizacionIncluyeSection from '../../sections/CaracterizacionIncluye
 import CaracterizacionBeneficiosSection from '../../sections/CaracterizacionBeneficiosSection.astro'
 import CaracterizacionCasoExitoSection from '../../sections/CaracterizacionCasoExitoSection.astro'
 import CaracterizacionCierreSection from '../../sections/CaracterizacionCierreSection.astro'
+const lang = getLang(Astro.currentLocale)
 ---
 
 <PageLayout
+  lang={lang}
   title="Caracterización de Residuos Sólidos | Azul Sostenible"
   description="Servicio profesional de caracterización de residuos sólidos municipales y no municipales. Reducimos tu costo de disposición final entre 30% y 80% con respaldo normativo."
 >
-  <CaracterizacionHeroSection />
-  <CaracterizacionProcesoSection />
-  <CaracterizacionIncluyeSection />
-  <CaracterizacionBeneficiosSection />
-  <CaracterizacionCasoExitoSection />
-  <CaracterizacionCierreSection />
+  <CaracterizacionHeroSection lang={lang} />
+  <CaracterizacionProcesoSection lang={lang} />
+  <CaracterizacionIncluyeSection lang={lang} />
+  <CaracterizacionBeneficiosSection lang={lang} />
+  <CaracterizacionCasoExitoSection lang={lang} />
+  <CaracterizacionCierreSection lang={lang} />
 </PageLayout>

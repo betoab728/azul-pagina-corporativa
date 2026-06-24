@@ -1,8 +1,12 @@
 ---
-import { techItems } from '../data/tarifa-plana'
+import type { SupportedLocale } from '../i18n/utils'
+import { getTechItems } from '../data/tarifa-plana'
 
 // TODO: Reemplazar con imagen real del cliente
 const bgImage = 'https://lh3.googleusercontent.com/aida-public/AB6AXuAfTB2irPnMWQH-_nj3chjga4_CB0zU8eWEJ764vsiS01Gck3Cc-sQg6NOi9bLIZcj8I1CtODlsq47UeNRaktbpi-zxct881af2S1L6pjusVrGCgfwUGlPmraNoorWSU59aj0B-jaqYOtaUjWw4B3PphmKiFPn720dGT5uH-mO9ZRMN4zU7GD7CL_wLx-YPqE4DUx7v0q_Eze8ZyujbBmPwOOBu-_L9V1g-z1UdYjytdb8DwOdfN-LhN2q8ORlBuSMrtjd_Ahy2atFI'
+interface Props { lang?: SupportedLocale }
+const { lang = 'es' } = Astro.props
+const techItems = getTechItems(lang)
 ---
 
 <section class="py-section-padding bg-inverse-surface text-white overflow-hidden relative" aria-labelledby="tarifa-plana-ingenieria-heading">

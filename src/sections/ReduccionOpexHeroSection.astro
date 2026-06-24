@@ -1,6 +1,9 @@
 ---
+import type { SupportedLocale } from '../i18n/utils'
 // TODO: Reemplazar con imagen real del cliente
 const heroImage = 'https://lh3.googleusercontent.com/aida-public/AB6AXuDpOzNYKVkxRh9VVWkE-QpPBf9GC1-8M6WegAhMOWp8uUdBOaBlts79V4CuFeQdDgfOnFt_SNepjFPNOCClW9cobu3quUClyDx6uL-9pfO4GOOBB3lenIDAsKqkhsPxaNL-YvTfW-OjsVScaFv7_-mNr-FInMYAL0Sfj3ur7_66YNCzJXi2lXjXV1bVWeUeKHetBx043S8iTThVBNjxS-f-xbdUfK2Lh22Pzm9YyC2tuII5g9HPAbSPIqKEqm5m7WnI-qZOwGI5bBLf'
+interface Props { lang?: SupportedLocale }
+const { lang = 'es' } = Astro.props
 ---
 
 <section id="reduccion-opex-hero" class="relative h-[85vh] min-h-[600px] flex items-center overflow-hidden" aria-labelledby="reduccion-opex-hero-heading">

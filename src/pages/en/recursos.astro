@@ -1,0 +1,23 @@
+---
+import { getLang } from '../../i18n/utils'
+import PageLayout from '../../layouts/PageLayout.astro'
+import RecursosHeroSection from '../../sections/RecursosHeroSection.astro'
+import RecursosGuiasSection from '../../sections/RecursosGuiasSection.astro'
+import RecursosBlogSection from '../../sections/RecursosBlogSection.astro'
+import RecursosCapacitacionesSection from '../../sections/RecursosCapacitacionesSection.astro'
+import RecursosNewsletterSection from '../../sections/RecursosNewsletterSection.astro'
+import RecursosAliadosSection from '../../sections/RecursosAliadosSection.astro'
+const lang = getLang(Astro.currentLocale)
+---
+
+<PageLayout
+  lang={lang}
+  title="Resources | Azul Sostenible"
+  description="Environmental knowledge center. Regulatory guides, technical blog and training calendar for environmental management and sustainability."
+>
+  <RecursosHeroSection lang={lang} />
+  <RecursosAliadosSection lang={lang} />
+  <RecursosCapacitacionesSection lang={lang} />
+  <RecursosNewsletterSection lang={lang} />
+
+</PageLayout>

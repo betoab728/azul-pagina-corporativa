@@ -1,5 +1,9 @@
 ---
-import { casosExito } from '../data/reclasificacion'
+import type { SupportedLocale } from '../i18n/utils'
+import { getCasosExito } from '../data/reclasificacion'
+interface Props { lang?: SupportedLocale }
+const { lang = 'es' } = Astro.props
+const casosExito = getCasosExito(lang)
 ---
 
 <section class="py-section-padding bg-tertiary text-white" aria-labelledby="reclasificacion-casos-heading">

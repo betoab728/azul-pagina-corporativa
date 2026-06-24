@@ -1,5 +1,8 @@
 ---
+import type { SupportedLocale } from '../i18n/utils'
 const heroImage = 'https://lh3.googleusercontent.com/aida-public/AB6AXuCIUVG6S_qyL8BVujxbWY5TrQlYgmODicOXM7JKWWEeo_hd3YMo7FIJBRLIX2WAfLAOJug8SD0-9HnrXOiYtG6ANYe2r839tHZJKy3Mr78X4uxVVUA_i6hrs3iZt7zBVW2tYDaNMQLtw8phwoQJnsECP6XYWuh6eeqKzyt8r5l4TAAIFUOMkCLIiIqvE58tV3gukDaqg0lUKDo76yPv2AeUe_GKfnhsHgoW23fIG3EsEuanGtk1NzJW5GYkzLh_0M8b9MpS2htA_Lhx'
+interface Props { lang?: SupportedLocale }
+const { lang = 'es' } = Astro.props
 ---
 
 <section id="carahuacra-hero" class="relative min-h-[400px] md:h-[614px] flex items-center overflow-hidden" aria-labelledby="carahuacra-hero-heading">

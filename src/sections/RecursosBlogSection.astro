@@ -1,11 +1,15 @@
 ---
-import { blogArticles } from '../data/recursos'
+import type { SupportedLocale } from '../i18n/utils'
+import { getBlogArticles } from '../data/recursos'
 
 const categoryColorClasses: Record<string, string> = {
   primary: 'text-primary',
   secondary: 'text-secondary',
   tertiary: 'text-tertiary',
 }
+interface Props { lang?: SupportedLocale }
+const { lang = 'es' } = Astro.props
+const blogArticles = getBlogArticles(lang)
 ---
 
 <section class="bg-surface-container-lowest py-section-padding border-y border-outline-variant" aria-labelledby="recursos-blog-heading">

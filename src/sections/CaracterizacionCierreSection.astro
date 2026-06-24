@@ -1,3 +1,8 @@
+---
+import type { SupportedLocale } from '../i18n/utils'
+interface Props { lang?: SupportedLocale }
+const { lang = 'es' } = Astro.props
+---
 <section class="py-section-padding bg-surface-container" aria-labelledby="cierre-heading">
   <div class="max-w-3xl mx-auto px-6 text-center space-y-12">
     <h2 id="cierre-heading" class="font-headline text-3xl md:text-4xl text-on-surface font-extrabold leading-tight">

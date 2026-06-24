@@ -1,6 +1,10 @@
 ---
+import type { SupportedLocale } from '../i18n/utils'
 import ServiceCard from '../components/blocks/ServiceCard.astro'
-import { services } from '../data/services'
+import { getServices } from '../data/services'
+interface Props { lang?: SupportedLocale }
+const { lang = 'es' } = Astro.props
+const services = getServices(lang)
 ---
 
 <section id="servicios" class="py-20 bg-white" aria-labelledby="services-heading">

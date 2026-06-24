@@ -1,5 +1,9 @@
 ---
-import { pilares } from '../data/reclasificacion'
+import type { SupportedLocale } from '../i18n/utils'
+import { getPilares } from '../data/reclasificacion'
+interface Props { lang?: SupportedLocale }
+const { lang = 'es' } = Astro.props
+const pilares = getPilares(lang)
 ---
 
 <section class="py-section-padding bg-surface-container-low" aria-labelledby="reclasificacion-incluye-heading">

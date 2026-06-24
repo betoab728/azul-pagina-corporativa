@@ -1,0 +1,22 @@
+---
+import { getLang } from '../../../i18n/utils'
+import PageLayout from '../../../layouts/PageLayout.astro'
+import MorocochaHeroSection from '../../../sections/MorocochaHeroSection.astro'
+import MorocochaQueHicimosSection from '../../../sections/MorocochaQueHicimosSection.astro'
+import MorocochaResolucionSection from '../../../sections/MorocochaResolucionSection.astro'
+import MorocochaFAQSection from '../../../sections/MorocochaFAQSection.astro'
+import MorocochaCTASection from '../../../sections/MorocochaCTASection.astro'
+const lang = getLang(Astro.currentLocale)
+---
+
+<PageLayout
+  lang={lang}
+  title="UM. MOROCOCHA - Success Story | Azul Sostenible"
+  description="Comprehensive study for the technical and regulatory evaluation of cardboard packaging used for explosives in mining operations. Andeslab certification and MINAM endorsement."
+>
+  <MorocochaHeroSection lang={lang} />
+  <MorocochaQueHicimosSection lang={lang} />
+  <MorocochaResolucionSection lang={lang} />
+  <MorocochaFAQSection lang={lang} />
+  <MorocochaCTASection lang={lang} />
+</PageLayout>

@@ -1,5 +1,9 @@
 ---
-import { beneficiosOPEX } from '../data/reduccion-opex'
+import type { SupportedLocale } from '../i18n/utils'
+import { getBeneficiosOPEX } from '../data/reduccion-opex'
+interface Props { lang?: SupportedLocale }
+const { lang = 'es' } = Astro.props
+const beneficiosOPEX = getBeneficiosOPEX(lang)
 ---
 
 <section class="py-section-padding bg-primary text-white" aria-labelledby="reduccion-opex-beneficios-heading">

@@ -1,6 +1,9 @@
 ---
+import type { SupportedLocale } from '../i18n/utils'
 // TODO: Reemplazar con imagen real del equipo
 const teamImage = './somos.jpg'
+interface Props { lang?: SupportedLocale }
+const { lang = 'es' } = Astro.props
 ---
 
 <section id="nosotros" class="py-section-padding bg-surface">

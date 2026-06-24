@@ -1,19 +1,22 @@
 ---
+import { getLang } from '../../i18n/utils'
 import PageLayout from '../../layouts/PageLayout.astro'
 import SoftwareTrazabilidadHeroSection from '../../sections/SoftwareTrazabilidadHeroSection.astro'
 import SoftwareTrazabilidadValueStripSection from '../../sections/SoftwareTrazabilidadValueStripSection.astro'
 import SoftwareTrazabilidadConsisteSection from '../../sections/SoftwareTrazabilidadConsisteSection.astro'
 import SoftwareTrazabilidadGanaSection from '../../sections/SoftwareTrazabilidadGanaSection.astro'
 import SoftwareTrazabilidadCierreSection from '../../sections/SoftwareTrazabilidadCierreSection.astro'
+const lang = getLang(Astro.currentLocale)
 ---
 
 <PageLayout
+  lang={lang}
   title="Software de Trazabilidad | Azul Sostenible"
   description="Trazabilidad digital para gestión de residuos. Control en tiempo real, cumplimiento normativo y reportes auditables para autoridades como SIGERSOL."
 >
-  <SoftwareTrazabilidadHeroSection />
-  <SoftwareTrazabilidadValueStripSection />
-  <SoftwareTrazabilidadConsisteSection />
-  <SoftwareTrazabilidadGanaSection />
-  <SoftwareTrazabilidadCierreSection />
+  <SoftwareTrazabilidadHeroSection lang={lang} />
+  <SoftwareTrazabilidadValueStripSection lang={lang} />
+  <SoftwareTrazabilidadConsisteSection lang={lang} />
+  <SoftwareTrazabilidadGanaSection lang={lang} />
+  <SoftwareTrazabilidadCierreSection lang={lang} />
 </PageLayout>

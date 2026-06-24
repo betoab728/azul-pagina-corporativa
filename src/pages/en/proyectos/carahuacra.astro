@@ -1,0 +1,24 @@
+---
+import { getLang } from '../../../i18n/utils'
+import PageLayout from '../../../layouts/PageLayout.astro'
+import CarahuacraHeroSection from '../../../sections/CarahuacraHeroSection.astro'
+import CarahuacraQueHicimosSection from '../../../sections/CarahuacraQueHicimosSection.astro'
+import CarahuacraResolucionSection from '../../../sections/CarahuacraResolucionSection.astro'
+import CarahuacraResumenSection from '../../../sections/CarahuacraResumenSection.astro'
+import CarahuacraFAQSection from '../../../sections/CarahuacraFAQSection.astro'
+import CarahuacraInteresSection from '../../../sections/CarahuacraInteresSection.astro'
+const lang = getLang(Astro.currentLocale)
+---
+
+<PageLayout
+  lang={lang}
+  title="U.M. CARAHUACRA - Success Story | Azul Sostenible"
+  description="Technical study and field evaluation for the reclassification of secondary containers at U.M. Carahuacra. 100% regulatory compliance under D.L. No. 1278."
+>
+  <CarahuacraHeroSection lang={lang} />
+  <CarahuacraQueHicimosSection lang={lang} />
+  <CarahuacraResolucionSection lang={lang} />
+  <CarahuacraResumenSection lang={lang} />
+  <CarahuacraFAQSection lang={lang} />
+  <CarahuacraInteresSection lang={lang} />
+</PageLayout>

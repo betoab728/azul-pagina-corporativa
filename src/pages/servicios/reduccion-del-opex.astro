@@ -1,4 +1,5 @@
 ---
+import { getLang } from '../../i18n/utils'
 import PageLayout from '../../layouts/PageLayout.astro'
 import ReduccionOpexHeroSection from '../../sections/ReduccionOpexHeroSection.astro'
 import ReduccionOpexPorqueSection from '../../sections/ReduccionOpexPorqueSection.astro'
@@ -6,16 +7,18 @@ import ReduccionOpexMetodologiaSection from '../../sections/ReduccionOpexMetodol
 import ReduccionOpexEntregablesSection from '../../sections/ReduccionOpexEntregablesSection.astro'
 import ReduccionOpexBeneficiosSection from '../../sections/ReduccionOpexBeneficiosSection.astro'
 import ReduccionOpexCierreSection from '../../sections/ReduccionOpexCierreSection.astro'
+const lang = getLang(Astro.currentLocale)
 ---
 
 <PageLayout
+  lang={lang}
   title="Reducción del OPEX | Azul Sostenible"
   description="Diagnóstico estratégico de OPEX ambiental. Identificamos dónde se pierde dinero y cómo recuperarlo con nuestra metodología especializada de reducción de costos operativos."
 >
-  <ReduccionOpexHeroSection />
-  <ReduccionOpexPorqueSection />
-  <ReduccionOpexMetodologiaSection />
-  <ReduccionOpexEntregablesSection />
-  <ReduccionOpexBeneficiosSection />
-  <ReduccionOpexCierreSection />
+  <ReduccionOpexHeroSection lang={lang} />
+  <ReduccionOpexPorqueSection lang={lang} />
+  <ReduccionOpexMetodologiaSection lang={lang} />
+  <ReduccionOpexEntregablesSection lang={lang} />
+  <ReduccionOpexBeneficiosSection lang={lang} />
+  <ReduccionOpexCierreSection lang={lang} />
 </PageLayout>

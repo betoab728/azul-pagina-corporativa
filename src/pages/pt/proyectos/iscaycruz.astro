@@ -1,0 +1,22 @@
+---
+import { getLang } from '../../../i18n/utils'
+import PageLayout from '../../../layouts/PageLayout.astro'
+import IscaycruzHeroSection from '../../../sections/IscaycruzHeroSection.astro'
+import IscaycruzBentoSection from '../../../sections/IscaycruzBentoSection.astro'
+import IscaycruzFAQSection from '../../../sections/IscaycruzFAQSection.astro'
+import IscaycruzInteresSection from '../../../sections/IscaycruzInteresSection.astro'
+import IscaycruzCTASection from '../../../sections/IscaycruzCTASection.astro'
+const lang = getLang(Astro.currentLocale)
+---
+
+<PageLayout
+  lang={lang}
+  title="U.M. ISCAYCRUZ - Caso de Sucesso | Azul Sostenible"
+  description="Avaliação técnica especializada para a reclassificação de resíduos e otimização de processos industriais na Unidade Mineira Iscaycruz."
+>
+  <IscaycruzHeroSection lang={lang} />
+  <IscaycruzBentoSection lang={lang} />
+  <IscaycruzFAQSection lang={lang} />
+  <IscaycruzInteresSection lang={lang} />
+  <IscaycruzCTASection lang={lang} />
+</PageLayout>

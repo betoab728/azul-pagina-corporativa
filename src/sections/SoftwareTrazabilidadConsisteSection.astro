@@ -1,7 +1,11 @@
 ---
-import { fases } from '../data/software-trazabilidad'
+import type { SupportedLocale } from '../i18n/utils'
+import { getFases } from '../data/software-trazabilidad'
 
 const dashboardImage = '/dashboard4.png'
+interface Props { lang?: SupportedLocale }
+const { lang = 'es' } = Astro.props
+const fases = getFases(lang)
 ---
 
 <section class="py-section-padding max-w-7xl mx-auto px-6 md:px-margin-desktop" aria-labelledby="software-trazabilidad-consiste-heading">

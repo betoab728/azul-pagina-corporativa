@@ -1,6 +1,9 @@
 ---
+import type { SupportedLocale } from '../i18n/utils'
 // TODO: Reemplazar con imagen real del cliente
 const heroImage = 'https://lh3.googleusercontent.com/aida-public/AB6AXuAvx7jLKiMVEj9LJRb3O7sqEwjBp-YFV6rujaas4ZrNBff1ihq1IhPp--V9_lw1bOk0W81SoeiWqxTGzRqFwaxJGfE5-P9pyVUte3X5pfRaX89eA-5mD-1LTLgDqQ-B06TI8rZ4CAEcNzA24bkjUwIXWoVeaISMXqakYvQtkKJa387ElTcwsb2r5uvoRvr1X1qXkNJYjq_d-2vxZ0yEBJBcoatckGPB44_XmtwkrO_nBWtUXaHDqlSqqmz009FJiLGf7fdIGpTjrUUP'
+interface Props { lang?: SupportedLocale }
+const { lang = 'es' } = Astro.props
 ---
 
 <section id="software-trazabilidad-hero" class="relative min-h-[85vh] flex items-center pt-20 overflow-hidden" aria-labelledby="software-trazabilidad-hero-heading">

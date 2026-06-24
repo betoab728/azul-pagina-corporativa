@@ -1,5 +1,9 @@
 ---
-import { logisticas } from '../data/acreditaciones'
+import type { SupportedLocale } from '../i18n/utils'
+import { getLogisticas } from '../data/acreditaciones'
+interface Props { lang?: SupportedLocale }
+const { lang = 'es' } = Astro.props
+const logisticas = getLogisticas(lang)
 ---
 
 <section class="py-section-padding bg-surface" aria-labelledby="acreditaciones-logistica-heading">

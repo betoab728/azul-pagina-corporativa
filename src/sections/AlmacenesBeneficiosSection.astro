@@ -1,5 +1,9 @@
 ---
-import { beneficiosAlmacenes } from '../data/almacenes-inteligentes'
+import type { SupportedLocale } from '../i18n/utils'
+import { getBeneficiosAlmacenes } from '../data/almacenes-inteligentes'
+interface Props { lang?: SupportedLocale }
+const { lang = 'es' } = Astro.props
+const beneficiosAlmacenes = getBeneficiosAlmacenes(lang)
 ---
 
 <section class="bg-primary py-section-padding text-white" aria-labelledby="almacenes-beneficios-heading">

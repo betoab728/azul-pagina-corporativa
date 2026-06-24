@@ -1,11 +1,15 @@
 ---
-import { eventos } from '../data/recursos'
+import type { SupportedLocale } from '../i18n/utils'
+import { getEventos } from '../data/recursos'
 
 const eventBgClasses: Record<string, string> = {
   primary: 'bg-primary text-white',
   secondary: 'bg-secondary text-white',
   tertiary: 'bg-tertiary text-white',
 }
+interface Props { lang?: SupportedLocale }
+const { lang = 'es' } = Astro.props
+const eventos = getEventos(lang)
 ---
 
 <section class="py-section-padding" aria-labelledby="recursos-capacitaciones-heading">

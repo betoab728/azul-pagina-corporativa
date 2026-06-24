@@ -1,4 +1,5 @@
 ---
+import { getLang } from '../../i18n/utils'
 import PageLayout from '../../layouts/PageLayout.astro'
 import TarifaPlanaHeroSection from '../../sections/TarifaPlanaHeroSection.astro'
 import TarifaPlanaDefinicionSection from '../../sections/TarifaPlanaDefinicionSection.astro'
@@ -7,17 +8,19 @@ import TarifaPlanaBeneficiosSection from '../../sections/TarifaPlanaBeneficiosSe
 import TarifaPlanaIngenieriaSection from '../../sections/TarifaPlanaIngenieriaSection.astro'
 import TarifaPlanaAlcanceSection from '../../sections/TarifaPlanaAlcanceSection.astro'
 import TarifaPlanaCierreSection from '../../sections/TarifaPlanaCierreSection.astro'
+const lang = getLang(Astro.currentLocale)
 ---
 
 <PageLayout
+  lang={lang}
   title="Tarifa Plana Ambiental | Azul Sostenible"
   description="Gestión ambiental integral con tarifa fija anual. Todo incluido: recolección, saneamiento, capacitación y cumplimiento normativo garantizado por 12 meses."
 >
-  <TarifaPlanaHeroSection />
-  <TarifaPlanaDefinicionSection />
-  <TarifaPlanaIncluyeSection />
-  <TarifaPlanaBeneficiosSection />
-  <TarifaPlanaIngenieriaSection />
-  <TarifaPlanaAlcanceSection />
-  <TarifaPlanaCierreSection />
+  <TarifaPlanaHeroSection lang={lang} />
+  <TarifaPlanaDefinicionSection lang={lang} />
+  <TarifaPlanaIncluyeSection lang={lang} />
+  <TarifaPlanaBeneficiosSection lang={lang} />
+  <TarifaPlanaIngenieriaSection lang={lang} />
+  <TarifaPlanaAlcanceSection lang={lang} />
+  <TarifaPlanaCierreSection lang={lang} />
 </PageLayout>

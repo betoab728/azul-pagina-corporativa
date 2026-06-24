@@ -1,5 +1,9 @@
 ---
-import { contactInfo } from '../data/contacto'
+import type { SupportedLocale } from '../i18n/utils'
+import { getContactInfo } from '../data/contacto'
+interface Props { lang?: SupportedLocale }
+const { lang = 'es' } = Astro.props
+const contactInfo = getContactInfo(lang)
 ---
 
 <section class="py-section-padding" aria-labelledby="contacto-main-heading">

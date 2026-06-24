@@ -1,5 +1,9 @@
 ---
-import { impactStats } from '../data/sectores'
+import type { SupportedLocale } from '../i18n/utils'
+import { getSectoresImpactStats } from '../data/sectores'
+interface Props { lang?: SupportedLocale }
+const { lang = 'es' } = Astro.props
+const impactStats = getSectoresImpactStats(lang)
 ---
 
 <section class="bg-surface-container-highest py-section-padding" aria-labelledby="sectores-impacto-heading">

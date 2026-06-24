@@ -1,5 +1,8 @@
 ---
+import type { SupportedLocale } from '../i18n/utils'
 const heroImage = '/tarifahero.jpeg'
+interface Props { lang?: SupportedLocale }
+const { lang = 'es' } = Astro.props
 ---
 
 <section id="tarifa-plana-hero" class="relative min-h-[85vh] flex items-center pt-20 overflow-hidden" aria-labelledby="tarifa-plana-hero-heading">

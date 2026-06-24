@@ -1,3 +1,8 @@
+---
+import type { SupportedLocale } from '../i18n/utils'
+interface Props { lang?: SupportedLocale }
+const { lang = 'es' } = Astro.props
+---
 <section class="py-20" aria-labelledby="cristobal-impacto-heading">
   <div class="max-w-7xl mx-auto px-6 md:px-margin-desktop">
     <h2 id="cristobal-impacto-heading" class="font-headline text-4xl font-extrabold text-primary text-center mb-16">Impacto de la Operación</h2>

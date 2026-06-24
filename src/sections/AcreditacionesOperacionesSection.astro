@@ -1,6 +1,9 @@
 ---
+import type { SupportedLocale } from '../i18n/utils'
 // TODO: Reemplazar con imagen real del cliente
 const operacionesImage = '/acreditaciones-operaciones.jpeg'
+interface Props { lang?: SupportedLocale }
+const { lang = 'es' } = Astro.props
 ---
 
 <section class="py-section-padding bg-surface-container-low" aria-labelledby="acreditaciones-operaciones-heading">

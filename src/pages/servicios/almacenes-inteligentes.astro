@@ -1,4 +1,5 @@
 ---
+import { getLang } from '../../i18n/utils'
 import PageLayout from '../../layouts/PageLayout.astro'
 import AlmacenesHeroSection from '../../sections/AlmacenesHeroSection.astro'
 import AlmacenesProblemaSection from '../../sections/AlmacenesProblemaSection.astro'
@@ -6,16 +7,18 @@ import AlmacenesSolucionesSection from '../../sections/AlmacenesSolucionesSectio
 import AlmacenesValorSection from '../../sections/AlmacenesValorSection.astro'
 import AlmacenesBeneficiosSection from '../../sections/AlmacenesBeneficiosSection.astro'
 import AlmacenesCierreSection from '../../sections/AlmacenesCierreSection.astro'
+const lang = getLang(Astro.currentLocale)
 ---
 
 <PageLayout
+  lang={lang}
   title="Almacenes Inteligentes | Azul Sostenible"
   description="Transformamos espacios de almacenamiento en herramientas estratégicas de reducción de costos y generación de valor ambiental. Infraestructuras inteligentes para la economía circular."
 >
-  <AlmacenesHeroSection />
-  <AlmacenesProblemaSection />
-  <AlmacenesSolucionesSection />
-  <AlmacenesValorSection />
-  <AlmacenesBeneficiosSection />
-  <AlmacenesCierreSection />
+  <AlmacenesHeroSection lang={lang} />
+  <AlmacenesProblemaSection lang={lang} />
+  <AlmacenesSolucionesSection lang={lang} />
+  <AlmacenesValorSection lang={lang} />
+  <AlmacenesBeneficiosSection lang={lang} />
+  <AlmacenesCierreSection lang={lang} />
 </PageLayout>

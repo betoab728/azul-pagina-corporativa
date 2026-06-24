@@ -1,0 +1,24 @@
+---
+import { getLang } from '../../../i18n/utils'
+import PageLayout from '../../../layouts/PageLayout.astro'
+import ReclasificacionHeroSection from '../../../sections/ReclasificacionHeroSection.astro'
+import ReclasificacionProcesoSection from '../../../sections/ReclasificacionProcesoSection.astro'
+import ReclasificacionIncluyeSection from '../../../sections/ReclasificacionIncluyeSection.astro'
+import ReclasificacionBeneficiosSection from '../../../sections/ReclasificacionBeneficiosSection.astro'
+import ReclasificacionCasosSection from '../../../sections/ReclasificacionCasosSection.astro'
+import ReclasificacionCierreSection from '../../../sections/ReclasificacionCierreSection.astro'
+const lang = getLang(Astro.currentLocale)
+---
+
+<PageLayout
+  lang={lang}
+  title="Reclassificação de Resíduos Perigosos | Azul Sostenible"
+  description="Reclassificação técnica de resíduos perigosos para reduzir custos e garantir conformidade ambiental. Análise, documentação e gestão total do processo junto ao MINAM."
+>
+  <ReclasificacionHeroSection lang={lang} />
+  <ReclasificacionProcesoSection lang={lang} />
+  <ReclasificacionIncluyeSection lang={lang} />
+  <ReclasificacionBeneficiosSection lang={lang} />
+  <ReclasificacionCasosSection lang={lang} />
+  <ReclasificacionCierreSection lang={lang} />
+</PageLayout>
