@@ -41,6 +41,8 @@ const projectsByLocale: Record<SupportedLocale, Project[]> = {
       href: '/proyectos',
     },
   ],
+
+  // ── EN ────────────────────────────────────────────────────────
   en: [
     {
       image: '/gestion.jpeg',
@@ -49,7 +51,7 @@ const projectsByLocale: Record<SupportedLocale, Project[]> = {
       sectorColor: 'primary',
       title: 'Comprehensive hazardous waste management',
       description: 'We reduced hazardous waste generation by 30%.',
-      href: '/en/projects',
+      href: '/en/proyectos',
     },
     {
       image: '/industrial.jpeg',
@@ -58,7 +60,7 @@ const projectsByLocale: Record<SupportedLocale, Project[]> = {
       sectorColor: 'secondary',
       title: 'WWTP and industrial water reuse',
       description: 'System implementation with 90% efficiency.',
-      href: '/en/projects',
+      href: '/en/proyectos',
     },
     {
       image: '/salud.jpeg',
@@ -67,7 +69,7 @@ const projectsByLocale: Record<SupportedLocale, Project[]> = {
       sectorColor: 'primary',
       title: 'Biocontaminated waste management',
       description: '100% safe traceability and regulatory compliance.',
-      href: '/en/projects',
+      href: '/en/proyectos',
     },
   ],
   pt: [
@@ -78,7 +80,7 @@ const projectsByLocale: Record<SupportedLocale, Project[]> = {
       sectorColor: 'primary',
       title: 'Gestão integral de resíduos perigosos',
       description: 'Reduzimos em 30% a geração de resíduos perigosos.',
-      href: '/pt/projetos',
+      href: '/pt/proyectos',
     },
     {
       image: '/industrial.jpeg',
@@ -87,7 +89,7 @@ const projectsByLocale: Record<SupportedLocale, Project[]> = {
       sectorColor: 'secondary',
       title: 'ETE e reúso de água industrial',
       description: 'Implementação de sistema com 90% de eficiência.',
-      href: '/pt/projetos',
+      href: '/pt/proyectos',
     },
     {
       image: '/salud.jpeg',
@@ -96,7 +98,7 @@ const projectsByLocale: Record<SupportedLocale, Project[]> = {
       sectorColor: 'primary',
       title: 'Gestão de resíduos biocontaminados',
       description: 'Rastreabilidade 100% segura e conformidade regulatória.',
-      href: '/pt/projetos',
+      href: '/pt/proyectos',
     },
   ],
 }

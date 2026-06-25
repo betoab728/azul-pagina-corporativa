@@ -543,6 +543,18 @@ const ui = {
     'caracterizacion.proceso.body2': 'Nosotros te damos la información completa y precisa que tu operación necesita para una transición efectiva hacia la economía circular.',
     'caracterizacion.proceso.img_alt': 'Ingeniera ambiental realizando diagnóstico técnico con tablet industrial',
 
+    'caracterizacion.cierre.title': 'CONOCER TUS RESIDUOS ES EL PRIMER PASO PARA REDUCIR COSTOS, MEJORAR TU OPERACIÓN Y AVANZAR HACIA LA SOSTENIBILIDAD.',
+    'caracterizacion.cierre.cta_primary': 'Quiero mi caracterización',
+    'caracterizacion.cierre.cta_secondary': 'Más Información',
+
+    'caracterizacion.caso_exito.label': 'CASO DE ÉXITO DESTACADO',
+    'caracterizacion.caso_exito.company': 'UNIVERSIDAD CAYETANO HEREDIA',
+    'caracterizacion.caso_exito.description': 'Optimización de gestión de residuos institucionales',
+    'caracterizacion.caso_exito.link': 'Ver más proyectos',
+
+    'caracterizacion.beneficios.title': '¿Qué gana tu empresa?',
+    'caracterizacion.beneficios.list_label': 'Beneficios del servicio',
+
     // ── Reducción OPEX Hero ──────────────────────────────────────
     'reduccion_opex.hero.badge': 'Optimización de OPEX',
     'reduccion_opex.hero.title': 'Diagnóstico Estratégico de OPEX Ambiental',
@@ -1660,6 +1672,18 @@ const ui = {
     'caracterizacion.proceso.body2': 'We provide you with the complete and accurate information your operation needs for an effective transition towards the circular economy.',
     'caracterizacion.proceso.img_alt': 'Environmental engineer performing technical diagnosis with industrial tablet',
 
+    'caracterizacion.cierre.title': 'KNOWING YOUR WASTE IS THE FIRST STEP TO REDUCE COSTS, IMPROVE YOUR OPERATION AND ADVANCE TOWARDS SUSTAINABILITY.',
+    'caracterizacion.cierre.cta_primary': 'I want my characterization',
+    'caracterizacion.cierre.cta_secondary': 'More Information',
+
+    'caracterizacion.caso_exito.label': 'FEATURED SUCCESS CASE',
+    'caracterizacion.caso_exito.company': 'UNIVERSIDAD CAYETANO HEREDIA',
+    'caracterizacion.caso_exito.description': 'Institutional waste management optimization',
+    'caracterizacion.caso_exito.link': 'See more projects',
+
+    'caracterizacion.beneficios.title': 'What does your company gain?',
+    'caracterizacion.beneficios.list_label': 'Service benefits',
+
     // ── Reducción OPEX Hero ──────────────────────────────────────
     'reduccion_opex.hero.badge': 'OPEX Optimization',
     'reduccion_opex.hero.title': 'Strategic Environmental OPEX Diagnosis',
@@ -2538,6 +2562,18 @@ const ui = {
     'caracterizacion.proceso.quote': 'O QUE NÃO SE MEDE, NÃO SE GERENCIA.',
     'caracterizacion.proceso.body2': 'Fornecemos a informação completa e precisa que sua operação precisa para uma transição efetiva rumo à economia circular.',
     'caracterizacion.proceso.img_alt': 'Engenheira ambiental realizando diagnóstico técnico com tablet industrial',
+
+    'caracterizacion.cierre.title': 'CONHECER SEUS RESÍDUOS É O PRIMEIRO PASSO PARA REDUZIR CUSTOS, MELHORAR SUA OPERAÇÃO E AVANÇAR RUMO À SUSTENTABILIDADE.',
+    'caracterizacion.cierre.cta_primary': 'Quero minha caracterização',
+    'caracterizacion.cierre.cta_secondary': 'Mais Informações',
+
+    'caracterizacion.caso_exito.label': 'CASO DE SUCESSO DESTACADO',
+    'caracterizacion.caso_exito.company': 'UNIVERSIDAD CAYETANO HEREDIA',
+    'caracterizacion.caso_exito.description': 'Otimização da gestão de resíduos institucionais',
+    'caracterizacion.caso_exito.link': 'Ver mais projetos',
+
+    'caracterizacion.beneficios.title': 'O que sua empresa ganha?',
+    'caracterizacion.beneficios.list_label': 'Benefícios do serviço',
 
     // ── Reducción OPEX Hero ──────────────────────────────────────
     'reduccion_opex.hero.badge': 'Otimização de OPEX',
