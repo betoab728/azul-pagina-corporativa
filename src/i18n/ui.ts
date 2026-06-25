@@ -93,7 +93,7 @@ const ui = {
     'footer.rights': 'Todos los derechos reservados',
     'footer.tagline': 'Azul Sostenible es una empresa peruana especializada en ingeniería ambiental y gestión integral de residuos sólidos, comprometida con la sostenibilidad, la innovación y el desarrollo responsable.',
     'footer.schedule': 'Lunes a Viernes',
-    'footer.hours': '8:00 am - 6:00 pm',
+    'footer.hours': '8:00 am - 5:00 pm',
     'footer.follow': 'Síguenos y conoce nuestras iniciativas en sostenibilidad y economía circular.',
 
     // ── Selector de idioma ───────────────────────────────────────
@@ -253,7 +253,7 @@ const ui = {
     'nosotros.compliance.body': 'Acompañamos a las empresas en el cumplimiento de la normativa ambiental, fiscalizaciones de OEFA y exigencias regulatorias, asegurando trazabilidad, documentación válida y reducción de riesgos legales.',
 
     'nosotros.hero.title': 'EMPRESA ESPECIALIZADA EN LA GESTIÓN DE RESIDUOS SÓLIDOS, PELIGROSOS E INDUSTRIALES PARA EMPRESAS EN PERÚ',
-    'nosotros.hero.subtitle': 'Evolucionamos de una gestión tradicional a una gestión inteligente y circular de residuos, enfocada en reducir riesgos, evitar sanciones y mejorar la eficiencia operativa.',
+    'nosotros.hero.subtitle': 'Evolucionamos de una gestión tradicional a una gestión inteligente y circular de residuos, enfocada en reducir costos, evitar sanciones y mejorar la eficiencia operativa.',
     'nosotros.hero.cta': 'SOLICITA UNA ASESORÍA',
 
     'nosotros.mvv.mission_body': 'Buscar la innovación y promover un nuevo modelo empresarial en el sector residuos sólidos mediante la Gestión Racional y Manejo Sostenible de los Residuos Sólidos, líquidos y Saneamiento Ambiental a nivel nacional.',
@@ -980,7 +980,7 @@ const ui = {
     'footer.rights': 'All rights reserved',
     'footer.tagline': 'Azul Sostenible is a Peruvian company specializing in environmental engineering and comprehensive solid waste management, committed to sustainability, innovation, and responsible development.',
     'footer.schedule': 'Monday to Friday',
-    'footer.hours': '8:00 am - 6:00 pm',
+    'footer.hours': '8:00 am - 5:00 pm',
     'footer.follow': 'Follow us and learn about our sustainability and circular economy initiatives.',
 
     // ── Language selector ────────────────────────────────────────
@@ -1140,7 +1140,7 @@ const ui = {
     'nosotros.compliance.body': 'We accompany companies in complying with environmental regulations, OEFA inspections and regulatory requirements, ensuring traceability, valid documentation and reduction of legal risks.',
 
     'nosotros.hero.title': 'COMPANY SPECIALIZED IN SOLID, HAZARDOUS AND INDUSTRIAL WASTE MANAGEMENT FOR BUSINESSES IN PERU',
-    'nosotros.hero.subtitle': 'We evolve from traditional management to intelligent and circular waste management, focused on reducing risks, avoiding sanctions and improving operational efficiency.',
+    'nosotros.hero.subtitle': 'We evolve from traditional management to intelligent and circular waste management, focused on reducing costs, avoiding sanctions and improving operational efficiency.',
     'nosotros.hero.cta': 'REQUEST A CONSULTATION',
 
     'nosotros.mvv.mission_body': 'To pursue innovation and promote a new business model in the solid waste sector through Rational Management and Sustainable Handling of Solid and Liquid Waste and Environmental Sanitation nationwide.',
@@ -1871,7 +1871,7 @@ const ui = {
     'footer.rights': 'Todos os direitos reservados',
     'footer.tagline': 'Azul Sostenible é uma empresa peruana especializada em engenharia ambiental e gestão integral de resíduos sólidos, comprometida com a sustentabilidade, inovação e desenvolvimento responsável.',
     'footer.schedule': 'Segunda a Sexta',
-    'footer.hours': '8:00 - 18:00',
+    'footer.hours': '8:00 - 17:00',
     'footer.follow': 'Siga-nos e conheça nossas iniciativas em sustentabilidade e economia circular.',
 
     // ── Seletor de idioma ────────────────────────────────────────
@@ -2031,7 +2031,7 @@ const ui = {
     'nosotros.compliance.body': 'Acompanhamos as empresas no cumprimento da legislação ambiental, fiscalizações da OEFA e exigências regulatórias, assegurando rastreabilidade, documentação válida e redução de riscos legais.',
 
     'nosotros.hero.title': 'EMPRESA ESPECIALIZADA NA GESTÃO DE RESÍDUOS SÓLIDOS, PERIGOSOS E INDUSTRIAIS PARA EMPRESAS NO PERU',
-    'nosotros.hero.subtitle': 'Evoluímos de uma gestão tradicional para uma gestão inteligente e circular de resíduos, focada em reduzir riscos, evitar sanções e melhorar a eficiência operacional.',
+    'nosotros.hero.subtitle': 'Evoluímos de uma gestão tradicional para uma gestão inteligente e circular de resíduos, focada em reduzir custos, evitar sanções e melhorar a eficiência operacional.',
     'nosotros.hero.cta': 'SOLICITE UMA ASSESSORIA',
 
     'nosotros.mvv.mission_body': 'Buscar a inovação e promover um novo modelo empresarial no setor de resíduos sólidos mediante a Gestão Racional e Manejo Sustentável dos Resíduos Sólidos, líquidos e Saneamento Ambiental a nível nacional.',
