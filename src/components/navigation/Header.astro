@@ -12,13 +12,8 @@ const mainNav = getMainNav(lang)
 
 const logoUrl = '/logoazul.png'
 
-const homeItem     = mainNav.find(item => item.key === 'home')
-const homeHref     = homeItem?.href ?? '/'
-const serviceItem  = mainNav.find(item => item.key === 'services')
-const serviceLinks = serviceItem?.dropdown ?? []
-const recursosItem  = mainNav.find(item => item.key === 'resources')
-const recursosLinks = recursosItem?.dropdown ?? []
-const flatNavItems = mainNav.filter(item => item.key !== 'services' && item.key !== 'resources' && item.key !== 'home')
+const homeItem = mainNav.find(item => item.key === 'home')
+const homeHref = homeItem?.href ?? '/'
 ---
 
 <header class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-outline-variant/30 py-2">
@@ -38,19 +33,20 @@ const flatNavItems = mainNav.filter(item => item.key !== 'services' && item.key 
 
     <!-- Navegación desktop -->
     <nav class="hidden lg:flex items-center gap-3 xl:gap-5 2xl:gap-6" aria-label={t('aria.main_nav')}>
-      <a href={homeHref} class="text-on-surface-variant font-semibold hover:text-primary transition-colors text-sm">
-        {t('nav.home')}
-      </a>
-      <NavDropdown label={t('nav.services')} items={serviceLinks} />
-      {flatNavItems.map(item => (
-        <a
-          href={item.href}
-          class="text-on-surface-variant font-semibold hover:text-primary transition-colors text-sm"
-        >
-          {item.label}
-        </a>
+      {mainNav.map(item => (
+        item.key === 'services' ? (
+          <NavDropdown label={item.label} items={item.dropdown ?? []} />
+        ) : item.key === 'resources' ? (
+          <NavDropdown label={item.label} items={item.dropdown ?? []} href={item.href} />
+        ) : (
+          <a
+            href={item.href}
+            class="text-on-surface-variant font-semibold hover:text-primary transition-colors text-sm"
+          >
+            {item.label}
+          </a>
+        )
       ))}
-      <NavDropdown label={t('nav.resources')} items={recursosLinks} href="/recursos" />
     </nav>
 
     <!-- CTAs -->
@@ -100,42 +96,28 @@ const flatNavItems = mainNav.filter(item => item.key !== 'services' && item.key 
     aria-modal="true"
     aria-label={t('aria.main_nav')}
   >
-    <a href={homeHref} class="text-on-surface font-semibold py-3 border-b border-outline-variant/20 hover:text-primary">
-      {t('nav.home')}
-    </a>
-
-    <div class="py-2 border-b border-outline-variant/20">
-      <p class="text-on-surface font-semibold py-2">{t('nav.services')}</p>
-      {serviceLinks.map(item => (
+    {mainNav.map(item => (
+      item.dropdown ? (
+        <div class="py-2 border-b border-outline-variant/20">
+          <p class="text-on-surface font-semibold py-2">{item.label}</p>
+          {item.dropdown.map(sub => (
+            <a
+              href={sub.href}
+              class="block text-on-surface-variant text-sm py-2 pl-4 hover:text-primary transition-colors"
+            >
+              {sub.label}
+            </a>
+          ))}
+        </div>
+      ) : (
         <a
           href={item.href}
-          class="block text-on-surface-variant text-sm py-2 pl-4 hover:text-primary transition-colors"
+          class="text-on-surface font-semibold py-3 border-b border-outline-variant/20 hover:text-primary transition-colors"
         >
           {item.label}
         </a>
-      ))}
-    </div>
-
-    {flatNavItems.map(item => (
-      <a
-        href={item.href}
-        class="text-on-surface font-semibold py-3 border-b border-outline-variant/20 hover:text-primary transition-colors"
-      >
-        {item.label}
-      </a>
+      )
     ))}
-
-    <div class="py-2 border-b border-outline-variant/20">
-      <p class="text-on-surface font-semibold py-2">{t('nav.resources')}</p>
-      {recursosLinks.map(item => (
-        <a
-          href={item.href}
-          class="block text-on-surface-variant text-sm py-2 pl-4 hover:text-primary transition-colors"
-        >
-          {item.label}
-        </a>
-      ))}
-    </div>
 
     <LanguageSelector lang={lang} mobile />
 
