@@ -1,8 +1,10 @@
 ---
 import type { SupportedLocale } from '../i18n/utils'
+import { useTranslations } from '../i18n/utils'
 import { getFugas } from '../data/reduccion-opex'
 interface Props { lang?: SupportedLocale }
 const { lang = 'es' } = Astro.props
+const t = useTranslations(lang)
 const fugas = getFugas(lang)
 ---
 
@@ -11,20 +13,20 @@ const fugas = getFugas(lang)
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
 
       <div>
-        <h2 id="reduccion-opex-porque-heading" class="font-headline text-4xl md:text-5xl text-primary font-extrabold mb-8">¿Por qué implementar este servicio?</h2>
+        <h2 id="reduccion-opex-porque-heading" class="font-headline text-4xl md:text-5xl text-primary font-extrabold mb-8">{t('reduccion_opex.porque.title')}</h2>
         <div class="space-y-6">
           <div class="bg-surface-container-low p-8 rounded-xl border border-outline-variant">
-            <h3 class="font-headline text-2xl font-bold text-on-surface mb-4">El Modelo Tradicional Ineficiente</h3>
+            <h3 class="font-headline text-2xl font-bold text-on-surface mb-4">{t('reduccion_opex.porque.model_title')}</h3>
             <div class="flex flex-wrap items-center gap-4 text-primary font-bold text-sm">
-              <span>Generar</span>
+              <span>{t('reduccion_opex.porque.step1')}</span>
               <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
-              <span>Almacenar</span>
+              <span>{t('reduccion_opex.porque.step2')}</span>
               <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
-              <span>Transportar</span>
+              <span>{t('reduccion_opex.porque.step3')}</span>
               <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
-              <span>Disponer</span>
+              <span>{t('reduccion_opex.porque.step4')}</span>
             </div>
-            <p class="mt-4 text-on-surface-variant leading-relaxed">Este ciclo lineal genera "fugas" invisibles en cada etapa, convirtiendo su gestión ambiental en un centro de costo descontrolado.</p>
+            <p class="mt-4 text-on-surface-variant leading-relaxed">{t('reduccion_opex.porque.model_body')}</p>
           </div>
         </div>
       </div>
@@ -41,7 +43,7 @@ const fugas = getFugas(lang)
     </div>
 
     <div class="mt-12 text-center p-8 bg-primary-container/10 rounded-full border border-primary/20">
-      <p class="font-headline text-2xl font-bold text-primary">Conclusión: Su empresa gasta sin saber exactamente dónde ahorrar.</p>
+      <p class="font-headline text-2xl font-bold text-primary">{t('reduccion_opex.porque.conclusion')}</p>
     </div>
   </div>
 </section>

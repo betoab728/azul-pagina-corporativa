@@ -1,5 +1,6 @@
 ---
 import type { SupportedLocale } from '../i18n/utils'
+import { useTranslations } from '../i18n/utils'
 import { getBlogArticles } from '../data/recursos'
 
 const categoryColorClasses: Record<string, string> = {
@@ -9,6 +10,7 @@ const categoryColorClasses: Record<string, string> = {
 }
 interface Props { lang?: SupportedLocale }
 const { lang = 'es' } = Astro.props
+const t = useTranslations(lang)
 const blogArticles = getBlogArticles(lang)
 ---
 
@@ -16,11 +18,11 @@ const blogArticles = getBlogArticles(lang)
   <div class="max-w-7xl mx-auto px-6 md:px-margin-desktop">
     <div class="flex justify-between items-end mb-12">
       <div>
-        <h2 id="recursos-blog-heading" class="font-headline text-4xl md:text-5xl text-on-surface font-extrabold mb-2">Blog Azul</h2>
-        <p class="text-on-surface-variant max-w-xl">Artículos técnicos sobre ingeniería ambiental, economía circular y tendencias de sostenibilidad industrial.</p>
+        <h2 id="recursos-blog-heading" class="font-headline text-4xl md:text-5xl text-on-surface font-extrabold mb-2">{t('recursos.blog.title')}</h2>
+        <p class="text-on-surface-variant max-w-xl">{t('recursos.blog.subtitle')}</p>
       </div>
       <a href="#" class="text-primary font-bold text-sm flex items-center gap-2 group shrink-0">
-        Ver todos los artículos
+        {t('recursos.blog.view_all')}
         <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" aria-hidden="true">arrow_forward</span>
       </a>
     </div>

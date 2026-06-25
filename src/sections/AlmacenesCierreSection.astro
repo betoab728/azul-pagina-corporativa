@@ -1,13 +1,15 @@
 ---
 import type { SupportedLocale } from '../i18n/utils'
+import { useTranslations } from '../i18n/utils'
 interface Props { lang?: SupportedLocale }
 const { lang = 'es' } = Astro.props
+const t = useTranslations(lang)
 ---
 <section class="py-section-padding relative overflow-hidden" aria-labelledby="almacenes-cierre-heading">
   <div class="absolute inset-0 bg-surface-container-highest/20 -z-10" aria-hidden="true"></div>
   <div class="max-w-3xl mx-auto px-6 text-center space-y-8">
     <h2 id="almacenes-cierre-heading" class="font-headline text-4xl md:text-5xl italic text-on-surface-variant font-extrabold">
-      "Primero identificamos dónde se pierde dinero. Luego transformamos la operación para recuperarlo."
+      "{t('almacenes.cierre.quote')}"
     </h2>
     <div class="w-20 h-1 bg-secondary mx-auto"></div>
     <a
@@ -16,8 +18,8 @@ const { lang = 'es' } = Astro.props
       rel="noopener noreferrer"
       class="inline-flex items-center bg-secondary text-white font-bold px-8 md:px-12 py-3 md:py-5 rounded-full hover:shadow-2xl hover:-translate-y-1 transition-all"
     >
-      Iniciar transformación del almacén
+      {t('almacenes.cierre.cta')}
     </a>
-    <p class="text-on-surface-variant text-sm font-semibold">Sin compromiso. Evaluación técnica inicial disponible.</p>
+    <p class="text-on-surface-variant text-sm font-semibold">{t('almacenes.cierre.note')}</p>
   </div>
 </section>

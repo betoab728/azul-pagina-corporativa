@@ -14,8 +14,18 @@ const impactStatsByLocale: Record<SupportedLocale, ImpactStat[]> = {
     { icon: 'corporate_fare', iconColor: 'secondary', value: '+30', label: 'empresas atendidas' },
     { icon: 'map', iconColor: 'primary', value: '+24', label: 'Regiones del Perú' },
   ],
-  en: [],
-  pt: [],
+  en: [
+    { icon: 'groups', iconColor: 'secondary', value: '+5', label: 'Years of experience' },
+    { icon: 'work_history', iconColor: 'primary', value: '+10,000', label: 'tonnes managed' },
+    { icon: 'corporate_fare', iconColor: 'secondary', value: '+30', label: 'companies served' },
+    { icon: 'map', iconColor: 'primary', value: '+24', label: 'Regions of Peru' },
+  ],
+  pt: [
+    { icon: 'groups', iconColor: 'secondary', value: '+5', label: 'Anos de experiência' },
+    { icon: 'work_history', iconColor: 'primary', value: '+10,000', label: 'toneladas gerenciadas' },
+    { icon: 'corporate_fare', iconColor: 'secondary', value: '+30', label: 'empresas atendidas' },
+    { icon: 'map', iconColor: 'primary', value: '+24', label: 'Regiões do Peru' },
+  ],
 }
 
 export const getImpactStats = (locale: SupportedLocale): ImpactStat[] =>

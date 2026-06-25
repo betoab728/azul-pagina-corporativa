@@ -6,15 +6,35 @@ const { lang = 'es' } = Astro.props
 const t = useTranslations(lang)
 const logoUrl = '/logoazul.png'
 const currentYear = new Date().getFullYear()
+const prefix = lang === 'es' ? '' : `/${lang}`
 
-const servicios = [
-  { label: 'Caracterización de Residuos Sólidos', href: '/servicios/caracterizacion-de-residuos' },
-  { label: 'Tarifa Plana', href: '/servicios/tarifa-plana' },
-  { label: 'Reclasificación de Residuos Peligrosos', href: '/servicios/reclasificacion-de-residuos' },
-  { label: 'Reducción del OPEX', href: '/servicios/reduccion-del-opex' },
-  { label: 'Almacenes Inteligentes', href: '/servicios/almacenes-inteligentes' },
-  { label: 'Software de Trazabilidad', href: '/servicios/software-trazabilidad' },
-]
+const footerServicesByLocale: Record<SupportedLocale, { label: string; href: string }[]> = {
+  es: [
+    { label: 'Caracterización de Residuos Sólidos', href: '/servicios/caracterizacion-de-residuos' },
+    { label: 'Tarifa Plana', href: '/servicios/tarifa-plana' },
+    { label: 'Reclasificación de Residuos Peligrosos', href: '/servicios/reclasificacion-de-residuos' },
+    { label: 'Reducción del OPEX', href: '/servicios/reduccion-del-opex' },
+    { label: 'Almacenes Inteligentes', href: '/servicios/almacenes-inteligentes' },
+    { label: 'Software de Trazabilidad', href: '/servicios/software-trazabilidad' },
+  ],
+  en: [
+    { label: 'Solid Waste Characterization', href: '/en/servicios/caracterizacion-de-residuos' },
+    { label: 'Environmental Flat Rate', href: '/en/servicios/tarifa-plana' },
+    { label: 'Hazardous Waste Reclassification', href: '/en/servicios/reclasificacion-de-residuos' },
+    { label: 'OPEX Reduction', href: '/en/servicios/reduccion-del-opex' },
+    { label: 'Smart Warehouses', href: '/en/servicios/almacenes-inteligentes' },
+    { label: 'Traceability Software', href: '/en/servicios/software-trazabilidad' },
+  ],
+  pt: [
+    { label: 'Caracterização de Resíduos Sólidos', href: '/pt/servicios/caracterizacion-de-residuos' },
+    { label: 'Tarifa Fixa Ambiental', href: '/pt/servicios/tarifa-plana' },
+    { label: 'Reclassificação de Resíduos Perigosos', href: '/pt/servicios/reclasificacion-de-residuos' },
+    { label: 'Redução do OPEX', href: '/pt/servicios/reduccion-del-opex' },
+    { label: 'Armazéns Inteligentes', href: '/pt/servicios/almacenes-inteligentes' },
+    { label: 'Software de Rastreabilidade', href: '/pt/servicios/software-trazabilidade' },
+  ],
+}
+const servicios = footerServicesByLocale[lang]
 
 const legalLinks = [
   { label: t('footer.privacy'), href: '#' },
@@ -29,7 +49,7 @@ const legalLinks = [
 
       <!-- Columna 1: Empresa -->
       <div class="space-y-6">
-        <a href="/" aria-label={t('aria.logo')}>
+        <a href={`${prefix}/`} aria-label={t('aria.logo')}>
           <img
             src={logoUrl}
             alt="Azul Sostenible"
@@ -43,7 +63,7 @@ const legalLinks = [
           {t('footer.tagline')}
         </p>
         <a
-          href="/contacto"
+          href={`${prefix}/contacto`}
           class="inline-flex items-center gap-2 bg-secondary text-white font-bold px-6 py-3 rounded-full hover:bg-secondary/90 transition-colors text-sm"
         >
           {t('btn.request_quote')}

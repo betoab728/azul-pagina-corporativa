@@ -1,8 +1,10 @@
 ---
 import type { SupportedLocale } from '../i18n/utils'
+import { useTranslations } from '../i18n/utils'
 import { getBeneficios, getEmpresaStats } from '../data/caracterizacion'
 interface Props { lang?: SupportedLocale }
 const { lang = 'es' } = Astro.props
+const t = useTranslations(lang)
 const beneficios = getBeneficios(lang)
 const empresaStats = getEmpresaStats(lang)
 ---
@@ -10,8 +12,8 @@ const empresaStats = getEmpresaStats(lang)
 <section class="py-section-padding bg-on-surface text-white" aria-labelledby="beneficios-heading">
   <div class="max-w-7xl mx-auto px-6 md:px-margin-desktop grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
     <div class="space-y-8">
-      <h2 id="beneficios-heading" class="font-headline text-4xl md:text-5xl font-extrabold">¿Qué gana tu empresa?</h2>
-      <ul class="space-y-6" aria-label="Beneficios del servicio">
+      <h2 id="beneficios-heading" class="font-headline text-4xl md:text-5xl font-extrabold">{t('caracterizacion.beneficios.title')}</h2>
+      <ul class="space-y-6" aria-label={t('caracterizacion.beneficios.list_label')}>
         {beneficios.map(item => (
           <li class="flex gap-4 items-start group">
             <div class="mt-1 bg-secondary text-white rounded-full p-1 shrink-0 group-hover:rotate-12 transition-transform">

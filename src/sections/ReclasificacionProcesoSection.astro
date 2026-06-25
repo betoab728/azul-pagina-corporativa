@@ -1,9 +1,10 @@
 ---
 import type { SupportedLocale } from '../i18n/utils'
-// TODO: Reemplazar con imagen real del cliente
+import { useTranslations } from '../i18n/utils'
 const procesoImage = '/reclasificacion-analisis.jpeg'
 interface Props { lang?: SupportedLocale }
 const { lang = 'es' } = Astro.props
+const t = useTranslations(lang)
 ---
 
 <section class="py-section-padding bg-surface" aria-labelledby="reclasificacion-proceso-heading">
@@ -12,19 +13,19 @@ const { lang = 'es' } = Astro.props
 
       <div class="md:col-span-7">
         <h2 id="reclasificacion-proceso-heading" class="font-headline text-4xl md:text-5xl text-on-surface font-extrabold mb-8">
-          La reclasificación convierte tus residuos peligrosos en ahorros
+          {t('reclasificacion.proceso.title')}
         </h2>
         <p class="text-lg text-on-surface-variant mb-8 leading-relaxed">
-          Analizamos tus residuos, comprobamos su verdadera categoría y preparamos todo el sustento técnico para actualizar su clasificación oficial ante el MINAM.
+          {t('reclasificacion.proceso.body')}
         </p>
         <div class="bg-surface-container p-6 border-l-4 border-primary rounded-r-xl mb-8 italic text-tertiary font-bold">
-          "Menos peligrosidad = Menos pagos = Más valor para tu empresa."
+          "{t('reclasificacion.proceso.quote')}"
         </div>
         <a
           href="#cotizacion"
           class="inline-flex items-center border-2 border-primary text-primary font-bold px-8 py-3 rounded-full hover:bg-primary hover:text-white transition-all"
         >
-          Más Información
+          {t('reclasificacion.proceso.cta')}
         </a>
       </div>
 
@@ -32,7 +33,7 @@ const { lang = 'es' } = Astro.props
         <div class="relative rounded-2xl overflow-hidden shadow-2xl">
           <img
             src={procesoImage}
-            alt="Proceso de certificación y auditoría ambiental"
+            alt={t('reclasificacion.proceso.img_alt')}
             class="w-full aspect-square object-cover"
             loading="lazy"
             width="600"
@@ -44,8 +45,8 @@ const { lang = 'es' } = Astro.props
                 <span class="material-symbols-outlined" aria-hidden="true">verified</span>
               </div>
               <div class="text-on-surface">
-                <p class="text-sm font-bold">Certificación MINAM</p>
-                <p class="text-xs opacity-70">Procesos 100% validados</p>
+                <p class="text-sm font-bold">{t('reclasificacion.proceso.badge_title')}</p>
+                <p class="text-xs opacity-70">{t('reclasificacion.proceso.badge_subtitle')}</p>
               </div>
             </div>
           </div>

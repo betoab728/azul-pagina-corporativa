@@ -1,7 +1,9 @@
 ---
 import type { SupportedLocale } from '../i18n/utils'
+import { useTranslations } from '../i18n/utils'
 interface Props { lang?: SupportedLocale }
 const { lang = 'es' } = Astro.props
+const t = useTranslations(lang)
 ---
 <section class="py-20 bg-surface-container-lowest" aria-labelledby="chungar-resolucion-heading">
   <div class="max-w-7xl mx-auto px-6 md:px-margin-desktop">
@@ -20,13 +22,13 @@ const { lang = 'es' } = Astro.props
         </div>
       </div>
       <div class="w-full md:w-1/2 order-1 md:order-2">
-        <h2 id="chungar-resolucion-heading" class="font-headline text-4xl font-extrabold text-primary mb-8">Resolución del caso</h2>
+        <h2 id="chungar-resolucion-heading" class="font-headline text-4xl font-extrabold text-primary mb-8">{t('chungar.resolucion.title')}</h2>
         <div class="bg-surface-container-low p-8 rounded-xl border-l-4 border-secondary">
           <p class="text-on-surface italic mb-6">
-            "Mediante la aplicación de evidencias técnicas y el principio de consistencia administrativa, demostramos que estos residuos no presentan características de peligrosidad (explosividad, toxicidad o inflamabilidad)."
+            {t('chungar.resolucion.quote')}
           </p>
           <p class="text-on-surface-variant leading-relaxed">
-            Basándonos en el <strong>Decreto Legislativo N° 1278</strong>, sustentamos que el cartón postconsumo puede ser gestionado como un residuo no peligroso, permitiendo una disposición final más ágil y coherente con la realidad operativa de la mina.
+            {t('chungar.resolucion.body')}
           </p>
         </div>
         <div class="mt-10 flex items-start gap-4">
@@ -34,8 +36,8 @@ const { lang = 'es' } = Astro.props
             <span class="material-symbols-outlined text-secondary" aria-hidden="true">gavel</span>
           </div>
           <div>
-            <h4 class="text-on-surface font-bold">Respaldo Normativo</h4>
-            <p class="text-on-surface-variant text-sm">Cumplimiento total con regulaciones del MINAM y protocolos mineros internacionales.</p>
+            <h4 class="text-on-surface font-bold">{t('chungar.resolucion.normativa.title')}</h4>
+            <p class="text-on-surface-variant text-sm">{t('chungar.resolucion.normativa.desc')}</p>
           </div>
         </div>
       </div>

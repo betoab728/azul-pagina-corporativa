@@ -1,8 +1,10 @@
 ---
 import type { SupportedLocale } from '../i18n/utils'
+import { useTranslations } from '../i18n/utils'
 import { getGuias } from '../data/recursos'
 interface Props { lang?: SupportedLocale }
 const { lang = 'es' } = Astro.props
+const t = useTranslations(lang)
 const guias = getGuias(lang)
 ---
 
@@ -15,8 +17,8 @@ const guias = getGuias(lang)
         <div>
           <div class="flex justify-between items-start mb-8">
             <div>
-              <h2 id="recursos-guias-heading" class="font-headline text-4xl md:text-5xl text-primary font-extrabold mb-2">Guías Normativas</h2>
-              <p class="text-on-surface-variant max-w-md">Repositorio completo de leyes y reglamentos ambientales vigentes en el Perú.</p>
+              <h2 id="recursos-guias-heading" class="font-headline text-4xl md:text-5xl text-primary font-extrabold mb-2">{t('recursos.guias.title')}</h2>
+              <p class="text-on-surface-variant max-w-md">{t('recursos.guias.subtitle')}</p>
             </div>
             <span class="material-symbols-outlined text-4xl text-primary/20" aria-hidden="true">gavel</span>
           </div>
@@ -36,9 +38,9 @@ const guias = getGuias(lang)
         <div class="bg-secondary-container/20 rounded-xl border border-secondary/20 p-8 hover:shadow-lg transition-all relative overflow-hidden group">
           <div class="relative z-10">
             <span class="material-symbols-outlined text-secondary text-3xl mb-4" aria-hidden="true">co2</span>
-            <h3 class="font-headline text-2xl font-bold text-on-secondary-fixed mb-2">Huella de Carbono</h3>
-            <p class="text-sm text-on-surface-variant mb-6">Mide las emisiones de CO2 de tus operaciones industriales.</p>
-            <a href="#" class="inline-flex items-center justify-center w-full bg-secondary text-white font-bold py-3 rounded-lg hover:scale-105 transition-transform">Iniciar Cálculo</a>
+            <h3 class="font-headline text-2xl font-bold text-on-secondary-fixed mb-2">{t('recursos.guias.carbono_title')}</h3>
+            <p class="text-sm text-on-surface-variant mb-6">{t('recursos.guias.carbono_body')}</p>
+            <a href="#" class="inline-flex items-center justify-center w-full bg-secondary text-white font-bold py-3 rounded-lg hover:scale-105 transition-transform">{t('recursos.guias.carbono_cta')}</a>
           </div>
           <div class="absolute -right-4 -bottom-4 opacity-10" aria-hidden="true">
             <span class="material-symbols-outlined text-9xl text-secondary">calculate</span>
@@ -47,9 +49,9 @@ const guias = getGuias(lang)
 
         <div class="bg-primary-container/10 rounded-xl border border-primary/20 p-8 hover:shadow-lg transition-all">
           <span class="material-symbols-outlined text-primary text-3xl mb-4" aria-hidden="true">delete_sweep</span>
-          <h3 class="font-headline text-2xl font-bold text-on-primary-fixed mb-2">Generación de Residuos</h3>
-          <p class="text-sm text-on-surface-variant mb-6">Optimiza tu gestión calculando la segregación y pesaje proyectado.</p>
-          <a href="#" class="inline-flex items-center justify-center w-full border border-primary text-primary font-bold py-3 rounded-lg hover:bg-primary/5 transition-colors">Abrir Herramienta</a>
+          <h3 class="font-headline text-2xl font-bold text-on-primary-fixed mb-2">{t('recursos.guias.residuos_title')}</h3>
+          <p class="text-sm text-on-surface-variant mb-6">{t('recursos.guias.residuos_body')}</p>
+          <a href="#" class="inline-flex items-center justify-center w-full border border-primary text-primary font-bold py-3 rounded-lg hover:bg-primary/5 transition-colors">{t('recursos.guias.residuos_cta')}</a>
         </div>
       </div>
 

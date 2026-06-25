@@ -1,13 +1,15 @@
 ---
 import type { SupportedLocale } from '../i18n/utils'
+import { useTranslations } from '../i18n/utils'
 interface Props { lang?: SupportedLocale }
 const { lang = 'es' } = Astro.props
+const t = useTranslations(lang)
 ---
 <section class="bg-primary-container text-on-primary-container py-12 relative overflow-hidden" aria-labelledby="software-trazabilidad-value-heading">
   <div class="max-w-7xl mx-auto px-6 md:px-margin-desktop flex flex-col md:flex-row items-center justify-center gap-8 text-center md:text-left">
     <span class="material-symbols-outlined text-[48px] text-secondary-fixed flex-shrink-0" aria-hidden="true">verified_user</span>
     <p id="software-trazabilidad-value-heading" class="font-headline text-2xl md:text-3xl font-bold leading-tight">
-      Más control <span class="text-secondary-fixed">=</span> menos riesgos y sanciones <span class="text-secondary-fixed">=</span> más valor y reputación para tu empresa.
+      {t('software_trazabilidad.value.heading')}
     </p>
   </div>
 </section>

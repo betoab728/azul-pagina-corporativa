@@ -7,9 +7,10 @@ interface Props {
   title: string
   description: string
   href?: string
+  cta?: string
 }
 
-const { image, imageAlt, sector, sectorColor, title, description, href = '#' } = Astro.props
+const { image, imageAlt, sector, sectorColor, title, description, href = '#', cta = 'Ver proyecto' } = Astro.props
 
 const badgeColor = sectorColor === 'primary' ? 'bg-primary' : 'bg-secondary'
 ---
@@ -32,7 +33,7 @@ const badgeColor = sectorColor === 'primary' ? 'bg-primary' : 'bg-secondary'
     <h4 class="font-bold text-lg mb-3 leading-tight">{title}</h4>
     <p class="text-on-surface-variant text-xs mb-6">{description}</p>
     <a href={href} class="text-primary font-bold text-xs flex items-center gap-2">
-      Ver proyecto
+      {cta}
       <span class="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
     </a>
   </div>

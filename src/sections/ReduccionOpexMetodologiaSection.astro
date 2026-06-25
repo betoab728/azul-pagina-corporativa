@@ -1,16 +1,18 @@
 ---
 import type { SupportedLocale } from '../i18n/utils'
+import { useTranslations } from '../i18n/utils'
 import { getMetodologiaItems } from '../data/reduccion-opex'
 interface Props { lang?: SupportedLocale }
 const { lang = 'es' } = Astro.props
+const t = useTranslations(lang)
 const metodologiaItems = getMetodologiaItems(lang)
 ---
 
 <section class="py-section-padding bg-surface-container-low" aria-labelledby="reduccion-opex-metodologia-heading">
   <div class="max-w-7xl mx-auto px-6 md:px-margin-desktop">
     <div class="text-center mb-8 md:mb-16">
-      <h2 id="reduccion-opex-metodologia-heading" class="font-headline text-4xl md:text-5xl text-primary font-extrabold mb-4">¿Qué hacemos? (Metodología)</h2>
-      <p class="text-lg text-on-surface-variant max-w-3xl mx-auto">Realizamos una evaluación integral de la gestión ambiental y de residuos, analizando cada nodo de la cadena operativa.</p>
+      <h2 id="reduccion-opex-metodologia-heading" class="font-headline text-4xl md:text-5xl text-primary font-extrabold mb-4">{t('reduccion_opex.metodologia.title')}</h2>
+      <p class="text-lg text-on-surface-variant max-w-3xl mx-auto">{t('reduccion_opex.metodologia.subtitle')}</p>
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">

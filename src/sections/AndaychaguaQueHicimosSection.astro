@@ -1,26 +1,28 @@
 ---
 import type { SupportedLocale } from '../i18n/utils'
+import { useTranslations } from '../i18n/utils'
 interface Props { lang?: SupportedLocale }
 const { lang = 'es' } = Astro.props
+const t = useTranslations(lang)
 ---
 <section class="py-20 bg-white" aria-labelledby="andaychagua-que-hicimos-heading">
   <div class="max-w-7xl mx-auto px-6 md:px-margin-desktop">
     <div class="mb-16">
-      <h2 id="andaychagua-que-hicimos-heading" class="font-headline text-4xl text-primary font-extrabold mb-4">¿Qué hicimos?</h2>
+      <h2 id="andaychagua-que-hicimos-heading" class="font-headline text-4xl text-primary font-extrabold mb-4">{t('andaychagua.que_hicimos.title')}</h2>
       <div class="h-1 w-20 bg-secondary rounded-full"></div>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
       <div class="md:col-span-8 p-10 bg-surface-container-low rounded-xl border border-outline-variant flex flex-col justify-center">
         <span class="material-symbols-outlined text-primary text-[48px] mb-6" aria-hidden="true">description</span>
         <p class="font-body text-lg text-on-surface leading-relaxed">
-          Se desarrolló una <strong>opinión técnica especializada</strong> para definir la peligrosidad de los envases de cartón utilizados como empaque secundario para explosivos en la Unidad Operativa Andaychagua. El objetivo principal fue determinar científicamente si estos materiales debían clasificarse como residuos peligrosos o no peligrosos, desafiando las clasificaciones convencionales mediante evidencia técnica.
+          {t('andaychagua.que_hicimos.body')}
         </p>
       </div>
       <div class="md:col-span-4">
         <div class="p-8 bg-secondary-container/20 rounded-xl border border-secondary/20 h-full flex flex-col items-center text-center justify-center">
           <span class="material-symbols-outlined text-secondary text-[40px] mb-4" aria-hidden="true">precision_manufacturing</span>
-          <h4 class="font-headline text-2xl font-bold text-secondary mb-2">Unidad Operativa</h4>
-          <p class="text-on-surface-variant">Andaychagua, Complejo Metalúrgico</p>
+          <h4 class="font-headline text-2xl font-bold text-secondary mb-2">{t('andaychagua.que_hicimos.unit_label')}</h4>
+          <p class="text-on-surface-variant">{t('andaychagua.que_hicimos.unit_name')}</p>
         </div>
       </div>
     </div>

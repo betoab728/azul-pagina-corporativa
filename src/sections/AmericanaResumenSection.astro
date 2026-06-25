@@ -1,35 +1,37 @@
 ---
 import type { SupportedLocale } from '../i18n/utils'
+import { useTranslations } from '../i18n/utils'
 interface Props { lang?: SupportedLocale }
 const { lang = 'es' } = Astro.props
+const t = useTranslations(lang)
 ---
 <section class="py-20" aria-labelledby="americana-resumen-heading">
   <div class="max-w-7xl mx-auto px-6 md:px-margin-desktop text-center">
-    <h2 id="americana-resumen-heading" class="font-headline text-4xl font-extrabold text-primary mb-4">Resumen de éxito</h2>
+    <h2 id="americana-resumen-heading" class="font-headline text-4xl font-extrabold text-primary mb-4">{t('americana.resumen.title')}</h2>
     <p class="font-body text-lg text-on-surface-variant mb-16 max-w-2xl mx-auto">
-      Logramos una opinión técnica favorable que respalda la reclasificación, optimizando la cadena de residuos.
+      {t('americana.resumen.subtitle')}
     </p>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       <div class="p-8 rounded-2xl border border-outline-variant/30 hover:border-secondary transition-colors group">
         <div class="w-16 h-16 bg-secondary-container/30 text-secondary rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
           <span class="material-symbols-outlined text-3xl" aria-hidden="true" style="font-variation-settings: 'FILL' 1;">check_circle</span>
         </div>
-        <h3 class="font-headline text-2xl font-bold text-on-surface mb-4">Criterio Ambiental</h3>
-        <p class="text-on-surface-variant">Manejo adecuado, seguro y eficiente bajo normativas vigentes.</p>
+        <h3 class="font-headline text-2xl font-bold text-on-surface mb-4">{t('americana.resumen.card1_title')}</h3>
+        <p class="text-on-surface-variant">{t('americana.resumen.card1_desc')}</p>
       </div>
       <div class="p-8 rounded-2xl border border-outline-variant/30 hover:border-secondary transition-colors group">
         <div class="w-16 h-16 bg-secondary-container/30 text-secondary rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
           <span class="material-symbols-outlined text-3xl" aria-hidden="true" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
         </div>
-        <h3 class="font-headline text-2xl font-bold text-on-surface mb-4">Metodología Válida</h3>
-        <p class="text-on-surface-variant">Confirmación mediante riguroso análisis documental y ensayos.</p>
+        <h3 class="font-headline text-2xl font-bold text-on-surface mb-4">{t('americana.resumen.card2_title')}</h3>
+        <p class="text-on-surface-variant">{t('americana.resumen.card2_desc')}</p>
       </div>
       <div class="p-8 rounded-2xl border border-outline-variant/30 hover:border-secondary transition-colors group">
         <div class="w-16 h-16 bg-secondary-container/30 text-secondary rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
           <span class="material-symbols-outlined text-3xl" aria-hidden="true" style="font-variation-settings: 'FILL' 1;">biotech</span>
         </div>
-        <h3 class="font-headline text-2xl font-bold text-on-surface mb-4">Ensayos Acreditados</h3>
-        <p class="text-on-surface-variant">Resultados de laboratorio que garantizan la no peligrosidad.</p>
+        <h3 class="font-headline text-2xl font-bold text-on-surface mb-4">{t('americana.resumen.card3_title')}</h3>
+        <p class="text-on-surface-variant">{t('americana.resumen.card3_desc')}</p>
       </div>
     </div>
   </div>

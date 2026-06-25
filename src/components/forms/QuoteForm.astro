@@ -1,5 +1,10 @@
 ---
-// El formulario es UI-only en esta versión. La integración con backend se implementará en una fase posterior.
+import type { SupportedLocale } from '../../i18n/utils'
+import { useTranslations } from '../../i18n/utils'
+
+interface Props { lang?: SupportedLocale }
+const { lang = 'es' } = Astro.props
+const t = useTranslations(lang)
 ---
 
 <div class="bg-white p-10 md:p-12 rounded-[40px] shadow-2xl border border-outline-variant/20 relative">
@@ -8,8 +13,8 @@
       <span class="material-symbols-outlined" aria-hidden="true">fact_check</span>
     </div>
     <div>
-      <h3 class="font-headline text-xl font-bold">Completa el formulario</h3>
-      <p class="text-sm text-on-surface-variant">y recibe tu cotización gratuita</p>
+      <h3 class="font-headline text-xl font-bold">{t('form.quote_title')}</h3>
+      <p class="text-sm text-on-surface-variant">{t('form.quote_subtitle')}</p>
     </div>
   </div>
 
@@ -17,7 +22,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
       <!-- Nombre -->
       <div>
-        <label for="quote-name" class="block text-sm font-bold mb-2">Nombre completo <span aria-hidden="true">*</span></label>
+        <label for="quote-name" class="block text-sm font-bold mb-2">{t('form.name')} <span aria-hidden="true">*</span></label>
         <div class="relative">
           <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant/50 text-lg pointer-events-none" aria-hidden="true">person</span>
           <input
@@ -25,7 +30,7 @@
             name="name"
             type="text"
             required
-            placeholder="Ej: Juan Pérez"
+            placeholder={t('form.name_placeholder')}
             class="w-full pl-12 pr-4 py-4 rounded-2xl bg-surface border border-outline-variant/30 focus:ring-2 focus:ring-primary/20 focus:border-primary/50 outline-none transition-all"
           />
         </div>
@@ -33,7 +38,7 @@
 
       <!-- Empresa -->
       <div>
-        <label for="quote-company" class="block text-sm font-bold mb-2">Empresa / Organización <span aria-hidden="true">*</span></label>
+        <label for="quote-company" class="block text-sm font-bold mb-2">{t('form.company_org')} <span aria-hidden="true">*</span></label>
         <div class="relative">
           <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant/50 text-lg pointer-events-none" aria-hidden="true">business</span>
           <input
@@ -41,7 +46,7 @@
             name="company"
             type="text"
             required
-            placeholder="Ej: Minera ABC"
+            placeholder={t('form.company_placeholder')}
             class="w-full pl-12 pr-4 py-4 rounded-2xl bg-surface border border-outline-variant/30 focus:ring-2 focus:ring-primary/20 focus:border-primary/50 outline-none transition-all"
           />
         </div>
@@ -50,41 +55,41 @@
 
     <!-- Sector -->
     <div>
-      <label for="quote-sector" class="block text-sm font-bold mb-2">Sector <span aria-hidden="true">*</span></label>
+      <label for="quote-sector" class="block text-sm font-bold mb-2">{t('form.sector')} <span aria-hidden="true">*</span></label>
       <select
         id="quote-sector"
         name="sector"
         required
         class="w-full px-4 py-4 rounded-2xl bg-surface border border-outline-variant/30 focus:ring-2 focus:ring-primary/20 focus:border-primary/50 outline-none transition-all appearance-none cursor-pointer"
       >
-        <option value="">Selecciona tu sector</option>
-        <option value="mineria">Minería</option>
-        <option value="industrial">Industrial</option>
-        <option value="salud">Salud</option>
-        <option value="agroindustrial">Agroindustrial</option>
+        <option value="">{t('form.sector_placeholder')}</option>
+        <option value="mineria">{t('form.sector_mining')}</option>
+        <option value="industrial">{t('form.sector_industrial')}</option>
+        <option value="salud">{t('form.sector_health')}</option>
+        <option value="agroindustrial">{t('form.sector_agro')}</option>
       </select>
     </div>
 
     <!-- Desafío ambiental -->
     <div>
-      <label for="quote-challenge" class="block text-sm font-bold mb-2">¿Cuál es tu principal desafío ambiental? <span aria-hidden="true">*</span></label>
+      <label for="quote-challenge" class="block text-sm font-bold mb-2">{t('form.challenge')} <span aria-hidden="true">*</span></label>
       <select
         id="quote-challenge"
         name="challenge"
         required
         class="w-full px-4 py-4 rounded-2xl bg-surface border border-outline-variant/30 focus:ring-2 focus:ring-primary/20 focus:border-primary/50 outline-none transition-all appearance-none cursor-pointer"
       >
-        <option value="">Selecciona una opción</option>
-        <option value="residuos">Gestión de residuos</option>
-        <option value="aguas">Tratamiento de aguas</option>
-        <option value="consultoria">Consultoría ambiental</option>
-        <option value="otros">Otros</option>
+        <option value="">{t('form.challenge_placeholder')}</option>
+        <option value="residuos">{t('form.challenge_waste')}</option>
+        <option value="aguas">{t('form.challenge_water')}</option>
+        <option value="consultoria">{t('form.challenge_consulting')}</option>
+        <option value="otros">{t('form.challenge_other')}</option>
       </select>
     </div>
 
     <!-- Email -->
     <div>
-      <label for="quote-email" class="block text-sm font-bold mb-2">Correo electrónico <span aria-hidden="true">*</span></label>
+      <label for="quote-email" class="block text-sm font-bold mb-2">{t('form.email')} <span aria-hidden="true">*</span></label>
       <div class="relative">
         <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant/50 text-lg pointer-events-none" aria-hidden="true">mail</span>
         <input
@@ -100,7 +105,7 @@
 
     <!-- Teléfono -->
     <div>
-      <label for="quote-phone" class="block text-sm font-bold mb-2">Teléfono / WhatsApp <span aria-hidden="true">*</span></label>
+      <label for="quote-phone" class="block text-sm font-bold mb-2">{t('form.phone_whatsapp')} <span aria-hidden="true">*</span></label>
       <div class="relative">
         <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant/50 text-lg pointer-events-none" aria-hidden="true">call</span>
         <input
@@ -108,7 +113,7 @@
           name="phone"
           type="tel"
           required
-          placeholder="Ej: 969 123 456"
+          placeholder={t('form.phone_placeholder')}
           class="w-full pl-12 pr-4 py-4 rounded-2xl bg-surface border border-outline-variant/30 focus:ring-2 focus:ring-primary/20 focus:border-primary/50 outline-none transition-all"
         />
       </div>
@@ -118,13 +123,13 @@
       type="submit"
       class="w-full bg-secondary text-white font-bold py-5 rounded-2xl hover:bg-secondary/90 transition-all shadow-lg flex items-center justify-center gap-3 active:scale-95 group"
     >
-      Quiero una asesoría gratuita
+      {t('form.quote_submit')}
       <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" aria-hidden="true">send</span>
     </button>
 
     <p class="text-center text-[10px] text-on-surface-variant pt-2 flex items-center justify-center gap-1">
       <span class="material-symbols-outlined text-[10px] text-secondary" aria-hidden="true">verified_user</span>
-      Respondemos en menos de 24 horas
+      {t('form.response_time')}
     </p>
   </form>
 </div>

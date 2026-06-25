@@ -1,8 +1,10 @@
 ---
 import type { SupportedLocale } from '../i18n/utils'
+import { useTranslations } from '../i18n/utils'
 import { getProblemas } from '../data/almacenes-inteligentes'
 interface Props { lang?: SupportedLocale }
 const { lang = 'es' } = Astro.props
+const t = useTranslations(lang)
 const problemas = getProblemas(lang)
 ---
 
@@ -12,13 +14,13 @@ const problemas = getProblemas(lang)
 
       <div class="space-y-6">
         <div class="inline-block px-4 py-1 bg-error-container text-on-error-container rounded-full text-xs font-bold uppercase tracking-wider">
-          ¿Por qué es importante?
+          {t('almacenes.problema.badge')}
         </div>
         <h2 id="almacenes-problema-heading" class="font-headline text-4xl md:text-5xl text-on-surface font-extrabold">
-          Su almacén de residuos no es una obligación, es una <span class="text-primary">fuente de ingresos oculta</span>.
+          {t('almacenes.problema.title_pre')} <span class="text-primary">{t('almacenes.problema.title_highlight')}</span>.
         </h2>
         <p class="text-on-surface-variant leading-relaxed">
-          Muchas empresas ven el almacenamiento de descartes como un costo hundido. En Azul Sostenible, identificamos los puntos de fuga financiera que impactan su rentabilidad diaria.
+          {t('almacenes.problema.body')}
         </p>
       </div>
 

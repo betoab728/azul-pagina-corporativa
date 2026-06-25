@@ -1,16 +1,18 @@
 ---
 import type { SupportedLocale } from '../i18n/utils'
+import { useTranslations } from '../i18n/utils'
 import { getBeneficios } from '../data/software-trazabilidad'
 interface Props { lang?: SupportedLocale }
 const { lang = 'es' } = Astro.props
+const t = useTranslations(lang)
 const beneficios = getBeneficios(lang)
 ---
 
 <section class="py-section-padding bg-surface-container-lowest" aria-labelledby="software-trazabilidad-gana-heading">
   <div class="max-w-7xl mx-auto px-6 md:px-margin-desktop">
     <div class="text-center max-w-3xl mx-auto mb-8 md:mb-16 space-y-4">
-      <h2 id="software-trazabilidad-gana-heading" class="font-headline text-4xl md:text-5xl font-extrabold">¿QUÉ GANA TU EMPRESA?</h2>
-      <p class="text-lg text-on-surface-variant">Optimizamos tu operación ambiental mediante tecnología de vanguardia y procesos simplificados.</p>
+      <h2 id="software-trazabilidad-gana-heading" class="font-headline text-4xl md:text-5xl font-extrabold">{t('software_trazabilidad.gana.title')}</h2>
+      <p class="text-lg text-on-surface-variant">{t('software_trazabilidad.gana.subtitle')}</p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-6 lg:grid-cols-12 gap-6">

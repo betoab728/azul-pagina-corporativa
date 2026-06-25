@@ -1,14 +1,16 @@
 ---
 import type { SupportedLocale } from '../i18n/utils'
+import { useTranslations } from '../i18n/utils'
 import { getCasosExito } from '../data/reclasificacion'
 interface Props { lang?: SupportedLocale }
 const { lang = 'es' } = Astro.props
+const t = useTranslations(lang)
 const casosExito = getCasosExito(lang)
 ---
 
 <section class="py-section-padding bg-tertiary text-white" aria-labelledby="reclasificacion-casos-heading">
   <div class="max-w-7xl mx-auto px-6 md:px-margin-desktop">
-    <h2 id="reclasificacion-casos-heading" class="font-headline text-4xl md:text-5xl font-extrabold mb-12 text-center">Casos de Éxito - Resoluciones Obtenidas</h2>
+    <h2 id="reclasificacion-casos-heading" class="font-headline text-4xl md:text-5xl font-extrabold mb-12 text-center">{t('reclasificacion.casos.title')}</h2>
 
     <div class="space-y-4">
       {casosExito.map(caso => (
@@ -23,7 +25,7 @@ const casosExito = getCasosExito(lang)
             rel="noopener noreferrer"
             class="flex items-center gap-2 text-secondary-fixed font-bold hover:underline shrink-0"
           >
-            Abrir PDF
+            {t('reclasificacion.casos.open_pdf')}
             <span class="material-symbols-outlined text-sm" aria-hidden="true">open_in_new</span>
           </a>
         </div>

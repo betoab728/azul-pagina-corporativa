@@ -1,8 +1,10 @@
 ---
 import type { SupportedLocale } from '../i18n/utils'
+import { useTranslations } from '../i18n/utils'
 import { getContactInfo } from '../data/contacto'
 interface Props { lang?: SupportedLocale }
 const { lang = 'es' } = Astro.props
+const t = useTranslations(lang)
 const contactInfo = getContactInfo(lang)
 ---
 
@@ -12,44 +14,44 @@ const contactInfo = getContactInfo(lang)
 
       <!-- Formulario -->
       <div class="lg:col-span-7 bg-surface-container-lowest p-8 md:p-12 rounded-xl border border-outline-variant shadow-sm">
-        <h2 id="contacto-main-heading" class="font-headline text-2xl font-bold text-on-surface mb-8">Envíenos un mensaje</h2>
+        <h2 id="contacto-main-heading" class="font-headline text-2xl font-bold text-on-surface mb-8">{t('contacto.form.title')}</h2>
         <form class="space-y-6" novalidate>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div class="space-y-2">
-              <label class="text-sm font-bold text-on-surface-variant ml-1">Nombre Completo</label>
-              <input class="w-full px-4 py-3 rounded-lg border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all bg-surface" placeholder="Juan Pérez" type="text" />
+              <label class="text-sm font-bold text-on-surface-variant ml-1">{t('form.name')}</label>
+              <input class="w-full px-4 py-3 rounded-lg border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all bg-surface" placeholder={t('contacto.form.name_placeholder')} type="text" />
             </div>
             <div class="space-y-2">
-              <label class="text-sm font-bold text-on-surface-variant ml-1">Empresa</label>
-              <input class="w-full px-4 py-3 rounded-lg border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all bg-surface" placeholder="Nombre de su organización" type="text" />
+              <label class="text-sm font-bold text-on-surface-variant ml-1">{t('form.company')}</label>
+              <input class="w-full px-4 py-3 rounded-lg border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all bg-surface" placeholder={t('contacto.form.company_placeholder')} type="text" />
             </div>
           </div>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div class="space-y-2">
-              <label class="text-sm font-bold text-on-surface-variant ml-1">Sector</label>
+              <label class="text-sm font-bold text-on-surface-variant ml-1">{t('contacto.form.sector')}</label>
               <select class="w-full px-4 py-3 rounded-lg border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all bg-surface appearance-none cursor-pointer">
-                <option>Minería</option>
-                <option>Energía</option>
-                <option>Industria</option>
-                <option>Gobierno</option>
-                <option>Otro</option>
+                <option>{t('contacto.form.sector_mining')}</option>
+                <option>{t('contacto.form.sector_energy')}</option>
+                <option>{t('contacto.form.sector_industry')}</option>
+                <option>{t('contacto.form.sector_government')}</option>
+                <option>{t('contacto.form.sector_other')}</option>
               </select>
             </div>
             <div class="space-y-2">
-              <label class="text-sm font-bold text-on-surface-variant ml-1">Email Corporativo</label>
-              <input class="w-full px-4 py-3 rounded-lg border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all bg-surface" placeholder="juan@empresa.com" type="email" />
+              <label class="text-sm font-bold text-on-surface-variant ml-1">{t('contacto.form.email_corp')}</label>
+              <input class="w-full px-4 py-3 rounded-lg border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all bg-surface" placeholder={t('contacto.form.email_placeholder')} type="email" />
             </div>
           </div>
           <div class="space-y-2">
-            <label class="text-sm font-bold text-on-surface-variant ml-1">Teléfono</label>
+            <label class="text-sm font-bold text-on-surface-variant ml-1">{t('form.phone')}</label>
             <input class="w-full px-4 py-3 rounded-lg border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all bg-surface" placeholder="+51 987 654 321" type="tel" />
           </div>
           <div class="space-y-2">
-            <label class="text-sm font-bold text-on-surface-variant ml-1">Mensaje</label>
-            <textarea class="w-full px-4 py-3 rounded-lg border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all bg-surface" placeholder="¿Cómo podemos colaborar en su próximo proyecto ambiental?" rows="4"></textarea>
+            <label class="text-sm font-bold text-on-surface-variant ml-1">{t('form.message')}</label>
+            <textarea class="w-full px-4 py-3 rounded-lg border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all bg-surface" placeholder={t('contacto.form.message_placeholder')} rows="4"></textarea>
           </div>
           <button class="w-full md:w-auto bg-secondary text-white font-bold px-6 md:px-10 py-3 md:py-4 rounded-full hover:bg-secondary/90 transition-all flex items-center justify-center gap-2 shadow-lg" type="submit">
-            Enviar Consulta
+            {t('contacto.form.submit')}
             <span class="material-symbols-outlined" aria-hidden="true">send</span>
           </button>
         </form>
@@ -58,7 +60,7 @@ const contactInfo = getContactInfo(lang)
       <!-- Info de contacto -->
       <div class="lg:col-span-5 space-y-12">
         <div class="space-y-8">
-          <h3 class="font-headline text-2xl font-bold text-on-surface">Información Directa</h3>
+          <h3 class="font-headline text-2xl font-bold text-on-surface">{t('contacto.form.direct_info')}</h3>
           <div class="space-y-6">
             {contactInfo.map(info => (
               <div class="flex items-start gap-4">
@@ -80,7 +82,7 @@ const contactInfo = getContactInfo(lang)
           >
             <svg class="w-6 h-6 fill-[#25D366] group-hover:scale-110 transition-transform" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.438 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.937 3.659 1.432 5.705 1.433h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
             <div class="text-left">
-              <span class="block text-sm font-bold leading-none text-on-surface">WhatsApp Corporativo</span>
+              <span class="block text-sm font-bold leading-none text-on-surface">{t('contacto.form.whatsapp_label')}</span>
               <span class="text-secondary font-bold text-xl">+51 936602578</span>
             </div>
           </a>
@@ -90,7 +92,7 @@ const contactInfo = getContactInfo(lang)
         <div class="relative group h-[300px] rounded-xl overflow-hidden shadow-xl">
           <iframe
             src="https://www.youtube.com/embed/k_QZHwuM9JQ"
-            title="Video de Azul Sostenible"
+            title={t('contacto.form.video_title')}
             class="w-full h-full"
             loading="lazy"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

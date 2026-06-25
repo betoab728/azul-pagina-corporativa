@@ -41,8 +41,64 @@ const projectsByLocale: Record<SupportedLocale, Project[]> = {
       href: '/proyectos',
     },
   ],
-  en: [],
-  pt: [],
+  en: [
+    {
+      image: '/gestion.jpeg',
+      imageAlt: 'Comprehensive hazardous waste management in the mining sector',
+      sector: 'Mining sector',
+      sectorColor: 'primary',
+      title: 'Comprehensive hazardous waste management',
+      description: 'We reduced hazardous waste generation by 30%.',
+      href: '/en/projects',
+    },
+    {
+      image: '/industrial.jpeg',
+      imageAlt: 'Industrial wastewater treatment plant',
+      sector: 'Industrial',
+      sectorColor: 'secondary',
+      title: 'WWTP and industrial water reuse',
+      description: 'System implementation with 90% efficiency.',
+      href: '/en/projects',
+    },
+    {
+      image: '/salud.jpeg',
+      imageAlt: 'Biocontaminated waste management in the healthcare sector',
+      sector: 'Healthcare',
+      sectorColor: 'primary',
+      title: 'Biocontaminated waste management',
+      description: '100% safe traceability and regulatory compliance.',
+      href: '/en/projects',
+    },
+  ],
+  pt: [
+    {
+      image: '/gestion.jpeg',
+      imageAlt: 'Gestão integral de resíduos perigosos no setor de mineração',
+      sector: 'Setor de mineração',
+      sectorColor: 'primary',
+      title: 'Gestão integral de resíduos perigosos',
+      description: 'Reduzimos em 30% a geração de resíduos perigosos.',
+      href: '/pt/projetos',
+    },
+    {
+      image: '/industrial.jpeg',
+      imageAlt: 'Planta de tratamento de águas residuais industrial',
+      sector: 'Industrial',
+      sectorColor: 'secondary',
+      title: 'ETE e reúso de água industrial',
+      description: 'Implementação de sistema com 90% de eficiência.',
+      href: '/pt/projetos',
+    },
+    {
+      image: '/salud.jpeg',
+      imageAlt: 'Gestão de resíduos biocontaminados no setor de saúde',
+      sector: 'Saúde',
+      sectorColor: 'primary',
+      title: 'Gestão de resíduos biocontaminados',
+      description: 'Rastreabilidade 100% segura e conformidade regulatória.',
+      href: '/pt/projetos',
+    },
+  ],
 }
 
 const whyChooseUsByLocale: Record<SupportedLocale, string[]> = {
@@ -53,8 +109,20 @@ const whyChooseUsByLocale: Record<SupportedLocale, string[]> = {
     'Acompañamiento personalizado',
     'Resultados medibles y sostenibles',
   ],
-  en: [],
-  pt: [],
+  en: [
+    'Local expertise with a global vision',
+    'Genuine commitment to the environment',
+    'Innovative and effective solutions',
+    'Personalized support',
+    'Measurable and sustainable results',
+  ],
+  pt: [
+    'Experiência local com visão global',
+    'Compromisso real com o meio ambiente',
+    'Soluções inovadoras e eficazes',
+    'Acompanhamento personalizado',
+    'Resultados mensuráveis e sustentáveis',
+  ],
 }
 
 export const getProjects = (locale: SupportedLocale): Project[] =>

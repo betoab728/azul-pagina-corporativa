@@ -1,51 +1,53 @@
 ---
 import type { SupportedLocale } from '../i18n/utils'
+import { useTranslations } from '../i18n/utils'
 interface Props { lang?: SupportedLocale }
 const { lang = 'es' } = Astro.props
+const t = useTranslations(lang)
 ---
 <section class="py-20 bg-surface-container-low" aria-labelledby="cristobal-resolucion-heading">
   <div class="max-w-7xl mx-auto px-6 md:px-margin-desktop">
     <div class="text-center mb-16">
-      <h2 id="cristobal-resolucion-heading" class="font-headline text-4xl font-extrabold text-primary mb-4">Resolución Técnica</h2>
-      <p class="text-on-surface-variant max-w-2xl mx-auto">Sustento normativo basado en el Decreto Supremo N° 014-2017-MINAM para la reclasificación oficial.</p>
+      <h2 id="cristobal-resolucion-heading" class="font-headline text-4xl font-extrabold text-primary mb-4">{t('cristobal.resolucion.title')}</h2>
+      <p class="text-on-surface-variant max-w-2xl mx-auto">{t('cristobal.resolucion.subtitle')}</p>
     </div>
     <div class="grid md:grid-cols-4 gap-6">
       <div class="bg-white p-8 rounded-xl border border-outline-variant hover:shadow-xl transition-all group">
         <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
           <span class="material-symbols-outlined" aria-hidden="true">science</span>
         </div>
-        <h3 class="font-headline text-2xl font-bold mb-2">No Reactivo</h3>
-        <p class="text-sm text-on-surface-variant">Sin interacción química adversa con el entorno.</p>
+        <h3 class="font-headline text-2xl font-bold mb-2">{t('cristobal.resolucion.card1_title')}</h3>
+        <p class="text-sm text-on-surface-variant">{t('cristobal.resolucion.card1_desc')}</p>
       </div>
       <div class="bg-white p-8 rounded-xl border border-outline-variant hover:shadow-xl transition-all group">
         <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
           <span class="material-symbols-outlined" aria-hidden="true">local_fire_department</span>
         </div>
-        <h3 class="font-headline text-2xl font-bold mb-2">No Inflamable</h3>
-        <p class="text-sm text-on-surface-variant">Evaluación de riesgo térmico superada satisfactoriamente.</p>
+        <h3 class="font-headline text-2xl font-bold mb-2">{t('cristobal.resolucion.card2_title')}</h3>
+        <p class="text-sm text-on-surface-variant">{t('cristobal.resolucion.card2_desc')}</p>
       </div>
       <div class="bg-white p-8 rounded-xl border border-outline-variant hover:shadow-xl transition-all group">
         <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
           <span class="material-symbols-outlined" aria-hidden="true">skull</span>
         </div>
-        <h3 class="font-headline text-2xl font-bold mb-2">No Tóxico</h3>
-        <p class="text-sm text-on-surface-variant">Seguridad garantizada para la manipulación humana.</p>
+        <h3 class="font-headline text-2xl font-bold mb-2">{t('cristobal.resolucion.card3_title')}</h3>
+        <p class="text-sm text-on-surface-variant">{t('cristobal.resolucion.card3_desc')}</p>
       </div>
       <div class="bg-white p-8 rounded-xl border border-outline-variant hover:shadow-xl transition-all group">
         <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
           <span class="material-symbols-outlined" aria-hidden="true">explosion</span>
         </div>
-        <h3 class="font-headline text-2xl font-bold mb-2">No Explosivo</h3>
-        <p class="text-sm text-on-surface-variant">Empaque secundario libre de trazas de riesgo dinámico.</p>
+        <h3 class="font-headline text-2xl font-bold mb-2">{t('cristobal.resolucion.card4_title')}</h3>
+        <p class="text-sm text-on-surface-variant">{t('cristobal.resolucion.card4_desc')}</p>
       </div>
     </div>
     <div class="mt-16 bg-primary rounded-2xl p-12 flex flex-col md:flex-row items-center justify-between text-white overflow-hidden relative">
       <div class="relative z-10 max-w-xl">
-        <h4 class="font-headline text-4xl font-extrabold mb-4">Reclasificación Oficial</h4>
-        <p class="text-lg opacity-90">Determinación técnica de residuos sólidos no peligrosos, transformando la gestión de residuos en una gestión estratégica de recursos.</p>
+        <h4 class="font-headline text-4xl font-extrabold mb-4">{t('cristobal.resolucion.cta_title')}</h4>
+        <p class="text-lg opacity-90">{t('cristobal.resolucion.cta_desc')}</p>
       </div>
       <a href="/contacto" class="relative z-10 mt-8 md:mt-0 bg-secondary text-white px-8 py-4 rounded-full font-bold hover:scale-105 transition-transform flex items-center gap-2">
-        <span class="material-symbols-outlined" aria-hidden="true">description</span> Descargar Sustento Técnico
+        <span class="material-symbols-outlined" aria-hidden="true">description</span> {t('cristobal.resolucion.cta_btn')}
       </a>
       <div class="absolute right-0 top-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -mr-32 -mt-32" aria-hidden="true"></div>
     </div>

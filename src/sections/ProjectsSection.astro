@@ -24,7 +24,7 @@ const whyChooseUs = getWhyChooseUs(lang)
       <div class="w-full lg:w-2/3">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           {projects.map(project => (
-            <ProjectCard {...project} />
+            <ProjectCard {...project} cta={t('btn.view_project')} />
           ))}
         </div>
       </div>

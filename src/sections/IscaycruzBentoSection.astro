@@ -1,7 +1,9 @@
 ---
 import type { SupportedLocale } from '../i18n/utils'
+import { useTranslations } from '../i18n/utils'
 interface Props { lang?: SupportedLocale }
 const { lang = 'es' } = Astro.props
+const t = useTranslations(lang)
 ---
 <section class="py-20" aria-labelledby="iscaycruz-contenido-heading">
   <div class="max-w-7xl mx-auto px-6 md:px-margin-desktop">
@@ -13,25 +15,25 @@ const { lang = 'es' } = Astro.props
             <span class="material-symbols-outlined text-[32px]" aria-hidden="true">engineering</span>
           </div>
           <div>
-            <h2 id="iscaycruz-contenido-heading" class="font-headline text-4xl font-extrabold text-primary mb-2">¿Qué hicimos?</h2>
-            <p class="text-on-surface-variant">Desarrollamos un estudio técnico de alta precisión para evaluar la peligrosidad de los envases de cartón utilizados en operaciones mineras.</p>
+            <h2 id="iscaycruz-contenido-heading" class="font-headline text-4xl font-extrabold text-primary mb-2">{t('iscaycruz.bento.what_title')}</h2>
+            <p class="text-on-surface-variant">{t('iscaycruz.bento.what_desc')}</p>
           </div>
         </div>
         <div class="grid md:grid-cols-3 gap-6">
           <div class="p-4 bg-surface-container-low rounded-lg border border-outline-variant/30">
-            <div class="font-bold text-sm text-primary mb-2">Paso 01</div>
-            <h4 class="font-headline text-lg font-bold mb-2">Análisis de Fichas de Seguridad</h4>
-            <p class="text-sm text-on-surface-variant">Revisión profunda de componentes químicos y MSDS.</p>
+            <div class="font-bold text-sm text-primary mb-2">{t('iscaycruz.bento.step1_label')}</div>
+            <h4 class="font-headline text-lg font-bold mb-2">{t('iscaycruz.bento.step1_title')}</h4>
+            <p class="text-sm text-on-surface-variant">{t('iscaycruz.bento.step1_desc')}</p>
           </div>
           <div class="p-4 bg-surface-container-low rounded-lg border border-outline-variant/30">
-            <div class="font-bold text-sm text-primary mb-2">Paso 02</div>
-            <h4 class="font-headline text-lg font-bold mb-2">Recolección de Muestras</h4>
-            <p class="text-sm text-on-surface-variant">Protocolo de muestreo in situ bajo normativas internacionales.</p>
+            <div class="font-bold text-sm text-primary mb-2">{t('iscaycruz.bento.step2_label')}</div>
+            <h4 class="font-headline text-lg font-bold mb-2">{t('iscaycruz.bento.step2_title')}</h4>
+            <p class="text-sm text-on-surface-variant">{t('iscaycruz.bento.step2_desc')}</p>
           </div>
           <div class="p-4 bg-surface-container-low rounded-lg border border-outline-variant/30">
-            <div class="font-bold text-sm text-primary mb-2">Paso 03</div>
-            <h4 class="font-headline text-lg font-bold mb-2">Análisis Normativo</h4>
-            <p class="text-sm text-on-surface-variant">Comparativa técnica con la Ley de Gestión de Residuos.</p>
+            <div class="font-bold text-sm text-primary mb-2">{t('iscaycruz.bento.step3_label')}</div>
+            <h4 class="font-headline text-lg font-bold mb-2">{t('iscaycruz.bento.step3_title')}</h4>
+            <p class="text-sm text-on-surface-variant">{t('iscaycruz.bento.step3_desc')}</p>
           </div>
         </div>
       </div>
@@ -48,19 +50,19 @@ const { lang = 'es' } = Astro.props
           />
         </div>
         <div class="relative z-10">
-          <h2 class="font-headline text-2xl font-bold mb-4">Resolución del Caso</h2>
+          <h2 class="font-headline text-2xl font-bold mb-4">{t('iscaycruz.bento.resolution_title')}</h2>
           <ul class="space-y-4">
             <li class="flex gap-3">
               <span class="material-symbols-outlined text-secondary-container shrink-0" aria-hidden="true">check_circle</span>
-              <p class="text-sm text-white/90">Ausencia total de explosividad en los envases secundarios.</p>
+              <p class="text-sm text-white/90">{t('iscaycruz.bento.resolution_item1')}</p>
             </li>
             <li class="flex gap-3">
               <span class="material-symbols-outlined text-secondary-container shrink-0" aria-hidden="true">check_circle</span>
-              <p class="text-sm text-white/90">Composición celulósica con combustión controlada sin detonación.</p>
+              <p class="text-sm text-white/90">{t('iscaycruz.bento.resolution_item2')}</p>
             </li>
             <li class="flex gap-3">
               <span class="material-symbols-outlined text-secondary-container shrink-0" aria-hidden="true">check_circle</span>
-              <p class="text-sm text-white/90">Clasificación final: <b>Residuo NO peligroso</b>.</p>
+              <p class="text-sm text-white/90">{t('iscaycruz.bento.resolution_item3')}</p>
             </li>
           </ul>
         </div>
@@ -69,26 +71,26 @@ const { lang = 'es' } = Astro.props
       <div class="col-span-12 md:col-span-6 bg-surface-container rounded-xl p-8 border border-outline-variant/50">
         <h2 class="font-headline text-2xl font-bold mb-6 flex items-center gap-3 text-primary">
           <span class="material-symbols-outlined" aria-hidden="true">analytics</span>
-          Resumen de Éxito
+          {t('iscaycruz.bento.summary_title')}
         </h2>
         <div class="grid grid-cols-2 gap-6">
           <div class="text-center p-4">
             <div class="text-3xl font-extrabold text-primary mb-1">100%</div>
-            <div class="text-xs uppercase tracking-tighter text-on-surface-variant/70">Respaldo Técnico</div>
+            <div class="text-xs uppercase tracking-tighter text-on-surface-variant/70">{t('iscaycruz.bento.stat1_label')}</div>
           </div>
           <div class="text-center p-4">
-            <div class="text-3xl font-extrabold text-secondary mb-1">Optimizada</div>
-            <div class="text-xs uppercase tracking-tighter text-on-surface-variant/70">Gestión de Residuos</div>
+            <div class="text-3xl font-extrabold text-secondary mb-1">{t('iscaycruz.bento.stat2_value')}</div>
+            <div class="text-xs uppercase tracking-tighter text-on-surface-variant/70">{t('iscaycruz.bento.stat2_label')}</div>
           </div>
         </div>
         <p class="mt-6 text-on-surface-variant leading-relaxed">
-          Se redujo drásticamente la incertidumbre regulatoria para UM. ISCAYCRUZ, permitiendo una gestión eficiente y sostenible de materiales que anteriormente se consideraban de alto riesgo.
+          {t('iscaycruz.bento.summary_desc')}
         </p>
       </div>
 
       <div class="col-span-12 md:col-span-6 rounded-xl overflow-hidden shadow-lg border border-outline-variant aspect-video max-h-80">
         <img
-          alt="Panel de control predictivo industrial"
+          alt={t('iscaycruz.bento.image_alt')}
           class="w-full h-full object-cover"
           src="/iscaycruz-hicimos.jpeg"
           loading="lazy"

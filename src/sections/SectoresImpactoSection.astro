@@ -1,8 +1,10 @@
 ---
 import type { SupportedLocale } from '../i18n/utils'
+import { useTranslations } from '../i18n/utils'
 import { getSectoresImpactStats } from '../data/sectores'
 interface Props { lang?: SupportedLocale }
 const { lang = 'es' } = Astro.props
+const t = useTranslations(lang)
 const impactStats = getSectoresImpactStats(lang)
 ---
 
@@ -11,16 +13,16 @@ const impactStats = getSectoresImpactStats(lang)
     <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16">
 
       <div class="w-full md:w-1/2">
-        <h2 id="sectores-impacto-heading" class="font-headline text-4xl md:text-5xl text-primary font-extrabold mb-6">Impacto medible en cada operación</h2>
-        <p class="text-lg text-on-surface-variant mb-8 leading-relaxed">No solo gestionamos residuos; transformamos la sostenibilidad en una ventaja competitiva real para su empresa.</p>
+        <h2 id="sectores-impacto-heading" class="font-headline text-4xl md:text-5xl text-primary font-extrabold mb-6">{t('sectores.impacto.title')}</h2>
+        <p class="text-lg text-on-surface-variant mb-8 leading-relaxed">{t('sectores.impacto.body')}</p>
         <div class="space-y-6">
           <div class="flex gap-4 items-start">
             <div class="bg-primary-container p-3 rounded-lg shrink-0">
               <span class="material-symbols-outlined text-on-primary-container" aria-hidden="true">verified</span>
             </div>
             <div>
-              <h4 class="font-bold text-on-surface">Cumplimiento Normativo Total</h4>
-              <p class="text-sm text-on-surface-variant">Mitigación absoluta de riesgos legales y sanciones ante la OEFA, ANA y Gobiernos Regionales.</p>
+              <h4 class="font-bold text-on-surface">{t('sectores.impacto.feature1_title')}</h4>
+              <p class="text-sm text-on-surface-variant">{t('sectores.impacto.feature1_desc')}</p>
             </div>
           </div>
           <div class="flex gap-4 items-start">
@@ -28,8 +30,8 @@ const impactStats = getSectoresImpactStats(lang)
               <span class="material-symbols-outlined text-on-secondary-container" aria-hidden="true">trending_up</span>
             </div>
             <div>
-              <h4 class="font-bold text-on-surface">Continuidad Operativa</h4>
-              <p class="text-sm text-on-surface-variant">Gestión preventiva que evita paradas innecesarias por incidentes ambientales o sanitarios.</p>
+              <h4 class="font-bold text-on-surface">{t('sectores.impacto.feature2_title')}</h4>
+              <p class="text-sm text-on-surface-variant">{t('sectores.impacto.feature2_desc')}</p>
             </div>
           </div>
         </div>

@@ -1,14 +1,16 @@
 ---
 import type { SupportedLocale } from '../i18n/utils'
+import { useTranslations } from '../i18n/utils'
 import { getFaqItems } from '../data/nosotros'
 interface Props { lang?: SupportedLocale }
 const { lang = 'es' } = Astro.props
+const t = useTranslations(lang)
 const faqItems = getFaqItems(lang)
 ---
 
 <section class="py-section-padding" aria-labelledby="nosotros-faq-heading">
   <div class="max-w-3xl mx-auto px-6">
-    <h2 id="nosotros-faq-heading" class="font-headline text-4xl md:text-5xl text-primary font-extrabold mb-12 text-center">Preguntas Frecuentes</h2>
+    <h2 id="nosotros-faq-heading" class="font-headline text-4xl md:text-5xl text-primary font-extrabold mb-12 text-center">{t('about.faq')}</h2>
     <div class="space-y-4">
       {faqItems.map(faq => (
         <details class="group bg-surface border border-outline-variant rounded-xl overflow-hidden" open={faq.open ?? false}>

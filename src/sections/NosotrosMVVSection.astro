@@ -1,8 +1,10 @@
 ---
 import type { SupportedLocale } from '../i18n/utils'
+import { useTranslations } from '../i18n/utils'
 import { getValores } from '../data/nosotros'
 interface Props { lang?: SupportedLocale }
 const { lang = 'es' } = Astro.props
+const t = useTranslations(lang)
 const valores = getValores(lang)
 ---
 
@@ -11,18 +13,18 @@ const valores = getValores(lang)
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <div class="bg-surface p-6 md:p-10 rounded-xl border border-outline-variant shadow-sm">
         <span class="material-symbols-outlined text-primary text-[48px] mb-6 block" aria-hidden="true">rocket_launch</span>
-        <h3 class="font-headline text-2xl font-bold text-primary mb-4">Misión</h3>
-        <p class="text-on-surface-variant leading-relaxed">Buscar la innovación y promover un nuevo modelo empresarial en el sector residuos sólidos mediante la Gestión Racional y Manejo Sostenible de los Residuos Sólidos, líquidos y Saneamiento Ambiental a nivel nacional.</p>
+        <h3 class="font-headline text-2xl font-bold text-primary mb-4">{t('about.mission')}</h3>
+        <p class="text-on-surface-variant leading-relaxed">{t('nosotros.mvv.mission_body')}</p>
       </div>
       <div class="bg-surface p-6 md:p-10 rounded-xl border border-outline-variant shadow-sm">
         <span class="material-symbols-outlined text-secondary text-[48px] mb-6 block" aria-hidden="true">visibility</span>
-        <h3 class="font-headline text-2xl font-bold text-primary mb-4">Visión</h3>
-        <p class="text-on-surface-variant leading-relaxed">Ser una empresa referente en gestión ambiental, sostenibilidad y economía circular en el Perú, impulsando empresas responsables y competitivas.</p>
+        <h3 class="font-headline text-2xl font-bold text-primary mb-4">{t('about.vision')}</h3>
+        <p class="text-on-surface-variant leading-relaxed">{t('nosotros.mvv.vision_body')}</p>
       </div>
     </div>
 
     <div class="bg-surface p-6 md:p-12 rounded-xl border border-outline-variant">
-      <h3 id="nosotros-mvv-heading" class="font-headline text-4xl md:text-5xl text-primary font-extrabold mb-8 text-center">Nuestros Valores</h3>
+      <h3 id="nosotros-mvv-heading" class="font-headline text-4xl md:text-5xl text-primary font-extrabold mb-8 text-center">{t('nosotros.mvv.valores_title')}</h3>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {valores.map(valor => (
           <div class="flex gap-4">

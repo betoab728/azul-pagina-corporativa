@@ -1,8 +1,10 @@
 ---
 import type { SupportedLocale } from '../i18n/utils'
+import { useTranslations } from '../i18n/utils'
 import { getDefinicionBullets } from '../data/tarifa-plana'
 interface Props { lang?: SupportedLocale }
 const { lang = 'es' } = Astro.props
+const t = useTranslations(lang)
 const definicionBullets = getDefinicionBullets(lang)
 ---
 
@@ -12,12 +14,12 @@ const definicionBullets = getDefinicionBullets(lang)
 
       <div class="relative">
         <div class="absolute -top-12 -left-12 w-48 h-48 bg-secondary-container/30 rounded-full blur-3xl" aria-hidden="true"></div>
-        <h2 id="tarifa-plana-definicion-heading" class="font-headline text-4xl md:text-5xl text-primary font-extrabold mb-8">¿QUÉ ES LA TARIFA PLANA AMBIENTAL?</h2>
+        <h2 id="tarifa-plana-definicion-heading" class="font-headline text-4xl md:text-5xl text-primary font-extrabold mb-8">{t('tarifa_plana.definicion.title')}</h2>
         <div class="space-y-6">
           <p class="text-lg text-on-surface-variant leading-relaxed">
-            Es un modelo de <span class="font-bold text-on-surface">gestión ambiental integral</span> diseñado para empresas que buscan previsibilidad y excelencia. Durante 12 meses, nos convertimos en su departamento ambiental externo bajo un pago único anual.
+            {t('tarifa_plana.definicion.body_pre')} <span class="font-bold text-on-surface">{t('tarifa_plana.definicion.body_highlight')}</span> {t('tarifa_plana.definicion.body_post')}
           </p>
-          <ul class="space-y-4" aria-label="Ventajas principales">
+          <ul class="space-y-4" aria-label={t('tarifa_plana.definicion.advantages_label')}>
             {definicionBullets.map(item => (
               <li class="flex items-start gap-3">
                 <span class="material-symbols-outlined text-secondary mt-1 shrink-0" aria-hidden="true">{item.icon}</span>
@@ -33,19 +35,19 @@ const definicionBullets = getDefinicionBullets(lang)
           <span class="material-symbols-outlined text-[120px]" style="font-variation-settings: 'FILL' 1;">eco</span>
         </div>
         <div class="relative z-10">
-          <div class="font-headline text-2xl font-bold text-primary mb-4">Modelo 360°</div>
+          <div class="font-headline text-2xl font-bold text-primary mb-4">{t('tarifa_plana.definicion.model_title')}</div>
           <p class="text-on-surface-variant mb-6 leading-relaxed">
-            Elimine la incertidumbre de costos variables. Con nuestra Tarifa Plana, usted proyecta su inversión ambiental con precisión quirúrgica, asegurando que cada residuo y cada trámite esté cubierto.
+            {t('tarifa_plana.definicion.model_body')}
           </p>
           <div class="h-2 w-24 bg-secondary rounded-full mb-8"></div>
           <div class="grid grid-cols-2 gap-4">
             <div class="p-4 bg-white rounded-xl shadow-sm border border-outline-variant/50">
               <div class="font-headline text-2xl font-bold text-secondary">0</div>
-              <div class="text-sm font-semibold text-on-surface-variant">Costos Ocultos</div>
+              <div class="text-sm font-semibold text-on-surface-variant">{t('tarifa_plana.definicion.stat1_label')}</div>
             </div>
             <div class="p-4 bg-white rounded-xl shadow-sm border border-outline-variant/50">
               <div class="font-headline text-2xl font-bold text-secondary">100%</div>
-              <div class="text-sm font-semibold text-on-surface-variant">Cumplimiento</div>
+              <div class="text-sm font-semibold text-on-surface-variant">{t('tarifa_plana.definicion.stat2_label')}</div>
             </div>
           </div>
         </div>

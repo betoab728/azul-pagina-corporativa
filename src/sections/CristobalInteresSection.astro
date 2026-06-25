@@ -1,16 +1,18 @@
 ---
 import type { SupportedLocale } from '../i18n/utils'
+import { useTranslations } from '../i18n/utils'
 interface Props { lang?: SupportedLocale }
 const { lang = 'es' } = Astro.props
+const t = useTranslations(lang)
 ---
 <section class="py-20 border-t border-outline-variant" aria-labelledby="cristobal-interes-heading">
   <div class="max-w-7xl mx-auto px-6 md:px-margin-desktop">
-    <h2 id="cristobal-interes-heading" class="font-headline text-4xl font-extrabold text-primary mb-12">Te puede interesar</h2>
+    <h2 id="cristobal-interes-heading" class="font-headline text-4xl font-extrabold text-primary mb-12">{t('cristobal.interes.title')}</h2>
     <div class="grid md:grid-cols-3 gap-6">
       <a href="/servicios/caracterizacion-de-residuos" class="group relative block rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all">
         <img
           class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
-          alt="Laboratorio con equipamiento científico avanzado"
+          alt={t('cristobal.interes.card1_img_alt')}
           src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLGRBfDYWp2xRdsKPV1S6-XLplFYBGFDw0C8Bh-jcewkeEGFBHAsLBdfqH0cojW6TnsrnaV6rDG35K4QGFBIMlZ6NqnucRCrTz7ZiKP1CI1AVywQalIr1Q89bVP8AlkwWS7VIbRFa9GWaHXhVq6MS28P2otYHFry8MLrRbOl03mXL8RP3Y2XLsLkrDEO2YHcpDJJZGfM5gVs9WqEV4BiwNTMtP78P0zd1uLR72kZ3AtIoxTLt_7N4Z7S39iCiPmvNA4HJ_SNs-rTqY"
           loading="lazy"
           width="400"
@@ -18,14 +20,14 @@ const { lang = 'es' } = Astro.props
         />
         <div class="absolute inset-0 bg-gradient-to-t from-primary to-transparent opacity-80"></div>
         <div class="absolute bottom-0 p-8 text-white">
-          <h3 class="font-headline text-2xl font-bold mb-2">Análisis Técnico</h3>
-          <p class="text-sm opacity-80">Laboratorios certificados para caracterización compleja.</p>
+          <h3 class="font-headline text-2xl font-bold mb-2">{t('cristobal.interes.card1_title')}</h3>
+          <p class="text-sm opacity-80">{t('cristobal.interes.card1_desc')}</p>
         </div>
       </a>
       <a href="/servicios/reclasificacion-de-residuos" class="group relative block rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all">
         <img
           class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
-          alt="Espacio de trabajo con documentos de compliance ambiental"
+          alt={t('cristobal.interes.card2_img_alt')}
           src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFupBAd7XFm4DRtn0RdVLaf5IZsvLdRd4A-7HFdxj-zwfqzjJhZBCkhCQaQvw7yiHzjH_Dbh6lUiljC6-zKHpvEI6aJjDJPwjdQfYhGXbAQU0GBr_xJAPUeNtoXriwuH2yxCp_Vob8YM6o3DiACUUA88xXa_D3jikKu6ArtmZX6bBC7efYXanzG0T-rPD5g0yDmcs0tlw9APVAZXr97UTTX5PTdLkHtLFmQLVyr0-EGrPTxyD_FCenA7a7EwxBN56Y9MyrO2saI86m"
           loading="lazy"
           width="400"
@@ -33,14 +35,14 @@ const { lang = 'es' } = Astro.props
         />
         <div class="absolute inset-0 bg-gradient-to-t from-primary to-transparent opacity-80"></div>
         <div class="absolute bottom-0 p-8 text-white">
-          <h3 class="font-headline text-2xl font-bold mb-2">Compliance Ambiental</h3>
-          <p class="text-sm opacity-80">Asesoría experta en marcos normativos nacionales.</p>
+          <h3 class="font-headline text-2xl font-bold mb-2">{t('cristobal.interes.card2_title')}</h3>
+          <p class="text-sm opacity-80">{t('cristobal.interes.card2_desc')}</p>
         </div>
       </a>
       <a href="/servicios/reduccion-del-opex" class="group relative block rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all">
         <img
           class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
-          alt="Representación de economía circular con arquitectura sostenible"
+          alt={t('cristobal.interes.card3_img_alt')}
           src="https://lh3.googleusercontent.com/aida-public/AB6AXuC915kcD36nxfTfjhKcRDHAm2H5bQKRI7Q-uteigBbAwxKgrKmQ2bgppIAtyaHjuwhly9ua9dkoQwvAY8i1tDrrKkPV87e4ykNB_4GSwLFiAIfejTEq_fyGVBf6jEOymPjRFDOxVbWp9Yw0qvJnq7c543fljS4lCNFPGOM1vLZSvTPCTuUJywgCkcspMObCbHld5QvFkcncYYpsic6_le9rgFNqBb1auyAh7T4rvhu2ogrQTpmbLzNWvT_COUwqFEY4AvrAFbkTGVzd"
           loading="lazy"
           width="400"
@@ -48,8 +50,8 @@ const { lang = 'es' } = Astro.props
         />
         <div class="absolute inset-0 bg-gradient-to-t from-primary to-transparent opacity-80"></div>
         <div class="absolute bottom-0 p-8 text-white">
-          <h3 class="font-headline text-2xl font-bold mb-2">Economía Circular</h3>
-          <p class="text-sm opacity-80">Modelos de negocio regenerativos para la industria.</p>
+          <h3 class="font-headline text-2xl font-bold mb-2">{t('cristobal.interes.card3_title')}</h3>
+          <p class="text-sm opacity-80">{t('cristobal.interes.card3_desc')}</p>
         </div>
       </a>
     </div>

@@ -1,8 +1,10 @@
 ---
 import type { SupportedLocale } from '../i18n/utils'
+import { useTranslations } from '../i18n/utils'
 import { getProcesoItems, getProcesoItemDestacado } from '../data/caracterizacion'
 interface Props { lang?: SupportedLocale }
 const { lang = 'es' } = Astro.props
+const t = useTranslations(lang)
 const procesoItems = getProcesoItems(lang)
 const procesoItemDestacado = getProcesoItemDestacado(lang)
 ---
@@ -10,8 +12,8 @@ const procesoItemDestacado = getProcesoItemDestacado(lang)
 <section class="py-section-padding bg-background" aria-labelledby="incluye-heading">
   <div class="max-w-7xl mx-auto px-6 md:px-margin-desktop">
     <div class="text-center mb-8 md:mb-16 space-y-4">
-      <h2 id="incluye-heading" class="font-headline text-4xl md:text-5xl text-on-surface font-extrabold">¿Qué incluye?</h2>
-      <p class="text-on-surface-variant text-lg max-w-2xl mx-auto">Nuestro proceso de caracterización es riguroso, repetible y orientado a resultados de auditoría.</p>
+      <h2 id="incluye-heading" class="font-headline text-4xl md:text-5xl text-on-surface font-extrabold">{t('caracterizacion.incluye.title')}</h2>
+      <p class="text-on-surface-variant text-lg max-w-2xl mx-auto">{t('caracterizacion.incluye.subtitle')}</p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">

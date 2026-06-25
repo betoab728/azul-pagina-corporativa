@@ -1,7 +1,9 @@
 ---
 import type { SupportedLocale } from '../i18n/utils'
+import { useTranslations } from '../i18n/utils'
 interface Props { lang?: SupportedLocale }
 const { lang = 'es' } = Astro.props
+const t = useTranslations(lang)
 ---
 <section class="py-section-padding bg-surface relative overflow-hidden" aria-labelledby="reclasificacion-cierre-heading">
   <div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" aria-hidden="true"></div>
@@ -9,16 +11,18 @@ const { lang = 'es' } = Astro.props
 
   <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
     <h2 id="reclasificacion-cierre-heading" class="font-headline text-[32px] md:text-5xl text-primary font-extrabold mb-6 leading-tight">
-      UN RESIDUO BIEN CLASIFICADO TRANSFORMA TUS COSTOS, TU OPERACIÓN Y TU REPUTACIÓN
+      {t('reclasificacion.cierre.title')}
     </h2>
     <p class="text-lg text-on-surface-variant mb-12 leading-relaxed">
-      Convierte la información técnica en poder ambiental y económico real. Empecemos hoy mismo el proceso de reclasificación técnica de tus residuos.
+      {t('reclasificacion.cierre.subtitle')}
     </p>
     <a
-      href="/"
+      href="https://wa.me/51936602578"
+      target="_blank"
+      rel="noopener noreferrer"
       class="inline-flex items-center bg-secondary text-white font-bold px-8 md:px-12 py-3 md:py-5 rounded-full hover:scale-105 hover:shadow-2xl transition-all"
     >
-      Más Información
+      {t('reclasificacion.cierre.cta')}
     </a>
   </div>
 </section>

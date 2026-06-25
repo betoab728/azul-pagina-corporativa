@@ -1,5 +1,6 @@
 ---
 import type { SupportedLocale } from '../i18n/utils'
+import { useTranslations } from '../i18n/utils'
 import { getEventos } from '../data/recursos'
 
 const eventBgClasses: Record<string, string> = {
@@ -9,6 +10,7 @@ const eventBgClasses: Record<string, string> = {
 }
 interface Props { lang?: SupportedLocale }
 const { lang = 'es' } = Astro.props
+const t = useTranslations(lang)
 const eventos = getEventos(lang)
 ---
 
@@ -17,16 +19,16 @@ const eventos = getEventos(lang)
     <div class="flex flex-col md:flex-row gap-6 items-center">
 
       <div class="md:w-1/3">
-        <h2 id="recursos-capacitaciones-heading" class="font-headline text-4xl md:text-5xl text-on-surface font-extrabold mb-6">Calendario de Capacitaciones</h2>
-        <p class="text-on-surface-variant mb-8">Participa en nuestras sesiones de formación técnica dictadas por especialistas con amplia trayectoria en el sector ambiental.</p>
+        <h2 id="recursos-capacitaciones-heading" class="font-headline text-4xl md:text-5xl text-on-surface font-extrabold mb-6">{t('recursos.capacitaciones.title')}</h2>
+        <p class="text-on-surface-variant mb-8">{t('recursos.capacitaciones.subtitle')}</p>
         <div class="space-y-4">
           <div class="flex items-center gap-4 text-on-surface">
             <span class="material-symbols-outlined text-primary" aria-hidden="true">verified</span>
-            <span class="text-sm font-bold">Certificación oficial incluida</span>
+            <span class="text-sm font-bold">{t('recursos.capacitaciones.li1')}</span>
           </div>
           <div class="flex items-center gap-4 text-on-surface">
             <span class="material-symbols-outlined text-primary" aria-hidden="true">videocam</span>
-            <span class="text-sm font-bold">Modalidades Presencial y Online</span>
+            <span class="text-sm font-bold">{t('recursos.capacitaciones.li2')}</span>
           </div>
         </div>
       </div>
@@ -43,7 +45,7 @@ const eventos = getEventos(lang)
                 <h4 class="font-headline text-2xl font-bold text-on-surface mb-1">{evento.title}</h4>
                 <p class="text-on-surface-variant text-sm">{evento.description}</p>
               </div>
-              <a href={evento.pdfUrl} target="_blank" rel="noopener noreferrer" class="inline-flex bg-surface-container-highest font-bold px-6 py-2 rounded-full text-sm hover:bg-primary hover:text-white transition-all shrink-0">Ver más</a>
+              <a href={evento.pdfUrl} target="_blank" rel="noopener noreferrer" class="inline-flex bg-surface-container-highest font-bold px-6 py-2 rounded-full text-sm hover:bg-primary hover:text-white transition-all shrink-0">{t('recursos.capacitaciones.view_more')}</a>
             </div>
           ))}
         </div>

@@ -1,9 +1,11 @@
 ---
 import type { SupportedLocale } from '../i18n/utils'
+import { useTranslations } from '../i18n/utils'
 // TODO: Reemplazar con imagen real del cliente
 const heroImage = 'https://lh3.googleusercontent.com/aida-public/AB6AXuAXMrIQUHlL3_eaqhHkLA6hk240eK0d5M5nPqmVbZ2We3KIZrZb7RO_3ZxWjRErSIF-VSJyM979oPiPhe1iUt--0yzxZeFu68wrEyhtFLYs7uulaiNXgmrQtGKPmngL7MZks2P5me53PGoPBWMQoT5KbUrl7o32W-ZbgjuxxYtEX4S9Ic5sgCzFsCeElwGTFq1pVYrM2Fi2QtYQBtrXPsOZsDFjTMjW10-g-2lIiDUpAy03RtaAFfo3rMUVAFEHjxfrHLxOgLcl61OD'
 interface Props { lang?: SupportedLocale }
 const { lang = 'es' } = Astro.props
+const t = useTranslations(lang)
 ---
 
 <section id="nosotros-hero" class="relative min-h-[70vh] flex items-center justify-center pt-20 md:pt-28 pb-12 overflow-hidden" aria-labelledby="nosotros-hero-heading">
@@ -21,15 +23,15 @@ const { lang = 'es' } = Astro.props
 
   <div class="relative z-10 text-center px-6 max-w-5xl mx-auto">
     <h2 id="nosotros-hero-heading" class="text-white font-headline text-[32px] md:text-5xl uppercase tracking-tight font-extrabold leading-[1.35]">
-      EMPRESA ESPECIALIZADA EN LA GESTIÓN DE RESIDUOS SÓLIDOS, PELIGROSOS E INDUSTRIALES PARA EMPRESAS EN PERÚ
+      {t('nosotros.hero.title')}
     </h2>
-    <p class="text-white/90 text-lg mt-6 max-w-3xl mx-auto leading-relaxed">Evolucionamos de una gestión tradicional a una gestión inteligente y circular de residuos, enfocada en reducir riesgos, evitar sanciones y mejorar la eficiencia operativa.</p>
+    <p class="text-white/90 text-lg mt-6 max-w-3xl mx-auto leading-relaxed">{t('nosotros.hero.subtitle')}</p>
     <div class="mt-10">
       <a
         href="/"
         class="inline-flex items-center bg-secondary text-white font-bold px-6 md:px-8 py-3 md:py-4 rounded-full hover:scale-105 transition-transform shadow-lg"
       >
-        SOLICITA UNA ASESORÍA
+        {t('nosotros.hero.cta')}
       </a>
     </div>
   </div>

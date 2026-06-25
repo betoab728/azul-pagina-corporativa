@@ -1,8 +1,10 @@
 ---
 import type { SupportedLocale } from '../i18n/utils'
+import { useTranslations } from '../i18n/utils'
 const heroImage = 'https://lh3.googleusercontent.com/aida-public/AB6AXuBGMDfR3WBJPnhKL6rB-5qtmAzA3JZbQ7jrPizFKF_GA1Q9dqYn7Q2fvoEOKfFIs7RiUrjTS7CHs6kRHNbpX4vziIyrDA05aMXW_7QOdZRUUALQJmDqt76dk4PnoQzzaWdVtENb5xWyPFb0YkguvIlstqud4BS4rdRMQdOg-D9nYpAEHcijp_6x2o7ie9CUhPC3tfoxeY2fyBMkxHPcIfTBiX9XF8AzqwSPO_96AqVlOicBLWTAMUcxPz_rRtot69fd8Y8_KLRXhgOS'
 interface Props { lang?: SupportedLocale }
 const { lang = 'es' } = Astro.props
+const t = useTranslations(lang)
 ---
 
 <section id="iscaycruz-hero" class="relative min-h-[400px] md:h-[614px] flex items-center overflow-hidden" aria-labelledby="iscaycruz-hero-heading">
@@ -23,10 +25,10 @@ const { lang = 'es' } = Astro.props
     <div class="max-w-2xl">
       <span class="inline-flex items-center gap-2 px-4 py-1 mb-6 rounded-full bg-secondary/90 backdrop-blur-sm text-white text-sm font-bold uppercase tracking-wider">
         <span class="material-symbols-outlined text-[18px]" aria-hidden="true">verified</span>
-        Casos de Éxito
+        {t('iscaycruz.hero.badge')}
       </span>
-      <h1 id="iscaycruz-hero-heading" class="font-headline text-[32px] md:text-[40px] lg:text-[48px] leading-tight font-extrabold mb-4">UM. ISCAYCRUZ: Ingeniería para la Sostenibilidad Minera</h1>
-      <p class="font-body text-lg text-white/90 leading-relaxed max-w-xl">Evaluación técnica especializada para la reclasificación de residuos y optimización de procesos industriales.</p>
+      <h1 id="iscaycruz-hero-heading" class="font-headline text-[32px] md:text-[40px] lg:text-[48px] leading-tight font-extrabold mb-4">{t('iscaycruz.hero.title')}</h1>
+      <p class="font-body text-lg text-white/90 leading-relaxed max-w-xl">{t('iscaycruz.hero.subtitle')}</p>
     </div>
   </div>
 </section>

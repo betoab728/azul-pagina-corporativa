@@ -1,28 +1,32 @@
 ---
 import type { SupportedLocale } from '../i18n/utils'
+import { useTranslations } from '../i18n/utils'
 interface Props { lang?: SupportedLocale }
 const { lang = 'es' } = Astro.props
+const t = useTranslations(lang)
 ---
 <section class="py-section-padding bg-surface-container-highest" aria-labelledby="reduccion-opex-cierre-heading">
   <div class="max-w-7xl mx-auto px-6 md:px-margin-desktop text-center">
-    <h2 id="reduccion-opex-cierre-heading" class="font-headline text-4xl md:text-5xl text-primary font-extrabold mb-6">Transforme su gestión ambiental en una ventaja competitiva</h2>
+    <h2 id="reduccion-opex-cierre-heading" class="font-headline text-4xl md:text-5xl text-primary font-extrabold mb-6">{t('reduccion_opex.cierre.title')}</h2>
     <p class="text-lg text-on-surface-variant max-w-2xl mx-auto mb-10 leading-relaxed">
-      Lo que realmente obtiene es una estrategia integral para reducir costos operativos y fortalecer la competitividad de su organización en el mercado actual.
+      {t('reduccion_opex.cierre.subtitle')}
     </p>
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
       <a
-        href="/"
+        href="https://wa.me/51936602578"
+        target="_blank"
+        rel="noopener noreferrer"
         class="inline-flex items-center bg-secondary text-white font-bold px-6 md:px-10 py-3 md:py-4 rounded-full hover:bg-secondary/90 active:scale-95 transition-all shadow-lg"
       >
-        Solicitar Diagnóstico
+        {t('reduccion_opex.cierre.cta_primary')}
       </a>
       <a
-        href="https://wa.me/51940857666"
+        href="https://wa.me/51936602578"
         target="_blank"
         rel="noopener noreferrer"
         class="inline-flex items-center border-2 border-primary text-primary font-bold px-6 md:px-10 py-3 md:py-4 rounded-full hover:bg-primary hover:text-white active:scale-95 transition-all"
       >
-        Hablar con un Experto
+        {t('reduccion_opex.cierre.cta_secondary')}
       </a>
     </div>
   </div>

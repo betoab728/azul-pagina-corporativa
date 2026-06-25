@@ -1,35 +1,37 @@
 ---
 import type { SupportedLocale } from '../i18n/utils'
+import { useTranslations } from '../i18n/utils'
 interface Props { lang?: SupportedLocale }
 const { lang = 'es' } = Astro.props
+const t = useTranslations(lang)
 ---
 <section class="py-20" aria-labelledby="yauliyacu-interes-heading">
   <div class="max-w-7xl mx-auto px-6 md:px-margin-desktop">
-    <h2 id="yauliyacu-interes-heading" class="font-headline text-4xl font-extrabold text-primary mb-12">Te puede interesar</h2>
+    <h2 id="yauliyacu-interes-heading" class="font-headline text-4xl font-extrabold text-primary mb-12">{t('yauliyacu.interes.title')}</h2>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <a href="/servicios/caracterizacion-de-residuos" class="group block p-8 bg-white border border-outline-variant rounded-2xl hover:border-primary hover:shadow-lg transition-all">
         <div class="w-12 h-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-all">
           <span class="material-symbols-outlined" aria-hidden="true">delete_sweep</span>
         </div>
-        <h3 class="font-headline text-xl font-bold mb-4">Gestión Integral de Residuos</h3>
-        <p class="text-on-surface-variant mb-6">Soluciones estratégicas para el manejo de residuos industriales y mineros de alta complejidad.</p>
-        <span class="flex items-center gap-2 text-primary font-bold">Ver más <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></span>
+        <h3 class="font-headline text-xl font-bold mb-4">{t('yauliyacu.interes.card1_title')}</h3>
+        <p class="text-on-surface-variant mb-6">{t('yauliyacu.interes.card1_desc')}</p>
+        <span class="flex items-center gap-2 text-primary font-bold">{t('btn.view_more')} <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></span>
       </a>
       <a href="/servicios/reclasificacion-de-residuos" class="group block p-8 bg-white border border-outline-variant rounded-2xl hover:border-primary hover:shadow-lg transition-all">
         <div class="w-12 h-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-all">
           <span class="material-symbols-outlined" aria-hidden="true">assignment_turned_in</span>
         </div>
-        <h3 class="font-headline text-xl font-bold mb-4">Ensayos Acreditados</h3>
-        <p class="text-on-surface-variant mb-6">Pruebas fisicoquímicas y toxicológicas con certificación INACAL para cumplimiento legal.</p>
-        <span class="flex items-center gap-2 text-primary font-bold">Ver más <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></span>
+        <h3 class="font-headline text-xl font-bold mb-4">{t('yauliyacu.interes.card2_title')}</h3>
+        <p class="text-on-surface-variant mb-6">{t('yauliyacu.interes.card2_desc')}</p>
+        <span class="flex items-center gap-2 text-primary font-bold">{t('btn.view_more')} <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></span>
       </a>
       <a href="/servicios/software-trazabilidad" class="group block p-8 bg-white border border-outline-variant rounded-2xl hover:border-primary hover:shadow-lg transition-all">
         <div class="w-12 h-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-all">
           <span class="material-symbols-outlined" aria-hidden="true">strategy</span>
         </div>
-        <h3 class="font-headline text-xl font-bold mb-4">Consultoría Estratégica</h3>
-        <p class="text-on-surface-variant mb-6">Asesoría experta en regulaciones ambientales del MINAM y planes de sostenibilidad corporativa.</p>
-        <span class="flex items-center gap-2 text-primary font-bold">Ver más <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></span>
+        <h3 class="font-headline text-xl font-bold mb-4">{t('yauliyacu.interes.card3_title')}</h3>
+        <p class="text-on-surface-variant mb-6">{t('yauliyacu.interes.card3_desc')}</p>
+        <span class="flex items-center gap-2 text-primary font-bold">{t('btn.view_more')} <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></span>
       </a>
     </div>
   </div>

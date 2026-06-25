@@ -1,8 +1,10 @@
 ---
 import type { SupportedLocale } from '../i18n/utils'
+import { useTranslations } from '../i18n/utils'
 const heroImage = '/andachagua.jpeg'
 interface Props { lang?: SupportedLocale }
 const { lang = 'es' } = Astro.props
+const t = useTranslations(lang)
 ---
 
 <section class="py-20" style="background: linear-gradient(135deg, rgba(0, 71, 145, 0.05) 0%, rgba(146, 251, 127, 0.05) 100%);" aria-labelledby="andaychagua-hero-heading">
@@ -11,19 +13,19 @@ const { lang = 'es' } = Astro.props
       <div class="space-y-6">
         <div class="inline-flex items-center gap-2 px-3 py-1 bg-primary-container/10 text-primary rounded-full border border-primary/20">
           <span class="material-symbols-outlined text-[18px]" aria-hidden="true">verified</span>
-          <span class="font-bold text-sm">Caso de Éxito: Minería Sostenible</span>
+          <span class="font-bold text-sm">{t('andaychagua.hero.badge')}</span>
         </div>
         <h1 id="andaychagua-hero-heading" class="font-headline text-4xl md:text-5xl font-extrabold text-primary leading-tight">
-          UM. ANDAYCHAGUA - <span class="text-secondary">Casos de éxito</span>
+          {t('andaychagua.hero.title')} - <span class="text-secondary">{t('projects.badge')}</span>
         </h1>
         <p class="font-body text-lg text-on-surface-variant max-w-xl leading-relaxed">
-          Ingeniería ambiental aplicada para la optimización de residuos industriales en operaciones mineras de alta complejidad.
+          {t('andaychagua.hero.description')}
         </p>
       </div>
       <div class="relative rounded-xl overflow-hidden shadow-xl aspect-video lg:aspect-square">
         <img
           src={heroImage}
-          alt="Vista panorámica de la operación minera Andaychagua en paisaje altoandino"
+          alt={t('andaychagua.hero.img_alt')}
           class="w-full h-full object-cover"
           loading="eager"
           width="800"

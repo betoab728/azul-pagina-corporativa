@@ -1,25 +1,27 @@
 ---
 import type { SupportedLocale } from '../i18n/utils'
+import { useTranslations } from '../i18n/utils'
 interface Props { lang?: SupportedLocale }
 const { lang = 'es' } = Astro.props
+const t = useTranslations(lang)
 ---
-<section class="py-24 bg-surface" aria-label="Caso de éxito destacado">
+<section class="py-24 bg-surface" aria-label={t('caracterizacion.caso_exito.label')}>
   <div class="max-w-7xl mx-auto px-6 md:px-margin-desktop flex flex-col md:flex-row items-center justify-between gap-6 md:gap-12 border-y border-outline-variant py-8 md:py-12">
-    <span class="text-on-surface-variant font-bold text-sm uppercase tracking-widest">CASO DE ÉXITO DESTACADO</span>
+    <span class="text-on-surface-variant font-bold text-sm uppercase tracking-widest">{t('caracterizacion.caso_exito.label')}</span>
     <div class="flex items-center gap-6">
       <div class="w-16 h-16 bg-surface-container rounded-full flex items-center justify-center shrink-0">
         <span class="material-symbols-outlined text-primary text-3xl" aria-hidden="true">school</span>
       </div>
       <div>
-        <p class="font-headline text-2xl font-bold text-primary">UNIVERSIDAD CAYETANO HEREDIA</p>
-        <p class="text-on-surface-variant text-sm">Optimización de gestión de residuos institucionales</p>
+        <p class="font-headline text-2xl font-bold text-primary">{t('caracterizacion.caso_exito.company')}</p>
+        <p class="text-on-surface-variant text-sm">{t('caracterizacion.caso_exito.description')}</p>
       </div>
     </div>
     <a
       href="/proyectos"
       class="text-primary font-bold flex items-center gap-2 hover:underline shrink-0"
     >
-      Ver más proyectos
+      {t('caracterizacion.caso_exito.link')}
       <span class="material-symbols-outlined" aria-hidden="true">open_in_new</span>
     </a>
   </div>

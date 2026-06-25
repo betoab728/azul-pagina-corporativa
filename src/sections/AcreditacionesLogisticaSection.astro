@@ -1,8 +1,10 @@
 ---
 import type { SupportedLocale } from '../i18n/utils'
+import { useTranslations } from '../i18n/utils'
 import { getLogisticas } from '../data/acreditaciones'
 interface Props { lang?: SupportedLocale }
 const { lang = 'es' } = Astro.props
+const t = useTranslations(lang)
 const logisticas = getLogisticas(lang)
 ---
 
@@ -11,7 +13,7 @@ const logisticas = getLogisticas(lang)
     <div class="flex justify-between items-end mb-8 md:mb-16">
       <div class="max-w-2xl">
         <h2 id="acreditaciones-logistica-heading" class="font-headline text-4xl md:text-5xl text-on-surface font-extrabold uppercase">
-          Capacidad Logística y Operativa Certificada
+          {t('acreditaciones.logistica.title')}
         </h2>
       </div>
     </div>
@@ -31,7 +33,7 @@ const logisticas = getLogisticas(lang)
             class="mt-auto text-primary font-bold text-sm hover:underline flex items-center gap-1"
           >
             <span class="material-symbols-outlined text-sm" aria-hidden="true">open_in_new</span>
-            Abrir PDF
+            {t('acreditaciones.open_pdf')}
           </a>
         </article>
       ))}

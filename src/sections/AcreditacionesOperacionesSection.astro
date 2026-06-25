@@ -1,9 +1,10 @@
 ---
 import type { SupportedLocale } from '../i18n/utils'
-// TODO: Reemplazar con imagen real del cliente
+import { useTranslations } from '../i18n/utils'
 const operacionesImage = '/acreditaciones-operaciones.jpeg'
 interface Props { lang?: SupportedLocale }
 const { lang = 'es' } = Astro.props
+const t = useTranslations(lang)
 ---
 
 <section class="py-section-padding bg-surface-container-low" aria-labelledby="acreditaciones-operaciones-heading">
@@ -13,7 +14,7 @@ const { lang = 'es' } = Astro.props
       <div class="w-full md:w-1/2">
         <img
           src={operacionesImage}
-          alt="Inspección técnica de sistemas de filtración industrial"
+          alt={t('acreditaciones.operaciones.img_alt')}
           class="w-full h-64 md:h-80 object-cover rounded-xl shadow-lg"
           loading="lazy"
           width="600"
@@ -23,7 +24,7 @@ const { lang = 'es' } = Astro.props
 
       <div class="w-full md:w-1/2">
         <h2 id="acreditaciones-operaciones-heading" class="font-headline text-4xl md:text-5xl text-primary font-extrabold mb-6 uppercase">
-          OPERACIONES AUTORIZADAS POR EL ESTADO PERUANO
+          {t('acreditaciones.operaciones.title')}
         </h2>
         <div class="mb-6">
           <div class="flex items-start gap-4 mb-6">
@@ -31,9 +32,9 @@ const { lang = 'es' } = Astro.props
               <span class="material-symbols-outlined" aria-hidden="true">verified</span>
             </div>
             <div>
-              <h4 class="font-headline text-2xl font-bold text-on-surface">Registro EO–RS Autorizado por MINAM</h4>
+              <h4 class="font-headline text-2xl font-bold text-on-surface">{t('acreditaciones.operaciones.registro_title')}</h4>
               <p class="text-on-surface-variant mt-2 leading-relaxed">
-                Autoriza la gestión de residuos peligrosos y no peligrosos. Te respalda legalmente frente a fiscalizaciones de OEFA y auditorías de sostenibilidad ESG corporativas.
+                {t('acreditaciones.operaciones.registro_body')}
               </p>
             </div>
           </div>
@@ -44,7 +45,7 @@ const { lang = 'es' } = Astro.props
               rel="noopener noreferrer"
               class="inline-flex items-center gap-2 bg-secondary text-white font-bold px-6 py-3 rounded-full hover:opacity-90 transition-opacity text-sm uppercase tracking-wide"
             >
-              ABRIR ALCANCE
+              {t('acreditaciones.operaciones.cta_alcance')}
               <span class="material-symbols-outlined text-sm" aria-hidden="true">launch</span>
             </a>
             <a
@@ -53,7 +54,7 @@ const { lang = 'es' } = Astro.props
               rel="noopener noreferrer"
               class="inline-flex items-center gap-2 bg-primary text-white font-bold px-6 py-3 rounded-full hover:opacity-90 transition-opacity text-sm uppercase tracking-wide"
             >
-              ABRIR REGISTRO AUTORITATIVO
+              {t('acreditaciones.operaciones.cta_registro')}
               <span class="material-symbols-outlined text-sm" aria-hidden="true">verified_user</span>
             </a>
           </div>

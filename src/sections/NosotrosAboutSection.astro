@@ -1,11 +1,13 @@
 ---
 import type { SupportedLocale } from '../i18n/utils'
+import { useTranslations } from '../i18n/utils'
 import { getChecklistItems } from '../data/nosotros'
 
 // TODO: Reemplazar con imagen real del cliente
 const aboutImage = '/nosotrosabout.jpeg'
 interface Props { lang?: SupportedLocale }
 const { lang = 'es' } = Astro.props
+const t = useTranslations(lang)
 const checklistItems = getChecklistItems(lang)
 ---
 
@@ -14,9 +16,9 @@ const checklistItems = getChecklistItems(lang)
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
 
       <div class="space-y-8">
-        <h2 id="nosotros-about-heading" class="font-headline text-4xl md:text-5xl text-primary font-extrabold">¿Qué hace Azul Sostenible y a quién ayuda?</h2>
+        <h2 id="nosotros-about-heading" class="font-headline text-4xl md:text-5xl text-primary font-extrabold">{t('nosotros.about.title')}</h2>
         <p class="text-lg text-on-surface-variant leading-relaxed">
-          Ayudamos a organizaciones del sector industrial, minero, salud y agroindustrial a cumplir la normativa ambiental, reducir riesgos legales y optimizar costos mediante una gestión técnica, trazable y sostenible de sus residuos.
+          {t('nosotros.about.body')}
         </p>
         <ul class="space-y-4">
           {checklistItems.map(item => (
@@ -34,7 +36,7 @@ const checklistItems = getChecklistItems(lang)
         <div class="absolute -inset-4 bg-primary/5 rounded-2xl group-hover:bg-primary/10 transition-colors" aria-hidden="true"></div>
         <img
           src={aboutImage}
-          alt="Personal técnico de Azul Sostenible"
+          alt={t('nosotros.about.img_alt')}
           class="relative w-full aspect-[4/3] object-cover rounded-2xl shadow-xl border border-outline-variant"
           loading="lazy"
           width="600"

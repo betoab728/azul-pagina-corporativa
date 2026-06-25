@@ -1,25 +1,29 @@
 ---
 import type { SupportedLocale } from '../i18n/utils'
+import { useTranslations } from '../i18n/utils'
 interface Props { lang?: SupportedLocale }
 const { lang = 'es' } = Astro.props
+const t = useTranslations(lang)
 ---
 <section class="py-section-padding bg-surface-container" aria-labelledby="cierre-heading">
   <div class="max-w-3xl mx-auto px-6 text-center space-y-12">
     <h2 id="cierre-heading" class="font-headline text-3xl md:text-4xl text-on-surface font-extrabold leading-tight">
-      CONOCER TUS RESIDUOS ES EL PRIMER PASO PARA REDUCIR COSTOS, MEJORAR TU OPERACIÓN Y AVANZAR HACIA LA SOSTENIBILIDAD.
+      {t('caracterizacion.cierre.title')}
     </h2>
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
       <a
-        href="/"
+        href="https://wa.me/51936602578"
+        target="_blank"
+        rel="noopener noreferrer"
         class="inline-flex items-center justify-center bg-primary text-white font-bold px-6 md:px-10 py-3 md:py-5 rounded-full hover:shadow-2xl transition-all hover:-translate-y-1 active:scale-95"
       >
-        Quiero mi caracterización
+        {t('caracterizacion.cierre.cta_primary')}
       </a>
       <a
-        href="/"
+        href="#caracterizacion-hero"
         class="inline-flex items-center justify-center border-2 border-primary text-primary font-bold px-6 md:px-10 py-3 md:py-5 rounded-full hover:bg-primary/5 transition-all active:scale-95"
       >
-        Más Información
+        {t('caracterizacion.cierre.cta_secondary')}
       </a>
     </div>
   </div>

@@ -1,26 +1,28 @@
 ---
 import type { SupportedLocale } from '../i18n/utils'
+import { useTranslations } from '../i18n/utils'
 interface Props { lang?: SupportedLocale }
 const { lang = 'es' } = Astro.props
+const t = useTranslations(lang)
 ---
 <section class="py-20" aria-labelledby="carahuacra-interes-heading">
   <div class="max-w-7xl mx-auto px-6 md:px-margin-desktop">
-    <h2 id="carahuacra-interes-heading" class="font-headline text-2xl font-bold text-primary mb-8">Te Puede Interesar</h2>
+    <h2 id="carahuacra-interes-heading" class="font-headline text-2xl font-bold text-primary mb-8">{t('carahuacra.interes.title')}</h2>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       <a href="/servicios/caracterizacion-de-residuos" class="group p-8 bg-surface-container-low border border-outline-variant rounded-2xl hover:bg-primary hover:text-white transition-all">
         <span class="material-symbols-outlined text-4xl mb-4 text-primary group-hover:text-white" aria-hidden="true">science</span>
-        <h3 class="font-headline text-2xl font-bold mb-2">Análisis Químico</h3>
-        <p class="text-on-surface-variant group-hover:text-white/80">Protocolos de laboratorio avanzados para la caracterización de efluentes y sólidos.</p>
+        <h3 class="font-headline text-2xl font-bold mb-2">{t('carahuacra.interes.item1_title')}</h3>
+        <p class="text-on-surface-variant group-hover:text-white/80">{t('carahuacra.interes.item1_desc')}</p>
       </a>
       <a href="/servicios/reclasificacion-de-residuos" class="group p-8 bg-surface-container-low border border-outline-variant rounded-2xl hover:bg-secondary hover:text-white transition-all">
         <span class="material-symbols-outlined text-4xl mb-4 text-secondary group-hover:text-white" aria-hidden="true">gavel</span>
-        <h3 class="font-headline text-2xl font-bold mb-2">Cumplimiento Regulatorio</h3>
-        <p class="text-on-surface-variant group-hover:text-white/80">Asesoría estratégica en normativa ambiental nacional e internacional.</p>
+        <h3 class="font-headline text-2xl font-bold mb-2">{t('carahuacra.interes.item2_title')}</h3>
+        <p class="text-on-surface-variant group-hover:text-white/80">{t('carahuacra.interes.item2_desc')}</p>
       </a>
       <a href="/servicios/reduccion-del-opex" class="group p-8 bg-surface-container-low border border-outline-variant rounded-2xl hover:bg-tertiary hover:text-white transition-all">
         <span class="material-symbols-outlined text-4xl mb-4 text-tertiary group-hover:text-white" aria-hidden="true">loop</span>
-        <h3 class="font-headline text-2xl font-bold mb-2">Economía Circular</h3>
-        <p class="text-on-surface-variant group-hover:text-white/80">Diseño de sistemas de flujo cerrado para optimizar recursos industriales.</p>
+        <h3 class="font-headline text-2xl font-bold mb-2">{t('carahuacra.interes.item3_title')}</h3>
+        <p class="text-on-surface-variant group-hover:text-white/80">{t('carahuacra.interes.item3_desc')}</p>
       </a>
     </div>
   </div>

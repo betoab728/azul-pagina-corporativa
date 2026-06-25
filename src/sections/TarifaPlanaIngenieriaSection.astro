@@ -1,11 +1,13 @@
 ---
 import type { SupportedLocale } from '../i18n/utils'
+import { useTranslations } from '../i18n/utils'
 import { getTechItems } from '../data/tarifa-plana'
 
 // TODO: Reemplazar con imagen real del cliente
 const bgImage = 'https://lh3.googleusercontent.com/aida-public/AB6AXuAfTB2irPnMWQH-_nj3chjga4_CB0zU8eWEJ764vsiS01Gck3Cc-sQg6NOi9bLIZcj8I1CtODlsq47UeNRaktbpi-zxct881af2S1L6pjusVrGCgfwUGlPmraNoorWSU59aj0B-jaqYOtaUjWw4B3PphmKiFPn720dGT5uH-mO9ZRMN4zU7GD7CL_wLx-YPqE4DUx7v0q_Eze8ZyujbBmPwOOBu-_L9V1g-z1UdYjytdb8DwOdfN-LhN2q8ORlBuSMrtjd_Ahy2atFI'
 interface Props { lang?: SupportedLocale }
 const { lang = 'es' } = Astro.props
+const t = useTranslations(lang)
 const techItems = getTechItems(lang)
 ---
 
@@ -26,8 +28,8 @@ const techItems = getTechItems(lang)
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
 
       <div>
-        <h2 id="tarifa-plana-ingenieria-heading" class="font-headline text-4xl md:text-5xl font-extrabold mb-8">INGENIERÍA APLICADA A LA SOSTENIBILIDAD</h2>
-        <p class="text-lg mb-12 text-on-primary-container">Implementamos capas tecnológicas de control para asegurar que la Tarifa Plana no sea solo un servicio, sino un activo estratégico.</p>
+        <h2 id="tarifa-plana-ingenieria-heading" class="font-headline text-4xl md:text-5xl font-extrabold mb-8">{t('tarifa_plana.ingenieria.title')}</h2>
+        <p class="text-lg mb-12 text-on-primary-container">{t('tarifa_plana.ingenieria.subtitle')}</p>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-8">
           {techItems.map(item => (
@@ -47,8 +49,8 @@ const techItems = getTechItems(lang)
                 <span class="material-symbols-outlined" aria-hidden="true">monitoring</span>
               </div>
               <div>
-                <div class="text-sm font-bold">CONTROL PREDICTIVO</div>
-                <div class="text-xs text-on-surface-variant">Estado de Cumplimiento: 98.4%</div>
+                <div class="text-sm font-bold">{t('tarifa_plana.ingenieria.card_title')}</div>
+                <div class="text-xs text-on-surface-variant">{t('tarifa_plana.ingenieria.card_subtitle')}</div>
               </div>
             </div>
             <div class="space-y-4">
@@ -56,11 +58,11 @@ const techItems = getTechItems(lang)
                 <div class="h-full bg-secondary w-[98%]"></div>
               </div>
               <div class="flex justify-between text-xs font-bold">
-                <span>OPERATIVIDAD</span>
-                <span class="text-secondary">ÓPTIMA</span>
+                <span>{t('tarifa_plana.ingenieria.label1')}</span>
+                <span class="text-secondary">{t('tarifa_plana.ingenieria.label2')}</span>
               </div>
               <div class="pt-4 border-t border-outline-variant">
-                <p class="text-sm italic text-on-surface-variant">"La Tarifa Plana nos permite anticipar problemas antes de que se conviertan en pasivos."</p>
+                <p class="text-sm italic text-on-surface-variant">{t('tarifa_plana.ingenieria.quote')}</p>
               </div>
             </div>
           </div>

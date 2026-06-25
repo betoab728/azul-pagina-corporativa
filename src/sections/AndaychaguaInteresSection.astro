@@ -1,16 +1,18 @@
 ---
 import type { SupportedLocale } from '../i18n/utils'
+import { useTranslations } from '../i18n/utils'
 interface Props { lang?: SupportedLocale }
 const { lang = 'es' } = Astro.props
+const t = useTranslations(lang)
 ---
 <section class="py-20 bg-white" aria-labelledby="andaychagua-interes-heading">
   <div class="max-w-7xl mx-auto px-6 md:px-margin-desktop">
-    <h2 id="andaychagua-interes-heading" class="font-headline text-4xl font-extrabold text-primary mb-12">Te Puede Interesar</h2>
+    <h2 id="andaychagua-interes-heading" class="font-headline text-4xl font-extrabold text-primary mb-12">{t('andaychagua.interes.title')}</h2>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       <a href="/servicios/caracterizacion-de-residuos" class="group">
         <div class="rounded-xl overflow-hidden mb-6 aspect-video">
           <img
-            alt="Planta moderna de reciclaje y clasificación de residuos"
+            alt={t('andaychagua.interes.card1_img_alt')}
             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             loading="lazy"
             width="400"
@@ -18,13 +20,13 @@ const { lang = 'es' } = Astro.props
             src="/interes1-andachagua.jpeg"
           />
         </div>
-        <h4 class="font-headline text-xl font-bold text-primary mb-2 group-hover:text-secondary transition-colors">Gestión Integral de Residuos</h4>
-        <p class="text-on-surface-variant">Servicios especializados para la industria minera y energética.</p>
+        <h4 class="font-headline text-xl font-bold text-primary mb-2 group-hover:text-secondary transition-colors">{t('andaychagua.interes.card1_title')}</h4>
+        <p class="text-on-surface-variant">{t('andaychagua.interes.card1_desc')}</p>
       </a>
       <a href="/servicios/reclasificacion-de-residuos" class="group">
         <div class="rounded-xl overflow-hidden mb-6 aspect-video">
           <img
-            alt="Laboratorio ambiental de alta tecnología con equipos modernos"
+            alt={t('andaychagua.interes.card2_img_alt')}
             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             loading="lazy"
             width="400"
@@ -32,13 +34,13 @@ const { lang = 'es' } = Astro.props
             src="/interes2-andachagua.jpeg"
           />
         </div>
-        <h4 class="font-headline text-xl font-bold text-primary mb-2 group-hover:text-secondary transition-colors">Ensayos Acreditados</h4>
-        <p class="text-on-surface-variant">Pruebas químicas y físicas bajo normatividad vigente.</p>
+        <h4 class="font-headline text-xl font-bold text-primary mb-2 group-hover:text-secondary transition-colors">{t('andaychagua.interes.card2_title')}</h4>
+        <p class="text-on-surface-variant">{t('andaychagua.interes.card2_desc')}</p>
       </a>
       <a href="/servicios/software-trazabilidad" class="group">
         <div class="rounded-xl overflow-hidden mb-6 aspect-video">
           <img
-            alt="Entorno profesional con informes de sostenibilidad"
+            alt={t('andaychagua.interes.card3_img_alt')}
             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             loading="lazy"
             width="400"
@@ -46,8 +48,8 @@ const { lang = 'es' } = Astro.props
             src="/interes3-andachagua.jpeg"
           />
         </div>
-        <h4 class="font-headline text-xl font-bold text-primary mb-2 group-hover:text-secondary transition-colors">Consultoría Estratégica</h4>
-        <p class="text-on-surface-variant">Optimización de procesos ambientales y cumplimiento legal.</p>
+        <h4 class="font-headline text-xl font-bold text-primary mb-2 group-hover:text-secondary transition-colors">{t('andaychagua.interes.card3_title')}</h4>
+        <p class="text-on-surface-variant">{t('andaychagua.interes.card3_desc')}</p>
       </a>
     </div>
   </div>

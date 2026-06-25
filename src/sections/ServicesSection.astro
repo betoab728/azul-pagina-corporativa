@@ -23,7 +23,7 @@ const services = getServices(lang)
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       {services.map(service => (
-        <ServiceCard {...service} />
+        <ServiceCard {...service} cta={t('btn.view_more')} />
       ))}
     </div>
   </div>

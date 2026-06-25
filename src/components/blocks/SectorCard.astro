@@ -4,9 +4,10 @@ interface Props {
   iconColor: 'primary' | 'secondary'
   name: string
   href?: string
+  cta?: string
 }
 
-const { icon, iconColor, name, href = '#' } = Astro.props
+const { icon, iconColor, name, href = '#', cta = 'Ver más' } = Astro.props
 
 const iconBase    = iconColor === 'primary'
   ? 'bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white'
@@ -19,7 +20,7 @@ const iconBase    = iconColor === 'primary'
   </div>
   <h4 class="font-bold text-on-surface mb-2">{name}</h4>
   <a href={href} class="text-primary font-bold text-xs flex items-center justify-center gap-1">
-    Ver más
+    {cta}
     <span class="material-symbols-outlined text-xs" aria-hidden="true">arrow_forward</span>
   </a>
 </article>

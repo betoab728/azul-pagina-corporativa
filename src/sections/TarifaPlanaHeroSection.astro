@@ -1,8 +1,10 @@
 ---
 import type { SupportedLocale } from '../i18n/utils'
+import { useTranslations } from '../i18n/utils'
 const heroImage = '/tarifahero.jpeg'
 interface Props { lang?: SupportedLocale }
 const { lang = 'es' } = Astro.props
+const t = useTranslations(lang)
 ---
 
 <section id="tarifa-plana-hero" class="relative min-h-[85vh] flex items-center pt-20 overflow-hidden" aria-labelledby="tarifa-plana-hero-heading">
@@ -22,15 +24,15 @@ const { lang = 'es' } = Astro.props
     <div class="max-w-2xl">
       <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary-container text-on-secondary-container font-bold text-sm mb-6">
         <span class="material-symbols-outlined text-lg" aria-hidden="true">verified</span>
-        Excelencia Operativa 12 Meses
+        {t('tarifa_plana.hero.badge')}
       </div>
 
       <h1 id="tarifa-plana-hero-heading" class="font-headline text-[32px] md:text-[40px] lg:text-[48px] leading-tight text-primary mb-6 font-extrabold">
-        Tarifa plana ambiental
+        {t('tarifa_plana.hero.title')}
       </h1>
 
       <p class="font-body text-lg text-on-surface-variant mb-10 max-w-xl leading-relaxed">
-        La manera más simple y segura de gestionar el ambiente en tu empresa: todo incluido en una tarifa fija anual para garantizar cumplimiento y sostenibilidad.
+        {t('tarifa_plana.hero.subtitle')}
       </p>
 
       <div class="flex flex-wrap gap-4">
@@ -40,13 +42,13 @@ const { lang = 'es' } = Astro.props
           rel="noopener noreferrer"
           class="inline-flex items-center bg-secondary text-white font-bold px-6 md:px-8 py-3 md:py-4 rounded-full hover:scale-[1.02] transition-transform shadow-lg"
         >
-          Empieza Ahora
+          {t('tarifa_plana.hero.cta_primary')}
         </a>
         <a
           href="#tarifa-plana-alcance"
           class="inline-flex items-center bg-surface-container-low text-primary border border-outline-variant font-bold px-6 md:px-8 py-3 md:py-4 rounded-full hover:bg-surface-container-high transition-colors"
         >
-          Ver Detalles Técnicos
+          {t('tarifa_plana.hero.cta_secondary')}
         </a>
       </div>
     </div>

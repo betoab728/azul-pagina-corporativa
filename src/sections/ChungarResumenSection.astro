@@ -1,19 +1,21 @@
 ---
 import type { SupportedLocale } from '../i18n/utils'
+import { useTranslations } from '../i18n/utils'
 interface Props { lang?: SupportedLocale }
 const { lang = 'es' } = Astro.props
+const t = useTranslations(lang)
 ---
 <section class="py-20 bg-primary text-white overflow-hidden relative" aria-labelledby="chungar-resumen-heading">
   <div class="max-w-7xl mx-auto px-6 md:px-margin-desktop relative z-10">
     <div class="text-center mb-16">
-      <h2 id="chungar-resumen-heading" class="font-headline text-4xl font-extrabold mb-4">Resumen de éxito</h2>
-      <p class="text-white/70 text-lg max-w-2xl mx-auto">Un hito en la eficiencia operativa y ambiental para nuestro cliente.</p>
+      <h2 id="chungar-resumen-heading" class="font-headline text-4xl font-extrabold mb-4">{t('chungar.resumen.title')}</h2>
+      <p class="text-white/70 text-lg max-w-2xl mx-auto">{t('chungar.resumen.subtitle')}</p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/20 hover:bg-white/15 transition-all">
         <span class="material-symbols-outlined text-5xl mb-4 block text-secondary-container" aria-hidden="true">verified</span>
-        <h3 class="font-headline text-2xl font-bold mb-4">Cumplimiento</h3>
-        <p class="text-white/70 text-sm">Aseguramos el cumplimiento estricto de la normativa del MINAM, eliminando riesgos legales y multas administrativas.</p>
+        <h3 class="font-headline text-2xl font-bold mb-4">{t('chungar.resumen.card1.title')}</h3>
+        <p class="text-white/70 text-sm">{t('chungar.resumen.card1.desc')}</p>
       </div>
       <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/20 hover:bg-white/15 transition-all">
         <span class="material-symbols-outlined text-5xl mb-4 block text-secondary-container" aria-hidden="true">savings</span>
