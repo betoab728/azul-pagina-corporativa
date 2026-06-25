@@ -37,8 +37,40 @@ const pilaresByLocale: Record<SupportedLocale, PilarItem[]> = {
       description: 'Nos encargamos de todo: seguimiento, respuestas a observaciones y obtención de la resolución final.',
     },
   ],
-  en: [],
-  pt: [],
+  en: [
+    {
+      icon: 'biotech',
+      title: 'TECHNICAL ANALYSIS AND SAMPLING',
+      description: 'Scientific evaluation, accredited testing and real diagnosis of the waste to determine its exact composition.',
+    },
+    {
+      icon: 'description',
+      title: 'FILE PREPARATION + TECHNICAL REPORT',
+      description: 'Complete documentation supported by current regulations for submission to MINAM.',
+    },
+    {
+      icon: 'account_balance',
+      title: 'FULL MINAM PROCEDURE MANAGEMENT',
+      description: 'We handle everything: follow-up, responses to observations and obtaining the final resolution.',
+    },
+  ],
+  pt: [
+    {
+      icon: 'biotech',
+      title: 'ANÁLISE TÉCNICA E COLETA DE AMOSTRAS',
+      description: 'Avaliação científica, ensaios acreditados e diagnóstico real do resíduo para determinar sua composição exata.',
+    },
+    {
+      icon: 'description',
+      title: 'ELABORAÇÃO DE DOSSIÊ + RELATÓRIO TÉCNICO',
+      description: 'Documentação completa e fundamentada sob as normas vigentes para apresentação ao MINAM.',
+    },
+    {
+      icon: 'account_balance',
+      title: 'GESTÃO TOTAL DO TRÂMITE JUNTO AO MINAM',
+      description: 'Cuidamos de tudo: acompanhamento, respostas a observações e obtenção da resolução final.',
+    },
+  ],
 }
 
 const beneficiosByLocale: Record<SupportedLocale, BeneficioItem[]> = {
@@ -49,8 +81,20 @@ const beneficiosByLocale: Record<SupportedLocale, BeneficioItem[]> = {
     { icon: 'check_circle', title: 'Eficiencia', description: 'Gana eficiencia operativa inmediata reduciendo costos logísticos.' },
     { icon: 'trending_up', title: 'Capacidad de Negociación', description: 'Gana capacidad de negociación con operadores de residuos y reguladores.', destacado: true },
   ],
-  en: [],
-  pt: [],
+  en: [
+    { icon: 'check_circle', title: 'Total Control', description: 'Gain control over the traceability and disposal of your waste.' },
+    { icon: 'check_circle', title: 'Transparency', description: 'Gain transparency and technical clarity for internal and external audits.' },
+    { icon: 'check_circle', title: 'ESG Reputation', description: 'Gain real environmental reputation with a solid ESG criteria approach.' },
+    { icon: 'check_circle', title: 'Efficiency', description: 'Gain immediate operational efficiency by reducing logistics costs.' },
+    { icon: 'trending_up', title: 'Negotiation Capacity', description: 'Gain negotiation capacity with waste operators and regulators.', destacado: true },
+  ],
+  pt: [
+    { icon: 'check_circle', title: 'Controle Total', description: 'Ganhe controle sobre a rastreabilidade e disposição dos seus resíduos.' },
+    { icon: 'check_circle', title: 'Transparência', description: 'Ganhe transparência e clareza técnica perante auditorias internas e externas.' },
+    { icon: 'check_circle', title: 'Reputação ESG', description: 'Ganhe reputação ambiental real com uma abordagem sólida em critérios ESG.' },
+    { icon: 'check_circle', title: 'Eficiência', description: 'Ganhe eficiência operacional imediata reduzindo custos logísticos.' },
+    { icon: 'trending_up', title: 'Capacidade de Negociação', description: 'Ganhe capacidade de negociação com operadores de resíduos e reguladores.', destacado: true },
+  ],
 }
 
 const casosExitoByLocale: Record<SupportedLocale, CasoExitoItem[]> = {
@@ -60,8 +104,19 @@ const casosExitoByLocale: Record<SupportedLocale, CasoExitoItem[]> = {
     { pdfIcon: 'picture_as_pdf', title: 'INFORME N° 00173-2023-MINAM/VMGA/DGCA/DCCSQ UM. AMERICANA', pdfUrl: '/docs/pdf/3-C-217-2023-DGCA-ALPAYANA-2023201962.pdf' },
     { pdfIcon: 'picture_as_pdf', title: 'INFORME-000086-2026-VMGA-DGCA-DCCSQ UM. LOS QUENUALES', pdfUrl: '/docs/pdf/4-INFORME-000086-2026-VMGA-DGCA-DCCSQ.pdf' },
   ],
-  en: [],
-  pt: [],
+  en: [
+    { pdfIcon: 'picture_as_pdf', title: 'REPORT No. 00421-2025-MINAM/VMGA/DGCA/DCCSQ - UM. ANDAYCHAGUA', pdfUrl: '/docs/pdf/1-UNIDO%202025093329%20CARTA%20N%C2%BA%2000482-2025-MINAM-VMGA-DGCA.pdf' },
+    { pdfIcon: 'picture_as_pdf', title: 'REPORT No. 00221-2025-MINAM/VMGA/DGCA/DCCSQ - UM. CHUNGAR', pdfUrl: '/docs/pdf/2-2025039290-Informe-CHUNGAR.pdf' },
+    { pdfIcon: 'picture_as_pdf', title: 'REPORT No. 00173-2023-MINAM/VMGA/DGCA/DCCSQ - UM. AMERICANA', pdfUrl: '/docs/pdf/3-C-217-2023-DGCA-ALPAYANA-2023201962.pdf' },
+    { pdfIcon: 'picture_as_pdf', title: 'REPORT-000086-2026-VMGA-DGCA-DCCSQ - UM. LOS QUENUALES', pdfUrl: '/docs/pdf/4-INFORME-000086-2026-VMGA-DGCA-DCCSQ.pdf' },
+  ],
+  pt: [
+    { pdfIcon: 'picture_as_pdf', title: 'RELATÓRIO N° 00421-2025-MINAM/VMGA/DGCA/DCCSQ - UM. ANDAYCHAGUA', pdfUrl: '/docs/pdf/1-UNIDO%202025093329%20CARTA%20N%C2%BA%2000482-2025-MINAM-VMGA-DGCA.pdf' },
+    { pdfIcon: 'picture_as_pdf', title: 'RELATÓRIO N° 00221-2025-MINAM/VMGA/DGCA/DCCSQ - UM. CHUNGAR', pdfUrl: '/docs/pdf/2-2025039290-Informe-CHUNGAR.pdf' },
+    { pdfIcon: 'picture_as_pdf', title: 'RELATÓRIO N° 00173-2023-MINAM/VMGA/DGCA/DCCSQ - UM. AMERICANA', pdfUrl: '/docs/pdf/3-C-217-2023-DGCA-ALPAYANA-2023201962.pdf' },
+    { pdfIcon: 'picture_as_pdf', title: 'RELATÓRIO-000086-2026-VMGA-DGCA-DCCSQ - UM. LOS QUENUALES', pdfUrl: '/docs/pdf/4-INFORME-000086-2026-VMGA-DGCA-DCCSQ.pdf' },
+  ],
+
 }
 
 export const getPilares = (locale: SupportedLocale): PilarItem[] =>

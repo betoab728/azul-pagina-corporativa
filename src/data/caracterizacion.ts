@@ -54,8 +54,21 @@ const procesoItemDestacadoByLocale: Record<SupportedLocale, ProcesoItemDestacado
     footerIcon: 'verified',
     footerText: 'Válido para fiscalización',
   },
-  en: null,
-  pt: null,
+  en: {
+    icon: 'description',
+    title: 'Professional report and improvements',
+    description: 'Clear, visual results ready for audits, inspections and strategic planning.',
+    footerIcon: 'verified',
+    footerText: 'Valid for inspection',
+  },
+  pt: {
+    icon: 'description',
+    title: 'Relatório profissional e melhorias',
+    description: 'Resultados claros, visuais e prontos para auditorias, fiscalização e planejamento estratégico.',
+    footerIcon: 'verified',
+    footerText: 'Válido para fiscalização',
+  },
+
 }
 
 const beneficiosByLocale: Record<SupportedLocale, BeneficioItem[]> = {
@@ -81,8 +94,50 @@ const beneficiosByLocale: Record<SupportedLocale, BeneficioItem[]> = {
       description: 'Información técnica sólida para cumplir y demostrar ante cualquier entidad.',
     },
   ],
-  en: [],
-  pt: [],
+  en: [
+    {
+      icon: 'check_circle',
+      title: 'Clear view of your generation',
+      description: 'You know exactly what you produce, how much and how often.',
+    },
+    {
+      icon: 'trending_down',
+      title: 'Leak identification',
+      description: 'You detect critical points that generate invisible losses in your operational chain.',
+    },
+    {
+      icon: 'recycling',
+      title: 'Real valorization opportunities',
+      description: 'You discover materials that cost money today, but can generate value tomorrow.',
+    },
+    {
+      icon: 'fact_check',
+      title: 'Stress-free audits',
+      description: 'Solid technical information to comply and demonstrate before any entity.',
+    },
+  ],
+  pt: [
+    {
+      icon: 'check_circle',
+      title: 'Visão clara da sua geração',
+      description: 'Você sabe exatamente o que produz, quanto e com que frequência.',
+    },
+    {
+      icon: 'trending_down',
+      title: 'Identificação de vazamentos',
+      description: 'Você detecta pontos críticos que geram perdas invisíveis na sua cadeia operacional.',
+    },
+    {
+      icon: 'recycling',
+      title: 'Oportunidades reais de valorização',
+      description: 'Você descobre materiais que hoje custam, mas amanhã podem gerar valor.',
+    },
+    {
+      icon: 'fact_check',
+      title: 'Auditorias sem estresse',
+      description: 'Informação técnica sólida para cumprir e demonstrar perante qualquer entidade.',
+    },
+  ],
 }
 
 const empresaStatsByLocale: Record<SupportedLocale, StatItem[]> = {
@@ -92,8 +147,18 @@ const empresaStatsByLocale: Record<SupportedLocale, StatItem[]> = {
     { value: '0', label: 'Estimaciones', highlight: false },
     { value: '24/7', label: 'Trazabilidad', highlight: true },
   ],
-  en: [],
-  pt: [],
+  en: [
+    { value: '80%', label: 'Maximum Savings', highlight: true },
+    { value: '100%', label: 'Real Data', highlight: false },
+    { value: '0', label: 'Estimates', highlight: false },
+    { value: '24/7', label: 'Traceability', highlight: true },
+  ],
+  pt: [
+    { value: '80%', label: 'Economia Máxima', highlight: true },
+    { value: '100%', label: 'Dados Reais', highlight: false },
+    { value: '0', label: 'Estimativas', highlight: false },
+    { value: '24/7', label: 'Rastreabilidade', highlight: true },
+  ],
 }
 
 export const getProcesoItems = (locale: SupportedLocale): ProcesoItem[] =>

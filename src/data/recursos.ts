@@ -34,8 +34,18 @@ const guiasByLocale: Record<SupportedLocale, GuiaItem[]> = {
     { title: 'Reglamento de Calidad de Aire' },
     { title: 'Normativa de Efluentes' },
   ],
-  en: [],
-  pt: [],
+  en: [
+    { title: 'General Environmental Law' },
+    { title: 'Solid Waste Law' },
+    { title: 'Air Quality Regulation' },
+    { title: 'Effluent Regulation' },
+  ],
+  pt: [
+    { title: 'Lei Geral do Meio Ambiente' },
+    { title: 'Lei de Resíduos Sólidos' },
+    { title: 'Regulamento de Qualidade do Ar' },
+    { title: 'Normativa de Efluentes' },
+  ],
 }
 
 const blogArticlesByLocale: Record<SupportedLocale, BlogArticle[]> = {
@@ -44,8 +54,16 @@ const blogArticlesByLocale: Record<SupportedLocale, BlogArticle[]> = {
     { image: blogImg2, imageAlt: 'Materiales reciclados organizados en grilla geométrica', category: 'ECONOMÍA CIRCULAR', categoryColor: 'secondary', title: 'Del Residuo al Recurso: El Futuro de la Industria', description: 'Guía estratégica para transformar el pasivo ambiental en una oportunidad de valor para la cadena de suministro.' },
     { image: blogImg3, imageAlt: 'Dashboard digital de monitoreo ambiental en tablet', category: 'MONITOREO', categoryColor: 'tertiary', title: 'Digitalización del Monitoreo Ambiental en Tiempo Real', description: 'Uso de sensores IoT y analítica de datos para el cumplimiento estricto de los estándares de calidad ambiental (ECA).' },
   ],
-  en: [],
-  pt: [],
+  en: [
+    { image: blogImg1, imageAlt: 'Biological filtration system in industrial facility', category: 'ENGINEERING', categoryColor: 'primary', title: 'Implementation of Compact Treatment Plants', description: 'Discover how to optimize space in industrial plants through advanced biological filtration systems.' },
+    { image: blogImg2, imageAlt: 'Recycled materials organized in geometric grid', category: 'CIRCULAR ECONOMY', categoryColor: 'secondary', title: 'From Waste to Resource: The Future of Industry', description: 'Strategic guide to transform environmental liability into a value opportunity for the supply chain.' },
+    { image: blogImg3, imageAlt: 'Digital environmental monitoring dashboard on tablet', category: 'MONITORING', categoryColor: 'tertiary', title: 'Digitalization of Real-Time Environmental Monitoring', description: 'Use of IoT sensors and data analytics for strict compliance with environmental quality standards (EQS).' },
+  ],
+  pt: [
+    { image: blogImg1, imageAlt: 'Sistema de filtragem biológica em instalação industrial', category: 'ENGENHARIA', categoryColor: 'primary', title: 'Implementação de Plantas de Tratamento Compactas', description: 'Descubra como otimizar o espaço em plantas industriais mediante sistemas de filtragem biológica avançada.' },
+    { image: blogImg2, imageAlt: 'Materiais reciclados organizados em grade geométrica', category: 'ECONOMIA CIRCULAR', categoryColor: 'secondary', title: 'Do Resíduo ao Recurso: O Futuro da Indústria', description: 'Guia estratégico para transformar o passivo ambiental em uma oportunidade de valor para a cadeia de suprimentos.' },
+    { image: blogImg3, imageAlt: 'Dashboard digital de monitoramento ambiental em tablet', category: 'MONITORAMENTO', categoryColor: 'tertiary', title: 'Digitalização do Monitoramento Ambiental em Tempo Real', description: 'Uso de sensores IoT e análise de dados para o cumprimento estrito dos padrões de qualidade ambiental (ECA).' },
+  ],
 }
 
 const eventosByLocale: Record<SupportedLocale, EventoItem[]> = {
@@ -54,8 +72,17 @@ const eventosByLocale: Record<SupportedLocale, EventoItem[]> = {
     { day: '02', month: 'CURSO', bgColor: 'secondary', title: 'Estudio de Caracterización de Residuos Sólidos No Municipales', description: 'Metodología para la caracterización técnica de residuos en operaciones industriales y mineras.', pdfUrl: '/docs/pdf/cursos/2-curso-caracterizacion-residuos.pdf' },
     { day: '03', month: 'CURSO', bgColor: 'tertiary', title: 'Gestión Municipal de Residuos Sólidos: Normativa, Operación y Financiamiento del Servicio', description: 'Curso integral sobre el marco normativo, operación y modelos de financiamiento para la gestión municipal de residuos.', pdfUrl: '/docs/pdf/cursos/3-curso-gestion-municipal.pdf' },
   ],
-  en: [],
-  pt: [],
+  en: [
+    { day: '01', month: 'COURSE', bgColor: 'primary', title: 'Minimization and Management Plan for Non-Municipal Solid Waste', description: 'Specialized training in the development and implementation of PMMRS in accordance with current regulations.', pdfUrl: '/docs/pdf/cursos/1-curso-pmmrs-2026.pdf' },
+    { day: '02', month: 'COURSE', bgColor: 'secondary', title: 'Non-Municipal Solid Waste Characterization Study', description: 'Methodology for the technical characterization of waste in industrial and mining operations.', pdfUrl: '/docs/pdf/cursos/2-curso-caracterizacion-residuos.pdf' },
+    { day: '03', month: 'COURSE', bgColor: 'tertiary', title: 'Municipal Solid Waste Management: Regulation, Operation and Service Financing', description: 'Comprehensive course on the regulatory framework, operation and financing models for municipal waste management.', pdfUrl: '/docs/pdf/cursos/3-curso-gestion-municipal.pdf' },
+  ],
+  pt: [
+    { day: '01', month: 'CURSO', bgColor: 'primary', title: 'Plano de Minimização e Manejo de Resíduos Sólidos Não Municipais', description: 'Capacitação especializada na elaboração e implementação do PMMRS conforme a legislação vigente.', pdfUrl: '/docs/pdf/cursos/1-curso-pmmrs-2026.pdf' },
+    { day: '02', month: 'CURSO', bgColor: 'secondary', title: 'Estudo de Caracterização de Resíduos Sólidos Não Municipais', description: 'Metodologia para a caracterização técnica de resíduos em operações industriais e mineradoras.', pdfUrl: '/docs/pdf/cursos/2-curso-caracterizacion-residuos.pdf' },
+    { day: '03', month: 'CURSO', bgColor: 'tertiary', title: 'Gestão Municipal de Resíduos Sólidos: Normativa, Operação e Financiamento do Serviço', description: 'Curso integral sobre o marco normativo, operação e modelos de financiamento para a gestão municipal de resíduos.', pdfUrl: '/docs/pdf/cursos/3-curso-gestion-municipal.pdf' },
+  ],
+
 }
 
 export const getGuias = (locale: SupportedLocale): GuiaItem[] =>

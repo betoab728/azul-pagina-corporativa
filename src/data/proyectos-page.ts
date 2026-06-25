@@ -36,8 +36,18 @@ const statsByLocale: Record<SupportedLocale, StatItem[]> = {
     { value: '8+', label: 'Unidades Mineras', color: 'primary' },
     { value: '0', label: 'Incidentes Críticos', color: 'secondary' },
   ],
-  en: [],
-  pt: [],
+  en: [
+    { value: '+50', label: 'Projects Completed', color: 'primary' },
+    { value: '100%', label: 'Regulatory Compliance', color: 'secondary' },
+    { value: '8+', label: 'Mining Units', color: 'primary' },
+    { value: '0', label: 'Critical Incidents', color: 'secondary' },
+  ],
+  pt: [
+    { value: '+50', label: 'Projetos Executados', color: 'primary' },
+    { value: '100%', label: 'Conformidade Regulatória', color: 'secondary' },
+    { value: '8+', label: 'Unidades Mineradoras', color: 'primary' },
+    { value: '0', label: 'Incidentes Críticos', color: 'secondary' },
+  ],
 }
 
 const projectsDataByLocale: Record<SupportedLocale, ProjectItem[]> = {
@@ -49,8 +59,22 @@ const projectsDataByLocale: Record<SupportedLocale, ProjectItem[]> = {
     { image: '/proyecto-card5.jpeg', imageAlt: 'Laboratorio de ensayos de peligrosidad en materiales metálicos', sector: 'Peligrosidad', icon: 'warning', title: 'UM. YAULIYACU', slug: 'yauliyacu', items: ['Caracterización de envases de cartón postconsumo.', 'Ensayo de peligrosidad en envases metálicos que contuvieron cianuro.'] },
     { image: '/proyecto-card6.jpeg', imageAlt: 'Revisión de informe técnico en campo minero', sector: 'Informes', icon: 'description', title: 'UM. ISCAYCRUZ', slug: 'iscaycruz', items: ['Informe técnico de muestreo especializado.'] },
   ],
-  en: [],
-  pt: [],
+  en: [
+    { image: '/proyecto-card1.jpeg', imageAlt: 'Metal drums organized in industrial warehouse', sector: 'Mining', icon: 'precision_manufacturing', title: 'UM. ANDAYCHAGUA', slug: 'andaychagua', items: ['Post-consumer metal drums used for cyanide storage.', 'Cardboard containers used as secondary packaging for explosives and accessories.'] },
+    { image: '/proyecto-card2.jpeg', imageAlt: 'Technical characterization of industrial materials in laboratory', sector: 'Characterization', icon: 'biotech', title: 'UM. CHUNGAR', slug: 'chungar', items: ['Technical characterization and sampling of post-consumer cardboard containers.'] },
+    { image: '/proyecto-card3.jpeg', imageAlt: 'Metal container processing at recycling plant', sector: 'Mining', icon: 'factory', title: 'UM. AMERICANA', slug: 'americana', items: ['Post-consumer metal drums used for cyanide storage.', 'Cardboard containers used as secondary packaging for explosives and accessories.'] },
+    { image: '/proyecto-card4.jpeg', imageAlt: 'Technical material sampling with QR code in warehouse', sector: 'Sampling', icon: 'science', title: 'UM. MOROCOCHA', slug: 'morococha', items: ['Technical characterization and sampling of post-consumer cardboard containers.'] },
+    { image: '/proyecto-card5.jpeg', imageAlt: 'Hazard testing laboratory for metallic materials', sector: 'Hazard', icon: 'warning', title: 'UM. YAULIYACU', slug: 'yauliyacu', items: ['Characterization of post-consumer cardboard containers.', 'Hazard testing on metal containers that contained cyanide.'] },
+    { image: '/proyecto-card6.jpeg', imageAlt: 'Technical report review at mining site', sector: 'Reports', icon: 'description', title: 'UM. ISCAYCRUZ', slug: 'iscaycruz', items: ['Specialized sampling technical report.'] },
+  ],
+  pt: [
+    { image: '/proyecto-card1.jpeg', imageAlt: 'Barris metálicos organizados em armazém industrial', sector: 'Mineração', icon: 'precision_manufacturing', title: 'UM. ANDAYCHAGUA', slug: 'andaychagua', items: ['Barris metálicos pós-consumo utilizados no armazenamento de cianeto.', 'Embalagens de papelão utilizadas como embalagem secundária de explosivos e acessórios.'] },
+    { image: '/proyecto-card2.jpeg', imageAlt: 'Caracterização técnica de materiais industriais em laboratório', sector: 'Caracterização', icon: 'biotech', title: 'UM. CHUNGAR', slug: 'chungar', items: ['Caracterização técnica e amostragem de embalagens de papelão pós-consumo.'] },
+    { image: '/proyecto-card3.jpeg', imageAlt: 'Processamento de contêineres metálicos em planta de reciclagem', sector: 'Mineração', icon: 'factory', title: 'UM. AMERICANA', slug: 'americana', items: ['Barris metálicos pós-consumo utilizados no armazenamento de cianeto.', 'Embalagens de papelão utilizadas como embalagem secundária de explosivos e acessórios.'] },
+    { image: '/proyecto-card4.jpeg', imageAlt: 'Amostragem técnica de materiais com código QR em armazém', sector: 'Amostragem', icon: 'science', title: 'UM. MOROCOCHA', slug: 'morococha', items: ['Caracterização técnica e amostragem de embalagens de papelão pós-consumo.'] },
+    { image: '/proyecto-card5.jpeg', imageAlt: 'Laboratório de ensaios de periculosidade em materiais metálicos', sector: 'Periculosidade', icon: 'warning', title: 'UM. YAULIYACU', slug: 'yauliyacu', items: ['Caracterização de embalagens de papelão pós-consumo.', 'Ensaio de periculosidade em recipientes metálicos que continham cianeto.'] },
+    { image: '/proyecto-card6.jpeg', imageAlt: 'Revisão de relatório técnico em campo de mineração', sector: 'Relatórios', icon: 'description', title: 'UM. ISCAYCRUZ', slug: 'iscaycruz', items: ['Relatório técnico de amostragem especializada.'] },
+  ],
 }
 
 const alsoTrustedByLocale: Record<SupportedLocale, AlsoTrusted[]> = {
@@ -58,8 +82,14 @@ const alsoTrustedByLocale: Record<SupportedLocale, AlsoTrusted[]> = {
     { name: 'UM. CARAHUACRA', slug: 'carahuacra' },
     { name: 'UM. SAN CRISTÓBAL', slug: 'cristobal' },
   ],
-  en: [],
-  pt: [],
+  en: [
+    { name: 'UM. CARAHUACRA', slug: 'carahuacra' },
+    { name: 'UM. SAN CRISTÓBAL', slug: 'cristobal' },
+  ],
+  pt: [
+    { name: 'UM. CARAHUACRA', slug: 'carahuacra' },
+    { name: 'UM. SAN CRISTÓBAL', slug: 'cristobal' },
+  ],
 }
 
 export const getStats = (locale: SupportedLocale): StatItem[] =>
