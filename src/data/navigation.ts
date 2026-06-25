@@ -15,6 +15,7 @@ export interface NavItem {
 const mainNavByLocale: Record<SupportedLocale, NavItem[]> = {
   es: [
     { key: 'home', label: 'Inicio', href: '/' },
+    { label: 'Nosotros', href: '/nosotros' },
     {
       key: 'services',
       label: 'Servicios',
@@ -30,7 +31,6 @@ const mainNavByLocale: Record<SupportedLocale, NavItem[]> = {
     { label: 'Acreditaciones', href: '/acreditaciones' },
     { label: 'Sectores', href: '/sectores' },
     { label: 'Proyectos', href: '/proyectos' },
-    { label: 'Nosotros', href: '/nosotros' },
     {
       key: 'resources',
       label: 'Recursos',
@@ -43,6 +43,7 @@ const mainNavByLocale: Record<SupportedLocale, NavItem[]> = {
   ],
   en: [
     { key: 'home', label: 'Home', href: '/en/' },
+    { label: 'About Us', href: '/en/nosotros' },
     {
       key: 'services',
       label: 'Services',
@@ -58,7 +59,6 @@ const mainNavByLocale: Record<SupportedLocale, NavItem[]> = {
     { label: 'Accreditations', href: '/en/acreditaciones' },
     { label: 'Sectors', href: '/en/sectores' },
     { label: 'Projects', href: '/en/proyectos' },
-    { label: 'About Us', href: '/en/nosotros' },
     {
       key: 'resources',
       label: 'Resources',
@@ -71,6 +71,7 @@ const mainNavByLocale: Record<SupportedLocale, NavItem[]> = {
   ],
   pt: [
     { key: 'home', label: 'Início', href: '/pt/' },
+    { label: 'Sobre nós', href: '/pt/nosotros' },
     {
       key: 'services',
       label: 'Serviços',
@@ -86,7 +87,6 @@ const mainNavByLocale: Record<SupportedLocale, NavItem[]> = {
     { label: 'Acreditações', href: '/pt/acreditaciones' },
     { label: 'Setores', href: '/pt/sectores' },
     { label: 'Projetos', href: '/pt/proyectos' },
-    { label: 'Sobre nós', href: '/pt/nosotros' },
     {
       key: 'resources',
       label: 'Recursos',
