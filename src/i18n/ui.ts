@@ -894,6 +894,21 @@ const ui = {
     'reclasificacion.cierre.title': 'UN RESIDUO BIEN CLASIFICADO TRANSFORMA TUS COSTOS, TU OPERACIÓN Y TU REPUTACIÓN',
     'reclasificacion.cierre.subtitle': 'Convierte la información técnica en poder ambiental y económico real. Empecemos hoy mismo el proceso de reclasificación técnica de tus residuos.',
     'reclasificacion.cierre.cta': 'Más Información',
+
+    // ── Reclasificación Guía ────────────────────────────────────
+    'reclasificacion.guia.label': 'GUÍA PRÁCTICA',
+    'reclasificacion.guia.title': 'Guía para una Reclasificación Efectiva',
+    'reclasificacion.guia.intro': 'Determine si un residuo catalogado como peligroso puede gestionarse como no peligroso mediante evidencia técnica. Optimice costos y cumpla con la normativa.',
+    'reclasificacion.guia.img_alt': 'Documento guía de reclasificación de residuos con diagramas técnicos',
+    'reclasificacion.guia.badge': 'Basado en D.L. N° 1278',
+    'reclasificacion.guia.step1_title': 'Identificación del residuo por origen y uso inicial',
+    'reclasificacion.guia.step2_title': 'Muestreo representativo bajo protocolos acreditados',
+    'reclasificacion.guia.step3_title': 'Análisis de peligrosidad en laboratorio certificado',
+    'reclasificacion.guia.step4_title': 'Expediente técnico para presentación ante el MINAM',
+    'reclasificacion.guia.benefits_list_label': 'Lista de beneficios',
+    'reclasificacion.guia.benefit1': 'Reducción de costos de disposición final hasta en un 80%.',
+    'reclasificacion.guia.benefit2': 'Cumplimiento normativo ante fiscalizaciones de OEFA y MINAM.',
+    'reclasificacion.guia.benefit3': 'Contribución directa a los indicadores de sostenibilidad corporativa.',
   },
 
   en: {
@@ -1785,6 +1800,21 @@ const ui = {
     'reclasificacion.cierre.title': 'A PROPERLY CLASSIFIED WASTE TRANSFORMS YOUR COSTS, OPERATION AND REPUTATION',
     'reclasificacion.cierre.subtitle': 'Turn technical information into real environmental and economic power. Let\'s start the technical waste reclassification process today.',
     'reclasificacion.cierre.cta': 'More Information',
+
+    // ── Reclasificación Guía ────────────────────────────────────
+    'reclasificacion.guia.label': 'PRACTICAL GUIDE',
+    'reclasificacion.guia.title': 'Guide for Effective Reclassification',
+    'reclasificacion.guia.intro': 'Determine if waste classified as hazardous can be managed as non-hazardous through technical evidence. Optimize costs and comply with regulations.',
+    'reclasificacion.guia.img_alt': 'Waste reclassification guide document with technical diagrams',
+    'reclasificacion.guia.badge': 'Based on D.L. No. 1278',
+    'reclasificacion.guia.step1_title': 'Waste identification by origin and initial use',
+    'reclasificacion.guia.step2_title': 'Representative sampling under accredited protocols',
+    'reclasificacion.guia.step3_title': 'Hazard analysis in a certified laboratory',
+    'reclasificacion.guia.step4_title': 'Technical dossier for submission to MINAM',
+    'reclasificacion.guia.benefits_list_label': 'List of benefits',
+    'reclasificacion.guia.benefit1': 'Reduction of final disposal costs by up to 80%.',
+    'reclasificacion.guia.benefit2': 'Regulatory compliance before OEFA and MINAM inspections.',
+    'reclasificacion.guia.benefit3': 'Direct contribution to corporate sustainability indicators.',
   },
 
   pt: {
@@ -2676,6 +2706,21 @@ const ui = {
     'reclasificacion.cierre.title': 'UM RESÍDUO BEM CLASSIFICADO TRANSFORMA SEUS CUSTOS, SUA OPERAÇÃO E SUA REPUTAÇÃO',
     'reclasificacion.cierre.subtitle': 'Transforme a informação técnica em poder ambiental e econômico real. Vamos começar hoje mesmo o processo de reclassificação técnica dos seus resíduos.',
     'reclasificacion.cierre.cta': 'Mais Informações',
+
+    // ── Reclasificación Guía ────────────────────────────────────
+    'reclasificacion.guia.label': 'GUIA PRÁTICO',
+    'reclasificacion.guia.title': 'Guia para uma Reclassificação Eficaz',
+    'reclasificacion.guia.intro': 'Determine se um resíduo classificado como perigoso pode ser gerenciado como não perigoso mediante evidência técnica. Otimize custos e cumpra a legislação.',
+    'reclasificacion.guia.img_alt': 'Documento guia de reclassificação de resíduos com diagramas técnicos',
+    'reclasificacion.guia.badge': 'Baseado no D.L. N° 1278',
+    'reclasificacion.guia.step1_title': 'Identificação do resíduo por origem e uso inicial',
+    'reclasificacion.guia.step2_title': 'Amostragem representativa sob protocolos acreditados',
+    'reclasificacion.guia.step3_title': 'Análise de periculosidade em laboratório certificado',
+    'reclasificacion.guia.step4_title': 'Dossiê técnico para apresentação ao MINAM',
+    'reclasificacion.guia.benefits_list_label': 'Lista de benefícios',
+    'reclasificacion.guia.benefit1': 'Redução de custos de disposição final em até 80%.',
+    'reclasificacion.guia.benefit2': 'Conformidade regulatória perante fiscalizações da OEFA e MINAM.',
+    'reclasificacion.guia.benefit3': 'Contribuição direta aos indicadores de sustentabilidade corporativa.',
   },
 } as const
 

@@ -5,6 +5,7 @@ import ReclasificacionHeroSection from '../../sections/ReclasificacionHeroSectio
 import ReclasificacionProcesoSection from '../../sections/ReclasificacionProcesoSection.astro'
 import ReclasificacionIncluyeSection from '../../sections/ReclasificacionIncluyeSection.astro'
 import ReclasificacionBeneficiosSection from '../../sections/ReclasificacionBeneficiosSection.astro'
+import ReclasificacionGuiaSection from '../../sections/ReclasificacionGuiaSection.astro'
 import ReclasificacionCasosSection from '../../sections/ReclasificacionCasosSection.astro'
 import ReclasificacionCierreSection from '../../sections/ReclasificacionCierreSection.astro'
 const lang = getLang(Astro.currentLocale)
@@ -21,6 +22,7 @@ const alternates = getAlternates(getBasePath(Astro.url.pathname))
   <ReclasificacionProcesoSection lang={lang} />
   <ReclasificacionIncluyeSection lang={lang} />
   <ReclasificacionBeneficiosSection lang={lang} />
+  <ReclasificacionGuiaSection lang={lang} />
   <ReclasificacionCasosSection lang={lang} />
   <ReclasificacionCierreSection lang={lang} />
 </PageLayout>
