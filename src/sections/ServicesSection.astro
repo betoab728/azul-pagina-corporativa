@@ -23,7 +23,7 @@ const services = getServices(lang)
 
     <div class="flex flex-wrap justify-center gap-8">
       {services.map(service => (
-        <div class="w-full md:w-[calc(33.333%-1.34rem)]">
+        <div class="w-full md:w-[calc(33.333%-1.34rem)] flex">
           <ServiceCard {...service} cta={t('btn.view_more')} />
         </div>
       ))}
