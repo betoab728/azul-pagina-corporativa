@@ -5,6 +5,7 @@ import CaracterizacionHeroSection from '../../sections/CaracterizacionHeroSectio
 import CaracterizacionProcesoSection from '../../sections/CaracterizacionProcesoSection.astro'
 import CaracterizacionIncluyeSection from '../../sections/CaracterizacionIncluyeSection.astro'
 import CaracterizacionBeneficiosSection from '../../sections/CaracterizacionBeneficiosSection.astro'
+import CaracterizacionGuiaSection from '../../sections/CaracterizacionGuiaSection.astro'
 import CaracterizacionCasoExitoSection from '../../sections/CaracterizacionCasoExitoSection.astro'
 import CaracterizacionCierreSection from '../../sections/CaracterizacionCierreSection.astro'
 const lang = getLang(Astro.currentLocale)
@@ -21,6 +22,7 @@ const alternates = getAlternates(getBasePath(Astro.url.pathname))
   <CaracterizacionProcesoSection lang={lang} />
   <CaracterizacionIncluyeSection lang={lang} />
   <CaracterizacionBeneficiosSection lang={lang} />
+  <CaracterizacionGuiaSection lang={lang} />
   <CaracterizacionCasoExitoSection lang={lang} />
   <CaracterizacionCierreSection lang={lang} />
 </PageLayout>
