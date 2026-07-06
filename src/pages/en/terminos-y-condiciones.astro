@@ -1,0 +1,47 @@
+---
+import { getLang, getAlternates, getBasePath } from '../../i18n/utils'
+import PageLayout from '../../layouts/PageLayout.astro'
+
+const lang = getLang(Astro.currentLocale)
+const alternates = getAlternates(getBasePath(Astro.url.pathname))
+
+const content = {
+  title: 'Terms & Conditions',
+  update: 'Last updated: July 6, 2026',
+  intro: 'Welcome to the Azul Sostenible S.A.C. website. By accessing and using this website, you accept these Terms and Conditions of use. If you do not agree with any of these terms, we recommend that you refrain from using this site.',
+  sections: [
+    { heading: '1. Company Information', items: [{ label: 'Company Name', value: 'Azul Sostenible S.A.C.' }, { label: 'Activity', value: 'Solid Waste Operating Company (EO-RS), specialized in comprehensive waste management, valorization, environmental consulting and technological solutions for waste traceability.' }] },
+    { heading: '2. Website Use', body: 'The user undertakes to use this website responsibly, respecting current legislation and refraining from carrying out activities that may affect the operation of the site or the rights of third parties.' },
+    { heading: '3. Intellectual Property', body: 'All content on the website, including texts, images, logos, graphics, documents, design, software and other elements, belongs to Azul Sostenible S.A.C. or has the corresponding authorizations. Its reproduction, distribution or use without prior written authorization is prohibited.' },
+    { heading: '4. Published Information', body: 'Azul Sostenible S.A.C. strives to keep the site information updated and accurate. However, the published information is for informational purposes and may be modified without prior notice.' },
+    { heading: '5. Quotes and Services', body: 'Submitting a contact form or quote request does not constitute a service provision contract. Any commercial proposal will be subject to technical evaluation and acceptance by both parties.' },
+    { heading: '6. Third-Party Links', body: 'This site may contain links to external pages. Azul Sostenible S.A.C. is not responsible for the content, availability or policies of such sites.' },
+    { heading: '7. Limitation of Liability', body: 'Azul Sostenible S.A.C. shall not be liable for damages arising from the use or inability to use the website, service interruptions or information provided by third parties.' },
+    { heading: '8. Data Protection', body: 'The processing of personal data is carried out in accordance with our ', link: { text: 'Privacy Policy', href: '/en/politica-de-privacidad' } },
+    { heading: '9. Modifications', body: 'Azul Sostenible S.A.C. may update these Terms and Conditions at any time. Modifications will be published on this same page.' },
+    { heading: '10. Applicable Law', body: 'These Terms and Conditions are governed by the current legislation of the Republic of Peru.' },
+    { heading: '11. Contact', items: [{ label: 'Email', value: 'contacto@azulsostenible.pe' }, { label: 'Website', value: 'www.azulsostenible.pe' }] },
+  ],
+}
+---
+
+<PageLayout lang={lang} alternates={alternates} title="Terms & Conditions | Azul Sostenible" description="Terms and conditions of use for the Azul Sostenible S.A.C. website.">
+  <main class="py-section-padding bg-surface">
+    <div class="max-w-3xl mx-auto px-6 md:px-margin-desktop">
+      <div class="mb-12 md:mb-16"><h1 class="font-headline text-3xl md:text-4xl lg:text-5xl text-primary font-extrabold mb-3">{content.title}</h1><p class="text-on-surface-variant text-sm">{content.update}</p></div>
+      <p class="text-on-surface-variant leading-relaxed mb-10">{content.intro}</p>
+      <div class="space-y-10">
+        {content.sections.map(section => (
+          <section>
+            <h2 class="font-headline text-xl md:text-2xl text-primary font-bold mb-4">{section.heading}</h2>
+            {section.intro && <p class="text-on-surface-variant leading-relaxed mb-4">{section.intro}</p>}
+            {section.body && <p class="text-on-surface-variant leading-relaxed">{section.body}{section.link && <a href={section.link.href} class="text-primary font-semibold hover:underline">{section.link.text}</a>}</p>}
+            {section.list && <ul class="list-disc pl-5 space-y-1.5 text-on-surface-variant leading-relaxed">{section.list.map(item => <li>{item}</li>)}</ul>}
+            {section.items && <div class="space-y-2">{section.items.map(item => <div class="flex flex-col sm:flex-row sm:gap-2 text-on-surface-variant"><span class="font-bold text-on-surface">{item.label}:</span><span>{item.value}</span></div>)}</div>}
+            {section.footer && <p class="mt-4 text-on-surface-variant font-bold">{section.footer}</p>}
+          </section>
+        ))}
+      </div>
+    </div>
+  </main>
+</PageLayout>

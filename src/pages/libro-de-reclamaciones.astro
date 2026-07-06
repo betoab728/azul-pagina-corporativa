@@ -1,0 +1,337 @@
+---
+import { getLang, getAlternates, getBasePath } from '../i18n/utils'
+import PageLayout from '../layouts/PageLayout.astro'
+
+const lang = getLang(Astro.currentLocale)
+const alternates = getAlternates(getBasePath(Astro.url.pathname))
+
+const contentByLocale = {
+  es: {
+    title: 'Libro de Reclamaciones',
+    subtitle: 'Conforme a la normativa peruana de protección al consumidor, ponemos a disposición de nuestros clientes el presente Libro de Reclamaciones Virtual.',
+    infoTitle: 'Información del Proveedor',
+    razonSocial: 'Azul Sostenible S.A.C.',
+    actividad: 'Empresa Operadora de Residuos Sólidos (EO-RS)',
+    ruc: 'RUC',
+    rucValue: 'XXXXXXXXXXX',
+    direccion: 'Dirección',
+    direccionValue: '[Placeholder]',
+    fechaLabel: 'Fecha',
+    hojaLabel: 'Nº de Hoja',
+    hojaValue: '[Pendiente]',
+    reclamoTitle: 'Reclamo',
+    reclamoDesc: 'Disconformidad relacionada con un producto o servicio.',
+    quejaTitle: 'Queja',
+    quejaDesc: 'Disconformidad relacionada con la atención recibida.',
+    consumerTitle: 'Datos del Consumidor',
+    nombres: 'Nombres',
+    apellidos: 'Apellidos',
+    tipoDoc: 'Tipo de Documento',
+    tipoDoc_dni: 'DNI',
+    tipoDoc_ce: 'Carné de Extranjería',
+    tipoDoc_pasaporte: 'Pasaporte',
+    numDoc: 'Número de Documento',
+    direccionLabel: 'Dirección',
+    telefono: 'Teléfono',
+    correo: 'Correo Electrónico',
+    bienTitle: 'Identificación del Bien Contratado',
+    tipoBien: 'Tipo',
+    tipoBien_producto: 'Producto',
+    tipoBien_servicio: 'Servicio',
+    descripcion: 'Descripción del producto o servicio',
+    monto: 'Monto reclamado',
+    montoPlaceholder: 'S/ 0.00',
+    detalleTitle: 'Detalle de la Reclamación',
+    tipoReclamo: 'Tipo',
+    tipoReclamo_reclamo: 'Reclamo',
+    tipoReclamo_queja: 'Queja',
+    detalle: 'Detalle de la reclamación',
+    pedido: 'Pedido del consumidor',
+    declaracion: 'Declaro que la información proporcionada es verdadera.',
+    btnSubmit: 'Registrar Reclamo',
+    btnClear: 'Limpiar Formulario',
+    required: '*',
+  },
+  en: {
+    title: 'Complaints Book',
+    subtitle: 'In accordance with Peruvian consumer protection regulations, we make this Virtual Complaints Book available to our customers.',
+    infoTitle: 'Provider Information',
+    razonSocial: 'Azul Sostenible S.A.C.',
+    actividad: 'Solid Waste Operating Company (EO-RS)',
+    ruc: 'Tax ID',
+    rucValue: 'XXXXXXXXXXX',
+    direccion: 'Address',
+    direccionValue: '[Placeholder]',
+    fechaLabel: 'Date',
+    hojaLabel: 'Sheet No.',
+    hojaValue: '[Pending]',
+    reclamoTitle: 'Claim',
+    reclamoDesc: 'Disagreement related to a product or service.',
+    quejaTitle: 'Complaint',
+    quejaDesc: 'Disagreement related to the service received.',
+    consumerTitle: 'Consumer Data',
+    nombres: 'First Name',
+    apellidos: 'Last Name',
+    tipoDoc: 'Document Type',
+    tipoDoc_dni: 'National ID',
+    tipoDoc_ce: 'Foreigner Card',
+    tipoDoc_pasaporte: 'Passport',
+    numDoc: 'Document Number',
+    direccionLabel: 'Address',
+    telefono: 'Phone',
+    correo: 'Email',
+    bienTitle: 'Contracted Good Identification',
+    tipoBien: 'Type',
+    tipoBien_producto: 'Product',
+    tipoBien_servicio: 'Service',
+    descripcion: 'Product or service description',
+    monto: 'Amount claimed',
+    montoPlaceholder: '$ 0.00',
+    detalleTitle: 'Claim Details',
+    tipoReclamo: 'Type',
+    tipoReclamo_reclamo: 'Claim',
+    tipoReclamo_queja: 'Complaint',
+    detalle: 'Claim details',
+    pedido: 'Consumer request',
+    declaracion: 'I declare that the information provided is true.',
+    btnSubmit: 'Submit Claim',
+    btnClear: 'Clear Form',
+    required: '*',
+  },
+  pt: {
+    title: 'Livro de Reclamações',
+    subtitle: 'Em conformidade com a legislação peruana de proteção ao consumidor, disponibilizamos este Livro de Reclamações Virtual aos nossos clientes.',
+    infoTitle: 'Informações do Fornecedor',
+    razonSocial: 'Azul Sostenible S.A.C.',
+    actividad: 'Empresa Operadora de Resíduos Sólidos (EO-RS)',
+    ruc: 'CNPJ',
+    rucValue: 'XXXXXXXXXXX',
+    direccion: 'Endereço',
+    direccionValue: '[Placeholder]',
+    fechaLabel: 'Data',
+    hojaLabel: 'Folha Nº',
+    hojaValue: '[Pendente]',
+    reclamoTitle: 'Reclamação',
+    reclamoDesc: 'Desacordo relacionado com um produto ou serviço.',
+    quejaTitle: 'Queixa',
+    quejaDesc: 'Desacordo relacionado com o atendimento recebido.',
+    consumerTitle: 'Dados do Consumidor',
+    nombres: 'Nome',
+    apellidos: 'Sobrenome',
+    tipoDoc: 'Tipo de Documento',
+    tipoDoc_dni: 'Documento Nacional',
+    tipoDoc_ce: 'Carteira de Estrangeiro',
+    tipoDoc_pasaporte: 'Passaporte',
+    numDoc: 'Número do Documento',
+    direccionLabel: 'Endereço',
+    telefono: 'Telefone',
+    correo: 'E-mail',
+    bienTitle: 'Identificação do Bem Contratado',
+    tipoBien: 'Tipo',
+    tipoBien_producto: 'Produto',
+    tipoBien_servicio: 'Serviço',
+    descripcion: 'Descrição do produto ou serviço',
+    monto: 'Valor reclamado',
+    montoPlaceholder: 'R$ 0,00',
+    detalleTitle: 'Detalhe da Reclamação',
+    tipoReclamo: 'Tipo',
+    tipoReclamo_reclamo: 'Reclamação',
+    tipoReclamo_queja: 'Queixa',
+    detalle: 'Detalhe da reclamação',
+    pedido: 'Pedido do consumidor',
+    declaracion: 'Declaro que as informações fornecidas são verdadeiras.',
+    btnSubmit: 'Registrar Reclamação',
+    btnClear: 'Limpar Formulário',
+    required: '*',
+  },
+}
+
+const c = contentByLocale[lang] ?? contentByLocale.es
+const today = new Date().toLocaleDateString(lang === 'pt' ? 'pt-BR' : lang === 'en' ? 'en-US' : 'es-PE', { year: 'numeric', month: 'long', day: 'numeric' })
+const inputClass = 'w-full px-4 py-3 rounded-xl border border-outline-variant/60 bg-surface focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all text-sm text-on-surface placeholder-on-surface-variant/50'
+const selectClass = 'w-full px-4 py-3 rounded-xl border border-outline-variant/60 bg-surface focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all text-sm text-on-surface appearance-none cursor-pointer'
+const labelClass = 'block text-sm font-bold text-on-surface mb-1.5'
+---
+
+<PageLayout
+  lang={lang}
+  alternates={alternates}
+  title={c.title + ' | Azul Sostenible'}
+  description="Libro de Reclamaciones Virtual de Azul Sostenible S.A.C. Conforme a la normativa peruana de protección al consumidor."
+>
+  <main class="py-section-padding bg-surface">
+    <div class="max-w-5xl mx-auto px-6 md:px-margin-desktop">
+
+      <!-- Header -->
+      <div class="mb-12 md:mb-16">
+        <h1 class="font-headline text-3xl md:text-4xl lg:text-5xl text-primary font-extrabold mb-3">{c.title}</h1>
+        <p class="text-on-surface-variant max-w-2xl leading-relaxed">{c.subtitle}</p>
+      </div>
+
+      <!-- Cards de Reclamo / Queja -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
+        <div class="bg-surface-container-low rounded-xl border border-outline-variant/30 p-5 flex items-start gap-4">
+          <div class="w-10 h-10 bg-primary/10 text-primary rounded-lg flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined" aria-hidden="true">rate_review</span>
+          </div>
+          <div>
+            <h2 class="font-headline text-lg font-bold text-on-surface mb-1">{c.reclamoTitle}</h2>
+            <p class="text-on-surface-variant text-sm">{c.reclamoDesc}</p>
+          </div>
+        </div>
+        <div class="bg-surface-container-low rounded-xl border border-outline-variant/30 p-5 flex items-start gap-4">
+          <div class="w-10 h-10 bg-secondary/10 text-secondary rounded-lg flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined" aria-hidden="true">support_agent</span>
+          </div>
+          <div>
+            <h2 class="font-headline text-lg font-bold text-on-surface mb-1">{c.quejaTitle}</h2>
+            <p class="text-on-surface-variant text-sm">{c.quejaDesc}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Formulario -->
+      <form novalidate class="space-y-10">
+
+        <!-- SECCIÓN 1: Información del proveedor -->
+        <fieldset class="bg-surface-container-lowest border border-outline-variant/20 rounded-2xl p-6 md:p-8">
+          <legend class="font-headline text-xl font-bold text-primary mb-6">{c.infoTitle}</legend>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+            <div><span class="font-bold text-on-surface">{c.razonSocial}:</span> <span class="text-on-surface-variant">Azul Sostenible S.A.C.</span></div>
+            <div><span class="font-bold text-on-surface">{c.actividad}:</span> <span class="text-on-surface-variant">{c.actividad}</span></div>
+            <div><span class="font-bold text-on-surface">{c.ruc}:</span> <span class="text-on-surface-variant">{c.rucValue}</span></div>
+            <div><span class="font-bold text-on-surface">{c.direccion}:</span> <span class="text-on-surface-variant">{c.direccionValue}</span></div>
+            <div><span class="font-bold text-on-surface">{c.fechaLabel}:</span> <span class="text-on-surface-variant">{today}</span></div>
+            <div><span class="font-bold text-on-surface">{c.hojaLabel}:</span> <span class="text-on-surface-variant">{c.hojaValue}</span></div>
+          </div>
+        </fieldset>
+
+        <!-- SECCIÓN 2: Datos del Consumidor -->
+        <fieldset class="bg-surface-container-lowest border border-outline-variant/20 rounded-2xl p-6 md:p-8">
+          <legend class="font-headline text-xl font-bold text-primary mb-6">{c.consumerTitle}</legend>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5">
+            <div>
+              <label for="nombres" class={labelClass}>{c.nombres} <span class="text-error">{c.required}</span></label>
+              <input id="nombres" name="nombres" type="text" required class={inputClass} />
+            </div>
+            <div>
+              <label for="apellidos" class={labelClass}>{c.apellidos} <span class="text-error">{c.required}</span></label>
+              <input id="apellidos" name="apellidos" type="text" required class={inputClass} />
+            </div>
+            <div>
+              <label for="tipo_doc" class={labelClass}>{c.tipoDoc} <span class="text-error">{c.required}</span></label>
+              <select id="tipo_doc" name="tipo_doc" required class={selectClass}>
+                <option value="">--</option>
+                <option value="dni">{c.tipoDoc_dni}</option>
+                <option value="ce">{c.tipoDoc_ce}</option>
+                <option value="pasaporte">{c.tipoDoc_pasaporte}</option>
+              </select>
+            </div>
+            <div>
+              <label for="num_doc" class={labelClass}>{c.numDoc} <span class="text-error">{c.required}</span></label>
+              <input id="num_doc" name="num_doc" type="text" required class={inputClass} />
+            </div>
+            <div class="md:col-span-2">
+              <label for="direccion" class={labelClass}>{c.direccionLabel} <span class="text-error">{c.required}</span></label>
+              <input id="direccion" name="direccion" type="text" required class={inputClass} />
+            </div>
+            <div>
+              <label for="telefono" class={labelClass}>{c.telefono} <span class="text-error">{c.required}</span></label>
+              <input id="telefono" name="telefono" type="tel" required class={inputClass} />
+            </div>
+            <div>
+              <label for="correo" class={labelClass}>{c.correo} <span class="text-error">{c.required}</span></label>
+              <input id="correo" name="correo" type="email" required class={inputClass} />
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- SECCIÓN 3: Identificación del Bien Contratado -->
+        <fieldset class="bg-surface-container-lowest border border-outline-variant/20 rounded-2xl p-6 md:p-8">
+          <legend class="font-headline text-xl font-bold text-primary mb-6">{c.bienTitle}</legend>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5">
+            <div>
+              <label for="tipo_bien" class={labelClass}>{c.tipoBien} <span class="text-error">{c.required}</span></label>
+              <select id="tipo_bien" name="tipo_bien" required class={selectClass}>
+                <option value="">--</option>
+                <option value="producto">{c.tipoBien_producto}</option>
+                <option value="servicio">{c.tipoBien_servicio}</option>
+              </select>
+            </div>
+            <div>
+              <label for="monto" class={labelClass}>{c.monto}</label>
+              <input id="monto" name="monto" type="text" inputmode="decimal" placeholder={c.montoPlaceholder} class={inputClass} />
+            </div>
+            <div class="md:col-span-2">
+              <label for="descripcion_bien" class={labelClass}>{c.descripcion} <span class="text-error">{c.required}</span></label>
+              <textarea id="descripcion_bien" name="descripcion_bien" rows="3" required class={inputClass}></textarea>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- SECCIÓN 4: Detalle de la Reclamación -->
+        <fieldset class="bg-surface-container-lowest border border-outline-variant/20 rounded-2xl p-6 md:p-8">
+          <legend class="font-headline text-xl font-bold text-primary mb-6">{c.detalleTitle}</legend>
+          <div class="space-y-5">
+            <div>
+              <span class={labelClass}>{c.tipoReclamo} <span class="text-error">{c.required}</span></span>
+              <div class="flex gap-6 mt-2">
+                <label class="flex items-center gap-2 cursor-pointer">
+                  <input type="radio" name="tipo_reclamo" value="reclamo" required class="w-4 h-4 accent-primary" />
+                  <span class="text-sm font-semibold text-on-surface">{c.tipoReclamo_reclamo}</span>
+                </label>
+                <label class="flex items-center gap-2 cursor-pointer">
+                  <input type="radio" name="tipo_reclamo" value="queja" required class="w-4 h-4 accent-primary" />
+                  <span class="text-sm font-semibold text-on-surface">{c.tipoReclamo_queja}</span>
+                </label>
+              </div>
+            </div>
+            <div>
+              <label for="detalle" class={labelClass}>{c.detalle} <span class="text-error">{c.required}</span></label>
+              <textarea id="detalle" name="detalle" rows="5" required class={inputClass}></textarea>
+            </div>
+            <div>
+              <label for="pedido" class={labelClass}>{c.pedido} <span class="text-error">{c.required}</span></label>
+              <textarea id="pedido" name="pedido" rows="4" required class={inputClass}></textarea>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- SECCIÓN 5: Declaración -->
+        <div class="bg-surface-container-lowest border border-outline-variant/20 rounded-2xl p-6 md:p-8">
+          <label class="flex items-start gap-3 cursor-pointer">
+            <input type="checkbox" name="declaracion" required class="w-4 h-4 mt-0.5 accent-primary shrink-0" />
+            <span class="text-sm font-semibold text-on-surface">{c.declaracion}</span>
+          </label>
+        </div>
+
+        <!-- SECCIÓN 6: Acciones -->
+        <div class="flex flex-col sm:flex-row gap-4">
+          <button
+            type="submit"
+            class="inline-flex items-center justify-center gap-2 bg-secondary text-white font-bold px-8 py-4 rounded-full hover:bg-secondary/90 transition-all shadow-lg active:scale-95"
+          >
+            <span class="material-symbols-outlined" aria-hidden="true">send</span>
+            {c.btnSubmit}
+          </button>
+          <button
+            type="reset"
+            class="inline-flex items-center justify-center gap-2 border-2 border-outline-variant/40 text-primary font-bold px-8 py-4 rounded-full hover:bg-surface-container-low transition-all active:scale-95"
+          >
+            <span class="material-symbols-outlined" aria-hidden="true">restart_alt</span>
+            {c.btnClear}
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </main>
+</PageLayout>
+
+<script>
+  // Simulación de envío — sin backend
+  document.querySelector('form')?.addEventListener('submit', (e) => {
+    e.preventDefault()
+    alert('Formulario enviado (simulación). Los datos serán procesados cuando el backend esté disponible.')
+  })
+</script>
