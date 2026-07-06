@@ -1,0 +1,316 @@
+---
+import { getLang, getAlternates, getBasePath } from '../i18n/utils'
+import PageLayout from '../layouts/PageLayout.astro'
+
+const lang = getLang(Astro.currentLocale)
+const alternates = getAlternates(getBasePath(Astro.url.pathname))
+
+const contentByLocale = {
+  es: {
+    title: 'Política de Privacidad',
+    update: 'Última actualización: 06 de julio de 2026',
+    intro: 'En Azul Sostenible S.A.C. respetamos la privacidad de nuestros clientes, proveedores y visitantes. Esta Política de Privacidad explica cómo recopilamos, utilizamos, almacenamos y protegemos la información personal obtenida a través de nuestro sitio web.',
+    sections: [
+      {
+        heading: '1. Responsable del tratamiento de datos',
+        items: [
+          { label: 'Razón Social', value: 'Azul Sostenible S.A.C.' },
+          { label: 'RUC', value: '20612345678' },
+          { label: 'Correo electrónico', value: 'contacto@azulsostenible.pe' },
+          { label: 'Sitio web', value: 'www.azulsostenible.pe' },
+        ],
+      },
+      {
+        heading: '2. Información que recopilamos',
+        list: [
+          'Nombre y apellidos.',
+          'Empresa u organización.',
+          'Cargo (opcional).',
+          'Correo electrónico.',
+          'Número telefónico.',
+          'Dirección (cuando sea necesaria).',
+          'Información relacionada con solicitudes de cotización o servicios.',
+          'Cualquier otra información proporcionada voluntariamente.',
+        ],
+      },
+      {
+        heading: '3. Finalidad del tratamiento',
+        intro: 'La información recopilada será utilizada para:',
+        list: [
+          'Atender solicitudes de información.',
+          'Elaborar cotizaciones.',
+          'Coordinar visitas técnicas.',
+          'Brindar asesoría sobre gestión integral de residuos.',
+          'Gestionar la prestación de nuestros servicios.',
+          'Mantener comunicación con clientes.',
+          'Mejorar nuestros procesos.',
+          'Cumplir obligaciones legales.',
+        ],
+      },
+      {
+        heading: '4. Protección de la información',
+        body: 'Implementamos medidas técnicas y organizativas razonables para proteger la información contra accesos no autorizados, pérdida, alteración o divulgación.',
+      },
+      {
+        heading: '5. Compartición de información',
+        body: 'Azul Sostenible S.A.C. no vende ni comercializa información personal. La información únicamente podrá compartirse cuando exista obligación legal o sea necesario para prestar el servicio solicitado.',
+      },
+      {
+        heading: '6. Conservación de los datos',
+        body: 'Los datos serán conservados únicamente durante el tiempo necesario para cumplir las finalidades descritas y las obligaciones legales aplicables.',
+      },
+      {
+        heading: '7. Derechos del titular',
+        intro: 'El usuario puede solicitar:',
+        list: ['Acceso', 'Rectificación', 'Actualización', 'Cancelación', 'Oposición'],
+        footer: 'Las solicitudes podrán enviarse a: contacto@azulsostenible.pe',
+      },
+      {
+        heading: '8. Cookies',
+        body: 'Nuestro sitio puede utilizar cookies para mejorar la experiencia del usuario, obtener estadísticas de navegación y optimizar el funcionamiento del sitio.',
+      },
+      {
+        heading: '9. Enlaces a terceros',
+        body: 'El sitio puede contener enlaces a páginas externas. Azul Sostenible S.A.C. no es responsable de las políticas de privacidad de dichos sitios.',
+      },
+      {
+        heading: '10. Modificaciones',
+        body: 'Nos reservamos el derecho de actualizar esta Política de Privacidad cuando sea necesario. Las modificaciones serán publicadas en esta misma página.',
+      },
+      {
+        heading: '11. Contacto',
+        items: [
+          { label: 'Correo', value: 'contacto@azulsostenible.pe' },
+          { label: 'Teléfono', value: '(+51) 936 602 578' },
+        ],
+      },
+    ],
+  },
+  en: {
+    title: 'Privacy Policy',
+    update: 'Last updated: July 6, 2026',
+    intro: 'At Azul Sostenible S.A.C. we respect the privacy of our customers, suppliers and visitors. This Privacy Policy explains how we collect, use, store and protect personal information obtained through our website.',
+    sections: [
+      {
+        heading: '1. Data Controller',
+        items: [
+          { label: 'Company Name', value: 'Azul Sostenible S.A.C.' },
+          { label: 'Tax ID', value: '20612345678' },
+          { label: 'Email', value: 'contacto@azulsostenible.pe' },
+          { label: 'Website', value: 'www.azulsostenible.pe' },
+        ],
+      },
+      {
+        heading: '2. Information We Collect',
+        list: [
+          'First and last name.',
+          'Company or organization.',
+          'Position (optional).',
+          'Email address.',
+          'Phone number.',
+          'Address (when necessary).',
+          'Information related to quote requests or services.',
+          'Any other information provided voluntarily.',
+        ],
+      },
+      {
+        heading: '3. Purpose of Processing',
+        intro: 'The information collected will be used to:',
+        list: [
+          'Respond to information requests.',
+          'Prepare quotes.',
+          'Coordinate technical visits.',
+          'Provide advisory on comprehensive waste management.',
+          'Manage the provision of our services.',
+          'Maintain communication with clients.',
+          'Improve our processes.',
+          'Comply with legal obligations.',
+        ],
+      },
+      {
+        heading: '4. Information Protection',
+        body: 'We implement reasonable technical and organizational measures to protect information against unauthorized access, loss, alteration or disclosure.',
+      },
+      {
+        heading: '5. Information Sharing',
+        body: 'Azul Sostenible S.A.C. does not sell or trade personal information. Information may only be shared when there is a legal obligation or it is necessary to provide the requested service.',
+      },
+      {
+        heading: '6. Data Retention',
+        body: 'Data will be kept only for the time necessary to fulfill the purposes described and applicable legal obligations.',
+      },
+      {
+        heading: '7. Data Subject Rights',
+        intro: 'The user may request:',
+        list: ['Access', 'Rectification', 'Update', 'Cancellation', 'Opposition'],
+        footer: 'Requests may be sent to: contacto@azulsostenible.pe',
+      },
+      {
+        heading: '8. Cookies',
+        body: 'Our site may use cookies to improve user experience, obtain browsing statistics and optimize site performance.',
+      },
+      {
+        heading: '9. Third-Party Links',
+        body: 'The site may contain links to external pages. Azul Sostenible S.A.C. is not responsible for the privacy policies of such sites.',
+      },
+      {
+        heading: '10. Modifications',
+        body: 'We reserve the right to update this Privacy Policy when necessary. Modifications will be published on this same page.',
+      },
+      {
+        heading: '11. Contact',
+        items: [
+          { label: 'Email', value: 'contacto@azulsostenible.pe' },
+          { label: 'Phone', value: '(+51) 936 602 578' },
+        ],
+      },
+    ],
+  },
+  pt: {
+    title: 'Política de Privacidade',
+    update: 'Última atualização: 06 de julho de 2026',
+    intro: 'Na Azul Sostenible S.A.C. respeitamos a privacidade dos nossos clientes, fornecedores e visitantes. Esta Política de Privacidade explica como coletamos, utilizamos, armazenamos e protegemos as informações pessoais obtidas através do nosso site.',
+    sections: [
+      {
+        heading: '1. Controlador de Dados',
+        items: [
+          { label: 'Razão Social', value: 'Azul Sostenible S.A.C.' },
+          { label: 'CNPJ', value: '20612345678' },
+          { label: 'E-mail', value: 'contacto@azulsostenible.pe' },
+          { label: 'Site', value: 'www.azulsostenible.pe' },
+        ],
+      },
+      {
+        heading: '2. Informações que Coletamos',
+        list: [
+          'Nome e sobrenome.',
+          'Empresa ou organização.',
+          'Cargo (opcional).',
+          'Endereço de e-mail.',
+          'Número de telefone.',
+          'Endereço (quando necessário).',
+          'Informações relacionadas a solicitações de cotação ou serviços.',
+          'Qualquer outra informação fornecida voluntariamente.',
+        ],
+      },
+      {
+        heading: '3. Finalidade do Tratamento',
+        intro: 'As informações coletadas serão utilizadas para:',
+        list: [
+          'Atender solicitações de informação.',
+          'Elaborar cotações.',
+          'Coordenar visitas técnicas.',
+          'Oferecer assessoria sobre gestão integral de resíduos.',
+          'Gerenciar a prestação dos nossos serviços.',
+          'Manter comunicação com clientes.',
+          'Melhorar nossos processos.',
+          'Cumprir obrigações legais.',
+        ],
+      },
+      {
+        heading: '4. Proteção da Informação',
+        body: 'Implementamos medidas técnicas e organizacionais razoáveis para proteger a informação contra acessos não autorizados, perda, alteração ou divulgação.',
+      },
+      {
+        heading: '5. Compartilhamento de Informações',
+        body: 'A Azul Sostenible S.A.C. não vende nem comercializa informações pessoais. As informações somente poderão ser compartilhadas quando houver obrigação legal ou for necessário para prestar o serviço solicitado.',
+      },
+      {
+        heading: '6. Conservação dos Dados',
+        body: 'Os dados serão conservados apenas durante o tempo necessário para cumprir as finalidades descritas e as obrigações legais aplicáveis.',
+      },
+      {
+        heading: '7. Direitos do Titular',
+        intro: 'O usuário pode solicitar:',
+        list: ['Acesso', 'Retificação', 'Atualização', 'Cancelamento', 'Oposição'],
+        footer: 'As solicitações podem ser enviadas para: contacto@azulsostenible.pe',
+      },
+      {
+        heading: '8. Cookies',
+        body: 'Nosso site pode utilizar cookies para melhorar a experiência do usuário, obter estatísticas de navegação e otimizar o funcionamento do site.',
+      },
+      {
+        heading: '9. Links para Terceiros',
+        body: 'O site pode conter links para páginas externas. A Azul Sostenible S.A.C. não é responsável pelas políticas de privacidade desses sites.',
+      },
+      {
+        heading: '10. Modificações',
+        body: 'Reservamo-nos o direito de atualizar esta Política de Privacidade quando necessário. As modificações serão publicadas nesta mesma página.',
+      },
+      {
+        heading: '11. Contato',
+        items: [
+          { label: 'E-mail', value: 'contacto@azulsostenible.pe' },
+          { label: 'Telefone', value: '(+51) 936 602 578' },
+        ],
+      },
+    ],
+  },
+}
+
+const content = contentByLocale[lang] ?? contentByLocale.es
+---
+
+<PageLayout
+  lang={lang}
+  alternates={alternates}
+  title={content.title + ' | Azul Sostenible'}
+  description={'Política de privacidad y protección de datos personales de Azul Sostenible S.A.C.'}
+>
+  <main class="py-section-padding bg-surface">
+    <div class="max-w-3xl mx-auto px-6 md:px-margin-desktop">
+      <!-- Header -->
+      <div class="mb-12 md:mb-16">
+        <h1 class="font-headline text-3xl md:text-4xl lg:text-5xl text-primary font-extrabold mb-3">
+          {content.title}
+        </h1>
+        <p class="text-on-surface-variant text-sm">{content.update}</p>
+      </div>
+
+      <!-- Introduction -->
+      <p class="text-on-surface-variant leading-relaxed mb-10">
+        {content.intro}
+      </p>
+
+      <!-- Sections -->
+      <div class="space-y-10">
+        {content.sections.map(section => (
+          <section>
+            <h2 class="font-headline text-xl md:text-2xl text-primary font-bold mb-4">
+              {section.heading}
+            </h2>
+
+            {section.intro && (
+              <p class="text-on-surface-variant leading-relaxed mb-4">{section.intro}</p>
+            )}
+
+            {section.body && (
+              <p class="text-on-surface-variant leading-relaxed">{section.body}</p>
+            )}
+
+            {section.list && (
+              <ul class="list-disc pl-5 space-y-1.5 text-on-surface-variant leading-relaxed">
+                {section.list.map(item => <li>{item}</li>)}
+              </ul>
+            )}
+
+            {section.items && (
+              <div class="space-y-2">
+                {section.items.map(item => (
+                  <div class="flex flex-col sm:flex-row sm:gap-2 text-on-surface-variant">
+                    <span class="font-bold text-on-surface">{item.label}:</span>
+                    <span>{item.value}</span>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {section.footer && (
+              <p class="mt-4 text-on-surface-variant font-bold">{section.footer}</p>
+            )}
+          </section>
+        ))}
+      </div>
+    </div>
+  </main>
+</PageLayout>

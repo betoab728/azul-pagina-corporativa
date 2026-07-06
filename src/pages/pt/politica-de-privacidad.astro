@@ -1,0 +1,134 @@
+---
+import { getLang, getAlternates, getBasePath } from '../../i18n/utils'
+import PageLayout from '../../layouts/PageLayout.astro'
+
+const lang = getLang(Astro.currentLocale)
+const alternates = getAlternates(getBasePath(Astro.url.pathname))
+
+const content = {
+  title: 'Política de Privacidade',
+  update: 'Última atualização: 06 de julho de 2026',
+  intro: 'Na Azul Sostenible S.A.C. respeitamos a privacidade dos nossos clientes, fornecedores e visitantes. Esta Política de Privacidade explica como coletamos, utilizamos, armazenamos e protegemos as informações pessoais obtidas através do nosso site.',
+  sections: [
+    {
+      heading: '1. Controlador de Dados',
+      items: [
+        { label: 'Razão Social', value: 'Azul Sostenible S.A.C.' },
+        { label: 'CNPJ', value: '20612345678' },
+        { label: 'E-mail', value: 'contacto@azulsostenible.pe' },
+        { label: 'Site', value: 'www.azulsostenible.pe' },
+      ],
+    },
+    {
+      heading: '2. Informações que Coletamos',
+      list: [
+        'Nome e sobrenome.',
+        'Empresa ou organização.',
+        'Cargo (opcional).',
+        'Endereço de e-mail.',
+        'Número de telefone.',
+        'Endereço (quando necessário).',
+        'Informações relacionadas a solicitações de cotação ou serviços.',
+        'Qualquer outra informação fornecida voluntariamente.',
+      ],
+    },
+    {
+      heading: '3. Finalidade do Tratamento',
+      intro: 'As informações coletadas serão utilizadas para:',
+      list: [
+        'Atender solicitações de informação.',
+        'Elaborar cotações.',
+        'Coordenar visitas técnicas.',
+        'Oferecer assessoria sobre gestão integral de resíduos.',
+        'Gerenciar a prestação dos nossos serviços.',
+        'Manter comunicação com clientes.',
+        'Melhorar nossos processos.',
+        'Cumprir obrigações legais.',
+      ],
+    },
+    {
+      heading: '4. Proteção da Informação',
+      body: 'Implementamos medidas técnicas e organizacionais razoáveis para proteger a informação contra acessos não autorizados, perda, alteração ou divulgação.',
+    },
+    {
+      heading: '5. Compartilhamento de Informações',
+      body: 'A Azul Sostenible S.A.C. não vende nem comercializa informações pessoais. As informações somente poderão ser compartilhadas quando houver obrigação legal ou for necessário para prestar o serviço solicitado.',
+    },
+    {
+      heading: '6. Conservação dos Dados',
+      body: 'Os dados serão conservados apenas durante o tempo necessário para cumprir as finalidades descritas e as obrigações legais aplicáveis.',
+    },
+    {
+      heading: '7. Direitos do Titular',
+      intro: 'O usuário pode solicitar:',
+      list: ['Acesso', 'Retificação', 'Atualização', 'Cancelamento', 'Oposição'],
+      footer: 'As solicitações podem ser enviadas para: contacto@azulsostenible.pe',
+    },
+    {
+      heading: '8. Cookies',
+      body: 'Nosso site pode utilizar cookies para melhorar a experiência do usuário, obter estatísticas de navegação e otimizar o funcionamento do site.',
+    },
+    {
+      heading: '9. Links para Terceiros',
+      body: 'O site pode conter links para páginas externas. A Azul Sostenible S.A.C. não é responsável pelas políticas de privacidade desses sites.',
+    },
+    {
+      heading: '10. Modificações',
+      body: 'Reservamo-nos o direito de atualizar esta Política de Privacidade quando necessário. As modificações serão publicadas nesta mesma página.',
+    },
+    {
+      heading: '11. Contato',
+      items: [
+        { label: 'E-mail', value: 'contacto@azulsostenible.pe' },
+        { label: 'Telefone', value: '(+51) 936 602 578' },
+      ],
+    },
+  ],
+}
+---
+
+<PageLayout
+  lang={lang}
+  alternates={alternates}
+  title={'Política de Privacidade | Azul Sostenible'}
+  description="Política de privacidade e proteção de dados pessoais da Azul Sostenible S.A.C."
+>
+  <main class="py-section-padding bg-surface">
+    <div class="max-w-3xl mx-auto px-6 md:px-margin-desktop">
+      <div class="mb-12 md:mb-16">
+        <h1 class="font-headline text-3xl md:text-4xl lg:text-5xl text-primary font-extrabold mb-3">
+          {content.title}
+        </h1>
+        <p class="text-on-surface-variant text-sm">{content.update}</p>
+      </div>
+
+      <p class="text-on-surface-variant leading-relaxed mb-10">{content.intro}</p>
+
+      <div class="space-y-10">
+        {content.sections.map(section => (
+          <section>
+            <h2 class="font-headline text-xl md:text-2xl text-primary font-bold mb-4">{section.heading}</h2>
+            {section.intro && <p class="text-on-surface-variant leading-relaxed mb-4">{section.intro}</p>}
+            {section.body && <p class="text-on-surface-variant leading-relaxed">{section.body}</p>}
+            {section.list && (
+              <ul class="list-disc pl-5 space-y-1.5 text-on-surface-variant leading-relaxed">
+                {section.list.map(item => <li>{item}</li>)}
+              </ul>
+            )}
+            {section.items && (
+              <div class="space-y-2">
+                {section.items.map(item => (
+                  <div class="flex flex-col sm:flex-row sm:gap-2 text-on-surface-variant">
+                    <span class="font-bold text-on-surface">{item.label}:</span>
+                    <span>{item.value}</span>
+                  </div>
+                ))}
+              </div>
+            )}
+            {section.footer && <p class="mt-4 text-on-surface-variant font-bold">{section.footer}</p>}
+          </section>
+        ))}
+      </div>
+    </div>
+  </main>
+</PageLayout>

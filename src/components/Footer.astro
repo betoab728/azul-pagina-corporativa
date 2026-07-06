@@ -37,7 +37,7 @@ const footerServicesByLocale: Record<SupportedLocale, { label: string; href: str
 const servicios = footerServicesByLocale[lang]
 
 const legalLinks = [
-  { label: t('footer.privacy'), href: '#' },
+  { label: t('footer.privacy'), href: `${prefix}/politica-de-privacidad` },
   { label: t('footer.terms'), href: '#' },
   { label: t('footer.complaints'), href: '#' },
 ]
