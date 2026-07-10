@@ -82,6 +82,8 @@ const ui = {
     'form.phone_placeholder': 'Ej: 969 123 456',
     'form.quote_submit': 'Quiero una asesoría gratuita',
     'form.response_time': 'Respondemos en menos de 24 horas',
+    'form.success': '¡Solicitud enviada con éxito! Te contactaremos pronto.',
+    'form.error': 'Hubo un error al enviar. Inténtalo de nuevo.',
 
     // ── Footer ───────────────────────────────────────────────────
     'footer.services': 'Servicios',
@@ -1001,6 +1003,8 @@ const ui = {
     'form.phone_placeholder': 'e.g. +1 555 123 456',
     'form.quote_submit': 'I want a free consultation',
     'form.response_time': 'We respond within 24 hours',
+    'form.success': 'Request sent successfully! We will contact you soon.',
+    'form.error': 'An error occurred while sending. Please try again.',
 
     // ── Footer ───────────────────────────────────────────────────
     'footer.services': 'Services',
@@ -1924,6 +1928,8 @@ const ui = {
     'form.phone_placeholder': 'Ex: +55 11 98765-4321',
     'form.quote_submit': 'Quero uma assessoria gratuita',
     'form.response_time': 'Respondemos em menos de 24 horas',
+    'form.success': 'Solicitação enviada com sucesso! Entraremos em contato em breve.',
+    'form.error': 'Ocorreu um erro ao enviar. Tente novamente.',
 
     // ── Footer ───────────────────────────────────────────────────
     'footer.services': 'Serviços',

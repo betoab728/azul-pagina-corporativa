@@ -18,7 +18,7 @@ const t = useTranslations(lang)
     </div>
   </div>
 
-  <form class="space-y-5" novalidate>
+  <form id="quote-form" class="space-y-5" novalidate>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
       <!-- Nombre -->
       <div>
@@ -132,4 +132,78 @@ const t = useTranslations(lang)
       {t('form.response_time')}
     </p>
   </form>
+
+  <!-- Mensajes de estado -->
+  <div id="quote-success" class="hidden mt-6 p-4 bg-secondary/10 border border-secondary/30 rounded-2xl text-center">
+    <span class="material-symbols-outlined text-secondary text-3xl mb-2 block" aria-hidden="true">check_circle</span>
+    <p class="font-bold text-on-surface">{t('form.success')}</p>
+  </div>
+  <div id="quote-error" class="hidden mt-6 p-4 bg-error/10 border border-error/30 rounded-2xl text-center">
+    <span class="material-symbols-outlined text-error text-3xl mb-2 block" aria-hidden="true">error</span>
+    <p class="font-bold text-on-surface">{t('form.error')}</p>
+  </div>
 </div>
+
+<script>
+  (function() {
+    var form = document.getElementById('quote-form')
+    if (!form) return
+
+    var successEl = document.getElementById('quote-success')
+    var errorEl   = document.getElementById('quote-error')
+    var submitBtn = form.querySelector('button[type="submit"]')
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault()
+
+      var fd = new FormData(form)
+      var body = {
+        nombre_completo:  (fd.get('name') as string || '').trim(),
+        empresa:          (fd.get('company') as string || '').trim(),
+        sector:           (fd.get('sector') as string || '').trim(),
+        desafio_ambiental:(fd.get('challenge') as string || '').trim(),
+        correo:           (fd.get('email') as string || '').trim(),
+        telefono:         (fd.get('phone') as string || '').trim(),
+      }
+
+      var apiUrl = (import.meta as any).env?.PUBLIC_API_URL
+      if (!apiUrl) {
+        errorEl?.classList.remove('hidden')
+        form.classList.add('hidden')
+        return
+      }
+
+      if (submitBtn) {
+        submitBtn.disabled = true
+        submitBtn.textContent = 'Enviando...'
+      }
+
+      try {
+        var res = await fetch(apiUrl + '/leads-contacto', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(body),
+        })
+
+        if (res.ok) {
+          form.classList.add('hidden')
+          successEl?.classList.remove('hidden')
+          errorEl?.classList.add('hidden')
+        } else {
+          form.classList.add('hidden')
+          errorEl?.classList.remove('hidden')
+          successEl?.classList.add('hidden')
+        }
+      } catch (_) {
+        form.classList.add('hidden')
+        errorEl?.classList.remove('hidden')
+        successEl?.classList.add('hidden')
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false
+          submitBtn.textContent = form.querySelector('[data-submit-text]')?.textContent || submitBtn.textContent
+        }
+      }
+    })
+  })()
+</script>
