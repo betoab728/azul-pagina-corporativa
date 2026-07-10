@@ -152,24 +152,34 @@ const t = useTranslations(lang)
     var successEl = document.getElementById('quote-success')
     var errorEl   = document.getElementById('quote-error')
     var submitBtn = form.querySelector('button[type="submit"]')
+    var btnText   = submitBtn ? submitBtn.textContent : ''
 
     form.addEventListener('submit', async function(e) {
       e.preventDefault()
 
       var fd = new FormData(form)
+
+      var nombre = fd.get('name')
+      var empresa = fd.get('company')
+      var sector = fd.get('sector')
+      var desafio = fd.get('challenge')
+      var correo = fd.get('email')
+      var telefono = fd.get('phone')
+
       var body = {
-        nombre_completo:  (fd.get('name') as string || '').trim(),
-        empresa:          (fd.get('company') as string || '').trim(),
-        sector:           (fd.get('sector') as string || '').trim(),
-        desafio_ambiental:(fd.get('challenge') as string || '').trim(),
-        correo:           (fd.get('email') as string || '').trim(),
-        telefono:         (fd.get('phone') as string || '').trim(),
+        nombre_completo:   nombre   ? String(nombre).trim()   : '',
+        empresa:           empresa  ? String(empresa).trim()  : '',
+        sector:            sector   ? String(sector).trim()   : '',
+        desafio_ambiental: desafio  ? String(desafio).trim()  : '',
+        correo:            correo   ? String(correo).trim()   : '',
+        telefono:          telefono ? String(telefono).trim() : '',
       }
 
-      var apiUrl = (import.meta as any).env?.PUBLIC_API_URL
+      var apiUrl = import.meta.env.PUBLIC_API_URL
       if (!apiUrl) {
-        errorEl?.classList.remove('hidden')
+        console.warn('PUBLIC_API_URL no configurada')
         form.classList.add('hidden')
+        if (errorEl) errorEl.classList.remove('hidden')
         return
       }
 
@@ -187,21 +197,21 @@ const t = useTranslations(lang)
 
         if (res.ok) {
           form.classList.add('hidden')
-          successEl?.classList.remove('hidden')
-          errorEl?.classList.add('hidden')
+          if (successEl) successEl.classList.remove('hidden')
+          if (errorEl) errorEl.classList.add('hidden')
         } else {
           form.classList.add('hidden')
-          errorEl?.classList.remove('hidden')
-          successEl?.classList.add('hidden')
+          if (errorEl) errorEl.classList.remove('hidden')
+          if (successEl) successEl.classList.add('hidden')
         }
       } catch (_) {
         form.classList.add('hidden')
-        errorEl?.classList.remove('hidden')
-        successEl?.classList.add('hidden')
+        if (errorEl) errorEl.classList.remove('hidden')
+        if (successEl) successEl.classList.add('hidden')
       } finally {
         if (submitBtn) {
           submitBtn.disabled = false
-          submitBtn.textContent = form.querySelector('[data-submit-text]')?.textContent || submitBtn.textContent
+          submitBtn.textContent = btnText
         }
       }
     })
