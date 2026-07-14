@@ -1,7 +1,7 @@
-import { c as createComponent } from './astro-component_DUGYKGeh.mjs';
+import { c as createComponent } from './astro-component_CUHoQIAw.mjs';
 import 'piccolore';
-import { o as renderComponent, k as renderTemplate, m as maybeRenderHead, h as addAttribute } from './entrypoint_DM5ZRwkz.mjs';
-import { $ as $$PageLayout } from './PageLayout_5dWr2Mf6.mjs';
+import { o as renderComponent, k as renderTemplate, m as maybeRenderHead, h as addAttribute } from './entrypoint_BaPtkgJB.mjs';
+import { $ as $$PageLayout } from './PageLayout_BtzC1fGC.mjs';
 
 const prerender = false;
 const $$Index = createComponent(async ($$result, $$props, $$slots) => {
