@@ -40,6 +40,7 @@ const mainNavByLocale: Record<SupportedLocale, NavItem[]> = {
       ],
     },
     { label: 'Contacto', href: '/contacto' },
+    { label: 'Blog', href: '/blog' },
   ],
   en: [
     { key: 'home', label: 'Home', href: '/en/' },
@@ -68,6 +69,7 @@ const mainNavByLocale: Record<SupportedLocale, NavItem[]> = {
       ],
     },
     { label: 'Contact', href: '/en/contacto' },
+    { label: 'Blog', href: '/blog' },
   ],
   pt: [
     { key: 'home', label: 'Início', href: '/pt/' },
@@ -96,6 +98,7 @@ const mainNavByLocale: Record<SupportedLocale, NavItem[]> = {
       ],
     },
     { label: 'Contato', href: '/pt/contacto' },
+    { label: 'Blog', href: '/blog' },
   ],
 }
 
