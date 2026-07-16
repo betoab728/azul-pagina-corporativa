@@ -102,6 +102,14 @@ const jsonLd = {
 
     <!-- JSON-LD -->
     <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+    <!-- Google Ads -->
+    {import.meta.env.PUBLIC_GOOGLE_ADS_ID && (
+      <script async src={`https://www.googletagmanager.com/gtag/js?id=${import.meta.env.PUBLIC_GOOGLE_ADS_ID}`}></script>
+    )}
+    {import.meta.env.PUBLIC_GOOGLE_ADS_ID && (
+      <script is:inline set:html={`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${import.meta.env.PUBLIC_GOOGLE_ADS_ID}');`}></script>
+    )}
   </head>
   <body class="bg-surface text-on-surface font-body overflow-x-hidden">
     <slot />
