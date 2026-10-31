@@ -3,16 +3,16 @@ import type { SupportedLocale } from '../i18n/utils'
 import { useTranslations } from '../i18n/utils'
 import FeatureCard from '../components/blocks/FeatureCard.astro'
 
-const heroBg = '/fondohero.jpeg'
+const heroBg = '/portada2026.png'
 
 interface Props { lang?: SupportedLocale }
 const { lang = 'es' } = Astro.props
 const t = useTranslations(lang)
 
 const featureCards = [
-  { icon: 'assignment_turned_in', iconColor: 'secondary' as const, text: t('hero.feature.compliance'),    href: '/acreditaciones' },
-  { icon: 'savings',              iconColor: 'primary'   as const, text: t('hero.feature.cost_reduction'), href: '/servicios/tarifa-plana' },
-  { icon: 'trending_up',          iconColor: 'secondary' as const, text: t('hero.feature.impact'),         href: '/servicios/software-trazabilidad' },
+  { icon: 'verified',             iconColor: 'secondary' as const, text: t('hero.feature.compliance'),    href: '/acreditaciones' },
+  { icon: 'factory',              iconColor: 'primary'   as const, text: t('hero.feature.cost_reduction'), href: '/servicios/tarifa-plana' },
+  { icon: 'recycling',            iconColor: 'secondary' as const, text: t('hero.feature.impact'),         href: '/servicios/software-trazabilidad' },
 ]
 ---
 
@@ -34,17 +34,28 @@ const featureCards = [
   <!-- Contenido -->
   <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-margin-desktop w-full">
 
-    <!-- Logo + Slogan (superior derecha) -->
-    <div class="absolute top-20 lg:top-28 right-6 md:right-margin-desktop flex flex-col items-center gap-2 bg-white/10 backdrop-blur-md rounded-2xl px-5 py-4 border border-white/20">
-      <img
-        src="/logobic.png"
-        alt="Azul Sostenible"
-        class="h-16 md:h-24 w-auto"
-        width="160"
-        height="64"
-        loading="eager"
-      />
-      <span class="text-white text-xs md:text-sm font-semibold whitespace-nowrap">{t('hero.slogan')}</span>
+    <!-- Acreditaciones (superior derecha) -->
+    <div class="absolute top-20 lg:top-28 right-6 md:right-margin-desktop w-64 max-w-[calc(100vw-3rem)] rounded-2xl overflow-hidden bg-transparent border border-white/20">
+      <ul class="divide-y divide-white/15">
+        <li class="flex items-center gap-3 px-4 py-3">
+          <span class="material-symbols-outlined text-white text-2xl shrink-0" aria-hidden="true">verified_user</span>
+          <div class="leading-tight">
+            <span class="block text-white/90 text-[10px] font-semibold uppercase tracking-wider">{t('hero.accred.operator_title')}</span>
+            <span class="block text-white text-sm font-extrabold">{t('hero.accred.operator_name')}</span>
+          </div>
+        </li>
+        <li class="flex items-center gap-3 px-4 py-3">
+          <span class="material-symbols-outlined text-white text-2xl shrink-0" aria-hidden="true">eco</span>
+          <div class="leading-tight">
+            <span class="block text-white text-sm font-extrabold uppercase">{t('hero.accred.bic_title')}</span>
+            <span class="block text-white/85 text-[11px]">{t('hero.accred.bic_desc')}</span>
+          </div>
+        </li>
+        <li class="flex items-center gap-3 px-4 py-3">
+          <span class="material-symbols-outlined text-white text-2xl shrink-0" aria-hidden="true">engineering</span>
+          <span class="block text-white text-[11px] font-extrabold uppercase tracking-wide">{t('hero.accred.sanitation_title')}</span>
+        </li>
+      </ul>
     </div>
 
     <div class="max-w-2xl lg:py-20">
@@ -71,15 +82,15 @@ const featureCards = [
           href="#cotizacion"
           class="inline-flex items-center justify-center gap-3 bg-secondary text-white font-bold px-6 sm:px-10 py-4 rounded-full hover:bg-secondary/90 transition-all shadow-lg active:scale-95"
         >
-          <span class="material-symbols-outlined" aria-hidden="true">rocket_launch</span>
           {t('hero.cta.primary')}
+          <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
         </a>
         <a
           href="#cotizacion"
           class="inline-flex items-center justify-center gap-3 bg-white border-2 border-outline-variant/40 text-primary font-bold px-6 sm:px-10 py-4 rounded-full hover:bg-surface-container-low transition-all active:scale-95 shadow-sm"
         >
           {t('hero.cta.secondary')}
-          <span class="material-symbols-outlined text-secondary" aria-hidden="true">eco</span>
+          <span class="material-symbols-outlined text-secondary" aria-hidden="true">arrow_forward</span>
         </a>
       </div>
     </div>
